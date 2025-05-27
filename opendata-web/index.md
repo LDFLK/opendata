@@ -5,7 +5,7 @@ description: "Empowering communities through transparent access to public inform
 ---
 
 <!-- Hero Section -->
-<section id="home" class="relative py-20 md:py-32 lg:py-40 overflow-hidden">
+<!-- <section id="home" class="relative py-20 md:py-32 lg:py-40 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-blue-50"></div>
     <div class="container mx-auto relative px-4 md:px-6">
         <div class="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
@@ -60,7 +60,7 @@ description: "Empowering communities through transparent access to public inform
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Mission Section
 <section id="mission" class="py-20 bg-gray-50">
