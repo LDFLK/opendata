@@ -1,8 +1,8 @@
 # Site settings
 title: "Open Data"
 description: "Empowering communities with public"
-url: "https://your-domain.com"
-baseurl: ""
+url: "https://yasandu0505.github.io"
+baseurl: "/opendata-web"
 
 # Contact information
 email: "contact@datafoundation.lk"
