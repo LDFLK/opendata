@@ -46,3 +46,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+
+
+github:
+  contributors: 127
