@@ -1,0 +1,82 @@
+<footer class="bg-gray-50 py-12">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid gap-8 md:grid-cols-4">
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="heart" class="h-6 w-6 text-primary-500"></i>
+                    <span class="text-lg font-bold">{{ site.title }}</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                    {{ site.description }}
+                </p>
+                <div class="flex space-x-4">
+                    {% if site.social.facebook %}
+                    <a href="{{ site.social.facebook }}" class="text-gray-400 hover:text-primary-500">
+                        <i data-lucide="facebook" class="h-5 w-5"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.social.twitter %}
+                    <a href="{{ site.social.twitter }}" class="text-gray-400 hover:text-primary-500">
+                        <i data-lucide="twitter" class="h-5 w-5"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.social.instagram %}
+                    <a href="{{ site.social.instagram }}" class="text-gray-400 hover:text-primary-500">
+                        <i data-lucide="instagram" class="h-5 w-5"></i>
+                    </a>
+                    {% endif %}
+                    {% if site.social.linkedin %}
+                    <a href="{{ site.social.linkedin }}" class="text-gray-400 hover:text-primary-500">
+                        <i data-lucide="linkedin" class="h-5 w-5"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold">Quick Links</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="{{ '/about/' | relative_url }}" class="block text-gray-600 hover:text-primary-500">About Us</a>
+                    <a href="{{ '/#mission' | relative_url }}" class="block text-gray-600 hover:text-primary-500">Our Mission</a>
+                    <a href="{{ '/gallery/' | relative_url }}" class="block text-gray-600 hover:text-primary-500">Gallery</a>
+                    <a href="{{ '/contact/' | relative_url }}" class="block text-gray-600 hover:text-primary-500">Contact</a>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold">Resources</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="#" class="block text-gray-600 hover:text-primary-500">Data Portal</a>
+                    <a href="#" class="block text-gray-600 hover:text-primary-500">API Documentation</a>
+                    <a href="#" class="block text-gray-600 hover:text-primary-500">Research Tools</a>
+                    <a href="#" class="block text-gray-600 hover:text-primary-500">Help Center</a>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="text-sm font-semibold">Contact Info</h4>
+                <div class="space-y-2 text-sm text-gray-600">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="mail" class="h-4 w-4"></i>
+                        <span>{{ site.email }}</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="phone" class="h-4 w-4"></i>
+                        <span>{{ site.phone }}</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="map-pin" class="h-4 w-4"></i>
+                        <span>{{ site.address }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t mt-8 pt-8 text-center text-sm text-gray-600">
+            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved. | 
+               <a href="#" class="hover:text-primary-500">Privacy Policy</a> | 
+               <a href="#" class="hover:text-primary-500">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+</footer>
