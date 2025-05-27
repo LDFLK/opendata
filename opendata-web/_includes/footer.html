@@ -3,12 +3,9 @@
         <div class="grid gap-8 md:grid-cols-4">
             <div class="space-y-4">
                 <div class="flex items-center space-x-2">
-                    <!-- <i data-lucide="heart" class="h-6 w-6 text-primary-500"></i> -->
                     <span class="text-lg font-bold">{{ site.title }}</span>
                 </div>
-                <p class="text-sm text-gray-600">
-                    {{ site.description }}
-                </p>
+                <span class="text-sm text-gray-600">{{ site.description }}</span>
                 <div class="flex space-x-4">
                     {% if site.social.facebook %}
                     <a href="{{ site.social.facebook }}" class="text-gray-400 hover:text-primary-500">
