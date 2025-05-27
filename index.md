@@ -245,10 +245,10 @@ description: "Empowering communities through transparent access to public inform
             </div>
             <!-- Contribution Stats -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-                <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors contribution-card">
+                <!-- <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors contribution-card">
                     <div class="text-2xl font-bold text-green-400 animate-pulse">{{ site.github.contributors | default: site.stats.users | default: "127" }}</div>
                     <div class="text-sm text-gray-300">Contributors</div>
-                </div>
+                </div> -->
                 <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-blue-400 transition-colors contribution-card">
                     <div class="text-2xl font-bold text-blue-400 animate-pulse">{{ site.github.repositories | default: "23" }}</div>
                     <div class="text-sm text-gray-300">Repositories</div>
