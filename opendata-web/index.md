@@ -138,6 +138,62 @@ description: "Empowering communities through transparent access to public inform
     </div>
 </section> -->
 
+<!-- What We Offer Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">What We Offer</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Comprehensive tools and resources to help you access, understand, and act on public information.
+            </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 text-center space-y-4 group">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-blue-100 transition-colors">
+                    <span class="text-3xl">🗂</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900">Access to Official Gazettes</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Browse and search through government gazettes by date, category, or keyword.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 text-center space-y-4 group">
+                <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-green-100 transition-colors">
+                    <span class="text-3xl">📊</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900">Data-Driven Insights</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Visualize and understand how government policies change over time.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 text-center space-y-4 group">
+                <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-purple-100 transition-colors">
+                    <span class="text-3xl">🧭</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900">Citizen-Centered Design</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Our platform is designed with simplicity and clarity at its core.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 text-center space-y-4 group">
+                <div class="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-orange-100 transition-colors">
+                    <span class="text-3xl">📣</span>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900">Advocacy for Transparency</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    We support initiatives and reforms that make government more accountable.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
 <!-- GitHub Contribution CTA Section -->
 <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
     <!-- Animated Background Elements -->
