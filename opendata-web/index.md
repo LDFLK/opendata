@@ -62,7 +62,7 @@ description: "Empowering communities through transparent access to public inform
     </div>
 </section>
 
-<!-- Mission Section -->
+<!-- Mission Section
 <section id="mission" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 md:px-6">
         <div class="text-center space-y-4 mb-16">
@@ -83,9 +83,9 @@ description: "Empowering communities through transparent access to public inform
             {% endfor %}
         </div>
     </div>
-</section>
+</section> -->
 
-<!-- Featured Datasets Section -->
+<!-- Featured Datasets Section
 <section id="datasets" class="py-20">
     <div class="container mx-auto px-4 md:px-6">
         <div class="text-center space-y-4 mb-16">
@@ -115,7 +115,7 @@ description: "Empowering communities through transparent access to public inform
             {% endfor %}
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- Newsletter CTA Section -->
 <section class="py-20 bg-primary-500 text-white">
