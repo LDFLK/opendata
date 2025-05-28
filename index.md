@@ -5,62 +5,54 @@ description: "Empowering communities through transparent access to public inform
 ---
 
 <!-- Hero Section -->
-<!-- <section id="home" class="relative py-20 md:py-32 lg:py-40 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-blue-50"></div>
-    <div class="container mx-auto relative px-4 md:px-6">
-        <div class="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div class="space-y-6">
-                <div class="space-y-4">
-                    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                        Empowering Communities Through
-                        <span class="text-primary-500"> Open Data</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 md:text-xl max-w-2xl">
-                        We believe that access to public information is a fundamental right. Our mission is to make
-                        government data transparent, accessible, and actionable for everyone.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#datasets" class="bg-primary-500 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-primary-600 transition-colors inline-flex items-center">
-                        Explore Data 
-                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
-                    </a>
-                    <a href="{{ '/about/' | relative_url }}" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg text-lg font-medium hover:bg-gray-50 transition-colors">
-                        Learn More
-                    </a>
-                </div>
-                <div class="flex items-center space-x-8 pt-4">
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-primary-500">{{ site.stats.datasets | default: "50K+" }}</div>
-                        <div class="text-sm text-gray-600">Datasets</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-primary-500">{{ site.stats.users | default: "100K+" }}</div>
-                        <div class="text-sm text-gray-600">Users Served</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-2xl font-bold text-primary-500">{{ site.stats.cities | default: "25+" }}</div>
-                        <div class="text-sm text-gray-600">Cities</div>
-                    </div>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <img src="{{ '/assets/images/hero-image.jpg' | relative_url }}" 
-                         alt="People working with data visualization" 
-                         class="object-cover w-full h-full">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                </div>
-                <div class="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span class="text-sm font-medium">Live Data Updates</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<!-- Hero Section -->
+<section id="home" class="relative w-full h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center overflow-hidden">
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black opacity-90"></div>
+    
+    <!-- Animated text -->
+    <div class="relative z-10 text-center px-4">
+        <h1 id="hero-text" class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white/90 tracking-wider">
+            Data is power
+        </h1>
     </div>
-</section> -->
+    
+    <!-- Subtle noise texture overlay -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('{{ '/images/noise-texture.png' | relative_url }}');"></div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroText = document.getElementById('hero-text');
+    const phrases = [
+        "Data is power",
+        "Transparency matters",
+        "Information is freedom",
+        "Government accountability"
+    ];
+    let currentPhrase = 0;
+    
+    function updateText() {
+        // Fade out
+        heroText.style.opacity = 0;
+        
+        // Change text and fade in
+        setTimeout(() => {
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            heroText.textContent = phrases[currentPhrase];
+            heroText.style.opacity = 1;
+        }, 1000);
+    }
+    
+    // Initial setup
+    heroText.style.transition = 'opacity 1s ease';
+    
+    // Start animation cycle
+    setInterval(updateText, 4000);
+});
+</script>
+
 
 <!-- Mission Section
 <section id="mission" class="py-20 bg-gray-50">
