@@ -5,54 +5,325 @@ description: "Empowering communities through transparent access to public inform
 ---
 
 <!-- Hero Section -->
-
-<!-- Hero Section -->
-<section id="home" class="relative w-full h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center overflow-hidden">
-    <!-- Subtle gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black opacity-90"></div>
+<section id="home" class="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
+    <!-- Digital grid background -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(25,25,25,0.8)_0%,rgba(0,0,0,1)_100%)]"></div>
     
-    <!-- Animated text -->
-    <div class="relative z-10 text-center px-4">
-        <h1 id="hero-text" class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white/90 tracking-wider">
-            Data is power
-        </h1>
+    <!-- Animated grid lines -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        
+        <!-- Horizontal scanning line -->
+        <div id="scanning-line" class="absolute left-0 w-full h-[2px] bg-blue-400/50 blur-[2px]" style="top: 50%; box-shadow: 0 0 15px 2px rgba(59, 130, 246, 0.5);"></div>
     </div>
     
-    <!-- Subtle noise texture overlay -->
-    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('{{ '/images/noise-texture.png' | relative_url }}');"></div>
+    <!-- Data stream animation -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div id="data-stream-container" class="absolute inset-0 flex justify-between opacity-30">
+            <!-- Data streams will be added by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="relative z-10 container mx-auto px-4 md:px-6">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left side: Text content -->
+            <div class="space-y-6 text-left">
+                <div class="inline-flex items-center space-x-2 bg-blue-900/30 border border-blue-800/50 rounded-full px-4 py-1 text-blue-400 text-sm font-mono">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                    </span>
+                    <span>v1.0.2 / LIVE DATA SYSTEM</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
+                    <span class="block">Unlocking</span>
+                    <span class="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">Government Data</span>
+                    <span class="block mt-2">For Everyone</span>
+                </h1>
+                
+                <p class="text-gray-400 text-lg md:text-xl max-w-xl">
+                    Advanced analytics and visualization tools that transform public information into actionable insights.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#datasets" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-medium rounded-md transition-all duration-300 group">
+                        <span>Explore Datasets</span>
+                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="#about" class="inline-flex items-center justify-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-md border border-gray-700 transition-all duration-300">
+                        <i data-lucide="info" class="mr-2 h-5 w-5"></i>
+                        <span>About Our Mission</span>
+                    </a>
+                </div>
+                
+                <!-- Stats with animated counters -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-800">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white" id="counter-datasets">0</div>
+                        <div class="text-sm text-gray-500">Datasets</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white" id="counter-apis">0</div>
+                        <div class="text-sm text-gray-500">API Endpoints</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-white" id="counter-users">0</div>
+                        <div class="text-sm text-gray-500">Active Users</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side: Visual element -->
+            <div class="hidden md:block relative">
+                <!-- 3D data visualization sphere -->
+                <div class="relative w-full aspect-square max-w-md mx-auto">
+                    <!-- Glowing orb -->
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-cyan-700/20 blur-xl"></div>
+                    
+                    <!-- Data visualization sphere -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative w-4/5 h-4/5">
+                            <!-- Rotating rings -->
+                            <div class="absolute inset-0 border border-blue-500/30 rounded-full animate-spin" style="animation-duration: 20s;"></div>
+                            <div class="absolute inset-[10%] border border-cyan-500/20 rounded-full animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+                            <div class="absolute inset-[20%] border border-teal-500/20 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+                            
+                            <!-- Data points -->
+                            <div id="data-points-container" class="absolute inset-0">
+                                <!-- Data points will be added by JavaScript -->
+                            </div>
+                            
+                            <!-- Core -->
+                            <div class="absolute inset-[40%] bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full opacity-80 shadow-lg shadow-blue-500/50 animate-pulse" style="animation-duration: 3s;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating data cards -->
+                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform rotate-3 animate-float" style="animation-duration: 6s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="bar-chart-2" class="h-4 w-4 text-blue-400"></i>
+                            <span class="text-xs font-semibold text-white">Budget Transparency</span>
+                        </div>
+                        <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 78%;"></div>
+                        </div>
+                        <div class="mt-1 flex justify-between text-xs">
+                            <span class="text-gray-500">2023</span>
+                            <span class="text-blue-400">78%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="file-text" class="h-4 w-4 text-teal-400"></i>
+                            <span class="text-xs font-semibold text-white">Public Records</span>
+                        </div>
+                        <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-teal-500 rounded-full" style="width: 92%;"></div>
+                        </div>
+                        <div class="mt-1 flex justify-between text-xs">
+                            <span class="text-gray-500">Q2 2024</span>
+                            <span class="text-teal-400">92%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Terminal-like element at the bottom -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-lg">
+        <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden mx-4">
+            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div class="text-xs text-gray-400 font-mono">transparency@gov:~</div>
+            </div>
+            <div class="p-4 font-mono text-sm">
+                <div class="flex items-start">
+                    <span class="text-green-400 mr-2">$</span>
+                    <div class="text-gray-300">
+                        <span id="terminal-text"></span>
+                        <span class="inline-block w-2 h-4 bg-blue-400 animate-pulse"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const heroText = document.getElementById('hero-text');
-    const phrases = [
-        "Data is power",
-        "Transparency matters",
-        "Information is freedom",
-        "Government accountability"
-    ];
-    let currentPhrase = 0;
-    
-    function updateText() {
-        // Fade out
-        heroText.style.opacity = 0;
+    // Animated counter function
+    function animateCounter(elementId, targetValue) {
+        const element = document.getElementById(elementId);
+        const duration = 2000; // 2 seconds
+        const startTime = Date.now();
+        const startValue = 0;
         
-        // Change text and fade in
-        setTimeout(() => {
-            currentPhrase = (currentPhrase + 1) % phrases.length;
-            heroText.textContent = phrases[currentPhrase];
-            heroText.style.opacity = 1;
-        }, 1000);
+        function updateCounter() {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - startTime;
+            
+            if (elapsedTime < duration) {
+                const progress = elapsedTime / duration;
+                const currentValue = Math.floor(startValue + progress * (targetValue - startValue));
+                element.textContent = currentValue.toLocaleString();
+                requestAnimationFrame(updateCounter);
+            } else {
+                element.textContent = targetValue.toLocaleString();
+            }
+        }
+        
+        updateCounter();
     }
     
-    // Initial setup
-    heroText.style.transition = 'opacity 1s ease';
+    // Start counter animations with delay
+    setTimeout(() => {
+        animateCounter('counter-datasets', 50000);
+        animateCounter('counter-apis', 320);
+        animateCounter('counter-users', 12500);
+    }, 500);
     
-    // Start animation cycle
-    setInterval(updateText, 4000);
+    // Scanning line animation
+    const scanningLine = document.getElementById('scanning-line');
+    let scanDirection = 1;
+    let scanPosition = 50;
+    
+    function animateScanningLine() {
+        scanPosition += 0.2 * scanDirection;
+        
+        if (scanPosition > 90) {
+            scanDirection = -1;
+        } else if (scanPosition < 10) {
+            scanDirection = 1;
+        }
+        
+        scanningLine.style.top = `${scanPosition}%`;
+        requestAnimationFrame(animateScanningLine);
+    }
+    
+    animateScanningLine();
+    
+    // Create data streams
+    const dataStreamContainer = document.getElementById('data-stream-container');
+    const streamCount = 10;
+    
+    for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('div');
+        stream.className = 'relative w-[1px] h-full bg-blue-900/30';
+        
+        const streamSpeed = 1 + Math.random() * 3;
+        const streamDelay = Math.random() * 5;
+        
+        // Add data bits to each stream
+        const bitCount = 5 + Math.floor(Math.random() * 10);
+        for (let j = 0; j < bitCount; j++) {
+            const bit = document.createElement('div');
+            const bitSize = 1 + Math.floor(Math.random() * 3);
+            const bitPosition = Math.random() * 100;
+            const bitColor = Math.random() > 0.7 ? 'bg-blue-400' : 'bg-cyan-400';
+            
+            bit.className = `absolute w-${bitSize} h-${bitSize} ${bitColor} rounded-full animate-dataflow`;
+            bit.style.top = `${bitPosition}%`;
+            bit.style.animationDuration = `${streamSpeed}s`;
+            bit.style.animationDelay = `${streamDelay + j * 0.2}s`;
+            
+            stream.appendChild(bit);
+        }
+        
+        dataStreamContainer.appendChild(stream);
+    }
+    
+    // Create data points for the sphere
+    const dataPointsContainer = document.getElementById('data-points-container');
+    const pointCount = 30;
+    
+    for (let i = 0; i < pointCount; i++) {
+        const point = document.createElement('div');
+        const size = 1 + Math.floor(Math.random() * 2);
+        const distance = 30 + Math.random() * 40;
+        const angle = Math.random() * 360;
+        const verticalAngle = Math.random() * 360;
+        
+        const x = 50 + distance * Math.cos(angle * Math.PI / 180) * Math.sin(verticalAngle * Math.PI / 180);
+        const y = 50 + distance * Math.sin(angle * Math.PI / 180) * Math.sin(verticalAngle * Math.PI / 180);
+        const z = distance * Math.cos(verticalAngle * Math.PI / 180);
+        
+        const color = Math.random() > 0.5 ? 'bg-blue-400' : 'bg-cyan-400';
+        const pulseSpeed = 1 + Math.random() * 4;
+        
+        point.className = `absolute w-${size} h-${size} ${color} rounded-full animate-pulse`;
+        point.style.left = `${x}%`;
+        point.style.top = `${y}%`;
+        point.style.transform = `translateZ(${z}px)`;
+        point.style.animationDuration = `${pulseSpeed}s`;
+        
+        dataPointsContainer.appendChild(point);
+    }
+    
+    // Terminal typing animation
+    const terminalText = document.getElementById('terminal-text');
+    const commands = [
+        'accessing public data...',
+        'analyzing government spending...',
+        'generating transparency report...',
+        'connecting to open data APIs...',
+        'visualizing budget allocations...'
+    ];
+    let currentCommand = 0;
+    let charIndex = 0;
+    
+    function typeCommand() {
+        const command = commands[currentCommand];
+        
+        if (charIndex < command.length) {
+            terminalText.textContent += command.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeCommand, 50 + Math.random() * 50);
+        } else {
+            setTimeout(resetCommand, 2000);
+        }
+    }
+    
+    function resetCommand() {
+        terminalText.textContent = '';
+        charIndex = 0;
+        currentCommand = (currentCommand + 1) % commands.length;
+        setTimeout(typeCommand, 500);
+    }
+    
+    setTimeout(typeCommand, 1000);
+    
+    // Add custom animation for floating elements
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes dataflow {
+            0% { transform: translateY(-100%); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .animate-dataflow {
+            animation: dataflow linear infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+            50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
+        }
+        .animate-float {
+            animation: float ease-in-out infinite;
+        }
+    `;
+    document.head.appendChild(style);
 });
 </script>
-
 
 <!-- Mission Section
 <section id="mission" class="py-20 bg-gray-50">
