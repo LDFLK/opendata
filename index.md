@@ -206,22 +206,8 @@ description: "Empowering communities through transparent access to public inform
         <div class="absolute bottom-20 left-1/4 w-16 h-16 border border-purple-400 rounded-lg animate-spin"></div>
         <div class="absolute bottom-32 right-1/3 w-20 h-20 border border-yellow-400 rounded-full animate-ping"></div>
     </div>
-    <!-- Code Pattern Background -->
-    <div class="absolute inset-0 opacity-5 font-mono text-xs leading-relaxed p-8">
-        <div>git clone https://github.com/dataforall/main.git</div>
-        <div>cd dataforall && npm install</div>
-        <div>git checkout -b feature/transparency-tools</div>
-        <div>// Add your awesome data visualization</div>
-        <div>git commit -m "Enhance government data accessibility"</div>
-        <div>git push origin feature/transparency-tools</div>
-        <div>// Create pull request and change democracy!</div>
-        <div>&nbsp;</div>
-        <div>const impact = {</div>
-        <div>&nbsp;&nbsp;transparency: true,</div>
-        <div>&nbsp;&nbsp;democracy: "enhanced",</div>
-        <div>&nbsp;&nbsp;community: "empowered"</div>
-        <div>};</div>
-    </div>
+
+   
     <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-8">
             <!-- Animated GitHub Icon -->
