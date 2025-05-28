@@ -139,54 +139,51 @@ description: "Empowering communities through transparent access to public inform
 </section> -->
 
 <!-- What We Offer Section -->
-<section class="py-20 bg-gray-50">
+<section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
     <div class="container mx-auto px-4 md:px-6">
         <div class="text-center space-y-4 mb-16">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">What We Offer</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">What We Offer</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
                 Comprehensive tools and resources to help you access, understand, and act on public information.
             </p>
         </div>
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
+            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-blue-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
                 <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-blue-100 transition-colors group-hover:scale-110 duration-300">
                     <i data-lucide="file-text" class="h-8 w-8 text-blue-600"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900">Access to Official Gazettes</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <h3 class="text-xl font-semibold text-white">Access to Official Gazettes</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
                     Browse and search through government gazettes by date, category, or keyword.
                 </p>
             </div>
             
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
+            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-blue-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
                 <div class="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-emerald-100 transition-colors group-hover:scale-110 duration-300">
                     <i data-lucide="trending-up" class="h-8 w-8 text-emerald-600"></i>
                 </div>
-
-                <h3 class="text-xl font-semibold text-gray-900">Data-Driven Insights</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <h3 class="text-xl font-semibold text-white">Data-Driven Insights</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
                     Visualize and understand how government policies change over time.
                 </p>
             </div>
             
-             <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
+            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-blue-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
                 <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-purple-100 transition-colors group-hover:scale-110 duration-300">
                     <i data-lucide="users" class="h-8 w-8 text-purple-600"></i>
                 </div>
-
-                <h3 class="text-xl font-semibold text-gray-900">Citizen-Centered Design</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <h3 class="text-xl font-semibold text-white">Citizen-Centered Design</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
                     Our platform is designed with simplicity and clarity at its core.
                 </p>
             </div>
             
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
+            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-blue-400 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
                 <div class="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mx-auto group-hover:bg-amber-100 transition-colors group-hover:scale-110 duration-300">
                     <i data-lucide="megaphone" class="h-8 w-8 text-amber-600"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-900">Advocacy for Transparency</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                <h3 class="text-xl font-semibold text-white">Advocacy for Transparency</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">
                     We support initiatives and reforms that make government more accountable.
                 </p>
             </div>
