@@ -138,6 +138,89 @@ description: "Empowering communities through transparent access to public inform
     </div>
 </section> -->
 
+<!-- Transparency Section -->
+<section id="transparency" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid gap-12 lg:grid-cols-2 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center px-4 py-2 bg-orange-900/50 text-orange-400 rounded-full font-medium">
+                    <span class="text-orange-400 mr-2">🟧</span> Transparency is Your Right
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-white">
+                        Giving you <span class="hashcode-text"><span>transparency</span></span> in your government.
+                    </h2>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
+                            <i data-lucide="check" class="h-3 w-3"></i>
+                        </div>
+                        <span class="text-gray-300">No paywalls</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
+                            <i data-lucide="check" class="h-3 w-3"></i>
+                        </div>
+                        <span class="text-gray-300">No hidden data</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
+                            <i data-lucide="check" class="h-3 w-3"></i>
+                        </div>
+                        <span class="text-gray-300">No confusing language</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-900/30 rounded-full opacity-50 filter blur-xl"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-900/30 rounded-full opacity-50 filter blur-xl"></div>
+                    <div class="relative z-10">
+                        <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background elements -->
+                            <circle cx="200" cy="150" r="120" fill="url(#paint0_radial)" opacity="0.2"/>
+                            
+                            <!-- Document -->
+                            <rect x="120" y="70" width="160" height="200" rx="8" fill="#1F2937" stroke="#3B82F6" stroke-width="2"/>
+                            <rect x="140" y="100" width="120" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="120" width="100" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="140" width="110" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="160" width="90" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="180" width="120" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="200" width="80" height="6" rx="3" fill="#374151"/>
+                            <rect x="140" y="220" width="100" height="6" rx="3" fill="#374151"/>
+                            
+                            <!-- Magnifying glass -->
+                            <circle cx="240" cy="120" r="40" fill="#1F2937" stroke="#3B82F6" stroke-width="3" opacity="0.7"/>
+                            <circle cx="240" cy="120" r="30" fill="rgba(59, 130, 246, 0.2)"/>
+                            <rect x="270" y="150" width="40" height="8" rx="4" transform="rotate(-45 270 150)" fill="#3B82F6"/>
+                            
+                            <!-- Lock open -->
+                            <rect x="160" y="40" width="40" height="30" rx="6" fill="#10B981" opacity="0.8"/>
+                            <path d="M170 40V30C170 24.4772 174.477 20 180 20V20C185.523 20 190 24.4772 190 30V40" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+                            <circle cx="180" cy="55" r="6" fill="white"/>
+                            
+                            <!-- Data flow lines -->
+                            <path d="M120 240C100 240 80 220 80 200C80 180 100 160 120 160" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M280 240C300 240 320 220 320 200C320 180 300 160 280 160" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 4"/>
+                            
+                            <!-- Gradients -->
+                            <defs>
+                                <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 150) rotate(90) scale(120)">
+                                    <stop stop-color="#3B82F6"/>
+                                    <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- What We Offer Section -->
 <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
     <div class="container mx-auto px-4 md:px-6">
