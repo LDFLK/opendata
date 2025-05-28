@@ -197,15 +197,10 @@ description: "Empowering communities through transparent access to public inform
 
 
 
+
+
 <!-- GitHub Contribution CTA Section -->
 <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-    <!-- Animated Background Elements -->
-    <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-10 left-10 w-32 h-32 border border-green-400 rounded-lg animate-pulse"></div>
-        <div class="absolute top-32 right-20 w-24 h-24 border border-blue-400 rounded-full animate-bounce"></div>
-        <div class="absolute bottom-20 left-1/4 w-16 h-16 border border-purple-400 rounded-lg animate-spin"></div>
-        <div class="absolute bottom-32 right-1/3 w-20 h-20 border border-yellow-400 rounded-full animate-ping"></div>
-    </div>
 
    
     <div class="container mx-auto px-4 md:px-6 relative z-10">
