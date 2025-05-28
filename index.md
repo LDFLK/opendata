@@ -142,35 +142,10 @@ description: "Empowering communities through transparent access to public inform
 <section id="transparency" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
     <div class="container mx-auto px-4 md:px-6">
         <div class="grid gap-12 lg:grid-cols-2 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center px-4 py-2 bg-orange-900/50 text-orange-400 rounded-full font-medium">
-                    <span class="text-orange-400 mr-2">🟧</span> Transparency is Your Right
-                </div>
-                <div class="space-y-6">
-                    <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-white">
-                        Giving you <span class="hashcode-text"><span>transparency</span></span> in your government.
-                    </h2>
-                </div>
-                <div class="flex flex-wrap gap-4">
-                    <div class="flex items-center space-x-2">
-                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
-                            <i data-lucide="check" class="h-3 w-3"></i>
-                        </div>
-                        <span class="text-gray-300">No paywalls</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
-                            <i data-lucide="check" class="h-3 w-3"></i>
-                        </div>
-                        <span class="text-gray-300">No hidden data</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex-shrink-0 w-5 h-5 bg-green-500 text-white flex items-center justify-center rounded-full">
-                            <i data-lucide="check" class="h-3 w-3"></i>
-                        </div>
-                        <span class="text-gray-300">No confusing language</span>
-                    </div>
-                </div>
+            <div class="space-y-8 flex items-center justify-center">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-center">
+                    Giving you <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent animate-gradient">transparency</span> in your government.
+                </h2>
             </div>
             <div class="relative flex justify-center lg:justify-end">
                 <div class="relative w-full max-w-md">
@@ -219,7 +194,6 @@ description: "Empowering communities through transparent access to public inform
         </div>
     </div>
 </section>
-
 
 <!-- What We Offer Section -->
 <section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
