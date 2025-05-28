@@ -1,80 +1,70 @@
-<footer class="bg-gray-900 py-12 text-white">
-    <div class="relative z-10">
-        <div class="container mx-auto px-4 md:px-6">
-            <div class="grid gap-8 md:grid-cols-4">
-                <div class="space-y-4">
-                    <div class="flex items-center space-x-2">
-                        <span class="text-lg font-bold text-white">{{ site.title }}</span>
-                    </div>
-                    <span class="text-sm text-gray-300">{{ site.description }}</span>
-                    <div class="flex space-x-4">
-                        {% if site.social.facebook %}
-                        <a href="{{ site.social.facebook }}" class="text-gray-400 hover:text-blue-400">
-                            <i data-lucide="facebook" class="h-5 w-5"></i>
-                        </a>
-                        {% endif %}
-                        {% if site.social.twitter %}
-                        <a href="{{ site.social.twitter }}" class="text-gray-400 hover:text-blue-400">
-                            <i data-lucide="twitter" class="h-5 w-5"></i>
-                        </a>
-                        {% endif %}
-                        {% if site.social.instagram %}
-                        <a href="{{ site.social.instagram }}" class="text-gray-400 hover:text-purple-400">
-                            <i data-lucide="instagram" class="h-5 w-5"></i>
-                        </a>
-                        {% endif %}
-                        {% if site.social.linkedin %}
-                        <a href="{{ site.social.linkedin }}" class="text-gray-400 hover:text-blue-500">
-                            <i data-lucide="linkedin" class="h-5 w-5"></i>
-                        </a>
-                        {% endif %}
-                    </div>
+<footer class="bg-gray-900 py-16">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid gap-12 lg:grid-cols-2">
+            <!-- Left side - Brand and description -->
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl font-bold text-white">{{ site.title }}</span>
                 </div>
-                
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-white">Quick Links</h4>
-                    <div class="space-y-2 text-sm">
-                        <a href="{{ '/about/' | relative_url }}" class="block text-gray-300 hover:text-blue-400">About Us</a>
-                        <a href="{{ '/#mission' | relative_url }}" class="block text-gray-300 hover:text-blue-400">Our Mission</a>
-                        <a href="{{ '/gallery/' | relative_url }}" class="block text-gray-300 hover:text-blue-400">Gallery</a>
-                        <a href="{{ '/contact/' | relative_url }}" class="block text-gray-300 hover:text-blue-400">Contact</a>
-                    </div>
-                </div>
-                
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-white">Resources</h4>
-                    <div class="space-y-2 text-sm">
-                        <a href="#" class="block text-gray-300 hover:text-green-400">Data Portal</a>
-                        <a href="#" class="block text-gray-300 hover:text-green-400">API Documentation</a>
-                        <a href="#" class="block text-gray-300 hover:text-green-400">Research Tools</a>
-                        <a href="#" class="block text-gray-300 hover:text-green-400">Help Center</a>
-                    </div>
-                </div>
-                
-                <div class="space-y-4">
-                    <h4 class="text-sm font-semibold text-white">Contact Info</h4>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="mail" class="h-4 w-4 text-blue-400"></i>
-                            <span>{{ site.email }}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="phone" class="h-4 w-4 text-green-400"></i>
-                            <span>{{ site.phone }}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="map-pin" class="h-4 w-4 text-purple-400"></i>
-                            <span>{{ site.address }}</span>
-                        </div>
-                    </div>
-                </div>
+                <p class="text-gray-300 text-lg leading-relaxed max-w-md">
+                    Empowering communities through transparent access to public information and democratic accountability.
+                </p>
+                <p class="text-sm text-gray-400">
+                    &copy; {{ 'now' | date: "%Y" }} {{ site.title }}
+                </p>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved. | 
-                   <a href="#" class="hover:text-blue-400">Privacy Policy</a> | 
-                   <a href="#" class="hover:text-blue-400">Terms of Service</a>
-                </p>
+            <!-- Right side - Links in columns -->
+            <div class="grid gap-8 sm:grid-cols-3">
+                <div class="space-y-4">
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Platform</h4>
+                    <div class="space-y-3">
+                        <a href="{{ '/#datasets' | relative_url }}" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Explore Data
+                        </a>
+                        <a href="{{ '/about/' | relative_url }}" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            About Us
+                        </a>
+                        <a href="{{ '/gallery/' | relative_url }}" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Gallery
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Resources</h4>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            API Documentation
+                        </a>
+                        <a href="{{ '/contact/' | relative_url }}" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Contact
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Help Center
+                        </a>
+                        {% if site.social.linkedin %}
+                        <a href="{{ site.social.linkedin }}" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            LinkedIn
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider">Legal</h4>
+                    <div class="space-y-3">
+                        <a href="#" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Terms and Conditions
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="block text-gray-300 hover:text-blue-400 transition-colors text-md">
+                            Cookie Policy
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
