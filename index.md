@@ -143,7 +143,7 @@ description: "Empowering communities through transparent access to public inform
     <div class="container mx-auto px-4 md:px-6">
         <div class="text-center space-y-4 mb-16">
             <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent">
+                <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent animate-gradient">
                     What We Offer
                 </span>
             </h2>
