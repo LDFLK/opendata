@@ -753,7 +753,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- GitHub Contribution CTA Section -->
 <section class="py-20 bg-black relative overflow-hidden">
     <!-- Matrix rain effect background -->
-    <div class="absolute inset-0 overflow-hidden opacity-10">
+    <div class="absolute inset-0 overflow-hidden opacity-20">
         <div id="matrix-rain" class="absolute inset-0"></div>
     </div>
     
