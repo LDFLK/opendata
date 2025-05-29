@@ -3,6 +3,7 @@ title: "Open Data"
 description: "Empowering communities with public data"
 url: "https://yasandu0505.github.io"
 baseurl: "/opendata-web"
+version: v1.0.0
 
 # Contact information
 email: "contact@datafoundation.lk"

@@ -25,7 +25,7 @@ description: "Empowering communities through transparent access to public inform
     </div>
     
     <!-- Main content -->
-    <div class="relative z-10 container mx-auto px-4 md:px-6">
+    <div class="relative z-10 container mx-auto px-4 md:px-6 ">
         <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Left side: Text content -->
             <div class="space-y-6 text-left">
@@ -34,7 +34,7 @@ description: "Empowering communities through transparent access to public inform
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
                     </span>
-                    <span>v1.0.2 / LIVE DATA SYSTEM</span>
+                    <span>{{ site.version }} / LIVE DATA SYSTEM</span>
                 </div>
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
@@ -52,14 +52,14 @@ description: "Empowering communities through transparent access to public inform
                         <span>Explore Datasets</span>
                         <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
                     </a>
-                    <a href="#about" class="inline-flex items-center justify-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-md border border-gray-700 transition-all duration-300">
+                    <a href="#mission" class="inline-flex items-center justify-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-md border border-gray-700 transition-all duration-300">
                         <i data-lucide="info" class="mr-2 h-5 w-5"></i>
                         <span>About Our Mission</span>
                     </a>
                 </div>
                 
                 <!-- Stats with animated counters -->
-                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-800">
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-800 m">
                     <div class="text-center">
                         <div class="text-2xl font-bold text-white" id="counter-datasets">0</div>
                         <div class="text-sm text-gray-500">Datasets</div>
@@ -72,7 +72,9 @@ description: "Empowering communities through transparent access to public inform
                         <div class="text-2xl font-bold text-white" id="counter-users">0</div>
                         <div class="text-sm text-gray-500">Active Users</div>
                     </div>
-                </div>
+                </div> 
+
+                
             </div>
             
             <!-- Right side: Visual element -->
@@ -134,7 +136,7 @@ description: "Empowering communities through transparent access to public inform
     </div>
     
     <!-- Terminal-like element at the bottom -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-lg">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-lg ">
         <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden mx-4">
             <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
@@ -142,7 +144,7 @@ description: "Empowering communities through transparent access to public inform
                     <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <div class="text-xs text-gray-400 font-mono">transparency@gov:~</div>
+                <div class="text-xs text-gray-400 font-mono">opendata@gov:~</div>
             </div>
             <div class="p-4 font-mono text-sm">
                 <div class="flex items-start">
@@ -724,7 +726,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="mt-16 max-w-3xl mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
-                    <span class="text-xs text-gray-400 font-mono">api.dataforall.org</span>
+                    <span class="text-xs text-gray-400 font-mono">api.opendata.lk</span>
                     <span class="text-xs text-green-400 font-mono">200 OK</span>
                 </div>
                 <div class="p-4 font-mono text-xs space-y-1">
@@ -829,38 +831,70 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <!-- Tech Stack -->
             <div class="flex justify-center items-center flex-wrap gap-4 py-8">
-                <div class="group relative">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-teal-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
-                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-green-500/50 transition-all">
-                        <i data-lucide="code" class="h-5 w-5 text-green-400"></i>
-                        <span class="text-sm text-gray-300">Python</span>
-                    </div>
-                </div>
-                
-                <div class="group relative">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
-                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
-                        <i data-lucide="database" class="h-5 w-5 text-blue-400"></i>
-                        <span class="text-sm text-gray-300">PostgreSQL</span>
-                    </div>
-                </div>
-                
-                <div class="group relative">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
-                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-purple-500/50 transition-all">
-                        <i data-lucide="bar-chart" class="h-5 w-5 text-purple-400"></i>
-                        <span class="text-sm text-gray-300">D3.js</span>
-                    </div>
-                </div>
-                
-                <div class="group relative">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
-                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-yellow-500/50 transition-all">
-                        <i data-lucide="cloud" class="h-5 w-5 text-yellow-400"></i>
-                        <span class="text-sm text-gray-300">Docker</span>
-                    </div>
-                </div>
-            </div>
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-teal-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-green-500/50 transition-all">
+                      <i data-lucide="code" class="h-5 w-5 text-green-400"></i>
+                      <span class="text-sm text-gray-300">Python</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
+                      <i data-lucide="database" class="h-5 w-5 text-blue-400"></i>
+                      <span class="text-sm text-gray-300">PostgreSQL</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-green-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-emerald-500/50 transition-all">
+                      <i data-lucide="share-2" class="h-5 w-5 text-emerald-400"></i>
+                      <span class="text-sm text-gray-300">Neo4j</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-green-500/50 transition-all">
+                      <i data-lucide="leaf" class="h-5 w-5 text-green-400"></i>
+                      <span class="text-sm text-gray-300">MongoDB</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-cyan-500/50 transition-all">
+                      <i data-lucide="atom" class="h-5 w-5 text-cyan-400"></i>
+                      <span class="text-sm text-gray-300">React</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
+                      <i data-lucide="container" class="h-5 w-5 text-blue-400"></i>
+                      <span class="text-sm text-gray-300">Docker</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-cyan-500/50 transition-all">
+                      <i data-lucide="zap" class="h-5 w-5 text-cyan-400"></i>
+                      <span class="text-sm text-gray-300">Go</span>
+                  </div>
+              </div>
+              
+              <div class="group relative">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                  <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-orange-500/50 transition-all">
+                      <i data-lucide="dance" class="h-5 w-5 text-orange-400"></i>
+                      <span class="text-sm text-gray-300">Ballerina</span>
+                  </div>
+              </div>
+          </div>
             
             <!-- Call to Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -903,7 +937,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
                         <div class="flex items-center space-x-4">
-                            <span class="text-xs text-gray-400 font-mono">~/dataforall</span>
+                            <span class="text-xs text-gray-400 font-mono">~/opendata</span>
                             <span class="text-xs text-green-400">main</span>
                         </div>
                     </div>
@@ -911,21 +945,21 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-gray-300">git clone https://github.com/dataforall/main.git</span>
+                                <span class="text-green-400">git clone https://github.com/dataforall/main.git</span>
                             </div>
                         </div>
                         <div class="text-gray-500">Cloning into 'dataforall'...</div>
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-gray-300">cd dataforall && npm install</span>
+                                <span class="text-yellow-400">cd dataforall && npm install</span>
                             </div>
                         </div>
                         <div class="text-gray-500">Installing dependencies...</div>
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-gray-300">git checkout -b feature/transparency-enhancement</span>
+                                <span class="text-purple-400">git checkout -b feature/transparency-enhancement</span>
                             </div>
                         </div>
                         <div class="text-blue-400"># Ready to contribute! 🚀</div>
