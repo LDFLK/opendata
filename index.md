@@ -325,313 +325,651 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Mission Section
-<section id="mission" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 md:px-6">
+
+<!-- Mission Section -->
+<section id="mission" class="py-20 bg-black relative overflow-hidden">
+    <!-- Animated background pattern -->
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(30,64,175,0.15)_0%,rgba(0,0,0,0)_70%)]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(6,182,212,0.1)_0%,rgba(0,0,0,0)_70%)]"></div>
+    </div>
+    
+    <!-- Circuit pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('{{ '/images/circuit-png.png' | relative_url }}'); background-repeat: repeat; background-size: 400px 400px;"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-4 mb-16">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Our Mission</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Breaking down barriers to public information and creating a more transparent, accountable society.
+            <div class="inline-flex items-center space-x-2 bg-blue-900/20 border border-blue-800/30 rounded-full px-4 py-1 text-blue-400 text-sm font-mono mb-4">
+                <span class="text-xs">CORE_VALUES.init()</span>
+            </div>
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
+                Our <span class="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">Mission</span>
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Breaking down barriers to public information and creating a more transparent, accountable society through advanced technology.
             </p>
         </div>
+        
         <div class="grid gap-8 md:grid-cols-3">
             {% for mission in site.data.missions %}
-            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-8 text-center space-y-4">
-                <div class="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mx-auto">
-                    <i data-lucide="{{ mission.icon }}" class="h-8 w-8 text-primary-500"></i>
-                </div>
-                <h3 class="text-xl font-semibold">{{ mission.title }}</h3>
-                <p class="text-gray-600">{{ mission.description }}</p>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section> -->
-
-<!-- Featured Datasets Section
-<section id="datasets" class="py-20">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="text-center space-y-4 mb-16">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Featured Datasets</h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                Explore our most popular and impactful public datasets.
-            </p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {% for dataset in site.data.datasets %}
-            <div class="bg-white border rounded-lg hover:shadow-lg transition-shadow cursor-pointer group p-6 space-y-4">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-medium bg-primary-50 text-primary-500 px-2 py-1 rounded-full">
-                        {{ dataset.category }}
-                    </span>
-                    <span class="text-xs text-gray-500">{{ dataset.updated }}</span>
-                </div>
-                <h3 class="text-lg font-semibold group-hover:text-primary-500 transition-colors">
-                    {{ dataset.title }}
-                </h3>
-                <p class="text-sm text-gray-600">{{ dataset.description }}</p>
-                <a href="{{ dataset.url | default: '#' }}" class="w-full bg-gray-50 group-hover:bg-primary-500 group-hover:text-white transition-colors px-4 py-2 rounded-md text-sm font-medium inline-flex items-center justify-center">
-                    Explore Dataset 
-                    <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section> -->
-
-<!-- Newsletter CTA Section -->
-<!-- <section class="py-20 bg-primary-500 text-white">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="text-center space-y-6">
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Join Our Movement</h2>
-            <p class="text-lg opacity-90 max-w-2xl mx-auto">
-                Be part of the change. Subscribe to our newsletter and stay updated on the latest public data releases
-                and transparency initiatives.
-            </p>
-            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" action="#" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required
-                       class="flex-1 px-4 py-3 rounded-lg text-gray-900 border-0 focus:ring-2 focus:ring-white">
-                <button type="submit" class="bg-white text-primary-500 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                    Subscribe
-                </button>
-            </form>
-            <p class="text-sm opacity-75">Join {{ site.stats.subscribers | default: "10,000+" }} advocates for government transparency</p>
-        </div>
-    </div>
-</section> -->
-
-<!-- Transparency Section -->
-<section id="transparency" class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="grid gap-12 lg:grid-cols-2 items-center">
-            <div class="space-y-8 flex items-center justify-center">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white text-center">
-                    Giving you <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent animate-gradient">transparency</span> in your government.
-                </h2>
-            </div>
-            <div class="relative flex justify-center lg:justify-end">
-                <div class="relative w-full max-w-md">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-900/30 rounded-full opacity-50 filter blur-xl"></div>
-                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-900/30 rounded-full opacity-50 filter blur-xl"></div>
-                    <div class="relative z-10">
-                        <svg width="100%" height="100%" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Background elements -->
-                            <circle cx="200" cy="150" r="120" fill="url(#paint0_radial)" opacity="0.2"/>
-                            
-                            <!-- Document -->
-                            <rect x="120" y="70" width="160" height="200" rx="8" fill="#1F2937" stroke="#3B82F6" stroke-width="2"/>
-                            <rect x="140" y="100" width="120" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="120" width="100" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="140" width="110" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="160" width="90" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="180" width="120" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="200" width="80" height="6" rx="3" fill="#374151"/>
-                            <rect x="140" y="220" width="100" height="6" rx="3" fill="#374151"/>
-                            
-                            <!-- Magnifying glass -->
-                            <circle cx="240" cy="120" r="40" fill="#1F2937" stroke="#3B82F6" stroke-width="3" opacity="0.7"/>
-                            <circle cx="240" cy="120" r="30" fill="rgba(59, 130, 246, 0.2)"/>
-                            <rect x="270" y="150" width="40" height="8" rx="4" transform="rotate(-45 270 150)" fill="#3B82F6"/>
-                            
-                            <!-- Lock open -->
-                            <rect x="160" y="40" width="40" height="30" rx="6" fill="#10B981" opacity="0.8"/>
-                            <path d="M170 40V30C170 24.4772 174.477 20 180 20V20C185.523 20 190 24.4772 190 30V40" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
-                            <circle cx="180" cy="55" r="6" fill="white"/>
-                            
-                            <!-- Data flow lines -->
-                            <path d="M120 240C100 240 80 220 80 200C80 180 100 160 120 160" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 4"/>
-                            <path d="M280 240C300 240 320 220 320 200C320 180 300 160 280 160" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4 4"/>
-                            
-                            <!-- Gradients -->
-                            <defs>
-                                <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 150) rotate(90) scale(120)">
-                                    <stop stop-color="#3B82F6"/>
-                                    <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
-                                </radialGradient>
-                            </defs>
-                        </svg>
+            <div class="relative group">
+                <!-- Card glow effect -->
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur"></div>
+                
+                <!-- Card content -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-2xl p-8 space-y-6 hover:border-blue-500/50 transition-all duration-300">
+                    <!-- Animated icon background -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 blur-xl"></div>
+                        <div class="relative w-20 h-20 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl flex items-center justify-center mx-auto border border-gray-700 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="{{ mission.icon }}" class="h-10 w-10 text-blue-400"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-white text-center">{{ mission.title }}</h3>
+                    <p class="text-gray-400 text-center leading-relaxed">{{ mission.description }}</p>
+                    
+                    <!-- Tech detail -->
+                    <div class="pt-4 border-t border-gray-800">
+                        <div class="flex items-center justify-center space-x-2 text-xs text-gray-500 font-mono">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span>ACTIVE</span>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Mission statement terminal -->
+        <div class="mt-16 max-w-4xl mx-auto">
+            <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
+                <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                    <span class="text-xs text-gray-400 font-mono">mission_statement.log</span>
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="p-6 font-mono text-sm space-y-2">
+                    <div class="text-gray-500">[2024-01-01 00:00:00] Initializing transparency protocols...</div>
+                    <div class="text-green-400">[2024-01-01 00:00:01] ✓ Public data access: ENABLED</div>
+                    <div class="text-green-400">[2024-01-01 00:00:02] ✓ Citizen empowerment: ACTIVE</div>
+                    <div class="text-green-400">[2024-01-01 00:00:03] ✓ Government accountability: MONITORING</div>
+                    <div class="text-blue-400">[2024-01-01 00:00:04] > Mission status: OPERATIONAL</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Transparency Section -->
+<section id="transparency" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid gap-12 lg:grid-cols-2 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center space-x-2 bg-cyan-900/20 border border-cyan-800/30 rounded-full px-4 py-1 text-cyan-400 text-sm font-mono">
+                    <span class="text-xs">TRANSPARENCY_ENGINE v2.0</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+                    Giving you <span class="relative">
+                        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 blur-lg opacity-75"></span>
+                        <span class="relative bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">transparency</span>
+                    </span> in your government.
+                </h2>
+                
+                <!-- Real-time metrics -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-4">
+                        <div class="text-2xl font-bold text-cyan-400 font-mono">98.7%</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Data Accuracy</div>
+                        <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 98.7%;"></div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-4">
+                        <div class="text-2xl font-bold text-green-400 font-mono">24/7</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Uptime</div>
+                        <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <!-- 3D visualization container -->
+                <div class="relative w-full max-w-lg mx-auto">
+                    <!-- Holographic effect background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-teal-900/20 blur-2xl"></div>
+                    
+                    <!-- Main visualization -->
+                    <div class="relative aspect-square">
+                        <!-- Rotating cube frame -->
+                        <div class="absolute inset-0 border-2 border-blue-500/30 rounded-lg animate-spin" style="animation-duration: 20s; transform-style: preserve-3d;"></div>
+                        <div class="absolute inset-[10%] border-2 border-cyan-500/20 rounded-lg animate-spin" style="animation-duration: 15s; animation-direction: reverse; transform-style: preserve-3d;"></div>
+                        
+                        <!-- Central data core -->
+                        <div class="absolute inset-[30%] bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 rounded-lg opacity-80 animate-pulse" style="animation-duration: 2s;">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i data-lucide="eye" class="h-16 w-16 text-white/80"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating data nodes -->
+                        <div class="absolute top-[10%] left-[10%] w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
+                        <div class="absolute top-[20%] right-[15%] w-3 h-3 bg-cyan-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute bottom-[25%] left-[20%] w-5 h-5 bg-teal-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                        <div class="absolute bottom-[10%] right-[10%] w-4 h-4 bg-green-400 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
+                        
+                        <!-- Connection lines -->
+                        <svg class="absolute inset-0 w-full h-full" style="transform: rotateX(20deg) rotateY(45deg);">
+                            <line x1="10%" y1="10%" x2="50%" y2="50%" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1" stroke-dasharray="2,2">
+                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
+                            </line>
+                            <line x1="90%" y1="20%" x2="50%" y2="50%" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1" stroke-dasharray="2,2">
+                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
+                            </line>
+                            <line x1="20%" y1="80%" x2="50%" y2="50%" stroke="rgba(20, 184, 166, 0.3)" stroke-width="1" stroke-dasharray="2,2">
+                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
+                            </line>
+                            <line x1="90%" y1="90%" x2="50%" y2="50%" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2">
+                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
+                            </line>
+                        </svg>
+                    </div>
+                    
+                    <!-- Info cards -->
+                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-xl transform rotate-3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i data-lucide="shield-check" class="h-4 w-4 text-green-400"></i>
+                            <span class="text-xs font-semibold text-white">Security Status</span>
+                        </div>
+                        <div class="text-xs text-green-400 font-mono">ENCRYPTED</div>
+                    </div>
+                    
+                    <div class="absolute -bottom-4 -left-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-xl transform -rotate-3">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <i data-lucide="activity" class="h-4 w-4 text-blue-400"></i>
+                            <span class="text-xs font-semibold text-white">Live Feed</span>
+                        </div>
+                        <div class="text-xs text-blue-400 font-mono">STREAMING</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Datasets Section -->
+<section id="datasets" class="py-20 bg-black relative overflow-hidden">
+    <!-- Matrix-style background -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6, 182, 212, 0.1) 2px, rgba(6, 182, 212, 0.1) 4px); background-size: 100% 4px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="text-center space-y-4 mb-16">
+            <div class="inline-flex items-center space-x-2 bg-green-900/20 border border-green-800/30 rounded-full px-4 py-1 text-green-400 text-sm font-mono mb-4">
+                <span class="text-xs">DATASETS.query(featured=true)</span>
+            </div>
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
+                Featured <span class="bg-gradient-to-r from-green-400 to-emerald-400 text-transparent bg-clip-text">Datasets</span>
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Explore our most popular and impactful public datasets with real-time updates.
+            </p>
+        </div>
+        
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {% for dataset in site.data.datasets %}
+            <div class="group relative">
+                <!-- Hover glow effect -->
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-75 transition duration-500 blur-sm"></div>
+                
+                <!-- Card -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300">
+                    <!-- Header with category -->
+                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-4 flex items-center justify-between">
+                        <span class="text-xs font-medium bg-green-900/30 text-green-400 px-3 py-1 rounded-full border border-green-800/50">
+                            {{ dataset.category }}
+                        </span>
+                        <div class="flex items-center space-x-2 text-xs text-gray-500">
+                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                            <span>{{ dataset.updated }}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="p-6 space-y-4">
+                        <h3 class="text-lg font-semibold text-white group-hover:text-green-400 transition-colors">
+                            {{ dataset.title }}
+                        </h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">{{ dataset.description }}</p>
+                        
+                        <!-- Data preview -->
+                        <div class="bg-gray-800/50 rounded-lg p-3 font-mono text-xs space-y-1">
+                            <div class="text-gray-500"># Sample query</div>
+                            <div class="text-green-400">SELECT * FROM {{ dataset.title | downcase | replace: ' ', '_' }}</div>
+                            <div class="text-gray-500">LIMIT 100;</div>
+                        </div>
+                        
+                        <!-- Action button -->
+                        <a href="{{ dataset.url | default: '#' }}" class="block w-full bg-gray-800 group-hover:bg-green-900/30 border border-gray-700 group-hover:border-green-500/50 text-center py-3 rounded-lg text-sm font-medium text-gray-300 group-hover:text-green-400 transition-all duration-300">
+                            <span class="flex items-center justify-center">
+                                Access Dataset
+                                <i data-lucide="database" class="ml-2 h-4 w-4"></i>
+                            </span>
+                        </a>
+                    </div>
+                    
+                    <!-- Loading bar animation -->
+                    <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gray-800">
+                        <div class="h-full bg-gradient-to-r from-green-400 to-emerald-400 animate-pulse" style="width: {{ forloop.index | times: 15 | plus: 40 }}%;"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- View all datasets link -->
+        <div class="mt-12 text-center">
+            <a href="#" class="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors group">
+                <span class="font-mono text-sm">view --all datasets</span>
+                <i data-lucide="terminal" class="h-4 w-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- What We Offer Section -->
-<section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-    <div class="container mx-auto px-4 md:px-6">
+<section class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+    <!-- Animated particles -->
+    <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-4 mb-16">
+            <div class="inline-flex items-center space-x-2 bg-purple-900/20 border border-purple-800/30 rounded-full px-4 py-1 text-purple-400 text-sm font-mono mb-4">
+                <span class="text-xs">SERVICES.list() // 4 items</span>
+            </div>
             <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                <span class="bg-gradient-to-r from-blue-400 via-green-400 to-purple-500 bg-clip-text text-transparent animate-gradient">
+                <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
                     What We Offer
                 </span>
             </h2>
-            <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                Comprehensive tools and resources to help you access, understand, and act on public information.
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Comprehensive tools and resources powered by cutting-edge technology to democratize public information.
             </p>
         </div>
+        
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-blue-400 rounded-lg shadow-lg hover:shadow-blue-400/20 transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
-                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 group-hover:scale-110">
-                    <i data-lucide="file-text" class="h-8 w-8 text-white"></i>
+            <div class="group relative">
+                <!-- 3D effect background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+                
+                <!-- Card content -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-2xl p-8 space-y-6 hover:border-blue-500/50 transition-all duration-300 transform group-hover:-translate-y-2">
+                    <!-- Icon with hologram effect -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500/20 blur-xl rounded-full"></div>
+                        <div class="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-text" class="h-8 w-8 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-blue-400 text-center">Official Gazettes</h3>
+                    <p class="text-gray-400 text-sm text-center leading-relaxed">
+                        AI-powered search through government gazettes with advanced filtering.
+                    </p>
+                    
+                    <!-- Tech stack -->
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full border border-blue-800/50">NLP</span>
+                        <span class="text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full border border-blue-800/50">OCR</span>
+                        <span class="text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full border border-blue-800/50">ML</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-blue-400">Access to Official Gazettes</h3>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Browse and search through government gazettes by date, category, or keyword.
-                </p>
             </div>
             
-            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-green-400 rounded-lg shadow-lg hover:shadow-green-400/20 transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
-                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/30 group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110">
-                    <i data-lucide="trending-up" class="h-8 w-8 text-white"></i>
+            <div class="group relative">
+                <!-- 3D effect background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-green-600/20 to-green-800/20 rounded-2xl transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
+                
+                <!-- Card content -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-2xl p-8 space-y-6 hover:border-green-500/50 transition-all duration-300 transform group-hover:-translate-y-2">
+                    <!-- Icon with hologram effect -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-green-500/20 blur-xl rounded-full"></div>
+                        <div class="relative w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-green-500/50 group-hover:scale-110 transition-transform">
+                            <i data-lucide="trending-up" class="h-8 w-8 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-green-400 text-center">Data Analytics</h3>
+                    <p class="text-gray-400 text-sm text-center leading-relaxed">
+                        Real-time visualization of government policies and spending patterns.
+                    </p>
+                    
+                    <!-- Tech stack -->
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-green-900/30 text-green-400 px-2 py-1 rounded-full border border-green-800/50">D3.js</span>
+                        <span class="text-xs bg-green-900/30 text-green-400 px-2 py-1 rounded-full border border-green-800/50">Chart.js</span>
+                        <span class="text-xs bg-green-900/30 text-green-400 px-2 py-1 rounded-full border border-green-800/50">WebGL</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-green-400">Data-Driven Insights</h3>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Visualize and understand how government policies change over time.
-                </p>
             </div>
             
-            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-purple-400 rounded-lg shadow-lg hover:shadow-purple-400/20 transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300 group-hover:scale-110">
-                    <i data-lucide="users" class="h-8 w-8 text-white"></i>
+            <div class="group relative">
+                <!-- 3D effect background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-purple-800/20 rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+                
+                <!-- Card content -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-2xl p-8 space-y-6 hover:border-purple-500/50 transition-all duration-300 transform group-hover:-translate-y-2">
+                    <!-- Icon with hologram effect -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-purple-500/20 blur-xl rounded-full"></div>
+                        <div class="relative w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-purple-500/50 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="h-8 w-8 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-purple-400 text-center">Citizen Portal</h3>
+                    <p class="text-gray-400 text-sm text-center leading-relaxed">
+                        User-friendly interface designed for accessibility and ease of use.
+                    </p>
+                    
+                    <!-- Tech stack -->
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full border border-purple-800/50">React</span>
+                        <span class="text-xs bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full border border-purple-800/50">A11y</span>
+                        <span class="text-xs bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full border border-purple-800/50">PWA</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-purple-400">Citizen-Centered Design</h3>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    Our platform is designed with simplicity and clarity at its core.
-                </p>
             </div>
             
-            <div class="bg-gray-800/50 backdrop-blur border border-gray-700 hover:border-amber-400 rounded-lg shadow-lg hover:shadow-amber-400/20 transition-all duration-300 p-8 text-center space-y-4 group hover:scale-105">
-                <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-amber-500/30 group-hover:shadow-amber-500/50 transition-all duration-300 group-hover:scale-110">
-                    <i data-lucide="megaphone" class="h-8 w-8 text-white"></i>
+            <div class="group relative">
+                <!-- 3D effect background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-amber-800/20 rounded-2xl transform -rotate-6 group-hover:-rotate-12 transition-transform duration-500"></div>
+                
+                <!-- Card content -->
+                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-2xl p-8 space-y-6 hover:border-amber-500/50 transition-all duration-300 transform group-hover:-translate-y-2">
+                    <!-- Icon with hologram effect -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-amber-500/20 blur-xl rounded-full"></div>
+                        <div class="relative w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-700 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-amber-500/50 group-hover:scale-110 transition-transform">
+                            <i data-lucide="megaphone" class="h-8 w-8 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-semibold text-amber-400 text-center">Advocacy Tools</h3>
+                    <p class="text-gray-400 text-sm text-center leading-relaxed">
+                        Empowering citizens with tools to drive transparency reforms.
+                    </p>
+                    
+                    <!-- Tech stack -->
+                    <div class="flex flex-wrap gap-2 justify-center">
+                        <span class="text-xs bg-amber-900/30 text-amber-400 px-2 py-1 rounded-full border border-amber-800/50">API</span>
+                        <span class="text-xs bg-amber-900/30 text-amber-400 px-2 py-1 rounded-full border border-amber-800/50">SDK</span>
+                        <span class="text-xs bg-amber-900/30 text-amber-400 px-2 py-1 rounded-full border border-amber-800/50">GraphQL</span>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-amber-400">Advocacy for Transparency</h3>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    We support initiatives and reforms that make government more accountable.
-                </p>
+            </div>
+        </div>
+        
+        <!-- API preview terminal -->
+        <div class="mt-16 max-w-3xl mx-auto">
+            <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
+                <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                    <span class="text-xs text-gray-400 font-mono">api.dataforall.org</span>
+                    <span class="text-xs text-green-400 font-mono">200 OK</span>
+                </div>
+                <div class="p-4 font-mono text-xs space-y-1">
+                    <div class="text-gray-500">// Example API request</div>
+                    <div class="text-blue-400">GET /api/v2/datasets/budget-2024</div>
+                    <div class="text-gray-500">Authorization: Bearer YOUR_API_KEY</div>
+                    <div class="mt-2 text-green-400">{"status": "success", "data": {...}}</div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-
-
-
-
 <!-- GitHub Contribution CTA Section -->
-<section class="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
-
-   
+<section class="py-20 bg-black relative overflow-hidden">
+    <!-- Matrix rain effect background -->
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div id="matrix-rain" class="absolute inset-0"></div>
+    </div>
+    
+    <!-- Hexagon pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M30 0l25.98 15v30L30 60 4.02 45V15z" fill="none" stroke="%2306b6d4" stroke-width="0.5"/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
+    </div>
+    
     <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-8">
             <!-- Animated GitHub Icon -->
             <div class="flex justify-center">
                 <div class="relative">
-                    <div class="w-20 h-20 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center animate-pulse">
-                        <i data-lucide="github" class="h-10 w-10 text-white"></i>
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-full blur-xl opacity-50"></div>
+                    <div class="relative w-24 h-24 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center animate-pulse shadow-2xl">
+                        <i data-lucide="github" class="h-12 w-12 text-white"></i>
+                    </div>
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-400 rounded-full animate-bounce flex items-center justify-center border-2 border-black">
+                        <span class="text-sm font-bold text-black">+</span>
                     </div>
                 </div>
             </div>
+            
             <div class="space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-green-900/20 border border-green-800/30 rounded-full px-4 py-1 text-green-400 text-sm font-mono mb-4">
+                    <span class="text-xs">OPEN_SOURCE = true</span>
+                </div>
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                    <span class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
+                    <span class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-transparent bg-clip-text animate-gradient">
                         Join Our Open Source Mission
                     </span>
                 </h2>
-                <p class="text-lg opacity-90 max-w-3xl mx-auto">
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto">
                     Help us build the future of government transparency. Contribute code, improve data pipelines, 
                     or enhance our visualization tools. Every commit makes democracy more accessible.
                 </p>
             </div>
-            <!-- Contribution Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-                <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors contribution-card">
-                    <div class="text-2xl font-bold text-green-400 animate-pulse">{% if site.github and site.github.contributors %}
-  {{ site.github.contributors }}
-{% else %}
-  127
-{% endif %}
-</div>
-                    <div class="text-sm text-gray-300">Contributors</div>
+            
+            <!-- Contribution Stats Dashboard -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-green-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
+                    <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
+                        <div class="text-3xl font-bold text-green-400 font-mono animate-pulse">{{ site.github.contributors | default: "127" }}</div>
+                        <div class="text-sm text-gray-400 mt-2">Contributors</div>
+                        <div class="absolute top-2 right-2">
+                            <i data-lucide="users" class="h-4 w-4 text-green-500/50"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-blue-400 transition-colors contribution-card">
-                    <div class="text-2xl font-bold text-blue-400 animate-pulse">{{ site.github.repositories | default: "23" }}</div>
-                    <div class="text-sm text-gray-300">Repositories</div>
+                
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
+                    <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
+                        <div class="text-3xl font-bold text-blue-400 font-mono animate-pulse">{{ site.github.repositories | default: "23" }}</div>
+                        <div class="text-sm text-gray-400 mt-2">Repositories</div>
+                        <div class="absolute top-2 right-2">
+                            <i data-lucide="folder-git-2" class="h-4 w-4 text-blue-500/50"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-purple-400 transition-colors contribution-card">
-                    <div class="text-2xl font-bold text-purple-400 animate-pulse">{{ site.github.commits | default: "2.1K" }}</div>
-                    <div class="text-sm text-gray-300">Commits</div>
+                
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
+                    <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
+                        <div class="text-3xl font-bold text-purple-400 font-mono animate-pulse">{{ site.github.commits | default: "2.1K" }}</div>
+                        <div class="text-sm text-gray-400 mt-2">Commits</div>
+                        <div class="absolute top-2 right-2">
+                            <i data-lucide="git-commit" class="h-4 w-4 text-purple-500/50"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gray-800/50 backdrop-blur rounded-lg p-4 border border-gray-700 hover:border-yellow-400 transition-colors contribution-card">
-                    <div class="text-2xl font-bold text-yellow-400 animate-pulse">{{ site.github.stars | default: "892" }}</div>
-                    <div class="text-sm text-gray-300">Stars</div>
+                
+                <div class="relative group">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
+                    <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
+                        <div class="text-3xl font-bold text-yellow-400 font-mono animate-pulse">{{ site.github.stars | default: "892" }}</div>
+                        <div class="text-sm text-gray-400 mt-2">Stars</div>
+                        <div class="absolute top-2 right-2">
+                            <i data-lucide="star" class="h-4 w-4 text-yellow-500/50"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Tech Stack Icons -->
-            <div class="flex justify-center items-center space-x-6 py-6 flex-wrap gap-4">
-                <div class="flex items-center space-x-2 bg-gray-800/30 px-4 py-2 rounded-full border border-gray-600 hover:border-green-400 transition-colors">
-                    <i data-lucide="code" class="h-5 w-5 text-green-400"></i>
-                    <span class="text-sm">Python</span>
+            
+            <!-- Tech Stack -->
+            <div class="flex justify-center items-center flex-wrap gap-4 py-8">
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-teal-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-green-500/50 transition-all">
+                        <i data-lucide="code" class="h-5 w-5 text-green-400"></i>
+                        <span class="text-sm text-gray-300">Python</span>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-2 bg-gray-800/30 px-4 py-2 rounded-full border border-gray-600 hover:border-blue-400 transition-colors">
-                    <i data-lucide="database" class="h-5 w-5 text-blue-400"></i>
-                    <span class="text-sm">PostgreSQL</span>
+                
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
+                        <i data-lucide="database" class="h-5 w-5 text-blue-400"></i>
+                        <span class="text-sm text-gray-300">PostgreSQL</span>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-2 bg-gray-800/30 px-4 py-2 rounded-full border border-gray-600 hover:border-purple-400 transition-colors">
-                    <i data-lucide="bar-chart" class="h-5 w-5 text-purple-400"></i>
-                    <span class="text-sm">D3.js</span>
+                
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-purple-500/50 transition-all">
+                        <i data-lucide="bar-chart" class="h-5 w-5 text-purple-400"></i>
+                        <span class="text-sm text-gray-300">D3.js</span>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-2 bg-gray-800/30 px-4 py-2 rounded-full border border-gray-600 hover:border-yellow-400 transition-colors">
-                    <i data-lucide="cloud" class="h-5 w-5 text-yellow-400"></i>
-                    <span class="text-sm">Docker</span>
+                
+                <div class="group relative">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
+                    <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-yellow-500/50 transition-all">
+                        <i data-lucide="cloud" class="h-5 w-5 text-yellow-400"></i>
+                        <span class="text-sm text-gray-300">Docker</span>
+                    </div>
                 </div>
             </div>
+            
             <!-- Call to Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="{{ site.github.main_repo | default: 'https://github.com/dataforall' }}" 
-                   class="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 inline-flex items-center">
-                    <i data-lucide="git-fork" class="mr-2 h-5 w-5"></i>
-                    Fork & Contribute
-                    <i data-lucide="external-link" class="ml-2 h-4 w-4"></i>
+                   class="group relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 inline-flex items-center">
+                    <span class="relative z-10 flex items-center">
+                        <i data-lucide="git-fork" class="mr-2 h-5 w-5"></i>
+                        Fork & Contribute
+                        <i data-lucide="external-link" class="ml-2 h-4 w-4"></i>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
+                
                 <a href="{{ site.github.issues | default: 'https://github.com/dataforall/issues' }}" 
-                   class="group border-2 border-gray-600 hover:border-blue-400 text-white hover:bg-blue-400/10 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center">
-                    <i data-lucide="bug" class="mr-2 h-5 w-5"></i>
-                    Report Issues
+                   class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-blue-600 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+                    <span class="relative z-10 flex items-center">
+                        <i data-lucide="bug" class="mr-2 h-5 w-5 text-blue-400"></i>
+                        Report Issues
+                    </span>
+                    <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
+                
                 <a href="{{ site.github.docs | default: 'https://docs.dataforall.org' }}" 
-                   class="group border-2 border-gray-600 hover:border-purple-400 text-white hover:bg-purple-400/10 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center">
-                    <i data-lucide="book-open" class="mr-2 h-5 w-5"></i>
-                    Documentation
+                   class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-purple-600 hover:border-purple-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+                    <span class="relative z-10 flex items-center">
+                        <i data-lucide="book-open" class="mr-2 h-5 w-5 text-purple-400"></i>
+                        Documentation
+                    </span>
+                    <div class="absolute inset-0 bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
             </div>
-            <!-- Terminal-like contribution guide -->
-            <div class="max-w-2xl mx-auto mt-8">
-                <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden">
-                    <div class="bg-gray-800 px-4 py-2 flex items-center space-x-2">
-                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                        <span class="text-sm text-gray-400 ml-4">~/contribute-to-dataforall</span>
+            
+            <!-- Enhanced Terminal -->
+            <div class="max-w-3xl mx-auto mt-12">
+                <div class="bg-gray-900/90 backdrop-blur rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
+                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 px-4 py-3 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-xs text-gray-400 font-mono">~/dataforall</span>
+                            <span class="text-xs text-green-400">main</span>
+                        </div>
                     </div>
-                    <div class="p-4 font-mono text-sm space-y-1">
-                        <div class="text-green-400">$ git clone https://github.com/dataforall/main.git</div>
-                        <div class="text-gray-400">$ cd dataforall && npm install</div>
-                        <div class="text-blue-400">$ git checkout -b feature/your-awesome-idea</div>
-                        <div class="text-purple-400"># Make your changes and commit</div>
-                        <div class="text-yellow-400">$ git push origin feature/your-awesome-idea</div>
-                        <div class="text-green-400 animate-pulse"># Create pull request and change the world! 🚀</div>
+                    <div class="p-6 font-mono text-sm space-y-2">
+                        <div class="flex items-start">
+                            <span class="text-green-400 mr-2">❯</span>
+                            <div class="flex-1">
+                                <span class="text-gray-300">git clone https://github.com/dataforall/main.git</span>
+                            </div>
+                        </div>
+                        <div class="text-gray-500">Cloning into 'dataforall'...</div>
+                        <div class="flex items-start">
+                            <span class="text-green-400 mr-2">❯</span>
+                            <div class="flex-1">
+                                <span class="text-gray-300">cd dataforall && npm install</span>
+                            </div>
+                        </div>
+                        <div class="text-gray-500">Installing dependencies...</div>
+                        <div class="flex items-start">
+                            <span class="text-green-400 mr-2">❯</span>
+                            <div class="flex-1">
+                                <span class="text-gray-300">git checkout -b feature/transparency-enhancement</span>
+                            </div>
+                        </div>
+                        <div class="text-blue-400"># Ready to contribute! 🚀</div>
+                        <div class="flex items-start">
+                            <span class="text-green-400 mr-2 animate-pulse">❯</span>
+                            <span class="w-2 h-5 bg-green-400 animate-pulse"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <p class="text-sm opacity-75 max-w-xl mx-auto">
+            
+            <p class="text-sm text-gray-500 max-w-xl mx-auto mt-8">
                 Join <span class="text-green-400 font-semibold">{{ site.github.contributors | default: "127" }}+</span> developers 
                 building tools for government transparency. From data engineers to frontend developers, 
                 there's a place for every skill level.
             </p>
         </div>
     </div>
+    
+    <script>
+    // Matrix rain effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const matrixRain = document.getElementById('matrix-rain');
+        const columns = Math.floor(window.innerWidth / 20);
+        
+        for (let i = 0; i < columns; i++) {
+            const column = document.createElement('div');
+            column.className = 'absolute text-green-400 font-mono text-xs';
+            column.style.left = `${i * 20}px`;
+            column.style.top = `${Math.random() * -100}%`;
+            column.style.animationDuration = `${10 + Math.random() * 20}s`;
+            column.style.animationDelay = `${Math.random() * 10}s`;
+            column.innerHTML = Array(20).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('<br>');
+            column.style.animation = 'matrixFall linear infinite';
+            matrixRain.appendChild(column);
+        }
+    });
+    </script>
+    
+    <style>
+    @keyframes matrixFall {
+        to {
+            transform: translateY(200vh);
+        }
+    }
+    </style>
 </section>
-
