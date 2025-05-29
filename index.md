@@ -387,12 +387,13 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="mt-16 max-w-4xl mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
-                    <span class="text-xs text-gray-400 font-mono">mission_statement.log</span>
-                    <div class="flex space-x-2">
+                <div class="flex space-x-2">
                         <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                         <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                         <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                     </div>
+                    <span class="text-xs text-gray-400 font-mono">mission_statement.log</span>
+                    
                 </div>
                 <div class="p-6 font-mono text-sm space-y-2">
                     <div class="text-gray-500">[2024-01-01 00:00:00] Initializing transparency protocols...</div>
