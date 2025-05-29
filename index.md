@@ -937,7 +937,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                             <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-1">
                             <span class="text-xs text-gray-400 font-mono">~/opendata</span>
                             <span class="text-xs text-green-400">main</span>
                         </div>
@@ -946,14 +946,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-green-400">git clone https://github.com/dataforall/main.git</span>
+                                <span class="text-green-400">git clone https://github.com/opendata/main.git</span>
                             </div>
                         </div>
-                        <div class="text-gray-500">Cloning into 'dataforall'...</div>
+                        <div class="text-gray-500">Cloning into 'opendata'...</div>
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-yellow-400">cd dataforall && npm install</span>
+                                <span class="text-yellow-400">cd opendata && npm install</span>
                             </div>
                         </div>
                         <div class="text-gray-500">Installing dependencies...</div>
