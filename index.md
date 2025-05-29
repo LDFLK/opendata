@@ -135,28 +135,7 @@ description: "Empowering communities through transparent access to public inform
         </div>
     </div>
     
-    <!-- Terminal-like element at the bottom -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 w-full max-w-lg ">
-        <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden mx-4">
-            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-                <div class="text-xs text-gray-400 font-mono">opendata@gov:~</div>
-            </div>
-            <div class="p-4 font-mono text-sm">
-                <div class="flex items-start">
-                    <span class="text-green-400 mr-2">$</span>
-                    <div class="text-gray-300">
-                        <span id="terminal-text"></span>
-                        <span class="inline-block w-2 h-4 bg-blue-400 animate-pulse"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </section>
 
 <script>
@@ -382,9 +361,34 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             {% endfor %}
         </div>
+
+
+<!-- Terminal-like element at the bottom -->
+        <div class="mt-16 max-w-lg mx-auto">
+            <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
+                <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div class="text-xs text-gray-400 font-mono">opendata@gov:~</div>
+                </div>
+                <div class="p-4 font-mono text-sm">
+                    <div class="flex items-start">
+                        <span class="text-green-400 mr-2">$</span>
+                        <div class="text-gray-300">
+                            <span id="terminal-text"></span>
+                            <span class="inline-block w-2 h-4 bg-blue-400 animate-pulse"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         
         <!-- Mission statement terminal -->
-        <div class="mt-16 max-w-4xl mx-auto">
+        <div class="mt-8 max-w-4xl mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
                 <div class="flex space-x-2">
@@ -404,7 +408,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
+
+        
+        
     </div>
+
+   
 </section>
 
 <!-- Transparency Section -->
@@ -899,8 +908,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             <!-- Call to Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="{{ site.github.main_repo | default: 'https://github.com/dataforall' }}" 
-                   class="group relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 inline-flex items-center">
+                <a href="{{ site.github.main_repo | default: 'https://github.com/LDFLK' }}" 
+                   class="group relative overflow-hidden bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/25 inline-flex items-center ">
                     <span class="relative z-10 flex items-center">
                         <i data-lucide="git-fork" class="mr-2 h-5 w-5"></i>
                         Fork & Contribute
@@ -909,7 +918,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 
-                <a href="{{ site.github.issues | default: 'https://github.com/dataforall/issues' }}" 
+                <a href="{{ site.github.issues | default: 'https://github.com/LDFLK/issues' }}" 
                    class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-blue-600 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
                     <span class="relative z-10 flex items-center">
                         <i data-lucide="bug" class="mr-2 h-5 w-5 text-blue-400"></i>
@@ -918,7 +927,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
                 
-                <a href="{{ site.github.docs | default: 'https://docs.dataforall.org' }}" 
+                <a href="{{ site.github.docs | default: 'https://docs.opendata.lk' }}" 
                    class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-purple-600 hover:border-purple-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
                     <span class="relative z-10 flex items-center">
                         <i data-lucide="book-open" class="mr-2 h-5 w-5 text-purple-400"></i>
