@@ -34,7 +34,7 @@ description: "Empowering communities through transparent access to public inform
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
                     </span>
-                    <span>{{ site.version }} / LIVE DATA SYSTEM</span>
+                    <span>{{ site.version }}  OPEN DATA SYSTEM</span>
                 </div>
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
@@ -135,6 +135,65 @@ description: "Empowering communities through transparent access to public inform
                             <span class="text-teal-400">92%</span>
                         </div>
                     </div>
+
+                    <!-- Floating data cards -->
+<div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform rotate-3 animate-float" style="animation-duration: 6s;">
+    <div class="flex items-center space-x-2">
+        <i data-lucide="database" class="h-4 w-4 text-blue-400"></i>
+        <span class="text-xs font-semibold text-white">Data Collection</span>
+    </div>
+    <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-blue-500 rounded-full" style="width: 85%;"></div>
+    </div>
+    <div class="mt-1 flex justify-between text-xs">
+        <span class="text-gray-500">Active Sources</span>
+        <span class="text-blue-400">85%</span>
+    </div>
+    
+    <!-- Mini feature indicators -->
+    <div class="mt-2 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-1">
+            <i data-lucide="wifi" class="h-3 w-3 text-green-400"></i>
+            <span class="text-green-400">Live</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i data-lucide="shield-check" class="h-3 w-3 text-blue-400"></i>
+            <span class="text-blue-400">Secure</span>
+        </div>
+    </div>
+</div>
+
+<div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
+    <div class="flex items-center space-x-2">
+        <i data-lucide="search" class="h-4 w-4 text-teal-400"></i>
+        <span class="text-xs font-semibold text-white">Data Exploration</span>
+    </div>
+    <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
+        <div class="h-full bg-teal-500 rounded-full" style="width: 92%;"></div>
+    </div>
+    <div class="mt-1 flex justify-between text-xs">
+        <span class="text-gray-500">Insights Found</span>
+        <span class="text-teal-400">92%</span>
+    </div>
+    
+    <!-- Mini feature indicators -->
+    <div class="mt-2 flex items-center justify-between text-xs">
+        <div class="flex items-center space-x-1">
+            <i data-lucide="trending-up" class="h-3 w-3 text-emerald-400"></i>
+            <span class="text-emerald-400">Trending</span>
+        </div>
+        <div class="flex items-center space-x-1">
+            <i data-lucide="zap" class="h-3 w-3 text-yellow-400"></i>
+            <span class="text-yellow-400">Fast</span>
+        </div>
+    </div>
+</div>
+
+
+    
+
+</div>
+
                 </div>
             </div>
         </div>
