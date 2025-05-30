@@ -514,6 +514,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 
+
+
+
 <!-- Organization Hierarchy Showcase Section -->
 <section id="org-hierarchy" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
     <!-- Animated background elements -->
@@ -699,7 +702,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 line.setAttribute('x2', toNode.x);
                 line.setAttribute('y2', toNode.y);
                 line.setAttribute('stroke', 'rgba(99, 102, 241, 0.4)');
-                line.setAttribute('stroke-width', '2');
+                line.setAttribute('stroke-width', '1');
                 line.style.opacity = '0';
                 line.style.animation = `fadeIn 0.8s ease-out forwards`;
                 line.style.animationDelay = `${index * 0.1}s`;
@@ -716,7 +719,7 @@ document.addEventListener('DOMContentLoaded', function() {
             circle.setAttribute('r', getNodeSize(node.level));
             circle.setAttribute('fill', getNodeColor(node.level));
             circle.setAttribute('stroke', 'white');
-            circle.setAttribute('stroke-width', '2');
+            circle.setAttribute('stroke-width', '1');
             circle.setAttribute('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))');
             circle.style.opacity = '0';
             circle.style.animation = `fadeInScale 0.6s ease-out forwards`;
@@ -775,6 +778,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(style);
 });
 </script>
+
 
 
 
