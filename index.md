@@ -62,10 +62,10 @@ description: "Empowering communities through transparent access to public inform
 <div class="grid grid-cols-3 gap-4 pt-8 border-t border-gray-800">
     <div class="text-center group">
         <div class="flex justify-center mb-2">
-            <i data-lucide="shield-check" class="h-8 w-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300"></i>
+            <i data-lucide="book-check" class="h-8 w-8 text-blue-400 group-hover:text-blue-300 transition-colors duration-300"></i>
         </div>
-        <div class="text-sm font-medium text-white">Secure</div>
-        <div class="text-xs text-gray-500">End-to-end encryption</div>
+        <div class="text-sm font-medium text-white">Vrified</div>
+        <div class="text-xs text-gray-500">Open & Auditable</div>
     </div>
     <div class="text-center group">
         <div class="flex justify-center mb-2">
