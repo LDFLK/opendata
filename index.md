@@ -38,8 +38,8 @@ description: "Empowering communities through transparent access to public inform
                 </div>
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-tight">
-                    <span class="block">Unlocking</span>
-                    <span class="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">Government Data</span>
+                    <span class="block">Connecting</span>
+                    <span class="block mt-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-transparent bg-clip-text">Public Data</span>
                     <span class="block mt-2">For Everyone</span>
                 </h1>
                 
@@ -92,13 +92,18 @@ description: "Empowering communities through transparent access to public inform
                             <div class="absolute inset-[10%] border border-cyan-500/20 rounded-full animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
                             <div class="absolute inset-[20%] border border-teal-500/20 rounded-full animate-spin" style="animation-duration: 25s;"></div>
                             
+                            <!-- SVG for node connections -->
+                            <svg id="node-connections" class="absolute inset-0 w-full h-full" style="z-index: 1;">
+                                <!-- Connection lines will be added by JavaScript -->
+                            </svg>
+                            
                             <!-- Data points -->
-                            <div id="data-points-container" class="absolute inset-0">
+                            <div id="data-points-container" class="absolute inset-0" style="z-index: 2;">
                                 <!-- Data points will be added by JavaScript -->
                             </div>
                             
                             <!-- Core -->
-                            <div class="absolute inset-[40%] bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full opacity-80 shadow-lg shadow-blue-500/50 animate-pulse" style="animation-duration: 3s;"></div>
+                            <div class="absolute inset-[40%] bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full opacity-80 shadow-lg shadow-blue-500/50 animate-pulse" style="animation-duration: 3s; z-index: 3;"></div>
                         </div>
                     </div>
                     
@@ -221,65 +226,126 @@ document.addEventListener('DOMContentLoaded', function() {
         dataStreamContainer.appendChild(stream);
     }
     
-    // Create data points for the sphere
+    // Create data points with connections for the sphere
     const dataPointsContainer = document.getElementById('data-points-container');
-    const pointCount = 30;
+    const nodeConnections = document.getElementById('node-connections');
+    const pointCount = 20;
+    const dataPoints = [];
     
+    // Generate data points
     for (let i = 0; i < pointCount; i++) {
-        const point = document.createElement('div');
-        const size = 1 + Math.floor(Math.random() * 2);
-        const distance = 30 + Math.random() * 40;
-        const angle = Math.random() * 360;
-        const verticalAngle = Math.random() * 360;
+        const point = {
+            id: i,
+            size: 1 + Math.floor(Math.random() * 2),
+            distance: 25 + Math.random() * 35,
+            angle: (i / pointCount) * 360 + Math.random() * 30,
+            verticalAngle: Math.random() * 360,
+            color: Math.random() > 0.5 ? 'bg-blue-400' : 'bg-cyan-400',
+            pulseSpeed: 1 + Math.random() * 3,
+            connections: []
+        };
         
-        const x = 50 + distance * Math.cos(angle * Math.PI / 180) * Math.sin(verticalAngle * Math.PI / 180);
-        const y = 50 + distance * Math.sin(angle * Math.PI / 180) * Math.sin(verticalAngle * Math.PI / 180);
-        const z = distance * Math.cos(verticalAngle * Math.PI / 180);
+        // Calculate position
+        point.x = 50 + point.distance * Math.cos(point.angle * Math.PI / 180) * Math.sin(point.verticalAngle * Math.PI / 180);
+        point.y = 50 + point.distance * Math.sin(point.angle * Math.PI / 180) * Math.sin(point.verticalAngle * Math.PI / 180);
+        point.z = point.distance * Math.cos(point.verticalAngle * Math.PI / 180);
         
-        const color = Math.random() > 0.5 ? 'bg-blue-400' : 'bg-cyan-400';
-        const pulseSpeed = 1 + Math.random() * 4;
-        
-        point.className = `absolute w-${size} h-${size} ${color} rounded-full animate-pulse`;
-        point.style.left = `${x}%`;
-        point.style.top = `${y}%`;
-        point.style.transform = `translateZ(${z}px)`;
-        point.style.animationDuration = `${pulseSpeed}s`;
-        
-        dataPointsContainer.appendChild(point);
+        dataPoints.push(point);
     }
+    
+    // Create connections between nearby points
+    dataPoints.forEach((point, index) => {
+        const maxConnections = 2 + Math.floor(Math.random() * 3);
+        let connectionCount = 0;
+        
+        dataPoints.forEach((otherPoint, otherIndex) => {
+            if (index !== otherIndex && connectionCount < maxConnections) {
+                const distance = Math.sqrt(Math.pow(point.x - otherPoint.x, 2) + Math.pow(point.y - otherPoint.y, 2));
+                
+                if (distance < 40 && Math.random() > 0.6) {
+                    point.connections.push(otherIndex);
+                    connectionCount++;
+                }
+            }
+        });
+    });
+    
+    // Render data points
+    dataPoints.forEach(point => {
+        const pointElement = document.createElement('div');
+        pointElement.className = `absolute w-${point.size} h-${point.size} ${point.color} rounded-full animate-pulse`;
+        pointElement.style.left = `${point.x}%`;
+        pointElement.style.top = `${point.y}%`;
+        pointElement.style.transform = `translate(-50%, -50%) translateZ(${point.z}px)`;
+        pointElement.style.animationDuration = `${point.pulseSpeed}s`;
+        pointElement.style.boxShadow = point.color.includes('blue') ? 
+            '0 0 10px rgba(59, 130, 246, 0.6)' : 
+            '0 0 10px rgba(34, 211, 238, 0.6)';
+        
+        dataPointsContainer.appendChild(pointElement);
+    });
+    
+    // Render connections
+    dataPoints.forEach(point => {
+        point.connections.forEach(connectionIndex => {
+            const connectedPoint = dataPoints[connectionIndex];
+            if (!connectedPoint) return;
+            
+            // Create SVG line
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', `${point.x}%`);
+            line.setAttribute('y1', `${point.y}%`);
+            line.setAttribute('x2', `${connectedPoint.x}%`);
+            line.setAttribute('y2', `${connectedPoint.y}%`);
+            line.setAttribute('stroke', 'rgba(59, 130, 246, 0.3)');
+            line.setAttribute('stroke-width', '1');
+            
+            // Add animation
+            const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+            animate.setAttribute('attributeName', 'stroke-opacity');
+            animate.setAttribute('values', '0.9;0.8;0.9');
+            animate.setAttribute('dur', `${3 + Math.random() * 2}s`);
+            animate.setAttribute('repeatCount', 'indefinite');
+            
+            line.appendChild(animate);
+            nodeConnections.appendChild(line);
+        });
+    });
     
     // Terminal typing animation
     const terminalText = document.getElementById('terminal-text');
-    const commands = [
-        'accessing public data...',
-        'analyzing government spending...',
-        'generating transparency report...',
-        'connecting to open data APIs...',
-        'visualizing budget allocations...'
-    ];
-    let currentCommand = 0;
-    let charIndex = 0;
-    
-    function typeCommand() {
-        const command = commands[currentCommand];
+    if (terminalText) {
+        const commands = [
+            'accessing public data...',
+            'analyzing government spending...',
+            'generating transparency report...',
+            'connecting to open data APIs...',
+            'visualizing budget allocations...'
+        ];
+        let currentCommand = 0;
+        let charIndex = 0;
         
-        if (charIndex < command.length) {
-            terminalText.textContent += command.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeCommand, 50 + Math.random() * 50);
-        } else {
-            setTimeout(resetCommand, 2000);
+        function typeCommand() {
+            const command = commands[currentCommand];
+            
+            if (charIndex < command.length) {
+                terminalText.textContent += command.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeCommand, 50 + Math.random() * 50);
+            } else {
+                setTimeout(resetCommand, 2000);
+            }
         }
+        
+        function resetCommand() {
+            terminalText.textContent = '';
+            charIndex = 0;
+            currentCommand = (currentCommand + 1) % commands.length;
+            setTimeout(typeCommand, 500);
+        }
+        
+        setTimeout(typeCommand, 1000);
     }
-    
-    function resetCommand() {
-        terminalText.textContent = '';
-        charIndex = 0;
-        currentCommand = (currentCommand + 1) % commands.length;
-        setTimeout(typeCommand, 500);
-    }
-    
-    setTimeout(typeCommand, 1000);
     
     // Add custom animation for floating elements
     const style = document.createElement('style');
@@ -301,14 +367,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .animate-float {
             animation: float ease-in-out infinite;
         }
+        
+        @keyframes pulse-connection {
+            0%, 100% { stroke-opacity: 0.1; }
+            50% { stroke-opacity: 0.6; }
+        }
     `;
     document.head.appendChild(style);
 });
 </script>
 
-
 <!-- Mission Section -->
-<section id="mission" class="py-20 bg-black relative overflow-hidden">
+<section id="mission" class="bg-black relative overflow-hidden pt-16">
     <!-- Animated background pattern -->
     <div class="absolute inset-0">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(30,64,175,0.15)_0%,rgba(0,0,0,0)_70%)]"></div>
@@ -331,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
         </div>
         
-        <div class="grid gap-8 md:grid-cols-3">
+        <div class="grid gap-8 md:grid-cols-3 pb-16">
             {% for mission in site.data.missions %}
             <div class="relative group">
                 <!-- Card glow effect -->
@@ -363,8 +433,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
 
 
-<!-- Terminal-like element at the bottom -->
-        <div class="mt-16 max-w-lg mx-auto">
+<!-- Terminal-like element at the bottom  this can be added after the release of the CLI-->
+        <!-- <div class="mt-16 max-w-lg mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
                     <div class="flex items-center space-x-2">
@@ -387,7 +457,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         
-        <!-- Mission statement terminal -->
         <div class="mt-8 max-w-4xl mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
@@ -411,7 +480,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         
         
-    </div>
+    </div> -->
 
    
 </section>
@@ -516,11 +585,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Featured Datasets Section -->
 <section id="datasets" class="py-20 bg-black relative overflow-hidden">
-    <!-- Matrix-style background -->
     <div class="absolute inset-0 opacity-5">
         <div class="absolute inset-0" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6, 182, 212, 0.1) 2px, rgba(6, 182, 212, 0.1) 4px); background-size: 100% 4px;"></div>
     </div>
-    
     <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-4 mb-16">
             <div class="inline-flex items-center space-x-2 bg-green-900/20 border border-green-800/30 rounded-full px-4 py-1 text-green-400 text-sm font-mono mb-4">
@@ -533,13 +600,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 Explore our most popular and impactful public datasets with real-time updates.
             </p>
         </div>
-        
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {% for dataset in site.data.datasets %}
             <div class="group relative">
                 <!-- Hover glow effect -->
                 <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-75 transition duration-500 blur-sm"></div>
-                
                 <!-- Card -->
                 <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300">
                     <!-- Header with category -->
@@ -552,21 +617,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span>{{ dataset.updated }}</span>
                         </div>
                     </div>
-                    
                     <!-- Content -->
                     <div class="p-6 space-y-4">
                         <h3 class="text-lg font-semibold text-white group-hover:text-green-400 transition-colors">
                             {{ dataset.title }}
                         </h3>
                         <p class="text-sm text-gray-400 leading-relaxed">{{ dataset.description }}</p>
-                        
                         <!-- Data preview -->
                         <div class="bg-gray-800/50 rounded-lg p-3 font-mono text-xs space-y-1">
                             <div class="text-gray-500"># Sample query</div>
                             <div class="text-green-400">SELECT * FROM {{ dataset.title | downcase | replace: ' ', '_' }}</div>
                             <div class="text-gray-500">LIMIT 100;</div>
                         </div>
-                        
                         <!-- Action button -->
                         <a href="{{ dataset.url | default: '#' }}" class="block w-full bg-gray-800 group-hover:bg-green-900/30 border border-gray-700 group-hover:border-green-500/50 text-center py-3 rounded-lg text-sm font-medium text-gray-300 group-hover:text-green-400 transition-all duration-300">
                             <span class="flex items-center justify-center">
@@ -575,7 +637,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             </span>
                         </a>
                     </div>
-                    
                     <!-- Loading bar animation -->
                     <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gray-800">
                         <div class="h-full bg-gradient-to-r from-green-400 to-emerald-400 animate-pulse" style="width: {{ forloop.index | times: 15 | plus: 40 }}%;"></div>
@@ -584,7 +645,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             {% endfor %}
         </div>
-        
         <!-- View all datasets link -->
         <div class="mt-12 text-center">
             <a href="#" class="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors group">
@@ -732,8 +792,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
         
-        <!-- API preview terminal -->
-        <div class="mt-16 max-w-3xl mx-auto">
+        <!-- API preview terminal This can be used after we implement the API to public -->
+        <!-- <div class="mt-16 max-w-3xl mx-auto">
             <div class="bg-gray-900/80 backdrop-blur border border-gray-800 rounded-lg overflow-hidden">
                 <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
                     <span class="text-xs text-gray-400 font-mono">api.opendata.lk</span>
@@ -746,7 +806,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="mt-2 text-green-400">{"status": "success", "data": {...}}</div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
@@ -756,12 +816,10 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="absolute inset-0 overflow-hidden opacity-10">
         <div id="matrix-rain" class="absolute inset-0"></div>
     </div>
-    
     <!-- Hexagon pattern -->
     <div class="absolute inset-0 opacity-5">
         <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M30 0l25.98 15v30L30 60 4.02 45V15z" fill="none" stroke="%2306b6d4" stroke-width="0.5"/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
     </div>
-    
     <div class="container mx-auto px-4 md:px-6 relative z-10">
         <div class="text-center space-y-8">
             <!-- Animated GitHub Icon -->
@@ -776,7 +834,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
-            
             <div class="space-y-4">
                 <div class="inline-flex items-center space-x-2 bg-green-900/20 border border-green-800/30 rounded-full px-4 py-1 text-green-400 text-sm font-mono mb-4">
                     <span class="text-xs">OPEN_SOURCE = true</span>
@@ -791,7 +848,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     or enhance our visualization tools. Every commit makes democracy more accessible.
                 </p>
             </div>
-            
             <!-- Contribution Stats Dashboard -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                 <div class="relative group">
@@ -804,7 +860,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
-                
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
                     <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
@@ -815,7 +870,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
-                
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
                     <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
@@ -826,7 +880,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 </div>
-                
                 <div class="relative group">
                     <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-600 to-yellow-800 rounded-xl opacity-75 group-hover:opacity-100 transition duration-500 blur"></div>
                     <div class="relative bg-gray-900 backdrop-blur rounded-xl p-6 border border-gray-800">
@@ -838,7 +891,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
-            
             <!-- Tech Stack -->
             <div class="flex justify-center items-center flex-wrap gap-4 py-8">
               <div class="group relative">
@@ -848,7 +900,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">Python</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
@@ -856,7 +907,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">PostgreSQL</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-emerald-600 to-green-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-emerald-500/50 transition-all">
@@ -864,7 +914,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">Neo4j</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-green-500/50 transition-all">
@@ -872,7 +921,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">MongoDB</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-cyan-500/50 transition-all">
@@ -880,7 +928,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">React</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-blue-500/50 transition-all">
@@ -888,7 +935,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">Docker</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-teal-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-cyan-500/50 transition-all">
@@ -896,7 +942,6 @@ document.addEventListener('DOMContentLoaded', function() {
                       <span class="text-sm text-gray-300">Go</span>
                   </div>
               </div>
-              
               <div class="group relative">
                   <div class="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 blur-sm"></div>
                   <div class="relative flex items-center space-x-2 bg-gray-900/80 backdrop-blur px-4 py-2 rounded-full border border-gray-700 group-hover:border-orange-500/50 transition-all">
@@ -905,7 +950,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   </div>
               </div>
           </div>
-            
             <!-- Call to Action Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="{{ site.github.main_repo | default: 'https://github.com/LDFLK' }}" 
@@ -917,7 +961,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </span>
                     <div class="absolute inset-0 bg-gradient-to-r from-green-700 to-emerald-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
-                
                 <a href="{{ site.github.issues | default: 'https://github.com/LDFLK/issues' }}" 
                    class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-blue-600 hover:border-blue-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
                     <span class="relative z-10 flex items-center">
@@ -926,7 +969,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </span>
                     <div class="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
-                
                 <a href="{{ site.github.docs | default: 'https://docs.opendata.lk' }}" 
                    class="group relative overflow-hidden bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold border-2 border-purple-600 hover:border-purple-400 transition-all duration-300 transform hover:scale-105 inline-flex items-center">
                     <span class="relative z-10 flex items-center">
@@ -936,7 +978,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="absolute inset-0 bg-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
             </div>
-            
             <!-- Enhanced Terminal -->
             <div class="max-w-3xl mx-auto mt-12">
                 <div class="bg-gray-900/90 backdrop-blur rounded-xl border border-gray-800 overflow-hidden shadow-2xl">
@@ -955,14 +996,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-green-400">git clone https://github.com/opendata/main.git</span>
+                                <span class="text-green-400">git clone https://github.com/LFLK/nexoan.git</span>
                             </div>
                         </div>
-                        <div class="text-gray-500">Cloning into 'opendata'...</div>
+                        <div class="text-gray-500">Cloning into 'nexoan'...</div>
                         <div class="flex items-start">
                             <span class="text-green-400 mr-2">❯</span>
                             <div class="flex-1">
-                                <span class="text-yellow-400">cd opendata && npm install</span>
+                                <span class="text-yellow-400">cd nexoan && docker compose up</span>
                             </div>
                         </div>
                         <div class="text-gray-500">Installing dependencies...</div>
@@ -980,7 +1021,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
-            
             <p class="text-sm text-gray-500 max-w-xl mx-auto mt-8">
                 Join <span class="text-green-400 font-semibold">{{ site.github.contributors | default: "127" }}+</span> developers 
                 building tools for government transparency. From data engineers to frontend developers, 
@@ -988,13 +1028,11 @@ document.addEventListener('DOMContentLoaded', function() {
             </p>
         </div>
     </div>
-    
     <script>
     // Matrix rain effect
     document.addEventListener('DOMContentLoaded', function() {
         const matrixRain = document.getElementById('matrix-rain');
         const columns = Math.floor(window.innerWidth / 20);
-        
         for (let i = 0; i < columns; i++) {
             const column = document.createElement('div');
             column.className = 'absolute text-green-400 font-mono text-xs';
@@ -1008,7 +1046,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     </script>
-    
     <style>
     @keyframes matrixFall {
         to {
