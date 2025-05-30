@@ -513,175 +513,270 @@ document.addEventListener('DOMContentLoaded', function() {
    
 </section>
 
-<!-- Transparency Section -->
-<section id="transparency" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden">
-    <div class="container mx-auto px-4 md:px-6">
-        <div class="grid gap-12 lg:grid-cols-2 items-center">
-            <div class="space-y-8">
-                <div class="inline-flex items-center space-x-2 bg-cyan-900/20 border border-cyan-800/30 rounded-full px-4 py-1 text-cyan-400 text-sm font-mono">
-                    <span class="text-xs">TRANSPARENCY_ENGINE v2.0</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-                    Giving you <span class="relative">
-                        <span class="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 blur-lg opacity-75"></span>
-                        <span class="relative bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">transparency</span>
-                    </span> in your government.
-                </h2>
+
+<!-- Organization Hierarchy Showcase Section -->
+<section id="org-hierarchy" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-1/3 left-1/6 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/3 right-1/6 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 3s;"></div>
+    </div>
+    
+    <!-- Circuit pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(99, 102, 241, 0.1) 10px, rgba(99, 102, 241, 0.1) 11px);"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="text-center space-y-4 mb-16">
+            <div class="inline-flex items-center space-x-2 bg-indigo-900/20 border border-indigo-800/30 rounded-full px-4 py-1 text-indigo-400 text-sm font-mono mb-4">
+                <span class="text-xs">ORG_CHART.render() // Interactive</span>
+            </div>
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
+                Visualize <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">Organizational</span> Structures
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Interactive organizational charts and hierarchy trees that reveal the structure of government institutions, 
+                making complex bureaucracies transparent and navigable.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <!-- Left side: Text content -->
+            <div class="space-y-6 text-left">
+                <h3 class="text-2xl font-semibold text-white">
+                    Organizational <span class="bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">Hierarchy</span>
+                </h3>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Transform complex organizational structures into clear, interactive visualizations. 
+                    Our platform maps institutional hierarchies, revealing reporting relationships 
+                    and departmental connections with precision.
+                </p>
                 
-                <!-- Real-time metrics -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-4">
-                        <div class="text-2xl font-bold text-cyan-400 font-mono">98.7%</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Data Accuracy</div>
-                        <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 98.7%;"></div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-indigo-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="git-branch" class="h-4 w-4 text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Multi-level Hierarchies</h4>
+                            <p class="text-gray-400 text-sm">Visualize complex organizational structures from executive level to operational units</p>
                         </div>
                     </div>
-                    <div class="bg-gray-900/50 backdrop-blur border border-gray-800 rounded-lg p-4">
-                        <div class="text-2xl font-bold text-green-400 font-mono">24/7</div>
-                        <div class="text-xs text-gray-500 uppercase tracking-wider">Uptime</div>
-                        <div class="mt-2 h-1 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full" style="width: 100%;"></div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-purple-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="eye" class="h-4 w-4 text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Transparent Relationships</h4>
+                            <p class="text-gray-400 text-sm">Clear visualization of reporting lines and departmental connections</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-pink-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="trending-up" class="h-4 w-4 text-pink-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Real-time Updates</h4>
+                            <p class="text-gray-400 text-sm">Live organizational data with automatic structure updates</p>
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Right side: Organizational Chart Visualization -->
             <div class="relative">
-                <!-- 3D visualization container -->
                 <div class="relative w-full max-w-lg mx-auto">
-                    <!-- Holographic effect background -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-teal-900/20 blur-2xl"></div>
+                    <!-- Glowing background effect -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-600/10 to-pink-700/20 blur-xl"></div>
                     
-                    <!-- Main visualization -->
+                    <!-- Main visualization container -->
                     <div class="relative aspect-square">
-                        <!-- Rotating cube frame -->
-                        <div class="absolute inset-0 border-2 border-blue-500/30 rounded-lg animate-spin" style="animation-duration: 20s; transform-style: preserve-3d;"></div>
-                        <div class="absolute inset-[10%] border-2 border-cyan-500/20 rounded-lg animate-spin" style="animation-duration: 15s; animation-direction: reverse; transform-style: preserve-3d;"></div>
+                        <!-- SVG for organizational chart -->
+                        <svg id="org-chart-svg" class="w-full h-full" viewBox="0 0 400 400">
+                            <!-- Chart will be rendered here -->
+                        </svg>
                         
-                        <!-- Central data core -->
-                        <div class="absolute inset-[30%] bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 rounded-lg opacity-80 animate-pulse" style="animation-duration: 2s;">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <i data-lucide="eye" class="h-16 w-16 text-white/80"></i>
+                        <!-- Loading animation -->
+                        <div id="org-loading" class="absolute inset-0 flex items-center justify-center">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full animate-bounce"></div>
+                                <div class="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                <div class="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
                             </div>
                         </div>
-                        
-                        <!-- Floating data nodes -->
-                        <div class="absolute top-[10%] left-[10%] w-4 h-4 bg-blue-400 rounded-full animate-pulse"></div>
-                        <div class="absolute top-[20%] right-[15%] w-3 h-3 bg-cyan-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-                        <div class="absolute bottom-[25%] left-[20%] w-5 h-5 bg-teal-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-                        <div class="absolute bottom-[10%] right-[10%] w-4 h-4 bg-green-400 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
-                        
-                        <!-- Connection lines -->
-                        <svg class="absolute inset-0 w-full h-full" style="transform: rotateX(20deg) rotateY(45deg);">
-                            <line x1="10%" y1="10%" x2="50%" y2="50%" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1" stroke-dasharray="2,2">
-                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
-                            </line>
-                            <line x1="90%" y1="20%" x2="50%" y2="50%" stroke="rgba(6, 182, 212, 0.3)" stroke-width="1" stroke-dasharray="2,2">
-                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
-                            </line>
-                            <line x1="20%" y1="80%" x2="50%" y2="50%" stroke="rgba(20, 184, 166, 0.3)" stroke-width="1" stroke-dasharray="2,2">
-                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
-                            </line>
-                            <line x1="90%" y1="90%" x2="50%" y2="50%" stroke="rgba(34, 197, 94, 0.3)" stroke-width="1" stroke-dasharray="2,2">
-                                <animate attributeName="stroke-dashoffset" values="0;4" dur="2s" repeatCount="indefinite" />
-                            </line>
-                        </svg>
                     </div>
                     
-                    <!-- Info cards -->
-                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-xl transform rotate-3">
-                        <div class="flex items-center space-x-2 mb-2">
-                            <i data-lucide="shield-check" class="h-4 w-4 text-green-400"></i>
-                            <span class="text-xs font-semibold text-white">Security Status</span>
+                    <!-- Floating info cards -->
+                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-indigo-900/20 w-40 transform rotate-3 animate-float" style="animation-duration: 6s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="h-4 w-4 text-indigo-400"></i>
+                            <span class="text-xs font-semibold text-white">Hierarchy Map</span>
                         </div>
-                        <div class="text-xs text-green-400 font-mono">ENCRYPTED</div>
+                        <div class="mt-2 flex items-center justify-between text-xs">
+                            <span class="text-gray-500">Levels</span>
+                            <span class="text-indigo-400">4</span>
+                        </div>
                     </div>
                     
-                    <div class="absolute -bottom-4 -left-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-xl transform -rotate-3">
-                        <div class="flex items-center space-x-2 mb-2">
-                            <i data-lucide="activity" class="h-4 w-4 text-blue-400"></i>
-                            <span class="text-xs font-semibold text-white">Live Feed</span>
+                    <div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-purple-900/20 w-40 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="git-branch" class="h-4 w-4 text-purple-400"></i>
+                            <span class="text-xs font-semibold text-white">Connections</span>
                         </div>
-                        <div class="text-xs text-blue-400 font-mono">STREAMING</div>
+                        <div class="mt-2 flex items-center justify-between text-xs">
+                            <span class="text-gray-500">Active</span>
+                            <span class="text-purple-400">12</span>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technology showcase -->
+        <div class="mt-16 text-center">
+            <div class="inline-flex items-center space-x-4 bg-gray-900/50 backdrop-blur border border-gray-800 rounded-full px-6 py-3">
+                <span class="text-sm text-gray-400">Powered by:</span>
+                <div class="flex items-center space-x-3">
+                    <span class="text-xs bg-indigo-900/30 text-indigo-400 px-2 py-1 rounded-full border border-indigo-800/50">D3.js</span>
+                    <span class="text-xs bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full border border-purple-800/50">Graph Theory</span>
+                    <span class="text-xs bg-pink-900/30 text-pink-400 px-2 py-1 rounded-full border border-pink-800/50">SVG</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Featured Datasets Section -->
-<section id="datasets" class="py-20 bg-black relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6, 182, 212, 0.1) 2px, rgba(6, 182, 212, 0.1) 4px); background-size: 100% 4px;"></div>
-    </div>
-    <div class="container mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center space-y-4 mb-16">
-            <div class="inline-flex items-center space-x-2 bg-green-900/20 border border-green-800/30 rounded-full px-4 py-1 text-green-400 text-sm font-mono mb-4">
-                <span class="text-xs">DATASETS.query(featured=true)</span>
-            </div>
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
-                Featured <span class="bg-gradient-to-r from-green-400 to-emerald-400 text-transparent bg-clip-text">Datasets</span>
-            </h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
-                Explore our most popular and impactful public datasets with real-time updates.
-            </p>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {% for dataset in site.data.datasets %}
-            <div class="group relative">
-                <!-- Hover glow effect -->
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl opacity-0 group-hover:opacity-75 transition duration-500 blur-sm"></div>
-                <!-- Card -->
-                <div class="relative bg-gray-900/90 backdrop-blur border border-gray-800 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300">
-                    <!-- Header with category -->
-                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-4 flex items-center justify-between">
-                        <span class="text-xs font-medium bg-green-900/30 text-green-400 px-3 py-1 rounded-full border border-green-800/50">
-                            {{ dataset.category }}
-                        </span>
-                        <div class="flex items-center space-x-2 text-xs text-gray-500">
-                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            <span>{{ dataset.updated }}</span>
-                        </div>
-                    </div>
-                    <!-- Content -->
-                    <div class="p-6 space-y-4">
-                        <h3 class="text-lg font-semibold text-white group-hover:text-green-400 transition-colors">
-                            {{ dataset.title }}
-                        </h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">{{ dataset.description }}</p>
-                        <!-- Data preview -->
-                        <div class="bg-gray-800/50 rounded-lg p-3 font-mono text-xs space-y-1">
-                            <div class="text-gray-500"># Sample query</div>
-                            <div class="text-green-400">SELECT * FROM {{ dataset.title | downcase | replace: ' ', '_' }}</div>
-                            <div class="text-gray-500">LIMIT 100;</div>
-                        </div>
-                        <!-- Action button -->
-                        <a href="{{ dataset.url | default: '#' }}" class="block w-full bg-gray-800 group-hover:bg-green-900/30 border border-gray-700 group-hover:border-green-500/50 text-center py-3 rounded-lg text-sm font-medium text-gray-300 group-hover:text-green-400 transition-all duration-300">
-                            <span class="flex items-center justify-center">
-                                Access Dataset
-                                <i data-lucide="database" class="ml-2 h-4 w-4"></i>
-                            </span>
-                        </a>
-                    </div>
-                    <!-- Loading bar animation -->
-                    <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gray-800">
-                        <div class="h-full bg-gradient-to-r from-green-400 to-emerald-400 animate-pulse" style="width: {{ forloop.index | times: 15 | plus: 40 }}%;"></div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <!-- View all datasets link -->
-        <div class="mt-12 text-center">
-            <a href="#" class="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors group">
-                <span class="font-mono text-sm">view --all datasets</span>
-                <i data-lucide="terminal" class="h-4 w-4 group-hover:translate-x-1 transition-transform"></i>
-            </a>
-        </div>
-    </div>
-</section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Simple left-to-right organizational structure
+    const nodes = [
+        { id: 1, x: 50, y: 200, level: 0 },   // Root
+        { id: 2, x: 150, y: 120, level: 1 },  // Level 1
+        { id: 3, x: 150, y: 200, level: 1 },  // Level 1
+        { id: 4, x: 150, y: 280, level: 1 },  // Level 1
+        { id: 5, x: 250, y: 80, level: 2 },   // Level 2
+        { id: 6, x: 250, y: 140, level: 2 },  // Level 2
+        { id: 7, x: 250, y: 180, level: 2 },  // Level 2
+        { id: 8, x: 250, y: 220, level: 2 },  // Level 2
+        { id: 9, x: 250, y: 260, level: 2 },  // Level 2
+        { id: 10, x: 250, y: 320, level: 2 }, // Level 2
+        { id: 11, x: 350, y: 100, level: 3 }, // Level 3
+        { id: 12, x: 350, y: 160, level: 3 }, // Level 3
+        { id: 13, x: 350, y: 200, level: 3 }, // Level 3
+        { id: 14, x: 350, y: 240, level: 3 }, // Level 3
+        { id: 15, x: 350, y: 300, level: 3 }  // Level 3
+    ];
+
+    const connections = [
+        { from: 1, to: 2 }, { from: 1, to: 3 }, { from: 1, to: 4 },
+        { from: 2, to: 5 }, { from: 2, to: 6 },
+        { from: 3, to: 7 }, { from: 3, to: 8 },
+        { from: 4, to: 9 }, { from: 4, to: 10 },
+        { from: 5, to: 11 }, { from: 6, to: 12 },
+        { from: 7, to: 13 }, { from: 8, to: 14 }, { from: 9, to: 15 }
+    ];
+
+    // Initialize after loading delay
+    setTimeout(() => {
+        document.getElementById('org-loading').style.display = 'none';
+        renderOrgChart();
+    }, 1500);
+
+    function renderOrgChart() {
+        const svg = document.getElementById('org-chart-svg');
+        svg.innerHTML = '';
+
+        // Render connections first
+        connections.forEach((conn, index) => {
+            const fromNode = nodes.find(n => n.id === conn.from);
+            const toNode = nodes.find(n => n.id === conn.to);
+            
+            if (fromNode && toNode) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', fromNode.x);
+                line.setAttribute('y1', fromNode.y);
+                line.setAttribute('x2', toNode.x);
+                line.setAttribute('y2', toNode.y);
+                line.setAttribute('stroke', 'rgba(99, 102, 241, 0.4)');
+                line.setAttribute('stroke-width', '2');
+                line.style.opacity = '0';
+                line.style.animation = `fadeIn 0.8s ease-out forwards`;
+                line.style.animationDelay = `${index * 0.1}s`;
+                
+                svg.appendChild(line);
+            }
+        });
+
+        // Render nodes
+        nodes.forEach((node, index) => {
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', node.x);
+            circle.setAttribute('cy', node.y);
+            circle.setAttribute('r', getNodeSize(node.level));
+            circle.setAttribute('fill', getNodeColor(node.level));
+            circle.setAttribute('stroke', 'white');
+            circle.setAttribute('stroke-width', '2');
+            circle.setAttribute('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))');
+            circle.style.opacity = '0';
+            circle.style.animation = `fadeInScale 0.6s ease-out forwards`;
+            circle.style.animationDelay = `${index * 0.1 + 0.5}s`;
+            
+            svg.appendChild(circle);
+        });
+    }
+
+    function getNodeSize(level) {
+        switch (level) {
+            case 0: return 12; // Root
+            case 1: return 10; // Level 1
+            case 2: return 8;  // Level 2
+            case 3: return 6;  // Level 3
+            default: return 5;
+        }
+    }
+
+    function getNodeColor(level) {
+        switch (level) {
+            case 0: return 'rgba(99, 102, 241, 0.9)';   // Indigo
+            case 1: return 'rgba(147, 51, 234, 0.9)';   // Purple
+            case 2: return 'rgba(236, 72, 153, 0.9)';   // Pink
+            case 3: return 'rgba(6, 182, 212, 0.9)';    // Cyan
+            default: return 'rgba(156, 163, 175, 0.9)';
+        }
+    }
+
+    // Add CSS animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+            50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
+        }
+        .animate-float {
+            animation: float ease-in-out infinite;
+        }
+    `;
+    document.head.appendChild(style);
+});
+</script>
+
+
 
 <!-- What We Offer Section -->
 <section class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
