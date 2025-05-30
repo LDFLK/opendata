@@ -116,34 +116,6 @@ description: "Empowering communities through transparent access to public inform
                         </div>
                     </div>
                     
-                    <!-- Floating data cards -->
-                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform rotate-3 animate-float" style="animation-duration: 6s;">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="bar-chart-2" class="h-4 w-4 text-blue-400"></i>
-                            <span class="text-xs font-semibold text-white">Budget Transparency</span>
-                        </div>
-                        <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-blue-500 rounded-full" style="width: 78%;"></div>
-                        </div>
-                        <div class="mt-1 flex justify-between text-xs">
-                            <span class="text-gray-500">2023</span>
-                            <span class="text-blue-400">78%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="file-text" class="h-4 w-4 text-teal-400"></i>
-                            <span class="text-xs font-semibold text-white">Public Records</span>
-                        </div>
-                        <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="h-full bg-teal-500 rounded-full" style="width: 92%;"></div>
-                        </div>
-                        <div class="mt-1 flex justify-between text-xs">
-                            <span class="text-gray-500">Q2 2024</span>
-                            <span class="text-teal-400">92%</span>
-                        </div>
-                    </div>
 
                     <!-- Floating data cards -->
 <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform rotate-3 animate-float" style="animation-duration: 6s;">
@@ -151,14 +123,8 @@ description: "Empowering communities through transparent access to public inform
         <i data-lucide="database" class="h-4 w-4 text-blue-400"></i>
         <span class="text-xs font-semibold text-white">Data Collection</span>
     </div>
-    <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
-        <div class="h-full bg-blue-500 rounded-full" style="width: 85%;"></div>
-    </div>
-    <div class="mt-1 flex justify-between text-xs">
-        <span class="text-gray-500">Active Sources</span>
-        <span class="text-blue-400">85%</span>
-    </div>
     
+  
     <!-- Mini feature indicators -->
     <div class="mt-2 flex items-center justify-between text-xs">
         <div class="flex items-center space-x-1">
@@ -177,13 +143,7 @@ description: "Empowering communities through transparent access to public inform
         <i data-lucide="search" class="h-4 w-4 text-teal-400"></i>
         <span class="text-xs font-semibold text-white">Data Exploration</span>
     </div>
-    <div class="mt-2 h-2 bg-gray-800 rounded-full overflow-hidden">
-        <div class="h-full bg-teal-500 rounded-full" style="width: 92%;"></div>
-    </div>
-    <div class="mt-1 flex justify-between text-xs">
-        <span class="text-gray-500">Insights Found</span>
-        <span class="text-teal-400">92%</span>
-    </div>
+    
     
     <!-- Mini feature indicators -->
     <div class="mt-2 flex items-center justify-between text-xs">
