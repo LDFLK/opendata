@@ -128,12 +128,12 @@ description: "Empowering communities through transparent access to public inform
     <!-- Mini feature indicators -->
     <div class="mt-2 flex items-center justify-between text-xs">
         <div class="flex items-center space-x-1">
-            <i data-lucide="wifi" class="h-3 w-3 text-green-400"></i>
-            <span class="text-green-400">Live</span>
+            <i data-lucide="book-check" class="h-3 w-3 text-green-400"></i>
+            <span class="text-green-400">Verified</span>
         </div>
         <div class="flex items-center space-x-1">
-            <i data-lucide="shield-check" class="h-3 w-3 text-blue-400"></i>
-            <span class="text-blue-400">Secure</span>
+            <i data-lucide="globe" class="h-3 w-3 text-blue-400"></i>
+            <span class="text-blue-400">Open</span>
         </div>
     </div>
 </div>
