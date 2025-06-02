@@ -1,0 +1,133 @@
+
+<!-- Organization Hierarchy Showcase Section -->
+<section id="org-hierarchy" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-1/3 left-1/6 w-96 h-96 bg-indigo-500/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/3 right-1/6 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 3s;"></div>
+    </div>
+    
+    <!-- Circuit pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(99, 102, 241, 0.1) 10px, rgba(99, 102, 241, 0.1) 11px);"></div>
+    
+    <div class="container mx-auto px-4 md:px-6 relative z-10">
+        <div class="text-center space-y-4 mb-16">
+            <div class="inline-flex items-center space-x-2 bg-indigo-900/20 border border-indigo-800/30 rounded-full px-4 py-1 text-indigo-400 text-sm font-mono mb-4">
+                <span class="text-xs">ORG_CHART.render() // Interactive</span>
+            </div>
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
+                Visualize <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">Organizational</span> Structures
+            </h2>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+                Interactive organizational charts and hierarchy trees that reveal the structure of government institutions, 
+                making complex bureaucracies transparent and navigable.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <!-- Left side: Text content -->
+            <div class="space-y-6 text-left">
+                <h3 class="text-2xl font-semibold text-white">
+                    Organizational <span class="bg-gradient-to-r from-indigo-400 to-purple-400 text-transparent bg-clip-text">Hierarchy</span>
+                </h3>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Transform complex organizational structures into clear, interactive visualizations. 
+                    Our platform maps institutional hierarchies, revealing reporting relationships 
+                    and departmental connections with precision.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-indigo-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="git-branch" class="h-4 w-4 text-indigo-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Multi-level Hierarchies</h4>
+                            <p class="text-gray-400 text-sm">Visualize complex organizational structures from executive level to operational units</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-purple-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="eye" class="h-4 w-4 text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Transparent Relationships</h4>
+                            <p class="text-gray-400 text-sm">Clear visualization of reporting lines and departmental connections</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-6 h-6 bg-pink-600/20 rounded-lg flex items-center justify-center mt-1">
+                            <i data-lucide="trending-up" class="h-4 w-4 text-pink-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-medium">Real-time Updates</h4>
+                            <p class="text-gray-400 text-sm">Live organizational data with automatic structure updates</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right side: Organizational Chart Visualization -->
+            <div class="relative">
+                <div class="relative w-full max-w-lg mx-auto">
+                    <!-- Glowing background effect -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-600/10 to-pink-700/20 blur-xl"></div>
+                    
+                    <!-- Main visualization container -->
+                    <div class="relative aspect-square">
+                        <!-- SVG for organizational chart -->
+                        <svg id="org-chart-svg" class="w-full h-full" viewBox="0 0 400 400">
+                            <!-- Chart will be rendered here -->
+                        </svg>
+                        
+                        <!-- Loading animation -->
+                        <div id="org-loading" class="absolute inset-0 flex items-center justify-center">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-indigo-400 rounded-full animate-bounce"></div>
+                                <div class="w-3 h-3 bg-purple-400 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                <div class="w-3 h-3 bg-pink-400 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating info cards -->
+                    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-indigo-900/20 w-40 transform rotate-3 animate-float" style="animation-duration: 6s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="users" class="h-4 w-4 text-indigo-400"></i>
+                            <span class="text-xs font-semibold text-white">Hierarchy Map</span>
+                        </div>
+                        <div class="mt-2 flex items-center justify-between text-xs">
+                            <span class="text-gray-500">Levels</span>
+                            <span class="text-indigo-400">4</span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-purple-900/20 w-40 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="git-branch" class="h-4 w-4 text-purple-400"></i>
+                            <span class="text-xs font-semibold text-white">Connections</span>
+                        </div>
+                        <div class="mt-2 flex items-center justify-between text-xs">
+                            <span class="text-gray-500">Active</span>
+                            <span class="text-purple-400">12</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Technology showcase -->
+        <div class="mt-16 text-center">
+            <div class="inline-flex items-center space-x-4 bg-gray-900/50 backdrop-blur border border-gray-800 rounded-full px-6 py-3">
+                <span class="text-sm text-gray-400">Powered by:</span>
+                <div class="flex items-center space-x-3">
+                    <span class="text-xs bg-indigo-900/30 text-indigo-400 px-2 py-1 rounded-full border border-indigo-800/50">D3.js</span>
+                    <span class="text-xs bg-purple-900/30 text-purple-400 px-2 py-1 rounded-full border border-purple-800/50">Graph Theory</span>
+                    <span class="text-xs bg-pink-900/30 text-pink-400 px-2 py-1 rounded-full border border-pink-800/50">SVG</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+<!-- 3D data visualization sphere -->
+<div class="relative w-full aspect-square max-w-md mx-auto">
+    <!-- Glowing orb -->
+    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-blue-900/20 via-blue-600/10 to-cyan-700/20 blur-xl"></div>
+    
+    <!-- Data visualization sphere -->
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div class="relative w-4/5 h-4/5">
+            <!-- Rotating rings -->
+            <div class="absolute inset-0 border border-blue-500/30 rounded-full animate-spin" style="animation-duration: 20s;"></div>
+            <div class="absolute inset-[10%] border border-cyan-500/20 rounded-full animate-spin" style="animation-duration: 15s; animation-direction: reverse;"></div>
+            <div class="absolute inset-[20%] border border-teal-500/20 rounded-full animate-spin" style="animation-duration: 25s;"></div>
+            
+            <!-- SVG for node connections -->
+            <svg id="node-connections" class="absolute inset-0 w-full h-full" style="z-index: 1;"></svg>
+
+            <!-- Data points -->
+            <div id="data-points-container" class="absolute inset-0" style="z-index: 2;">
+                <!-- Data points will be added by JavaScript -->
+            </div>
+
+            <!-- Core -->
+            <div class="absolute inset-[40%] bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full opacity-80 shadow-lg shadow-blue-500/50 animate-pulse" style="animation-duration: 3s; z-index: 3;"></div>
+        </div>
+    </div>
+
+    <!-- Floating data cards -->
+    <div class="absolute -top-4 -right-4 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform rotate-3 animate-float" style="animation-duration: 6s;">
+        <div class="flex items-center space-x-2">
+            <i data-lucide="database" class="h-4 w-4 text-blue-400"></i>
+            <span class="text-xs font-semibold text-white">Data Collection</span>
+        </div>
+        
+        <!-- Mini feature indicators -->
+        <div class="mt-2 flex items-center justify-between text-xs">
+            <div class="flex items-center space-x-1">
+                <i data-lucide="book-check" class="h-3 w-3 text-green-400"></i>
+                <span class="text-green-400">Verified</span>
+            </div>
+            <div class="flex items-center space-x-1">
+                <i data-lucide="globe" class="h-3 w-3 text-blue-400"></i>
+                <span class="text-blue-400">Open</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute -bottom-6 -left-6 bg-gray-900/90 backdrop-blur border border-gray-800 rounded-lg p-3 shadow-lg shadow-blue-900/20 w-48 transform -rotate-6 animate-float" style="animation-duration: 7s; animation-delay: 1s;">
+        <div class="flex items-center space-x-2">
+            <i data-lucide="search" class="h-4 w-4 text-teal-400"></i>
+            <span class="text-xs font-semibold text-white">Data Exploration</span>
+        </div>
+        
+        <!-- Mini feature indicators -->
+        <div class="mt-2 flex items-center justify-between text-xs">
+            <div class="flex items-center space-x-1">
+                <i data-lucide="trending-up" class="h-3 w-3 text-emerald-400"></i>
+                <span class="text-emerald-400">Trending</span>
+            </div>
+            <div class="flex items-center space-x-1">
+                <i data-lucide="zap" class="h-3 w-3 text-yellow-400"></i>
+                <span class="text-yellow-400">Fast</span>
+            </div>
+        </div>
+    </div>
+</div>

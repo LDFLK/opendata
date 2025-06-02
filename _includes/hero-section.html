@@ -1,0 +1,35 @@
+<!-- Hero Section -->
+<section id="home" class="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
+    <!-- Digital grid background -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(25,25,25,0.8)_0%,rgba(0,0,0,1)_100%)]"></div>
+    
+    <!-- Animated grid lines -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <!-- Horizontal scanning line -->
+        <div id="scanning-line" class="absolute left-0 w-full h-[2px] bg-blue-400/50 blur-[2px]" style="top: 50%; box-shadow: 0 0 15px 2px rgba(59, 130, 246, 0.5);"></div>
+    </div>
+    
+    <!-- Data stream animation -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div id="data-stream-container" class="absolute inset-0 flex justify-between opacity-30">
+            <!-- Data streams will be added by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="relative z-10 container mx-auto px-4 md:px-6">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <!-- Left side: Text content -->
+            <div class="space-y-6 text-left">
+                {% include hero-components.html %}
+               
+            </div>
+            
+            <!-- Right side: Visual element -->
+            <div class="hidden md:block relative">
+                {% include hero-visualization.html %}
+            </div>
+        </div>
+    </div>
+</section>
