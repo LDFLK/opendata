@@ -1,0 +1,55 @@
+# Site settings
+title: "Open Data"
+description: "Empowering communities with public data"
+url: "https://yasandu0505.github.io"
+baseurl: "/opendata-web"
+version: v0.1.0
+
+# Contact information
+email: "contact@datafoundation.lk"
+phone: "+94 77 386 7813"
+address: "248/201 Hill street Dehiwala, Sri Lanka"
+
+# Social media
+social:
+  linkedin: "https://www.linkedin.com/company/lankadata/"
+  github: "https://github.com/LDFLK"
+  discord: "https://discord.gg/RXCT6zCUxB"
+
+# Statistics
+stats:
+  datasets: "50K+"
+  users: "100K+"
+  cities: "25+"
+  subscribers: "10,000+"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Collections
+collections:
+  datasets:
+    output: true
+    permalink: /:collection/:name/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+
+github:
+  contributors: 127
