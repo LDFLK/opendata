@@ -126,3 +126,48 @@ a:focus {
 pre code {
   font-family: "Fira Code", "Consolas", monospace;
 }
+
+/* Data flow animation */
+@keyframes dataflow {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-dataflow {
+  animation: dataflow linear infinite;
+}
+
+/* Floating animation */
+@keyframes float-custom {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rotation, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--rotation, 0deg));
+  }
+}
+
+.animate-float-custom {
+  animation: float-custom ease-in-out infinite;
+}
+
+a{
+  outline: none !important;
+}
+
+a:focus{
+  outline: none !important;
+}
