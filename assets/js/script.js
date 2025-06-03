@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    
+
+
+
     // Animated counter function
     function animateCounter(elementId, targetValue) {
         const element = document.getElementById(elementId);
