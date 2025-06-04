@@ -4,13 +4,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 * {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-    sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-    sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
 }
 
@@ -20,8 +20,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial,
-    sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
 }
 
@@ -164,10 +164,149 @@ pre code {
   animation: float-custom ease-in-out infinite;
 }
 
-a{
+a {
   outline: none !important;
 }
 
-a:focus{
+a:focus {
   outline: none !important;
+}
+
+@keyframes matrixFall {
+  to {
+    transform: translateY(200vh);
+  }
+}
+
+/* Organization Hierarchy Styles */
+.org-hierarchy-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.hierarchy-svg {
+  background: transparent;
+  overflow: visible;
+}
+
+/* Node styles */
+.node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.node-circle {
+  fill: #1e293b;
+  stroke: #3b82f6;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  transition: all 0.3s ease;
+}
+
+.node:hover .node-circle {
+  fill: #1e40af;
+  stroke: #60a5fa;
+  stroke-width: 3;
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+  transform: scale(1.05);
+}
+
+/* Icon styles */
+.node-icon {
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.node:hover .node-icon path {
+  stroke: #60a5fa;
+  filter: drop-shadow(0 0 5px rgba(96, 165, 250, 0.6));
+}
+
+.node-label {
+  fill: #94a3b8;
+  font-family: "Monaco", "Consolas", monospace;
+  font-size: 11px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+/* Connection lines */
+.connection-line {
+  stroke: #374151;
+  stroke-width: 2;
+  fill: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.connection-line.active {
+  stroke: #3b82f6;
+  stroke-width: 3;
+  opacity: 1;
+  filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.6));
+}
+
+/* Data flow animation */
+.data-flow {
+  fill: #60a5fa;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.8));
+  animation: dataFlow 2s ease-in-out;
+}
+
+@keyframes dataFlow {
+  0% {
+    opacity: 0;
+    r: 2;
+  }
+  25% {
+    opacity: 1;
+    r: 4;
+  }
+  75% {
+    opacity: 1;
+    r: 4;
+  }
+  100% {
+    opacity: 0;
+    r: 2;
+  }
+}
+
+/* Glow effects */
+.pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.7));
+  }
+}
+
+/* Info panel */
+.node-info.visible {
+  opacity: 1 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .org-hierarchy-container {
+    padding: 1rem;
+  }
+
+  .hierarchy-svg {
+    height: 300px;
+  }
+
+  .node-text {
+    font-size: 12px;
+  }
+
+  .node-label {
+    font-size: 9px;
+  }
 }
