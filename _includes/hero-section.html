@@ -3,14 +3,13 @@
     <!-- Enhanced digital gradient background -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,15,20,0.95)_0%,rgba(0,0,0,1)_100%)]"></div>
     
-    <!-- Subtle glow effects -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-blue-900/5 blur-[100px]"></div>
-        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-indigo-900/5 blur-[80px]"></div>
+        <!-- Digital circuit tree animation -->
+    <div id="circuit-tree" class="absolute inset-0 overflow-hidden opacity-55">
+        <canvas id="circuit-canvas" class="w-full h-full"></canvas>
     </div>
     
     <!-- Enhanced grid lines -->
-    <div class="absolute inset-0 overflow-hidden opacity-15">
+    <div class="absolute inset-0 overflow-hidden opacity-10">
         <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.07) 1px, transparent 1px); background-size: 40px 40px;"></div>
         <!-- Horizontal scanning line with enhanced glow -->
         <div id="scanning-line" class="absolute left-0 w-full h-[1.5px] bg-blue-400/40 blur-[3px]" style="top: 50%; box-shadow: 0 0 20px 3px rgba(59, 130, 246, 0.4);"></div>
@@ -71,8 +70,338 @@
         </div>
     </div>
     
-    <!-- Improved animation script -->
+    <!-- Circuit tree animation script -->
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up the canvas
+            const canvas = document.getElementById('circuit-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas dimensions to match its display size
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            // Global animation control
+            const maxTreeDepth = 5; // Maximum depth of tree branches
+            const maxTotalNodes = 75; // Increased max nodes
+            let totalNodes = 0; // Track total nodes
+            let animationStartTime = Date.now();
+            let fadeState = 'growing'; // States: growing, complete, fading, paused
+            let globalOpacity = 1;
+            
+            // Circuit tree node class
+            class Node {
+                constructor(x, y, parent = null, direction = null, depth = 0) {
+                    this.x = x;
+                    this.y = y;
+                    this.parent = parent;
+                    this.children = [];
+                    this.depth = depth; // Track depth level
+                    this.maxChildren = this.depth < 2 ? 3 : Math.floor(Math.random() * 2) + 1; // More branches at start
+                    this.growthComplete = false;
+                    this.lifespan = 300 + Math.random() * 400;
+                    this.age = 0;
+                    this.pulseOffset = Math.random() * Math.PI * 2;
+                    this.pulseSpeed = 0.015 + Math.random() * 0.02;
+                    this.size = 2 + Math.random() * 3;
+                    this.growthDelay = Math.floor(Math.random() * 40) + 20;
+                    this.direction = direction || Math.random() * Math.PI * 2;
+                    this.branchProbability = 0.7;
+                    
+                    // Increment total node count
+                    totalNodes++;
+                }
+                
+                grow() {
+                    // Don't grow if we're fading or paused
+                    if (fadeState === 'fading' || fadeState === 'paused') return;
+                    
+                    this.age++;
+                    
+                    // Stop growth if we've reached time limit or max nodes
+                    const timeRunning = Date.now() - animationStartTime;
+                    const growthLimitReached = timeRunning > 10000 || totalNodes >= maxTotalNodes;
+                    
+                    // Only grow children if not at max depth, not growth limited, and not complete
+                    if (!growthLimitReached && 
+                        this.age > this.growthDelay && 
+                        !this.growthComplete && 
+                        this.children.length < this.maxChildren && 
+                        this.depth < maxTreeDepth) {
+                        
+                        // 20% chance to grow a new branch
+                        if (Math.random() < 0.2 && this.children.length < this.maxChildren) {
+                            // Determine if this branch follows parent direction (more tree-like)
+                            let angle;
+                            if (Math.random() < this.branchProbability) {
+                                // Follow parent direction with slight variation
+                                const variation = (Math.random() - 0.5) * Math.PI * 0.5; // ±45 degrees
+                                angle = this.direction + variation;
+                            } else {
+                                // Random direction
+                                angle = Math.random() * Math.PI * 2;
+                            }
+                            
+                            // Increased distance for better spacing
+                            const distance = 50 + Math.random() * 80;
+                            const newX = this.x + Math.cos(angle) * distance;
+                            const newY = this.y + Math.sin(angle) * distance;
+                            
+                            // Only add if within canvas bounds with padding
+                            const padding = 50;
+                            if (
+                                newX > padding && 
+                                newX < canvas.width - padding && 
+                                newY > padding && 
+                                newY < canvas.height - padding
+                            ) {
+                                // Check if the new node is too close to any existing node
+                                let tooClose = false;
+                                const minDistance = 40; // Minimum distance between nodes
+                                
+                                // Check distance to nodes in this tree
+                                if (!this.isTooCloseToAnyNode(newX, newY, minDistance)) {
+                                    this.children.push(new Node(newX, newY, this, angle, this.depth + 1));
+                                }
+                            }
+                        }
+                        
+                        // Mark as complete if max children reached
+                        if (this.children.length >= this.maxChildren) {
+                            this.growthComplete = true;
+                        }
+                    } else if (!this.growthComplete && (growthLimitReached || this.depth >= maxTreeDepth)) {
+                        // Mark as complete if we've reached limits
+                        this.growthComplete = true;
+                    }
+                    
+                    // Grow children recursively
+                    for (const child of this.children) {
+                        child.grow();
+                    }
+                }
+                
+                // Check if a position is too close to any node in this tree
+                isTooCloseToAnyNode(x, y, minDistance) {
+                    // Check distance to this node
+                    const dx = this.x - x;
+                    const dy = this.y - y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < minDistance) {
+                        return true;
+                    }
+                    
+                    // Check children recursively
+                    for (const child of this.children) {
+                        if (child.isTooCloseToAnyNode(x, y, minDistance)) {
+                            return true;
+                        }
+                    }
+                    
+                    return false;
+                }
+                
+                draw(ctx, time) {
+                    if (this.age <= 0) return;
+                    
+                    // Calculate opacity based on age and lifespan
+                    let opacity = globalOpacity; // Apply global fade
+                    if (this.age < 30) {
+                        opacity *= this.age / 30;
+                    } else if (this.age > this.lifespan - 45) {
+                        opacity *= (this.lifespan - this.age) / 45;
+                    }
+                    
+                    // Calculate pulse effect
+                    const pulse = Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.3 + 0.7;
+                    
+                    // Draw connection to parent
+                    if (this.parent) {
+                        const gradient = ctx.createLinearGradient(this.parent.x, this.parent.y, this.x, this.y);
+                        gradient.addColorStop(0, `rgba(0, 180, 255, ${0.3 * opacity * pulse})`);
+                        gradient.addColorStop(1, `rgba(0, 210, 255, ${0.6 * opacity * pulse})`);
+                        
+                        ctx.beginPath();
+                        ctx.moveTo(this.parent.x, this.parent.y);
+                        ctx.lineTo(this.x, this.y);
+                        ctx.strokeStyle = gradient;
+                        ctx.lineWidth = 1.5;
+                        ctx.stroke();
+                    }
+                    
+                    // Draw node
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * pulse, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 210, 255, ${0.7 * opacity * pulse})`;
+                    ctx.fill();
+                    
+                    // Draw glow
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 2 * pulse, 0, Math.PI * 2);
+                    const glow = ctx.createRadialGradient(
+                        this.x, this.y, this.size * pulse,
+                        this.x, this.y, this.size * 2 * pulse
+                    );
+                    glow.addColorStop(0, `rgba(0, 210, 255, ${0.4 * opacity * pulse})`);
+                    glow.addColorStop(1, 'rgba(0, 210, 255, 0)');
+                    ctx.fillStyle = glow;
+                    ctx.fill();
+                    
+                    // Draw children
+                    for (const child of this.children) {
+                        child.draw(ctx, time);
+                    }
+                }
+                
+                // Count total nodes in this tree
+                countNodes() {
+                    let count = 1; // Count this node
+                    for (const child of this.children) {
+                        count += child.countNodes();
+                    }
+                    return count;
+                }
+                
+                // Remove this node from total count when it dies
+                die() {
+                    totalNodes--;
+                    for (const child of this.children) {
+                        child.die();
+                    }
+                }
+            }
+            
+            // Create circuit trees with better distribution
+            const trees = [];
+            const numTrees = 3; 
+            
+            function createTree() {
+                // Only create if we haven't reached max nodes
+                if (totalNodes < maxTotalNodes) {
+                    // Distribute trees more evenly across the canvas
+                    const section = canvas.width / numTrees;
+                    const index = trees.length;
+                    const minX = section * index;
+                    const maxX = section * (index + 1);
+                    const x = minX + Math.random() * (maxX - minX);
+                    const y = canvas.height - (Math.random() * canvas.height * 0.3); // Bottom 30%
+                    const direction = -Math.PI/2 + (Math.random() - 0.5) * Math.PI/4; // Mostly upward
+                    trees.push(new Node(x, y, null, direction, 0));
+                }
+            }
+            
+            // Create initial trees with better spacing
+            function createInitialTrees() {
+                trees.length = 0;
+                totalNodes = 0;
+                
+                // Create trees with better distribution
+                for (let i = 0; i < numTrees; i++) {
+                    const section = canvas.width / numTrees;
+                    const minX = section * i;
+                    const maxX = section * (i + 1);
+                    const x = minX + Math.random() * (maxX - minX);
+                    const y = canvas.height - (Math.random() * canvas.height * 0.3);
+                    const direction = -Math.PI/2 + (Math.random() - 0.5) * Math.PI/4;
+                    trees.push(new Node(x, y, null, direction, 0));
+                }
+            }
+            
+            createInitialTrees();
+            
+            // Reset animation function with smooth transitions
+            function resetAnimation() {
+                // Start fading out
+                fadeState = 'fading';
+                
+                // Fade out over 1 second
+                const fadeOut = setInterval(() => {
+                    globalOpacity -= 0.05;
+                    if (globalOpacity <= 0) {
+                        globalOpacity = 0;
+                        clearInterval(fadeOut);
+                        
+                        // Clear trees and pause for 2 seconds
+                        for (const tree of trees) {
+                            tree.die();
+                        }
+                        trees.length = 0;
+                        totalNodes = 0;
+                        fadeState = 'paused';
+                        
+                        // After 2 seconds, create new trees and fade in
+                        setTimeout(() => {
+                            animationStartTime = Date.now();
+                            createInitialTrees();
+                            fadeState = 'growing';
+                            
+                            // Fade in over 1 second
+                            const fadeIn = setInterval(() => {
+                                globalOpacity += 0.05;
+                                if (globalOpacity >= 1) {
+                                    globalOpacity = 1;
+                                    clearInterval(fadeIn);
+                                }
+                            }, 50);
+                        }, 2000);
+                    }
+                }, 50);
+            }
+            
+            // Reset animation every 20 seconds (shorter cycle)
+            setInterval(resetAnimation, 20000);
+            
+            // Animation loop
+            let time = 0;
+            function animate() {
+                time += 0.008;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Grow and draw trees
+                for (const tree of trees) {
+                    tree.grow();
+                    tree.draw(ctx, time);
+                }
+                
+                // Check if we need to add new trees (but respect max nodes)
+                const timeRunning = Date.now() - animationStartTime;
+                if (fadeState === 'growing' && timeRunning < 10000 && Math.random() < 0.003 && trees.length < numTrees && totalNodes < maxTotalNodes) {
+                    createTree();
+                }
+                
+                // Remove dead trees
+                for (let i = trees.length - 1; i >= 0; i--) {
+                    if (trees[i].age > trees[i].lifespan) {
+                        // Remove nodes from count
+                        trees[i].die();
+                        trees.splice(i, 1);
+                        
+                        // Add a new tree to replace it if we haven't reached time limit
+                        const timeRunning = Date.now() - animationStartTime;
+                        if (fadeState === 'growing' && timeRunning < 10000 && totalNodes < maxTotalNodes) {
+                            setTimeout(() => {
+                                createTree();
+                            }, 1000 + Math.random() * 2000);
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Start animation
+            animate();
+        });
+        
         // Wait for page load
         window.addEventListener('load', function() {
             // Initialize Lucide icons again to ensure they're rendered
@@ -108,6 +437,23 @@
             // Animate cards with delay and specific final rotations
             animateCard('data-collection-card', 1000, 3);
             animateCard('data-exploration-card', 1500, -6);
+            
+            // Animate scanning line
+            const scanningLine = document.getElementById('scanning-line');
+            if (scanningLine) {
+                scanningLine.style.transition = 'top 20s linear';
+                scanningLine.style.top = '90%';
+                
+                // Reset and repeat animation
+                setInterval(() => {
+                    scanningLine.style.transition = 'none';
+                    scanningLine.style.top = '10%';
+                    setTimeout(() => {
+                        scanningLine.style.transition = 'top 20s linear';
+                        scanningLine.style.top = '90%';
+                    }, 100);
+                }, 20100);
+            }
         });
     </script>
 </section>
