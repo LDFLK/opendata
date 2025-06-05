@@ -1,108 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    
-
-
-
-    // Animated counter function
-    function animateCounter(elementId, targetValue) {
-        const element = document.getElementById(elementId);
-        const duration = 2000; // 2 seconds
-        const startTime = Date.now();
-        const startValue = 0;
-        
-        function updateCounter() {
-            const currentTime = Date.now();
-            const elapsedTime = currentTime - startTime;
+    // Delay animations to allow fade-in to complete first
+    setTimeout(() => {
+        // Animated counter function
+        function animateCounter(elementId, targetValue) {
+            const element = document.getElementById(elementId);
+            const duration = 2000; // 2 seconds
+            const startTime = Date.now();
+            const startValue = 0;
             
-            if (elapsedTime < duration) {
-                const progress = elapsedTime / duration;
-                const currentValue = Math.floor(startValue + progress * (targetValue - startValue));
-                element.textContent = currentValue.toLocaleString();
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = targetValue.toLocaleString();
+            function updateCounter() {
+                const currentTime = Date.now();
+                const elapsedTime = currentTime - startTime;
+                
+                if (elapsedTime < duration) {
+                    const progress = elapsedTime / duration;
+                    const currentValue = Math.floor(startValue + progress * (targetValue - startValue));
+                    element.textContent = currentValue.toLocaleString();
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = targetValue.toLocaleString();
+                }
+            }
+            
+            updateCounter();
+        }
+
+        // binary number rain logic - Github contribution section
+        const matrixRain = document.getElementById('matrix-rain');
+        if (matrixRain) {
+            const columns = Math.floor(window.innerWidth / 20);
+            for (let i = 0; i < columns; i++) {
+                const column = document.createElement('div');
+                column.className = 'absolute text-green-400 font-mono text-xs';
+                column.style.left = `${i * 20}px`;
+                column.style.top = `${Math.random() * -100}%`;
+                column.style.animationDuration = `${10 + Math.random() * 20}s`;
+                column.style.animationDelay = `${Math.random() * 10}s`;
+                column.innerHTML = Array(20).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('<br>');
+                column.style.animation = 'matrixFall linear infinite';
+                matrixRain.appendChild(column);
             }
         }
-        
-        updateCounter();
 
-       
-    }
-
-    // binary number rain logic - Github contribution section
-    const matrixRain = document.getElementById('matrix-rain');
-    const columns = Math.floor(window.innerWidth / 20);
-    for (let i = 0; i < columns; i++) {
-            const column = document.createElement('div');
-            column.className = 'absolute text-green-400 font-mono text-xs';
-            column.style.left = `${i * 20}px`;
-            column.style.top = `${Math.random() * -100}%`;
-            column.style.animationDuration = `${10 + Math.random() * 20}s`;
-            column.style.animationDelay = `${Math.random() * 10}s`;
-            column.innerHTML = Array(20).fill(0).map(() => Math.random() > 0.5 ? '1' : '0').join('<br>');
-            column.style.animation = 'matrixFall linear infinite';
-            matrixRain.appendChild(column);
-        }
-
-
-    // Start counter animations with delay
-    setTimeout(() => {
-        animateCounter('counter-datasets', 50000);
-        animateCounter('counter-apis', 320);
-        animateCounter('counter-users', 12500);
-    }, 500);
-    
-    // Scanning line animation
-    const scanningLine = document.getElementById('scanning-line');
-    let scanDirection = 1;
-    let scanPosition = 50;
-    
-    function animateScanningLine() {
-        scanPosition += 0.2 * scanDirection;
+        // Start counter animations with delay
+        setTimeout(() => {
+            if (document.getElementById('counter-datasets')) animateCounter('counter-datasets', 50000);
+            if (document.getElementById('counter-apis')) animateCounter('counter-apis', 320);
+            if (document.getElementById('counter-users')) animateCounter('counter-users', 12500);
+        }, 500);
         
-        if (scanPosition > 90) {
-            scanDirection = -1;
-        } else if (scanPosition < 10) {
-            scanDirection = 1;
-        }
-        
-        scanningLine.style.top = `${scanPosition}%`;
-        requestAnimationFrame(animateScanningLine);
-    }
-    
-    animateScanningLine();
-    
-    // Create data streams
-    const dataStreamContainer = document.getElementById('data-stream-container');
-    const streamCount = 10;
-    
-    for (let i = 0; i < streamCount; i++) {
-        const stream = document.createElement('div');
-        stream.className = 'relative w-[1px] h-full bg-blue-900/30';
-        
-        const streamSpeed = 1 + Math.random() * 3;
-        const streamDelay = Math.random() * 5;
-        
-        // Add data bits to each stream
-        const bitCount = 5 + Math.floor(Math.random() * 10);
-        for (let j = 0; j < bitCount; j++) {
-            const bit = document.createElement('div');
-            const bitSize = 1 + Math.floor(Math.random() * 3);
-            const bitPosition = Math.random() * 100;
-            const bitColor = Math.random() > 0.7 ? 'bg-blue-400' : 'bg-cyan-400';
+        // Scanning line animation
+        const scanningLine = document.getElementById('scanning-line');
+        if (scanningLine) {
+            let scanDirection = 1;
+            let scanPosition = 50;
             
-            bit.className = `absolute w-${bitSize} h-${bitSize} ${bitColor} rounded-full animate-dataflow`;
-            bit.style.top = `${bitPosition}%`;
-            bit.style.animationDuration = `${streamSpeed}s`;
-            bit.style.animationDelay = `${streamDelay + j * 0.2}s`;
+            function animateScanningLine() {
+                scanPosition += 0.2 * scanDirection;
+                
+                if (scanPosition > 90) {
+                    scanDirection = -1;
+                } else if (scanPosition < 10) {
+                    scanDirection = 1;
+                }
+                
+                scanningLine.style.top = `${scanPosition}%`;
+                requestAnimationFrame(animateScanningLine);
+            }
             
-            stream.appendChild(bit);
+            animateScanningLine();
         }
-        
-        dataStreamContainer.appendChild(stream);
-    }
-    
+    }, 1800); // Delay to allow fade-in animations to complete
+
     // Create data points with connections for the sphere
     const dataPointsContainer = document.getElementById('data-points-container');
     const nodeConnections = document.getElementById('node-connections');

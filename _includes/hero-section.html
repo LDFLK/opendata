@@ -1,20 +1,19 @@
 <!-- Hero Section -->
 <section id="home" class="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
-    <!-- Digital grid background -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(25,25,25,0.8)_0%,rgba(0,0,0,1)_100%)]"></div>
+    <!-- Enhanced digital gradient background -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,15,20,0.95)_0%,rgba(0,0,0,1)_100%)]"></div>
     
-    <!-- Animated grid lines -->
-    <div class="absolute inset-0 overflow-hidden opacity-20">
-        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <!-- Horizontal scanning line -->
-        <div id="scanning-line" class="absolute left-0 w-full h-[2px] bg-blue-400/50 blur-[2px]" style="top: 50%; box-shadow: 0 0 15px 2px rgba(59, 130, 246, 0.5);"></div>
+    <!-- Subtle glow effects -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-blue-900/5 blur-[100px]"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-indigo-900/5 blur-[80px]"></div>
     </div>
     
-    <!-- Data stream animation -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div id="data-stream-container" class="absolute inset-0 flex justify-between opacity-30">
-            <!-- Data streams will be added by JavaScript -->
-        </div>
+    <!-- Enhanced grid lines -->
+    <div class="absolute inset-0 overflow-hidden opacity-15">
+        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.07) 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <!-- Horizontal scanning line with enhanced glow -->
+        <div id="scanning-line" class="absolute left-0 w-full h-[1.5px] bg-blue-400/40 blur-[3px]" style="top: 50%; box-shadow: 0 0 20px 3px rgba(59, 130, 246, 0.4);"></div>
     </div>
     
     <!-- Main content -->
@@ -29,7 +28,86 @@
             <!-- Right side: Visual element -->
             <div class="hidden md:block relative">
                 {% include hero-visualization.html %}
+                
+                <!-- Data cards with improved animation -->
+                <div id="data-collection-card" class="data-card absolute top-0 right-0 bg-gray-900/80 backdrop-blur-md border border-gray-800/80 rounded-lg p-3 shadow-lg shadow-blue-900/30 w-48" style="z-index: 50; opacity: 0; transform: translateY(-20px) rotate(-5deg);">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="database" class="h-4 w-4 text-blue-400"></i>
+                        <span class="text-xs font-semibold text-white">Data Collection</span>
+                    </div>
+                    
+                    <!-- Mini feature indicators -->
+                    <div class="mt-2 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-1">
+                            <i data-lucide="book-check" class="h-3 w-3 text-green-400"></i>
+                            <span class="text-green-400">Verified</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <i data-lucide="globe" class="h-3 w-3 text-blue-400"></i>
+                            <span class="text-blue-400">Open</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="data-exploration-card" class="data-card absolute bottom-0 left-0 bg-gray-900/80 backdrop-blur-md border border-gray-800/80 rounded-lg p-3 shadow-lg shadow-blue-900/30 w-48" style="z-index: 50; opacity: 0; transform: translateY(20px) rotate(5deg);">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="search" class="h-4 w-4 text-teal-400"></i>
+                        <span class="text-xs font-semibold text-white">Data Exploration</span>
+                    </div>
+                    
+                    <!-- Mini feature indicators -->
+                    <div class="mt-2 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-1">
+                            <i data-lucide="trending-up" class="h-3 w-3 text-emerald-400"></i>
+                            <span class="text-emerald-400">Trending</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <i data-lucide="zap" class="h-3 w-3 text-yellow-400"></i>
+                            <span class="text-yellow-400">Fast</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    
+    <!-- Improved animation script -->
+    <script>
+        // Wait for page load
+        window.addEventListener('load', function() {
+            // Initialize Lucide icons again to ensure they're rendered
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Function to animate a card with smooth transition
+            function animateCard(cardId, delay, finalRotation) {
+                setTimeout(function() {
+                    var card = document.getElementById(cardId);
+                    if (card) {
+                        // First make sure it's visible
+                        card.style.display = 'block';
+                        card.style.visibility = 'visible';
+                        
+                        // Then animate it with a smooth transition
+                        card.style.transition = 'opacity 1.2s ease-out, transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                        card.style.opacity = '1';
+                        card.style.transform = `translateY(0) rotate(${finalRotation}deg)`;
+                        
+                        // Add floating animation after the initial animation completes
+                        setTimeout(function() {
+                            card.style.transition = 'transform 0.3s ease-in-out';
+                            card.classList.add('animate-float');
+                            card.style.animationDelay = '0s';
+                            card.style.animationDuration = cardId === 'data-collection-card' ? '6s' : '7s';
+                        }, 1200);
+                    }
+                }, delay);
+            }
+            
+            // Animate cards with delay and specific final rotations
+            animateCard('data-collection-card', 1000, 3);
+            animateCard('data-exploration-card', 1500, -6);
+        });
+    </script>
 </section>
