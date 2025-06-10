@@ -9,8 +9,3 @@ description: "Empowering communities through transparent access to public inform
 {% include organization-hierarchy-section.html %}
 {% include what-we-offer-section.html %}
 {% include github-statics-section.html %}
-
-
-
-
-

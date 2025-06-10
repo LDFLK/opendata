@@ -1,70 +1,133 @@
-
 <!-- Organization Hierarchy Showcase Section -->
-<section id="org-hierarchy" class="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-    <!-- Animated background elements -->
-    <div class="absolute inset-0">
-        <div class="absolute top-1/3 left-1/6 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/3 right-1/6 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" style="animation-delay: 3s;"></div>
+<section id="org-hierarchy" class="py-24 bg-black relative overflow-hidden">
+    <!-- Matching background from hero section -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,15,20,0.95)_0%,rgba(0,0,0,1)_100%)]"></div>
+    
+    <!-- Subtle grid overlay -->
+    <div class="absolute inset-0 overflow-hidden opacity-10">
+        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.07) 1px, transparent 1px); background-size: 40px 40px;"></div>
     </div>
-         
-    <!-- Circuit pattern overlay -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(99, 102, 241, 0.1) 10px, rgba(99, 102, 241, 0.1) 11px);"></div>
-         
+    
+    <!-- Ambient glow effects -->
+    <div class="absolute inset-0 overflow-hidden opacity-40 pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-blue-500/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-indigo-500/10 rounded-full blur-[80px]"></div>
+    </div>
+    
     <div class="container mx-auto px-4 md:px-6 relative z-10">
-        <div class="text-center space-y-4">
-            <div class="inline-flex items-center space-x-2 bg-blue-900/20 border border-blue-800/30 rounded-full px-4 py-1 text-blue-400 text-sm font-mono mb-4">
-                <span class="text-xs">ORG_CHART.render() // Interactive</span>
-            </div>
-            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-white">
-                Visualize <span class="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text">Organizational</span> Structures
+        <div class="text-center space-y-6 mb-16 opacity-0 translate-y-4 transition-all duration-700 ease-out scroll-animation">
+            <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                Visualize <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Organizational</span> Structures
             </h2>
-            <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+            <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto font-light">
                 Interactive organizational charts and hierarchy trees that reveal the structure of government institutions, 
                 making complex bureaucracies transparent and navigable.
             </p>
         </div>
                  
-        <!-- Node representation here -->
-        <div class="org-hierarchy-container relative">
-            <svg class="hierarchy-svg w-full h-72" id="hierarchySvg">
-                <!-- Definitions for filters and gradients -->
-                <defs>
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                        <feMerge> 
-                            <feMergeNode in="coloredBlur"/>
-                            <feMergeNode in="SourceGraphic"/>
-                        </feMerge>
-                    </filter>
-                    
-                    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
-                    </linearGradient>
-                    
-                    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
-                        <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
-                    </radialGradient>
-                </defs>
-            </svg>
+        <!-- Organization chart container - removed box styling -->
+        <div class="org-hierarchy-container relative mb-12 opacity-0 translate-y-4 transition-all duration-700 delay-300 ease-out scroll-animation">
+            <!-- Ambient glow effect -->
+            <div class="absolute inset-0 opacity-30 pointer-events-none">
+                <div class="w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.3)_0%,transparent_70%)]"></div>
+            </div>
             
-            <div class="node-info absolute top-4 right-4 bg-gray-900/90 backdrop-blur border border-gray-700 rounded-lg p-3 text-white text-sm opacity-0 transition-opacity duration-300" id="nodeInfo">
-                <div id="nodeInfoContent">
+            <svg class="hierarchy-svg w-full h-[500px]" id="hierarchySvg"></svg>
+            
+            <div class="node-info absolute top-4 right-4 bg-gray-900/90 backdrop-blur-md border border-gray-800/80 rounded-lg p-4 text-white text-sm opacity-0 transition-all duration-300 shadow-lg" id="nodeInfo">
+                <div class="flex items-center space-x-2 mb-2">
+                    <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span class="font-mono text-xs text-blue-400">NODE_INFO</span>
+                </div>
+                <div id="nodeInfoContent" class="font-light">
                     Click on a node to see details
                 </div>
             </div>
         </div>
+        
+        <!-- Node type legend -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto mb-12 opacity-0 translate-y-4 transition-all duration-700 delay-500 ease-out scroll-animation">
+            <div class="flex flex-col items-center justify-center p-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300">
+                <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                    <i data-lucide="crown" class="h-5 w-5 text-blue-400"></i>
+                </div>
+                <span class="text-sm text-white">Government</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300">
+                <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                    <i data-lucide="landmark" class="h-5 w-5 text-blue-400"></i>
+                </div>
+                <span class="text-sm text-white">Ministry</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300">
+                <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                    <i data-lucide="building-2" class="h-5 w-5 text-blue-400"></i>
+                </div>
+                <span class="text-sm text-white">Department</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300">
+                <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                    <i data-lucide="settings" class="h-5 w-5 text-blue-400"></i>
+                </div>
+                <span class="text-sm text-white">Operations</span>
+            </div>
+            <div class="flex flex-col items-center justify-center p-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg hover:border-blue-500/30 hover:bg-gray-900/70 transition-all duration-300">
+                <div class="w-10 h-10 bg-blue-500/10 rounded-full flex items-center justify-center mb-2">
+                    <i data-lucide="users" class="h-5 w-5 text-blue-400"></i>
+                </div>
+                <span class="text-sm text-white">Division</span>
+            </div>
+        </div>
                           
         <!-- Technology showcase -->
-        <div class="text-center">
-            <div class="inline-flex items-center space-x-4 bg-gray-900/50 backdrop-blur border border-gray-800 rounded-full px-6 py-3">
-                <span class="text-sm text-gray-400">Powered by:</span>
+        <div class="flex justify-center opacity-0 translate-y-4 transition-all duration-700 delay-700 ease-out scroll-animation">
+            <div class="flex items-center space-x-3 bg-gray-900/50 backdrop-blur-sm border border-gray-800/40 rounded-lg px-5 py-3">
+                <span class="text-sm text-gray-400 font-light">Powered by:</span>
                 <div class="flex items-center space-x-3">
-                    <span class="text-xs bg-blue-900/30 text-blue-400 px-2 py-1 rounded-full border border-blue-800/50">neo4j</span>
-                    <span class="text-xs bg-green-900/30 text-green-400 px-2 py-1 rounded-full border border-green-800/50">D3.js</span>
+                    <div class="flex items-center space-x-1 bg-gray-900/70 px-3 py-1 rounded-full">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs text-blue-300 font-mono">neo4j</span>
+                    </div>
+                    <div class="flex items-center space-x-1 bg-gray-900/70 px-3 py-1 rounded-full">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs text-green-300 font-mono">D3.js</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    <!-- Scroll animation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all elements with scroll-animation class
+            const animatedElements = document.querySelectorAll('.scroll-animation');
+            
+            // Create intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // When element is in view, remove opacity-0 and translate-y classes
+                        entry.target.classList.remove('opacity-0');
+                        entry.target.classList.remove('translate-y-4');
+                        entry.target.classList.remove('translate-y-8');
+                        entry.target.classList.remove('scale-x-0');
+                        
+                        // Unobserve after animation
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null, // viewport
+                threshold: 0.1, // trigger when 10% of element is visible
+                rootMargin: '-50px 0px' // trigger slightly before element enters viewport
+            });
+            
+            // Observe each animated element
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </section>

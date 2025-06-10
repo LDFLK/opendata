@@ -3,8 +3,8 @@
     <!-- Enhanced digital gradient background -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(15,15,20,0.95)_0%,rgba(0,0,0,1)_100%)]"></div>
     
-        <!-- Digital circuit tree animation -->
-    <div id="circuit-tree" class="absolute inset-0 overflow-hidden opacity-55">
+        <!-- Digital circuit tree animation with reduced opacity -->
+    <div id="circuit-tree" class="absolute inset-0 overflow-hidden opacity-30">
         <canvas id="circuit-canvas" class="w-full h-full"></canvas>
     </div>
     
@@ -89,7 +89,7 @@
             
             // Global animation control
             const maxTreeDepth = 5; // Maximum depth of tree branches
-            const maxTotalNodes = 75; // Increased max nodes
+            const maxTotalNodes = 80; // Increased max nodes
             let totalNodes = 0; // Track total nodes
             let animationStartTime = Date.now();
             let fadeState = 'growing'; // States: growing, complete, fading, paused
@@ -212,7 +212,7 @@
                     if (this.age <= 0) return;
                     
                     // Calculate opacity based on age and lifespan
-                    let opacity = globalOpacity; // Apply global fade
+                    let opacity = globalOpacity * 0.7; // Reduce overall opacity by 30%
                     if (this.age < 30) {
                         opacity *= this.age / 30;
                     } else if (this.age > this.lifespan - 45) {
@@ -225,21 +225,21 @@
                     // Draw connection to parent
                     if (this.parent) {
                         const gradient = ctx.createLinearGradient(this.parent.x, this.parent.y, this.x, this.y);
-                        gradient.addColorStop(0, `rgba(0, 180, 255, ${0.3 * opacity * pulse})`);
-                        gradient.addColorStop(1, `rgba(0, 210, 255, ${0.6 * opacity * pulse})`);
+                        gradient.addColorStop(0, `rgba(0, 180, 255, ${0.2 * opacity * pulse})`);
+                        gradient.addColorStop(1, `rgba(0, 210, 255, ${0.4 * opacity * pulse})`);
                         
                         ctx.beginPath();
                         ctx.moveTo(this.parent.x, this.parent.y);
                         ctx.lineTo(this.x, this.y);
                         ctx.strokeStyle = gradient;
-                        ctx.lineWidth = 1.5;
+                        ctx.lineWidth = 1.2;
                         ctx.stroke();
                     }
                     
                     // Draw node
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.size * pulse, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(0, 210, 255, ${0.7 * opacity * pulse})`;
+                    ctx.fillStyle = `rgba(0, 210, 255, ${0.5 * opacity * pulse})`;
                     ctx.fill();
                     
                     // Draw glow
@@ -249,7 +249,7 @@
                         this.x, this.y, this.size * pulse,
                         this.x, this.y, this.size * 2 * pulse
                     );
-                    glow.addColorStop(0, `rgba(0, 210, 255, ${0.4 * opacity * pulse})`);
+                    glow.addColorStop(0, `rgba(0, 210, 255, ${0.3 * opacity * pulse})`);
                     glow.addColorStop(1, 'rgba(0, 210, 255, 0)');
                     ctx.fillStyle = glow;
                     ctx.fill();
@@ -280,37 +280,72 @@
             
             // Create circuit trees with better distribution
             const trees = [];
-            const numTrees = 3; 
+            const numTrees = 4; // One for each corner
+            
+            // Define corner positions and directions
+            const corners = [
+                { name: 'topLeft', x: 0, y: 0, directionBase: Math.PI/4 }, // Top-left, growing toward bottom-right
+                { name: 'topRight', x: 1, y: 0, directionBase: 3*Math.PI/4 }, // Top-right, growing toward bottom-left
+                { name: 'bottomLeft', x: 0, y: 1, directionBase: 7*Math.PI/4 }, // Bottom-left, growing toward top-right
+                { name: 'bottomRight', x: 1, y: 1, directionBase: 5*Math.PI/4 } // Bottom-right, growing toward top-left
+            ];
             
             function createTree() {
                 // Only create if we haven't reached max nodes
-                if (totalNodes < maxTotalNodes) {
-                    // Distribute trees more evenly across the canvas
-                    const section = canvas.width / numTrees;
-                    const index = trees.length;
-                    const minX = section * index;
-                    const maxX = section * (index + 1);
-                    const x = minX + Math.random() * (maxX - minX);
-                    const y = canvas.height - (Math.random() * canvas.height * 0.3); // Bottom 30%
-                    const direction = -Math.PI/2 + (Math.random() - 0.5) * Math.PI/4; // Mostly upward
-                    trees.push(new Node(x, y, null, direction, 0));
+                if (totalNodes < maxTotalNodes && trees.length < numTrees) {
+                    // Choose a random corner that doesn't have a tree yet
+                    const availableCorners = corners.filter(corner => 
+                        !trees.some(tree => tree.cornerName === corner.name)
+                    );
+                    
+                    if (availableCorners.length === 0) return;
+                    
+                    const corner = availableCorners[Math.floor(Math.random() * availableCorners.length)];
+                    
+                    // Calculate position with less randomness and more corner positioning
+                    const padding = 50; // Reduced padding to push trees more into corners
+                    const x = corner.x === 0 ? 
+                        padding/2 + Math.random() * padding/2 : // Closer to left edge
+                        canvas.width - padding/2 - Math.random() * padding/2; // Closer to right edge
+                    
+                    const y = corner.y === 0 ? 
+                        padding/2 + Math.random() * padding/2 : // Closer to top edge
+                        canvas.height - padding/2 - Math.random() * padding/2; // Closer to bottom edge
+                    
+                    // Direction with some randomness (±20 degrees)
+                    const direction = corner.directionBase + (Math.random() - 0.5) * Math.PI/6;
+                    
+                    // Create the tree node
+                    const newTree = new Node(x, y, null, direction, 0);
+                    newTree.cornerName = corner.name; // Store the corner name for reference
+                    trees.push(newTree);
                 }
             }
             
-            // Create initial trees with better spacing
+            // Create initial trees from each corner
             function createInitialTrees() {
                 trees.length = 0;
                 totalNodes = 0;
                 
-                // Create trees with better distribution
-                for (let i = 0; i < numTrees; i++) {
-                    const section = canvas.width / numTrees;
-                    const minX = section * i;
-                    const maxX = section * (i + 1);
-                    const x = minX + Math.random() * (maxX - minX);
-                    const y = canvas.height - (Math.random() * canvas.height * 0.3);
-                    const direction = -Math.PI/2 + (Math.random() - 0.5) * Math.PI/4;
-                    trees.push(new Node(x, y, null, direction, 0));
+                // Create one tree in each corner
+                for (const corner of corners) {
+                    // Calculate position with less randomness and more corner positioning
+                    const padding = 50; // Reduced padding to push trees more into corners
+                    const x = corner.x === 0 ? 
+                        padding/2 + Math.random() * padding/2 : // Closer to left edge
+                        canvas.width - padding/2 - Math.random() * padding/2; // Closer to right edge
+                    
+                    const y = corner.y === 0 ? 
+                        padding/2 + Math.random() * padding/2 : // Closer to top edge
+                        canvas.height - padding/2 - Math.random() * padding/2; // Closer to bottom edge
+                    
+                    // Direction with some randomness (±20 degrees)
+                    const direction = corner.directionBase + (Math.random() - 0.5) * Math.PI/6;
+                    
+                    // Create the tree node
+                    const newTree = new Node(x, y, null, direction, 0);
+                    newTree.cornerName = corner.name; // Store the corner name for reference
+                    trees.push(newTree);
                 }
             }
             
@@ -372,15 +407,11 @@
                     tree.draw(ctx, time);
                 }
                 
-                // Check if we need to add new trees (but respect max nodes)
-                const timeRunning = Date.now() - animationStartTime;
-                if (fadeState === 'growing' && timeRunning < 10000 && Math.random() < 0.003 && trees.length < numTrees && totalNodes < maxTotalNodes) {
-                    createTree();
-                }
-                
                 // Remove dead trees
                 for (let i = trees.length - 1; i >= 0; i--) {
                     if (trees[i].age > trees[i].lifespan) {
+                        const cornerName = trees[i].cornerName;
+                        
                         // Remove nodes from count
                         trees[i].die();
                         trees.splice(i, 1);
@@ -389,7 +420,26 @@
                         const timeRunning = Date.now() - animationStartTime;
                         if (fadeState === 'growing' && timeRunning < 10000 && totalNodes < maxTotalNodes) {
                             setTimeout(() => {
-                                createTree();
+                                // Create a new tree in the same corner
+                                if (totalNodes < maxTotalNodes) {
+                                    const corner = corners.find(c => c.name === cornerName);
+                                    if (corner) {
+                                        const padding = 50;
+                                        const x = corner.x === 0 ? 
+                                            padding/2 + Math.random() * padding/2 : 
+                                            canvas.width - padding/2 - Math.random() * padding/2;
+                                        
+                                        const y = corner.y === 0 ? 
+                                            padding/2 + Math.random() * padding/2 : 
+                                            canvas.height - padding/2 - Math.random() * padding/2;
+                                        
+                                        const direction = corner.directionBase + (Math.random() - 0.5) * Math.PI/6;
+                                        
+                                        const newTree = new Node(x, y, null, direction, 0);
+                                        newTree.cornerName = corner.name;
+                                        trees.push(newTree);
+                                    }
+                                }
                             }, 1000 + Math.random() * 2000);
                         }
                     }

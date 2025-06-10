@@ -358,6 +358,13 @@ document.addEventListener('DOMContentLoaded', function() {
             this.svg = document.getElementById('hierarchySvg');
             this.nodeInfo = document.getElementById('nodeInfo');
             this.nodeInfoContent = document.getElementById('nodeInfoContent');
+            this.activeNodeId = null;
+            this.animationFrameId = null;
+            this.particles = [];
+            this.pulseRings = [];
+            this.isRotating = false;
+            this.rotationSpeed = 0.2;
+            this.mousePosition = { x: 0, y: 0 };
             
             if (!this.svg) return;
             
@@ -366,15 +373,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.width = rect.width || 800;
             this.height = 384; // h-96 equivalent
             
-            // Updated data structure - all nodes same size, Operations/Divisions under Department
+            // Updated data structure with 3D positioning
             this.data = {
                 nodes: [
-                    { id: 'government', label: 'Government', type: 'government', x: this.width * 0.15, y: this.height * 0.5 },
-                    { id: 'ministry', label: 'Ministry', type: 'ministry', x: this.width * 0.4, y: this.height * 0.5 },
-                    { id: 'department', label: 'Department', type: 'department', x: this.width * 0.65, y: this.height * 0.5 },
-                    { id: 'operations', label: 'Operations', type: 'operations', x: this.width * 0.85, y: this.height * 0.25 },
-                    { id: 'division1', label: 'Division A', type: 'division', x: this.width * 0.85, y: this.height * 0.5 },
-                    { id: 'division2', label: 'Division B', type: 'division', x: this.width * 0.85, y: this.height * 0.75 }
+                    { id: 'government', label: 'Government', type: 'government', x: this.width * 0.15, y: this.height * 0.5, z: 0 },
+                    { id: 'ministry', label: 'Ministry', type: 'ministry', x: this.width * 0.4, y: this.height * 0.5, z: 20 },
+                    { id: 'department', label: 'Department', type: 'department', x: this.width * 0.65, y: this.height * 0.5, z: 40 },
+                    { id: 'operations', label: 'Operations', type: 'operations', x: this.width * 0.85, y: this.height * 0.25, z: 60 },
+                    { id: 'division1', label: 'Division A', type: 'division', x: this.width * 0.85, y: this.height * 0.5, z: 60 },
+                    { id: 'division2', label: 'Division B', type: 'division', x: this.width * 0.85, y: this.height * 0.75, z: 60 }
                 ],
                 connections: [
                     { from: 'government', to: 'ministry' },
@@ -389,54 +396,138 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         init() {
+            // Clear any existing content
+            this.svg.innerHTML = '';
+            
+            // Add 3D perspective - more subtle
+            this.svg.style.transform = 'perspective(1000px) rotateX(2deg)';
+            
+            // Create elements in the correct order
+            this.createGridBackground();
             this.createConnections();
             this.createNodes();
-            this.startDataFlowAnimation();
-            this.setupEventListeners();
+            
+            // Removed pulse rings and particle animations
+            
+            // Add minimal animations with delay
+            setTimeout(() => {
+                this.setupEventListeners();
+                // Don't auto-rotate, use mouse movement instead
+                this.toggle3DRotation(false);
+            }, 800);
+        }
+        
+        createGridBackground() {
+            const gridGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            gridGroup.classList.add('grid-background-group');
+            
+            // Create horizontal lines
+            for (let y = 0; y <= this.height; y += 20) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', '0');
+                line.setAttribute('y1', y);
+                line.setAttribute('x2', this.width);
+                line.setAttribute('y2', y);
+                line.classList.add('grid-background');
+                gridGroup.appendChild(line);
+            }
+            
+            // Create vertical lines
+            for (let x = 0; x <= this.width; x += 20) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', x);
+                line.setAttribute('y1', '0');
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', this.height);
+                line.classList.add('grid-background');
+                gridGroup.appendChild(line);
+            }
+            
+            this.svg.appendChild(gridGroup);
         }
         
         createConnections() {
-            this.data.connections.forEach(conn => {
+            // Create a group for connections
+            const connectionsGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            connectionsGroup.classList.add('connections-group');
+            
+            this.data.connections.forEach((conn) => {
                 const fromNode = this.data.nodes.find(n => n.id === conn.from);
                 const toNode = this.data.nodes.find(n => n.id === conn.to);
                 
                 if (fromNode && toNode) {
-                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-                    line.setAttribute('x1', fromNode.x);
-                    line.setAttribute('y1', fromNode.y);
-                    line.setAttribute('x2', toNode.x);
-                    line.setAttribute('y2', toNode.y);
-                    line.classList.add('connection-line');
-                    line.setAttribute('data-from', conn.from);
-                    line.setAttribute('data-to', conn.to);
+                    // Create curved path instead of straight line
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                     
-                    this.svg.appendChild(line);
+                    // Calculate control points for a subtle curve with z-depth
+                    const dx = toNode.x - fromNode.x;
+                    const dy = toNode.y - fromNode.y;
+                    const dz = toNode.z - fromNode.z;
+                    
+                    // Adjust control point based on z-depth
+                    const zFactor = Math.abs(dz) * 0.01;
+                    const controlX = fromNode.x + dx * 0.5;
+                    const controlY = fromNode.y + dy * 0.5 - zFactor * 30;
+                    
+                    // Path with quadratic curve
+                    const d = `M ${fromNode.x} ${fromNode.y} Q ${controlX} ${controlY} ${toNode.x} ${toNode.y}`;
+                    
+                    path.setAttribute('d', d);
+                    path.classList.add('connection-line');
+                    path.setAttribute('data-from', conn.from);
+                    path.setAttribute('data-to', conn.to);
+                    path.setAttribute('data-z', (fromNode.z + toNode.z) / 2);
+                    
+                    // Store path data for animation
+                    conn.path = {
+                        d,
+                        element: path,
+                        from: { x: fromNode.x, y: fromNode.y, z: fromNode.z },
+                        to: { x: toNode.x, y: toNode.y, z: toNode.z },
+                        control: { x: controlX, y: controlY, z: (fromNode.z + toNode.z) / 2 }
+                    };
+                    
+                    connectionsGroup.appendChild(path);
                 }
             });
+            
+            this.svg.appendChild(connectionsGroup);
         }
         
         createNodes() {
-            this.data.nodes.forEach(node => {
+            const nodesGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            nodesGroup.classList.add('nodes-group');
+            
+            this.data.nodes.forEach((node) => {
                 const nodeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
                 nodeGroup.classList.add('node');
                 nodeGroup.setAttribute('data-id', node.id);
+                nodeGroup.setAttribute('data-z', node.z);
+                nodeGroup.setAttribute('role', 'button');
+                nodeGroup.setAttribute('aria-label', `${node.label} node`);
+                nodeGroup.setAttribute('tabindex', '0');
                 
-                // Node circle - all same size now
+                // Apply 3D effect based on z position
+                const scale = 1 - (node.z * 0.001);
+                nodeGroup.style.transform = `scale(${scale})`;
+                nodeGroup.style.opacity = scale;
+                
+                // Node circle
                 const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                 circle.setAttribute('cx', node.x);
                 circle.setAttribute('cy', node.y);
-                circle.setAttribute('r', 25); // Same radius for all nodes
-                circle.classList.add('node-circle', 'pulse-glow');
+                circle.setAttribute('r', 25);
+                circle.classList.add('node-circle');
                 
                 // Node icon
-                const iconSize = 20; // Same icon size for all nodes
+                const iconSize = 20;
                 const icon = this.createNodeIcon(node.x, node.y, this.getNodeSymbol(node.type), iconSize);
                 icon.classList.add('node-icon');
                 
                 // Node label
                 const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 label.setAttribute('x', node.x);
-                label.setAttribute('y', node.y + 25 + 20); // radius + offset
+                label.setAttribute('y', node.y + 25 + 20);
                 label.textContent = node.label;
                 label.classList.add('node-label');
                 
@@ -444,8 +535,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 nodeGroup.appendChild(icon);
                 nodeGroup.appendChild(label);
                 
-                this.svg.appendChild(nodeGroup);
+                nodesGroup.appendChild(nodeGroup);
             });
+            
+            this.svg.appendChild(nodesGroup);
         }
         
         getNodeSymbol(type) {
@@ -488,65 +581,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return iconGroup;
         }
         
-        startDataFlowAnimation() {
-            this.animateDataFlow();
-            setInterval(() => {
-                this.animateDataFlow();
-            }, 3000);
-        }
-        
-        animateDataFlow() {
-            this.data.connections.forEach((conn, index) => {
-                setTimeout(() => {
-                    const fromNode = this.data.nodes.find(n => n.id === conn.from);
-                    const toNode = this.data.nodes.find(n => n.id === conn.to);
-                    
-                    if (fromNode && toNode) {
-                        this.createFlowParticle(fromNode, toNode);
-                    }
-                }, index * 500);
-            });
-        }
-        
-        createFlowParticle(from, to) {
-            const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            particle.setAttribute('r', 4);
-            particle.setAttribute('cx', from.x);
-            particle.setAttribute('cy', from.y);
-            particle.classList.add('data-flow');
+        toggle3DRotation(enable) {
+            this.isRotating = enable;
             
-            this.svg.appendChild(particle);
-            
-            // Animate particle movement
-            const dx = to.x - from.x;
-            const dy = to.y - from.y;
-            const duration = 1500;
-            const startTime = performance.now();
-            
-            const animate = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function for smooth animation
-                const easeProgress = 1 - Math.pow(1 - progress, 3);
-                
-                const currentX = from.x + (dx * easeProgress);
-                const currentY = from.y + (dy * easeProgress);
-                
-                particle.setAttribute('cx', currentX);
-                particle.setAttribute('cy', currentY);
-                
-                if (progress < 1) {
-                    requestAnimationFrame(animate);
-                } else {
-                    // Remove particle after animation
-                    if (particle.parentNode) {
-                        particle.parentNode.removeChild(particle);
-                    }
-                }
-            };
-            
-            requestAnimationFrame(animate);
+            if (enable) {
+                this.svg.classList.add('rotate-3d');
+                // Use a more subtle rotation
+                this.svg.style.animation = 'rotate3d 60s linear infinite';
+            } else {
+                this.svg.classList.remove('rotate-3d');
+                this.svg.style.animation = '';
+            }
         }
         
         setupEventListeners() {
@@ -554,32 +599,165 @@ document.addEventListener('DOMContentLoaded', function() {
                 node.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const nodeId = node.getAttribute('data-id');
-                    this.showNodeInfo(nodeId);
-                    this.highlightConnections(nodeId);
+                    this.activateNode(nodeId);
                 });
                 
+                // Add keyboard accessibility
+                node.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const nodeId = node.getAttribute('data-id');
+                        this.activateNode(nodeId);
+                    }
+                });
+                
+                // Add subtle hover effect
                 node.addEventListener('mouseenter', () => {
-                    const circle = node.querySelector('.node-circle');
-                    if (circle) {
-                        circle.style.transform = 'scale(1.1)';
-                        circle.style.filter = 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8))';
+                    if (node.getAttribute('data-id') !== this.activeNodeId) {
+                        node.style.opacity = '0.9';
                     }
                 });
                 
                 node.addEventListener('mouseleave', () => {
-                    const circle = node.querySelector('.node-circle');
-                    if (circle) {
-                        circle.style.transform = 'scale(1)';
-                        circle.style.filter = 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))';
+                    if (node.getAttribute('data-id') !== this.activeNodeId) {
+                        node.style.opacity = '1';
                     }
                 });
+            });
+            
+            // Enhanced interactive 3D rotation based on mouse position
+            const container = this.svg.parentElement;
+            
+            // Track if mouse is over the container
+            let isMouseOver = false;
+            
+            container.addEventListener('mouseenter', () => {
+                isMouseOver = true;
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                isMouseOver = false;
+                // Smoothly return to default position
+                this.animateToDefaultPosition();
+            });
+            
+            // Use document mousemove for smoother tracking
+            document.addEventListener('mousemove', (e) => {
+                if (!isMouseOver) return;
+                
+                const rect = container.getBoundingClientRect();
+                
+                // Check if mouse is within the container bounds
+                if (
+                    e.clientX >= rect.left &&
+                    e.clientX <= rect.right &&
+                    e.clientY >= rect.top &&
+                    e.clientY <= rect.bottom
+                ) {
+                    // Calculate position relative to container center
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    
+                    // Calculate normalized position (-1 to 1)
+                    const normalizedX = (e.clientX - centerX) / (rect.width / 2);
+                    const normalizedY = (e.clientY - centerY) / (rect.height / 2);
+                    
+                    // Apply rotation with easing
+                    this.applyRotation(normalizedX, normalizedY);
+                }
             });
             
             // Close info panel when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.node') && !e.target.closest('.node-info')) {
+                    this.clearActiveNode();
+                }
+            });
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.clearActiveNode();
+                }
+            });
+        }
+        
+        applyRotation(normalizedX, normalizedY) {
+            // Apply rotation with easing for smoother movement
+            const rotationY = normalizedX * 15; // Horizontal mouse = Y rotation
+            const rotationX = -normalizedY * 10; // Vertical mouse = X rotation
+            
+            // Use requestAnimationFrame for smoother animation
+            requestAnimationFrame(() => {
+                this.svg.style.transform = `
+                    perspective(1000px)
+                    rotateY(${rotationY}deg)
+                    rotateX(${rotationX}deg)
+                `;
+            });
+        }
+        
+        animateToDefaultPosition() {
+            // Create animation to smoothly return to default position
+            this.svg.style.transition = 'transform 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
+            this.svg.style.transform = 'perspective(1000px) rotateX(2deg) rotateY(0deg)';
+            
+            // Remove transition after animation completes
+            setTimeout(() => {
+                this.svg.style.transition = '';
+            }, 1200);
+        }
+        
+        activateNode(nodeId) {
+            // If already active, just toggle off
+            if (this.activeNodeId === nodeId) {
+                this.clearActiveNode();
+                return;
+            }
+            
+            // Clear any previous active node
+            this.clearActiveNode();
+            
+            // Set new active node
+            this.activeNodeId = nodeId;
+            const node = document.querySelector(`.node[data-id="${nodeId}"]`);
+            if (node) {
+                node.classList.add('active');
+            }
+            
+            // Highlight connections
+            this.highlightConnections(nodeId);
+            
+            // Show node info
+            this.showNodeInfo(nodeId);
+        }
+        
+        clearActiveNode() {
+            // Remove active class from all nodes
+            document.querySelectorAll('.node.active').forEach(node => {
+                node.classList.remove('active');
+            });
+            
+            // Clear connection highlights
+            document.querySelectorAll('.connection-line.active').forEach(conn => {
+                conn.classList.remove('active');
+            });
+            
+            // Hide info panel
                     this.nodeInfo.classList.remove('visible');
-                    this.clearHighlights();
+            
+            // Reset active node id
+            this.activeNodeId = null;
+        }
+        
+        highlightConnections(nodeId) {
+            // Highlight all connections involving this node
+            this.data.connections.forEach(conn => {
+                if (conn.from === nodeId || conn.to === nodeId) {
+                    const line = document.querySelector(`[data-from="${conn.from}"][data-to="${conn.to}"]`);
+                    if (line) {
+                        line.classList.add('active');
+                    }
                 }
             });
         }
@@ -592,6 +770,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ).length;
                 
                 const details = this.getNodeDetails(node);
+                
                 this.nodeInfoContent.innerHTML = `
                     <div class="font-mono">
                         <div class="text-cyan-400 font-bold mb-2">${node.label}</div>
@@ -602,6 +781,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>
                 `;
+                
                 this.nodeInfo.classList.add('visible');
             }
         }
@@ -616,28 +796,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             return details[node.type] || 'Administrative unit';
         }
-        
-        highlightConnections(nodeId) {
-            this.clearHighlights();
-            
-            // Highlight all connections involving this node
-            this.data.connections.forEach(conn => {
-                if (conn.from === nodeId || conn.to === nodeId) {
-                    const line = document.querySelector(`[data-from="${conn.from}"][data-to="${conn.to}"]`);
-                    if (line) {
-                        line.classList.add('active');
-                    }
-                }
-            });
-        }
-        
-        clearHighlights() {
-            document.querySelectorAll('.connection-line.active').forEach(line => {
-                line.classList.remove('active');
-            });
-        }
     }
     
     // Initialize the visualizer
+    setTimeout(() => {
     new HierarchyVisualizer();
+    }, 500);
 });
