@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add minimal animations with delay
             setTimeout(() => {
-                this.setupEventListeners();
+            this.setupEventListeners();
                 // Don't auto-rotate, use mouse movement instead
                 this.toggle3DRotation(false);
             }, 800);
@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.svg.classList.add('rotate-3d');
                 // Use a more subtle rotation
                 this.svg.style.animation = 'rotate3d 60s linear infinite';
-            } else {
+                } else {
                 this.svg.classList.remove('rotate-3d');
                 this.svg.style.animation = '';
             }
@@ -802,4 +802,397 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
     new HierarchyVisualizer();
     }, 500);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Modern floating elements that appear on scroll
+    class ModernScrollElements {
+        constructor() {
+            this.elements = [];
+            this.createElements();
+            this.setupScrollListeners();
+        }
+        
+        createElements() {
+            // Define element types (remove large colorful elements)
+            const elementTypes = [
+                {
+                    name: 'sphere',
+                    render: (container) => this.createSphere(container)
+                },
+                {
+                    name: 'ring',
+                    render: (container) => this.createRing(container)
+                },
+                {
+                    name: 'dataPoint',
+                    render: (container) => this.createDataPoint(container)
+                },
+                {
+                    name: 'floatingText',
+                    render: (container) => this.createFloatingText(container)
+                },
+                {
+                    name: 'hexagon',
+                    render: (container) => this.createHexagon(container)
+                }
+            ];
+            
+            // Create elements at various positions (more positions for more variety)
+            const positions = [
+                { left: '5%', top: '20%' },
+                { left: '8%', top: '45%' },
+                { left: '12%', top: '70%' },
+                { right: '5%', top: '25%' },
+                { right: '10%', top: '50%' },
+                { right: '7%', top: '75%' },
+                { left: '20%', top: '30%' },
+                { right: '18%', top: '65%' }
+            ];
+            
+            // Create each element with a random type
+            positions.forEach((pos, index) => {
+                // Select a random element type
+                const typeIndex = Math.floor(Math.random() * elementTypes.length);
+                const type = elementTypes[typeIndex];
+                
+                // Create container
+                const container = document.createElement('div');
+                container.className = 'fixed pointer-events-none opacity-0 transition-all duration-700';
+                container.style.zIndex = '5';
+                
+                // Set position
+                Object.keys(pos).forEach(key => {
+                    container.style[key] = pos[key];
+                });
+                
+                // Add unique ID
+                const id = `scroll-element-${index}`;
+                container.id = id;
+                
+                // Render the element
+                type.render(container);
+                
+                // Add to document
+                document.body.appendChild(container);
+                
+                // Store element data with more varied timing
+                this.elements.push({
+                    id,
+                    element: container,
+                    scrollStart: 0.05 + (index * 0.04), // More staggered appearances
+                    scrollEnd: 0.6 + (index * 0.04),    // More staggered disappearances
+                    initialTransform: container.style.transform || '',
+                    movePattern: Math.floor(Math.random() * 4) // Random movement pattern
+                });
+            });
+        }
+        
+        createSphere(container) {
+            const size = 30 + Math.random() * 20; // Smaller size
+            const sphere = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            sphere.setAttribute('width', size);
+            sphere.setAttribute('height', size);
+            sphere.setAttribute('viewBox', '0 0 100 100');
+            
+            // Create concentric circles
+            const colors = ['rgba(59, 130, 246, 0.1)', 'rgba(16, 185, 129, 0.1)', 'rgba(236, 72, 153, 0.1)']; // Reduced opacity
+            for (let i = 0; i < 3; i++) {
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', '50');
+                circle.setAttribute('cy', '50');
+                circle.setAttribute('r', 40 - (i * 10));
+                circle.setAttribute('fill', 'none');
+                circle.setAttribute('stroke', colors[i]);
+                circle.setAttribute('stroke-width', '1');
+                sphere.appendChild(circle);
+                
+                // Add animation
+                const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+                animate.setAttribute('attributeName', 'stroke-dasharray');
+                animate.setAttribute('values', '0 251.2; 251.2 0');
+                animate.setAttribute('dur', `${3 + i}s`);
+                animate.setAttribute('repeatCount', 'indefinite');
+                circle.appendChild(animate);
+            }
+            
+            // Add ellipses for 3D effect
+            for (let i = 0; i < 3; i++) {
+                const ellipse = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+                ellipse.setAttribute('cx', '50');
+                ellipse.setAttribute('cy', '50');
+                ellipse.setAttribute('rx', 40);
+                ellipse.setAttribute('ry', 15);
+                ellipse.setAttribute('fill', 'none');
+                ellipse.setAttribute('stroke', 'rgba(255, 255, 255, 0.05)'); // Reduced opacity
+                ellipse.setAttribute('stroke-width', '1');
+                ellipse.setAttribute('transform', `rotate(${i * 60})`);
+                sphere.appendChild(ellipse);
+            }
+            
+            container.appendChild(sphere);
+        }
+        
+        createRing(container) {
+            const size = 35 + Math.random() * 20; // Smaller size
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', size);
+            svg.setAttribute('height', size);
+            svg.setAttribute('viewBox', '0 0 100 100');
+            
+            // Create rings
+            for (let i = 0; i < 3; i++) {
+                const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                ring.setAttribute('cx', '50');
+                ring.setAttribute('cy', '50');
+                ring.setAttribute('r', 40 - (i * 10));
+                ring.setAttribute('fill', 'none');
+                ring.setAttribute('stroke', `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.1)`); // Reduced opacity
+                ring.setAttribute('stroke-width', '1.5');
+                ring.setAttribute('stroke-dasharray', '10 5');
+                
+                // Add animation
+                const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+                animate.setAttribute('attributeName', 'transform');
+                animate.setAttribute('type', 'rotate');
+                animate.setAttribute('from', '0 50 50');
+                animate.setAttribute('to', '360 50 50');
+                animate.setAttribute('dur', `${10 + i * 5}s`);
+                animate.setAttribute('repeatCount', 'indefinite');
+                ring.appendChild(animate);
+                
+                svg.appendChild(ring);
+            }
+            
+            container.appendChild(svg);
+        }
+        
+        createDataPoint(container) {
+            const size = 40 + Math.random() * 20; // Smaller size
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', size);
+            svg.setAttribute('height', size);
+            svg.setAttribute('viewBox', '0 0 100 100');
+            
+            // Create data points
+            const points = [];
+            const numPoints = 4 + Math.floor(Math.random() * 3); // Fewer points
+            
+            for (let i = 0; i < numPoints; i++) {
+                const angle = (i / numPoints) * Math.PI * 2;
+                const radius = 30 + Math.random() * 10;
+                const x = 50 + Math.cos(angle) * radius;
+                const y = 50 + Math.sin(angle) * radius;
+                points.push({ x, y });
+            }
+            
+            // Draw connections
+            for (let i = 0; i < points.length; i++) {
+                for (let j = i + 1; j < points.length; j++) {
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', points[i].x);
+                    line.setAttribute('y1', points[i].y);
+                    line.setAttribute('x2', points[j].x);
+                    line.setAttribute('y2', points[j].y);
+                    line.setAttribute('stroke', 'rgba(255, 255, 255, 0.05)'); // Reduced opacity
+                    line.setAttribute('stroke-width', '0.5');
+                    svg.appendChild(line);
+                }
+            }
+            
+            // Draw points
+            points.forEach(point => {
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', point.x);
+                circle.setAttribute('cy', point.y);
+                circle.setAttribute('r', 1.5 + Math.random() * 1); // Smaller points
+                circle.setAttribute('fill', 'rgba(56, 189, 248, 0.3)'); // Reduced opacity
+                
+                // Add pulse animation
+                const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+                animate.setAttribute('attributeName', 'opacity');
+                animate.setAttribute('values', '0.1;0.4;0.1'); // Reduced opacity
+                animate.setAttribute('dur', `${2 + Math.random() * 3}s`);
+                animate.setAttribute('repeatCount', 'indefinite');
+                circle.appendChild(animate);
+                
+                svg.appendChild(circle);
+            });
+            
+            container.appendChild(svg);
+        }
+        
+        createFloatingText(container) {
+            const terms = [
+                'Data', 'Analytics', 'Metrics',
+                'Reports', 'Budget', 'Transparency',
+                'Governance', 'Planning', 'Strategy'
+            ];
+            
+            const div = document.createElement('div');
+            div.className = 'text-xs font-mono opacity-30'; // Reduced opacity
+            div.style.color = 'rgba(56, 189, 248, 0.6)'; // Reduced opacity
+            div.style.textShadow = '0 0 5px rgba(56, 189, 248, 0.2)'; // Reduced glow
+            div.style.whiteSpace = 'nowrap';
+            
+            // Select a random term
+            const term = terms[Math.floor(Math.random() * terms.length)];
+            div.textContent = term;
+            
+            container.appendChild(div);
+        }
+        
+        createHexagon(container) {
+            const size = 25 + Math.random() * 15; // Smaller size
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', size);
+            svg.setAttribute('height', size);
+            svg.setAttribute('viewBox', '0 0 100 100');
+            
+            // Create hexagon
+            const hexagon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            
+            // Calculate hexagon points
+            const points = [];
+            for (let i = 0; i < 6; i++) {
+                const angle = (i * 60) * Math.PI / 180;
+                const x = 50 + 40 * Math.cos(angle);
+                const y = 50 + 40 * Math.sin(angle);
+                points.push(`${x},${y}`);
+            }
+            
+            hexagon.setAttribute('points', points.join(' '));
+            hexagon.setAttribute('fill', 'none');
+            hexagon.setAttribute('stroke', 'rgba(139, 92, 246, 0.2)'); // Reduced opacity
+            hexagon.setAttribute('stroke-width', '1.5');
+            
+            // Add animation
+            const animate = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
+            animate.setAttribute('attributeName', 'transform');
+            animate.setAttribute('type', 'rotate');
+            animate.setAttribute('from', '0 50 50');
+            animate.setAttribute('to', '360 50 50');
+            animate.setAttribute('dur', '20s');
+            animate.setAttribute('repeatCount', 'indefinite');
+            hexagon.appendChild(animate);
+            
+            svg.appendChild(hexagon);
+            container.appendChild(svg);
+        }
+        
+        setupScrollListeners() {
+            // Initial check
+            this.checkScroll();
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', () => {
+                this.checkScroll();
+            }, { passive: true });
+            
+            // Also check on resize
+            window.addEventListener('resize', () => {
+                this.checkScroll();
+            }, { passive: true });
+        }
+        
+        checkScroll() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Find mission section and org chart section
+            const missionSection = document.querySelector('.mission-section') || 
+                                  document.getElementById('mission-section') ||
+                                  document.querySelector('section:contains("Our Mission")');
+                                  
+            const orgChartSection = document.querySelector('.org-hierarchy-container')?.closest('section') ||
+                                   document.getElementById('org-chart-section') ||
+                                   document.querySelector('section:contains("Visualize Organizational Structures")');
+            
+            // Check if we're in the target sections
+            let inTargetSection = false;
+            let sectionProgress = 0;
+            let sectionElement = null;
+            
+            if (missionSection) {
+                const rect = missionSection.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    inTargetSection = true;
+                    sectionProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    sectionElement = missionSection;
+                }
+            }
+            
+            if (!inTargetSection && orgChartSection) {
+                const rect = orgChartSection.getBoundingClientRect();
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    inTargetSection = true;
+                    sectionProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+                    sectionElement = orgChartSection;
+                }
+            }
+            
+            // Update each element based on section visibility
+            this.elements.forEach(item => {
+                const element = document.getElementById(item.id);
+                if (!element) return;
+                
+                if (inTargetSection) {
+                    // Calculate limited progress (0-1) within the section
+                    const limitedProgress = Math.max(0, Math.min(1, sectionProgress));
+                    
+                    // Fade in/out based on position in section
+                    let opacity = 0.5; // Maximum opacity reduced to 50%
+                    if (limitedProgress < 0.1) {
+                        opacity = (limitedProgress / 0.1) * 0.5; // Fade in
+                    } else if (limitedProgress > 0.9) {
+                        opacity = ((1 - (limitedProgress - 0.9) / 0.1)) * 0.5; // Fade out
+                    }
+                    
+                    element.style.opacity = opacity.toFixed(2);
+                    
+                    // Apply different movement patterns based on movePattern
+                    let transform = item.initialTransform;
+                    
+                    switch(item.movePattern) {
+                        case 0:
+                            // Standard vertical movement (reduced movement)
+                            const translateY = (limitedProgress - 0.5) * 20;
+                            const rotation = (limitedProgress - 0.5) * 5;
+                            transform += ` translateY(${translateY}px) rotate(${rotation}deg)`;
+                            break;
+                            
+                        case 1:
+                            // Horizontal movement (reduced)
+                            const translateX = Math.sin(limitedProgress * Math.PI) * 15;
+                            transform += ` translateX(${translateX}px)`;
+                            break;
+                            
+                        case 2:
+                            // Circular movement (reduced)
+                            const angle = limitedProgress * Math.PI * 2;
+                            const circleX = Math.cos(angle) * 10;
+                            const circleY = Math.sin(angle) * 10;
+                            transform += ` translate(${circleX}px, ${circleY}px)`;
+                            break;
+                            
+                        case 3:
+                            // Scale pulsing (reduced)
+                            const scale = 0.9 + Math.sin(limitedProgress * Math.PI * 3) * 0.1;
+                            transform += ` scale(${scale})`;
+                            break;
+                    }
+                    
+                    element.style.transform = transform;
+                } else {
+                    element.style.opacity = '0';
+                }
+            });
+        }
+    }
+    
+    // Initialize modern scroll elements with delay
+    setTimeout(() => {
+        new ModernScrollElements();
+    }, 1000);
 });
