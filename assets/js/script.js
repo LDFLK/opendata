@@ -382,6 +382,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     class HierarchyVisualizer {
         constructor() {
@@ -396,33 +398,109 @@ document.addEventListener('DOMContentLoaded', function() {
             this.width = rect.width || 800;
             this.height = 384; // h-96 equivalent
             
-            // Updated data structure - all nodes same size, Operations/Divisions under Department
-            this.data = {
-                nodes: [
-                    { id: 'government', label: 'Government', type: 'government', x: this.width * 0.15, y: this.height * 0.5 },
-                    { id: 'ministry', label: 'Ministry', type: 'ministry', x: this.width * 0.4, y: this.height * 0.5 },
-                    { id: 'department', label: 'Department', type: 'department', x: this.width * 0.65, y: this.height * 0.5 },
-                    { id: 'operations', label: 'Operations', type: 'operations', x: this.width * 0.85, y: this.height * 0.25 },
-                    { id: 'division1', label: 'Division A', type: 'division', x: this.width * 0.85, y: this.height * 0.5 },
-                    { id: 'division2', label: 'Division B', type: 'division', x: this.width * 0.85, y: this.height * 0.75 }
-                ],
-                connections: [
-                    { from: 'government', to: 'ministry' },
-                    { from: 'ministry', to: 'department' },
-                    { from: 'department', to: 'operations' },
-                    { from: 'department', to: 'division1' },
-                    { from: 'department', to: 'division2' }
-                ]
-            };
+            // Check if screen is mobile/tablet
+            this.isMobile = window.innerWidth <= 768;
+            
+            // Define data structure with responsive positioning
+            this.setupNodes();
             
             this.init();
+            
+            // Add resize listener for responsive behavior
+            window.addEventListener('resize', () => {
+                const newIsMobile = window.innerWidth <= 768;
+                if (newIsMobile !== this.isMobile) {
+                    this.isMobile = newIsMobile;
+                    this.updateDimensions();
+                    this.setupNodes();
+                    this.render();
+                }
+            });
+        }
+        
+        updateDimensions() {
+            const rect = this.svg.getBoundingClientRect();
+            this.width = rect.width || 800;
+            this.height = this.isMobile ? 600 : 384; // Increase height for mobile
+        }
+        
+        setupNodes() {
+            if (this.isMobile) {
+                // Vertical layout for mobile
+                this.data = {
+                    nodes: [
+                        { id: 'government', label: 'Government', type: 'government', x: this.width * 0.5, y: 50 },
+                        { id: 'ministry', label: 'Ministry', type: 'ministry', x: this.width * 0.5, y: 150 },
+                        { id: 'department', label: 'Department', type: 'department', x: this.width * 0.5, y: 250 },
+                        { id: 'operations', label: 'Operations', type: 'operations', x: this.width * 0.25, y: 380 },
+                        { id: 'division1', label: 'Division A', type: 'division', x: this.width * 0.5, y: 380 },
+                        { id: 'division2', label: 'Division B', type: 'division', x: this.width * 0.75, y: 380 }
+                    ],
+                    connections: [
+                        { from: 'government', to: 'ministry' },
+                        { from: 'ministry', to: 'department' },
+                        { from: 'department', to: 'operations' },
+                        { from: 'department', to: 'division1' },
+                        { from: 'department', to: 'division2' }
+                    ]
+                };
+            } else {
+                // Horizontal layout for desktop
+                this.data = {
+                    nodes: [
+                        { id: 'government', label: 'Government', type: 'government', x: this.width * 0.15, y: this.height * 0.5 },
+                        { id: 'ministry', label: 'Ministry', type: 'ministry', x: this.width * 0.4, y: this.height * 0.5 },
+                        { id: 'department', label: 'Department', type: 'department', x: this.width * 0.65, y: this.height * 0.5 },
+                        { id: 'operations', label: 'Operations', type: 'operations', x: this.width * 0.85, y: this.height * 0.25 },
+                        { id: 'division1', label: 'Division A', type: 'division', x: this.width * 0.85, y: this.height * 0.5 },
+                        { id: 'division2', label: 'Division B', type: 'division', x: this.width * 0.85, y: this.height * 0.75 }
+                    ],
+                    connections: [
+                        { from: 'government', to: 'ministry' },
+                        { from: 'ministry', to: 'department' },
+                        { from: 'department', to: 'operations' },
+                        { from: 'department', to: 'division1' },
+                        { from: 'department', to: 'division2' }
+                    ]
+                };
+            }
         }
         
         init() {
-            this.createConnections();
-            this.createNodes();
+            this.render();
             this.startDataFlowAnimation();
             this.setupEventListeners();
+        }
+        
+        render() {
+            // Clear existing content
+            this.svg.innerHTML = '';
+            
+            // Re-add defs for filters and gradients
+            const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+            defs.innerHTML = `
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                
+                <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1e293b;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0f172a;stop-opacity:1" />
+                </linearGradient>
+                
+                <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+                </radialGradient>
+            `;
+            this.svg.appendChild(defs);
+            
+            this.createConnections();
+            this.createNodes();
         }
         
         createConnections() {
@@ -451,22 +529,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 nodeGroup.classList.add('node');
                 nodeGroup.setAttribute('data-id', node.id);
                 
-                // Node circle - all same size now
+                // Node circle - all same size
                 const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                 circle.setAttribute('cx', node.x);
                 circle.setAttribute('cy', node.y);
-                circle.setAttribute('r', 25); // Same radius for all nodes
+                circle.setAttribute('r', this.isMobile ? 20 : 25); // Slightly smaller on mobile
                 circle.classList.add('node-circle', 'pulse-glow');
                 
                 // Node icon
-                const iconSize = 20; // Same icon size for all nodes
+                const iconSize = this.isMobile ? 16 : 20; // Smaller icon on mobile
                 const icon = this.createNodeIcon(node.x, node.y, this.getNodeSymbol(node.type), iconSize);
                 icon.classList.add('node-icon');
                 
                 // Node label
                 const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 label.setAttribute('x', node.x);
-                label.setAttribute('y', node.y + 25 + 20); // radius + offset
+                const labelOffset = this.isMobile ? 35 : 45; // Adjust label position
+                label.setAttribute('y', node.y + labelOffset);
                 label.textContent = node.label;
                 label.classList.add('node-label');
                 
@@ -580,6 +659,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         setupEventListeners() {
+            // Remove existing event listeners to prevent duplicates
+            document.querySelectorAll('.node').forEach(node => {
+                node.replaceWith(node.cloneNode(true));
+            });
+            
+            // Add fresh event listeners
             document.querySelectorAll('.node').forEach(node => {
                 node.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -591,7 +676,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 node.addEventListener('mouseenter', () => {
                     const circle = node.querySelector('.node-circle');
                     if (circle) {
-                        circle.style.transform = 'scale(1.1)';
+                        circle.style.transform = 'scale(1)';
                         circle.style.filter = 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.8))';
                     }
                 });
