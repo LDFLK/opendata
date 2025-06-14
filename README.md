@@ -63,6 +63,14 @@ Open `http://localhost:4000` in your browser to view the site.
    ```
 5. Open a **Pull Request** to the `main` branch of the **mother repo**
 
+
+⚠️ **Warning**  
+You should use your repo name as the baseURL in **_config.yml** - otherwise it will give you deployement errors.
+```bash
+baseurl: "/<repo-name>"
+```
+
+
 ## 🙏 Guidelines
 
 - Follow consistent code style
