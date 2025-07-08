@@ -28,7 +28,6 @@
                 </div>
             </div>
             
-            <!-- Right side: Visual element -->
              <!-- Right side: Visual element -->
                 <div class="relative flex items-center justify-center">
                     <svg viewBox="0 0 500 400" class="w-full h-auto max-w-lg max-h-64 sm:max-h-80 lg:max-h-none">
@@ -43,6 +42,8 @@
                             <line x1="300" y1="250" x2="250" y2="350" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 2.5s;"/>
                             <line x1="120" y1="280" x2="60" y2="320" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3s;"/>
                             <line x1="350" y1="100" x2="420" y2="80" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3.5s;"/>
+                            <line x1="380" y1="320" x2="300" y2="250" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 4.5s;"/>
+                            <line x1="250" y1="50" x2="200" y2="150" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0.2s;"/>
                         </g>
                         
                         <!-- Data Nodes (Document/Database icons) -->
@@ -99,6 +100,12 @@
                             <clipPath id="userClip5">
                                 <circle cx="420" cy="80" r="18"/>
                             </clipPath>
+                            <clipPath id="userClip6">
+                                <circle cx="380" cy="320" r="18"/>
+                            </clipPath>
+                            <clipPath id="userClip7">
+                                <circle cx="250" cy="50" r="18"/>
+                            </clipPath>
                         </defs>
                         
                         <g fill="#374151">
@@ -126,6 +133,16 @@
                             <circle cx="420" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
                             <image href="/images/old-man.jpg" 
                                    x="402" y="62" width="36" height="36" clip-path="url(#userClip5)"/>
+                            
+                            <!-- User node 6 -->
+                            <circle cx="380" cy="320" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
+                            <image href="/images/young-women-2.jpg" 
+                                   x="362" y="302" width="36" height="36" clip-path="url(#userClip6)"/>
+                            
+                            <!-- User node 7 -->
+                            <circle cx="250" cy="50" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
+                            <image href="/images/modern-girl-2.jpg" 
+                                   x="232" y="32" width="36" height="36" clip-path="url(#userClip7)"/>
                         </g>
                     </svg>
                 </div>
@@ -144,3 +161,4 @@
         animation: pulse 3s ease-in-out infinite;
     }
 </style>
+
