@@ -5,11 +5,6 @@ description: "Empowering communities through transparent access to public inform
 ---
 
 {% include hero-section.html %}
-{% include mission-section.html %}
-{% include organization-hierarchy-section.html %}
-{% include what-we-offer-section.html %}
-{% include github-statics-section.html %}
-
 
 
 

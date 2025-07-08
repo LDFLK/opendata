@@ -1,35 +1,33 @@
 <!-- Hero Section -->
-<section id="home" class="relative w-full h-screen bg-black flex items-center justify-center overflow-hidden">
-    <!-- Digital grid background -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(25,25,25,0.8)_0%,rgba(0,0,0,1)_100%)]"></div>
-    
-    <!-- Animated grid lines -->
-    <div class="absolute inset-0 overflow-hidden opacity-20">
-        <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(30,64,175,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30,64,175,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <!-- Horizontal scanning line -->
-        <div id="scanning-line" class="absolute left-0 w-full h-[2px] bg-blue-400/50 blur-[2px]" style="top: 50%; box-shadow: 0 0 15px 2px rgba(59, 130, 246, 0.5);"></div>
-    </div>
-    
-    <!-- Data stream animation -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div id="data-stream-container" class="absolute inset-0 flex justify-between opacity-30">
-            <!-- Data streams will be added by JavaScript -->
-        </div>
-    </div>
-    
-    <!-- Main content -->
-    <div class="relative z-10 container mx-auto px-4 md:px-6">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
+<section id="home" class="relative w-full h-screen bg-white flex items-center justify-center -mt-20 pt-12">
+    <div class="container px-6 md:px-8 max-w-6xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
             <!-- Left side: Text content -->
-            <div class="space-y-6 text-left">
-                {% include hero-components.html %}
-               
+            <div class="space-y-6">
+                <!-- Main Title -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <span class="block">Bridging gaps</span>
+                    <span class="block text-gray-600">with open data</span>
+                    <span class="block">for a transparent</span>
+                    <span class="block text-gray-900">tomorrow</span>
+                </h1>
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Empowering communities through accessible public information and fostering democratic accountability for a better future.
+                </p>
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#datasets" class="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        <span>Explore Data</span>
+                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="/about/" class="inline-flex items-center justify-center px-8 py-4 text-gray-700 font-medium rounded-lg border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-colors" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        <i data-lucide="info" class="mr-2 h-5 w-5"></i>
+                        <span>Learn More</span>
+                    </a>
+                </div>
             </div>
-            
             <!-- Right side: Visual element -->
-            <div class="hidden md:block relative">
-                {% include hero-visualization.html %}
-            </div>
         </div>
     </div>
 </section>
