@@ -61,9 +61,6 @@
                 <a href="{{ '/open-source/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-source' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Open Source Projects
                 </a>
-                <a href="{{ '/contribute/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/contribute' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    Contribute
-                </a>
                 <a href="{{ '/blog/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Blog
                 </a>
@@ -77,15 +74,3 @@
     </div>
 </header>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-});
-</script>
