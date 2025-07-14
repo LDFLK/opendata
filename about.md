@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "About Us"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include about-us.html %}

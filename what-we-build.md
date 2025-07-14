@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "What We Build"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include what-we-build.html %}

@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "Privacy Policy"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include privacy-policy.html %}
