@@ -251,60 +251,237 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     <!-- Team Members Section -->
-    <div>
-      <div class="text-center mb-12">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Meet Our Team
-        </h3>
-        <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          The passionate individuals working to make public data accessible for everyone.
-        </p>
-      </div>
-      
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Team member cards - replace with actual team data -->
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center space-y-4 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm h-80 flex flex-col">
-          <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto flex items-center justify-center hover:scale-105 transition-transform">
-            <i data-lucide="user" class="h-10 w-10 text-gray-500"></i>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Team Member</h4>
-            <p class="text-gray-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Founder & Director</p>
-          </div>
-          <p class="text-gray-600 text-sm leading-relaxed flex-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Passionate about transparency and civic engagement with 10+ years in public policy.
-          </p>
-        </div>
+     <div>
+  <div class="text-center mb-12">
+    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Meet Our Team
+    </h3>
+    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      The passionate individuals working to make public data accessible for everyone.
+    </p>
+  </div>
+
+  <!-- Team Carousel Container -->
+  <div class="relative">
+    <!-- Carousel Wrapper -->
+    <div class="overflow-hidden" id="team-carousel">
+      <div class="flex transition-transform duration-500 ease-in-out" id="team-slides">
+        {% assign team_members = site.data.team | default: empty_array %}
+        {% assign members_per_slide = 3 %}
+        {% assign total_slides = team_members.size | divided_by: members_per_slide | plus: 1 %}
         
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center space-y-4 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm h-80 flex flex-col">
-          <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto flex items-center justify-center hover:scale-105 transition-transform">
-            <i data-lucide="user" class="h-10 w-10 text-gray-500"></i>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Team Member</h4>
-            <p class="text-gray-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Lead Developer</p>
-          </div>
-          <p class="text-gray-600 text-sm leading-relaxed flex-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Full-stack developer specializing in data visualization and accessible web technologies.
-          </p>
-        </div>
-        
-        <div class="bg-white border border-gray-200 rounded-2xl p-6 text-center space-y-4 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm h-80 flex flex-col">
-          <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto flex items-center justify-center hover:scale-105 transition-transform">
-            <i data-lucide="user" class="h-10 w-10 text-gray-500"></i>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Team Member</h4>
-            <p class="text-gray-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Community Manager</p>
-          </div>
-          <p class="text-gray-600 text-sm leading-relaxed flex-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Building bridges between technology and communities to ensure our tools serve real needs.
-          </p>
-        </div>
+        {% for i in (0..total_slides) %}
+          {% assign start_index = i | times: members_per_slide %}
+          {% assign end_index = start_index | plus: members_per_slide | minus: 1 %}
+          {% assign slide_members = team_members | slice: start_index, members_per_slide %}
+          
+          {% if slide_members.size > 0 %}
+            <div class="w-full flex-shrink-0" data-slide="{{ i }}">
+              <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-{{ slide_members.size }}">
+                {% for member in slide_members %}
+                  <div class="team-member bg-white border border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm">
+                    <div class="flex items-center space-x-4">
+                      <!-- Photo -->
+                      <div class="flex-shrink-0">
+                        {% if member.photo %}
+                          <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-16 h-16 rounded-full object-cover hover:scale-105 transition-transform">
+                        {% else %}
+                          <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                            <i data-lucide="user" class="h-8 w-8 text-gray-500"></i>
+                          </div>
+                        {% endif %}
+                      </div>
+                      
+                      <!-- Content -->
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-2">
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-900 truncate" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                              {{ member.name | default: 'Team Member' }}
+                            </h4>
+                            <p class="text-gray-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                              {{ member.role | default: 'Team Member' }}
+                            </p>
+                          </div>
+                          
+                          <!-- LinkedIn Link -->
+                          {% if member.linkedin %}
+                            <a href="{{ member.linkedin }}" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn Profile">
+                              <i data-lucide="linkedin" class="h-5 w-5"></i>
+                            </a>
+                          {% endif %}
+                        </div>
+                        
+                        {% if member.bio %}
+                          <p class="text-gray-600 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            {{ member.bio }}
+                          </p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
+
+    <!-- Carousel Controls (only show if more than 3 members) -->
+    {% if team_members.size > 3 %}
+      <!-- Previous Button -->
+      <button id="prev-slide" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:border-gray-400 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i data-lucide="chevron-left" class="h-5 w-5 text-gray-600"></i>
+      </button>
+
+      <!-- Next Button -->
+      <button id="next-slide" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:border-gray-400 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i data-lucide="chevron-right" class="h-5 w-5 text-gray-600"></i>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="flex justify-center space-x-2 mt-8" id="carousel-dots">
+        <!-- Dots will be generated by JavaScript -->
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+    
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Team carousel functionality
+  const teamMembers = document.querySelectorAll('.team-member');
+  const totalMembers = teamMembers.length;
+  const membersPerSlide = 3;
+  const totalSlides = Math.ceil(teamMembers.length / membersPerSlide);
+  
+  // Only initialize carousel if there are more than 3 members
+  if (teamMembers.length <= 3) {
+    return;
+  }
+
+  let currentSlide = 0;
+  const slidesContainer = document.getElementById('team-slides');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  const dotsContainer = document.getElementById('carousel-dots');
+
+  // Generate dots
+  function generateDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = `w-2 h-2 rounded-full transition-colors ${
+        i === currentSlide ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
+      }`;
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  // Go to specific slide
+  function goToSlide(slideIndex) {
+    if (slideIndex < 0 || slideIndex >= totalSlides) return;
+    
+    currentSlide = slideIndex;
+    const translateX = -currentSlide * 100;
+    slidesContainer.style.transform = `translateX(${translateX}%)`;
+    
+    updateControls();
+  }
+
+  // Update control states
+  function updateControls() {
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide === totalSlides - 1;
+    generateDots();
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      goToSlide(currentSlide - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentSlide < totalSlides - 1) {
+      goToSlide(currentSlide + 1);
+    }
+  });
+
+  // Auto-play (optional)
+  let autoPlayInterval;
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+      if (currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else {
+        goToSlide(0); // Loop back to first slide
+      }
+    }, 5000); // Change slide every 5 seconds
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  // Pause auto-play on hover
+  const carouselContainer = document.getElementById('team-carousel');
+  carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+  carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+  // Touch/swipe support for mobile
+  let startX = 0;
+  let isDragging = false;
+
+  carouselContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    stopAutoPlay();
+  });
+
+  carouselContainer.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  });
+
+  carouselContainer.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    
+    if (Math.abs(diffX) > 50) { // Minimum swipe distance
+      if (diffX > 0 && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else if (diffX < 0 && currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+    
+    isDragging = false;
+    startAutoPlay();
+  });
+
+  // Initialize
+  generateDots();
+  updateControls();
+  startAutoPlay();
+});
+</script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
