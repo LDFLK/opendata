@@ -60,56 +60,195 @@
       </div>
     </div>
 
+    
+
     <!-- Gallery Section -->
-    <div class="mb-20">
-      <div class="text-center mb-12">
-        <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Our Work in Action
-        </h3>
-        <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Glimpses of our community engagement, workshops, and the impact we're making together.
-        </p>
-      </div>
+<div class="mb-20">
+  <div class="text-center mb-12">
+    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Our Work in Action
+    </h3>
+    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Glimpses of our community engagement, workshops, and the impact we're making together.
+    </p>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div id="gallery-container">
+    <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-4" id="gallery-grid">
+      {% assign gallery_items = site.data.gallery | default: empty_array %}
+      {% assign items_per_page = 8 %}
+      {% assign total_pages = gallery_items.size | divided_by: items_per_page | plus: 1 %}
       
-      <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
-        <!-- Gallery placeholders - replace with actual images -->
-        <div class="group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
-          </div>
+      {% for item in gallery_items limit: items_per_page %}
+        <div class="gallery-item group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300" data-page="1">
+          {% if item.image %}
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Gallery Image' }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
+            </div>
+          {% endif %}
+          
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Community Workshop</p>
+            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ item.title | default: 'Gallery Image' }}
+            </p>
+            {% if item.description %}
+              <p class="text-white/80 text-xs mt-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                {{ item.description }}
+              </p>
+            {% endif %}
           </div>
         </div>
-        
-        <div class="group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
-          </div>
+      {% endfor %}
+
+      <!-- Hidden items for pagination -->
+      {% assign offset = items_per_page %}
+      {% assign current_page = 2 %}
+      {% for item in gallery_items offset: offset %}
+        {% assign page_number = forloop.index0 | divided_by: items_per_page | plus: current_page %}
+        <div class="gallery-item group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300 hidden" data-page="{{ page_number }}">
+          {% if item.image %}
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Gallery Image' }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
+            </div>
+          {% endif %}
+          
           <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Data Training Session</p>
+            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ item.title | default: 'Gallery Image' }}
+            </p>
+            {% if item.description %}
+              <p class="text-white/80 text-xs mt-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                {{ item.description }}
+              </p>
+            {% endif %}
           </div>
         </div>
-        
-        <div class="group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Community Outreach</p>
-          </div>
-        </div>
-        
-        <div class="group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Tech Development</p>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
+
+    <!-- Pagination Controls -->
+    {% if gallery_items.size > items_per_page %}
+      <div class="flex justify-center items-center space-x-4 mt-8">
+        <button id="prev-btn"
+  class="flex justify-center items-center w-10 h-10 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full hover:border-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+  style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;" disabled>
+  <i data-lucide="chevron-left" class="h-4 w-4"></i>
+</button>
+
+        <div class="flex space-x-2" id="page-numbers">
+          <!-- Page numbers will be generated by JavaScript -->
+        </div>
+
+        <button id="next-btn" 
+        class="flex justify-center items-center w-10 h-10 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full hover:border-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <i data-lucide="chevron-right" class="h-4 w-4"></i>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Gallery pagination functionality
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const totalItems = galleryItems.length;
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  let currentPage = 1;
+
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const pageNumbersContainer = document.getElementById('page-numbers');
+
+  // Only initialize pagination if there are more than 8 items
+  if (totalItems <= itemsPerPage) {
+    return;
+  }
+
+  // Generate page numbers
+  function generatePageNumbers() {
+    pageNumbersContainer.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.className = `px-3 py-2 text-sm rounded-lg transition-colors ${
+        i === currentPage 
+          ? 'bg-gray-900 text-white' 
+          : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+      }`;
+      pageBtn.style.fontFamily = "'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif";
+      pageBtn.textContent = i;
+      pageBtn.addEventListener('click', () => goToPage(i));
+      pageNumbersContainer.appendChild(pageBtn);
+    }
+  }
+
+  // Show items for specific page
+  function showPage(page) {
+    galleryItems.forEach((item, index) => {
+      const itemPage = Math.ceil((index + 1) / itemsPerPage);
+      if (itemPage === page) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+
+  // Go to specific page
+  function goToPage(page) {
+    if (page < 1 || page > totalPages) return;
+    
+    currentPage = page;
+    showPage(currentPage);
+    updateControls();
+    
+    // Smooth scroll to gallery
+    document.getElementById('gallery-container').scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  // Update pagination controls
+  function updateControls() {
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    generatePageNumbers();
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      goToPage(currentPage - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      goToPage(currentPage + 1);
+    }
+  });
+
+  // Initialize
+  generatePageNumbers();
+  showPage(1);
+  updateControls();
+});
+</script>
+
+
 
     <!-- Team Members Section -->
     <div>
