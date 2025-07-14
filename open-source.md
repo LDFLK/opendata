@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "Open Source Projects"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include open-source-project.html %}

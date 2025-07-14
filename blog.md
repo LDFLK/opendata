@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "Blog"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include blog-section.html %}

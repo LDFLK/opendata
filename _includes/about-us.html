@@ -1,0 +1,492 @@
+<!-- About Us Section -->
+<section class="py-20 bg-white relative overflow-hidden">
+  <!-- Subtle background elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gray-100 rounded-full filter blur-3xl opacity-30"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gray-50 rounded-full filter blur-3xl opacity-40" style="animation-delay: 2s"></div>
+  </div>
+
+  <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
+    <!-- Section Header -->
+    <div class="text-center space-y-4 mb-16">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Who We Are &
+        <span class="text-gray-600">Why We Do This</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Dedicated to creating transparency and accountability through accessible public information for everyone.
+      </p>
+    </div>
+
+    <!-- Our Story & Mission -->
+    <div class="mb-20">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Our Story -->
+        <div class="text-center space-y-6">
+          <h3 class="text-2xl font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Our Story
+          </h3>
+          <div class="space-y-4 text-gray-600 leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <p>
+              Founded with the belief that transparency is the cornerstone of democracy, we started as a small group of technologists, activists, and citizens who recognized the gap between public information and public access. Our journey began when we realized that while government data exists, it often remains locked away in formats that are difficult for ordinary citizens to understand and use.
+            </p>
+            <p>
+              Today, we've grown into a dedicated team working tirelessly to bridge this gap, making public data not just available, but truly accessible and actionable for communities across the nation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="flex items-center justify-center">
+          <div class="w-24 h-px bg-gray-300"></div>
+          <div class="mx-4 w-2 h-2 bg-gray-300 rounded-full"></div>
+          <div class="w-24 h-px bg-gray-300"></div>
+        </div>
+
+        <!-- Why We Do This -->
+        <div class="text-center space-y-6">
+          <h3 class="text-2xl font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Why We Do This
+          </h3>
+          <div class="space-y-4 text-gray-600 leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <p>
+              We believe that every citizen deserves access to clear, understandable information about how their government operates and spends public resources. Transparency isn't just about making data available—it's about making it meaningful and actionable for the people it affects most.
+            </p>
+            <p>
+              By empowering communities with accessible data, we foster a culture of accountability and civic engagement. Our work creates lasting impact by enabling informed decision-making, encouraging public participation, and building trust between citizens and institutions. When people have the tools to understand and engage with public information, democracy becomes stronger and more responsive to the needs of all.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Gallery Section -->
+<div class="mb-20">
+  <div class="text-center mb-12">
+    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Our Work in Action
+    </h3>
+    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Glimpses of our community engagement, workshops, and the impact we're making together.
+    </p>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div id="gallery-container">
+    <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-4" id="gallery-grid">
+      {% assign gallery_items = site.data.gallery | default: empty_array %}
+      {% assign items_per_page = 8 %}
+      {% assign total_pages = gallery_items.size | divided_by: items_per_page | plus: 1 %}
+      
+      {% for item in gallery_items limit: items_per_page %}
+        <div class="gallery-item group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300" data-page="1">
+          {% if item.image %}
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Gallery Image' }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
+            </div>
+          {% endif %}
+          
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ item.title | default: 'Gallery Image' }}
+            </p>
+            {% if item.description %}
+              <p class="text-white/80 text-xs mt-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                {{ item.description }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+
+      <!-- Hidden items for pagination -->
+      {% assign offset = items_per_page %}
+      {% assign current_page = 2 %}
+      {% for item in gallery_items offset: offset %}
+        {% assign page_number = forloop.index0 | divided_by: items_per_page | plus: current_page %}
+        <div class="gallery-item group relative overflow-hidden rounded-lg bg-gray-100 aspect-square hover:scale-105 transition-transform duration-300 hidden" data-page="{{ page_number }}">
+          {% if item.image %}
+            <img src="{{ item.image | relative_url }}" alt="{{ item.title | default: 'Gallery Image' }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i data-lucide="image" class="h-8 w-8 text-gray-400"></i>
+            </div>
+          {% endif %}
+          
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+            <p class="text-white text-xs" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ item.title | default: 'Gallery Image' }}
+            </p>
+            {% if item.description %}
+              <p class="text-white/80 text-xs mt-1" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                {{ item.description }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    {% if gallery_items.size > items_per_page %}
+      <div class="flex justify-center items-center space-x-4 mt-8">
+        <button id="prev-btn"
+  class="flex justify-center items-center w-10 h-10 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full hover:border-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+  style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;" disabled>
+  <i data-lucide="chevron-left" class="h-4 w-4"></i>
+</button>
+
+        <div class="flex space-x-2" id="page-numbers">
+          <!-- Page numbers will be generated by JavaScript -->
+        </div>
+
+        <button id="next-btn" 
+        class="flex justify-center items-center w-10 h-10 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full hover:border-gray-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <i data-lucide="chevron-right" class="h-4 w-4"></i>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Gallery pagination functionality
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const totalItems = galleryItems.length;
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  let currentPage = 1;
+
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const pageNumbersContainer = document.getElementById('page-numbers');
+
+  // Only initialize pagination if there are more than 8 items
+  if (totalItems <= itemsPerPage) {
+    return;
+  }
+
+  // Generate page numbers
+  function generatePageNumbers() {
+    pageNumbersContainer.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {
+      const pageBtn = document.createElement('button');
+      pageBtn.className = `px-3 py-2 text-sm rounded-lg transition-colors ${
+        i === currentPage 
+          ? 'bg-gray-900 text-white' 
+          : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+      }`;
+      pageBtn.style.fontFamily = "'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif";
+      pageBtn.textContent = i;
+      pageBtn.addEventListener('click', () => goToPage(i));
+      pageNumbersContainer.appendChild(pageBtn);
+    }
+  }
+
+  // Show items for specific page
+  function showPage(page) {
+    galleryItems.forEach((item, index) => {
+      const itemPage = Math.ceil((index + 1) / itemsPerPage);
+      if (itemPage === page) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  }
+
+  // Go to specific page
+  function goToPage(page) {
+    if (page < 1 || page > totalPages) return;
+    
+    currentPage = page;
+    showPage(currentPage);
+    updateControls();
+    
+    // Smooth scroll to gallery
+    document.getElementById('gallery-container').scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  // Update pagination controls
+  function updateControls() {
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    generatePageNumbers();
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      goToPage(currentPage - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      goToPage(currentPage + 1);
+    }
+  });
+
+  // Initialize
+  generatePageNumbers();
+  showPage(1);
+  updateControls();
+});
+</script>
+
+
+
+    <!-- Team Members Section -->
+     <div>
+  <div class="text-center mb-12">
+    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      Meet Our Team
+    </h3>
+    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      The passionate individuals working to make public data accessible for everyone.
+    </p>
+  </div>
+
+  <!-- Team Carousel Container -->
+  <div class="relative">
+    <!-- Carousel Wrapper -->
+    <div class="overflow-hidden" id="team-carousel">
+      <div class="flex transition-transform duration-500 ease-in-out" id="team-slides">
+        {% assign team_members = site.data.team | default: empty_array %}
+        {% assign members_per_slide = 3 %}
+        {% assign total_slides = team_members.size | divided_by: members_per_slide | plus: 1 %}
+        
+        {% for i in (0..total_slides) %}
+          {% assign start_index = i | times: members_per_slide %}
+          {% assign end_index = start_index | plus: members_per_slide | minus: 1 %}
+          {% assign slide_members = team_members | slice: start_index, members_per_slide %}
+          
+          {% if slide_members.size > 0 %}
+            <div class="w-full flex-shrink-0" data-slide="{{ i }}">
+              <div class="grid gap-6 md:grid-cols-1 lg:grid-cols-{{ slide_members.size }}">
+                {% for member in slide_members %}
+                  <div class="team-member bg-white border border-gray-200 rounded-2xl p-6 hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm">
+                    <div class="flex items-center space-x-4">
+                      <!-- Photo -->
+                      <div class="flex-shrink-0">
+                        {% if member.photo %}
+                          <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-16 h-16 rounded-full object-cover hover:scale-105 transition-transform">
+                        {% else %}
+                          <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                            <i data-lucide="user" class="h-8 w-8 text-gray-500"></i>
+                          </div>
+                        {% endif %}
+                      </div>
+                      
+                      <!-- Content -->
+                      <div class="flex-1 min-w-0">
+                        <div class="flex items-center justify-between mb-2">
+                          <div>
+                            <h4 class="text-lg font-semibold text-gray-900 truncate" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                              {{ member.name | default: 'Team Member' }}
+                            </h4>
+                            <p class="text-gray-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                              {{ member.role | default: 'Team Member' }}
+                            </p>
+                          </div>
+                          
+                          <!-- LinkedIn Link -->
+                          {% if member.linkedin %}
+                            <a href="{{ member.linkedin }}" target="_blank" class="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn Profile">
+                              <i data-lucide="linkedin" class="h-5 w-5"></i>
+                            </a>
+                          {% endif %}
+                        </div>
+                        
+                        {% if member.bio %}
+                          <p class="text-gray-600 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            {{ member.bio }}
+                          </p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Carousel Controls (only show if more than 3 members) -->
+    {% if team_members.size > 3 %}
+      <!-- Previous Button -->
+      <button id="prev-slide" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:border-gray-400 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i data-lucide="chevron-left" class="h-5 w-5 text-gray-600"></i>
+      </button>
+
+      <!-- Next Button -->
+      <button id="next-slide" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white border border-gray-300 rounded-full p-2 shadow-lg hover:border-gray-400 hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+        <i data-lucide="chevron-right" class="h-5 w-5 text-gray-600"></i>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="flex justify-center space-x-2 mt-8" id="carousel-dots">
+        <!-- Dots will be generated by JavaScript -->
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+
+    
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize Lucide icons
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
+  // Team carousel functionality
+  const teamMembers = document.querySelectorAll('.team-member');
+  const totalMembers = teamMembers.length;
+  const membersPerSlide = 3;
+  const totalSlides = Math.ceil(teamMembers.length / membersPerSlide);
+  
+  // Only initialize carousel if there are more than 3 members
+  if (teamMembers.length <= 3) {
+    return;
+  }
+
+  let currentSlide = 0;
+  const slidesContainer = document.getElementById('team-slides');
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+  const dotsContainer = document.getElementById('carousel-dots');
+
+  // Generate dots
+  function generateDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = `w-2 h-2 rounded-full transition-colors ${
+        i === currentSlide ? 'bg-gray-900' : 'bg-gray-300 hover:bg-gray-400'
+      }`;
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  // Go to specific slide
+  function goToSlide(slideIndex) {
+    if (slideIndex < 0 || slideIndex >= totalSlides) return;
+    
+    currentSlide = slideIndex;
+    const translateX = -currentSlide * 100;
+    slidesContainer.style.transform = `translateX(${translateX}%)`;
+    
+    updateControls();
+  }
+
+  // Update control states
+  function updateControls() {
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide === totalSlides - 1;
+    generateDots();
+  }
+
+  // Event listeners
+  prevBtn.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      goToSlide(currentSlide - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentSlide < totalSlides - 1) {
+      goToSlide(currentSlide + 1);
+    }
+  });
+
+  // Auto-play (optional)
+  let autoPlayInterval;
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+      if (currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else {
+        goToSlide(0); // Loop back to first slide
+      }
+    }, 5000); // Change slide every 5 seconds
+  }
+
+  function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+  }
+
+  // Pause auto-play on hover
+  const carouselContainer = document.getElementById('team-carousel');
+  carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+  carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+  // Touch/swipe support for mobile
+  let startX = 0;
+  let isDragging = false;
+
+  carouselContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    stopAutoPlay();
+  });
+
+  carouselContainer.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  });
+
+  carouselContainer.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    
+    if (Math.abs(diffX) > 50) { // Minimum swipe distance
+      if (diffX > 0 && currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else if (diffX < 0 && currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+    
+    isDragging = false;
+    startAutoPlay();
+  });
+
+  // Initialize
+  generateDots();
+  updateControls();
+  startAutoPlay();
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+});
+</script>

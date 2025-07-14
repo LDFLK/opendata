@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Home"
+title: "Terms of Condition"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include hero-section.html %}
-
-
-
-
+{% include terms-of-condition.html %}
