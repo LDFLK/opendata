@@ -56,6 +56,9 @@
                             <rect x="185" y="151" width="10" height="2" fill="#9CA3AF"/>
                             <rect x="185" y="155" width="14" height="2" fill="#9CA3AF"/>
                             <rect x="185" y="159" width="8" height="2" fill="#9CA3AF"/>
+                            <circle cx="200" cy="150" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring"/>
+                            <circle cx="200" cy="150" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
+                            <circle cx="200" cy="150" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
                             
                             <!-- Document node 1 -->
                             <rect x="330" y="80" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
@@ -65,6 +68,9 @@
                             <rect x="335" y="100" width="22" height="2" fill="#9CA3AF"/>
                             <rect x="335" y="104" width="16" height="2" fill="#9CA3AF"/>
                             <rect x="335" y="108" width="20" height="2" fill="#9CA3AF"/>
+                            <circle cx="350" cy="100" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring"/>
+                            <circle cx="350" cy="100" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
+                            <circle cx="350" cy="100" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
                             
                             <!-- Document node 2 -->
                             <rect x="280" y="230" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
@@ -74,6 +80,9 @@
                             <rect x="285" y="250" width="22" height="2" fill="#9CA3AF"/>
                             <rect x="285" y="254" width="16" height="2" fill="#9CA3AF"/>
                             <rect x="285" y="258" width="20" height="2" fill="#9CA3AF"/>
+                            <circle cx="300" cy="250" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring"/>
+                            <circle cx="300" cy="250" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
+                            <circle cx="300" cy="250" r="25" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
                             
                             <!-- Photo/Media node -->
                             <rect x="230" y="330" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
@@ -113,7 +122,7 @@
                             <circle cx="100" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
                             <image href="{{ '/images/old-women.jpg' | relative_url }}" 
                                    x="82" y="62" width="36" height="36" clip-path="url(#userClip1)"/>
-                            
+                          
                             <!-- User node 2 -->
                             <circle cx="400" cy="200" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
                             <image href="{{ '/images/modern-man.jpg' | relative_url }}" 
@@ -152,13 +161,73 @@
 </section>
 
 
+
+
+<style>
+
+/* Pulsing ring around central node */
+@keyframes pulseRing {
+    0% { 
+        r: 25; 
+        opacity: 0.3; 
+    }
+    50% { 
+        r: 35; 
+        opacity: 0.1; 
+    }
+    100% { 
+        r: 45; 
+        opacity: 0; 
+    }
+}
+
+.pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+}
+
+.pulse-ring-2{
+    animation: pulseRing 2.5s ease-out infinite;
+}
+
+.pulse-ring-3{
+    animation: pulseRing 3s ease-out infinite;
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+    
+    // Add intersection observer for performance optimization
+    const heroSection = document.getElementById('home');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start animations when hero section is visible
+                entry.target.classList.add('animate-active');
+            } else {
+                // Pause animations when not visible (optional for performance)
+                entry.target.classList.remove('animate-active');
+            }
+        });
+    });
+    
+    observer.observe(heroSection);
+});
+</script>
+
+
 <!-- What We Offer Section -->
 <section class="pb-20  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-16">
       <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        Building for the Public Good
+        Building for the <span class="text-gray-600">Public Good</span>
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Building digital tools for a more transparent, accountable, and participatory government.
