@@ -1,10 +1,10 @@
-- name: "Umayanga Gunawardhana"
-  photo: "/images/umayanga.jpeg"
-  linkedin: "https://www.linkedin.com/in/umayangag/"
-
 - name: "Nuwan Senaratna"
   photo: "/images/nuwan.jpeg"
   linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
+  
+- name: "Umayanga Gunawardhana"
+  photo: "/images/umayanga.jpeg"
+  linkedin: "https://www.linkedin.com/in/umayangag/"
 
 - name: "Vajira Prabuddhaka"
   photo: "/images/vajira.jpeg"
