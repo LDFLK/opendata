@@ -4,6 +4,12 @@
   photo: "/images/sanjiwa.jpeg"
   linkedin: "https://www.linkedin.com/in/sanjivaweerawarana/"
 
+- name: "Malith Jayasinghe"
+  role: "Director"
+  bio: "Passionate about transparency and civic engagement."
+  photo: "/images/malith.jpeg"
+  linkedin: "https://www.linkedin.com/in/malith-jayasinghe/"
+
 - name: "Vibhatha Abeykoon"
   role: "CTO"
   bio: "An engineer working on transforming data to knowledge."
@@ -12,7 +18,7 @@
 
 - name: "Megan Fernando"
   role: "Head of Operations"
-  bio: "Building bridges between technology and communities."
+  bio: "Empowering people and enhancing processes."
   photo: "/images/megan.jpeg"
   linkedin: "https://www.linkedin.com/in/megan-fernando-677934279/"
 
@@ -36,12 +42,12 @@
 
 - name: "Yasandu Imanjith"
   role: "SE Intern"
-  bio: "Designing intuitive interfaces that make government data accessible to everyone."
+  bio: "An engineer automating workflows so you don’t have to."
   photo: "/images/yasandu.jpg"
   linkedin: "https://www.linkedin.com/in/yasandu-imanjith-17b760278/"
 
 - name: "Isuru Rangana"
   role: "SE Intern"
-  bio: "Researching government transparency policies and their impact on democratic participation."
+  bio: "Backend Engineer building the invisible infrastructure that powers everything."
   photo: "/images/isuru.jpeg"
   linkedin: "https://www.linkedin.com/in/isuru-rangana/"
