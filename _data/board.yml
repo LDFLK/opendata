@@ -4,16 +4,16 @@
   photo: "/images/sanjiwa.jpeg"
   linkedin: "https://www.linkedin.com/in/sanjivaweerawarana/"
 
-- name: "Malith Jayasinghe"
-  role: "Director"
-  bio: "Passionate about transparency and civic engagement."
-  photo: "/images/malith.jpeg"
-  linkedin: "https://www.linkedin.com/in/malith-jayasinghe/"
-
 - name: "Nishan de Mel "
   role: "Director / Board Member"
   bio: "Passionate about transparency and civic engagement."
   photo: "/images/nishan.jpeg"
+  linkedin: "https://www.linkedin.com/in/malith-jayasinghe/"
+
+- name: "Malith Jayasinghe"
+  role: "Director"
+  bio: "Passionate about transparency and civic engagement."
+  photo: "/images/malith.jpeg"
   linkedin: "https://www.linkedin.com/in/malith-jayasinghe/"
 
 - name: "Sheamalee Wickramasingha "
