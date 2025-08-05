@@ -6,13 +6,13 @@
 
 - name: "Megan Fernando"
   role: "Head of Operations"
-  bio: "Empowering people and enhancing processes through Psychology and Tech ."
+  bio: "Empowering people and enhancing processes through Psychology and Tech."
   photo: "/images/megan.jpeg"
   linkedin: "https://www.linkedin.com/in/megan-fernando-677934279/"
 
 - name: "Zaeema Nashath"
   role: "Software Engineer"
-  bio: "Building software with purpose - supporting people and sparking change"
+  bio: "Building software with purpose - supporting people and sparking change."
   photo: "/images/zaeema.jpeg"
   linkedin: "https://www.linkedin.com/in/zaeema-nashath/"
 
@@ -24,7 +24,7 @@
 
 - name: "Chanuka Ranathunga"
   role: "SE Intern"
-  bio: "Passionate about building efficient and user-friendly software solutions. ."
+  bio: "Passionate about building efficient and user-friendly software solutions."
   photo: "/images/chanuka.jpeg"
   linkedin: "https://www.linkedin.com/in/chanuka-ranathunga/"
 
