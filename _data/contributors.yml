@@ -1,0 +1,27 @@
+- name: "Nuwan Senaratna"
+  photo: "/images/nuwan.jpeg"
+  linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
+  
+- name: "Umayanga Gunawardhana"
+  photo: "/images/umayanga.jpeg"
+  linkedin: "https://www.linkedin.com/in/umayangag/"
+
+- name: "Vajira Prabuddhaka"
+  photo: "/images/vajira.jpeg"
+  linkedin: "https://www.linkedin.com/in/vajiraprabuddhaka/"
+
+- name: "Dwayne Dehoedt"
+  photo: "/images/dwayne.jpeg"
+  linkedin: "https://www.linkedin.com/in/dwaynedehoedt/"
+
+- name: "Kosala Gangabadage"
+  photo: "/images/kosala.png"
+  linkedin: "https://www.linkedin.com/in/kosalag/"
+
+- name: "Lakindu Oshadha"
+  photo: "/images/lakindu.jpeg"
+  linkedin: "https://www.linkedin.com/in/lakinduoshadha/"
+
+- name: "Tharindu Peiris"
+  photo: "/images/tharindu.jpeg"
+  linkedin: "https://www.linkedin.com/in/tharindupeiris/"
