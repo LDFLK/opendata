@@ -12,19 +12,19 @@
 
 - name: "Zaeema Nashath"
   role: "Software Engineer"
-  bio: "Transforming complex data into actionable insights for citizens."
+  bio: "Building software with purpose - supporting people and sparking change"
   photo: "/images/zaeema.jpeg"
   linkedin: "https://www.linkedin.com/in/zaeema-nashath/"
 
 - name: "Sehansi Perera"
   role: "UI/UX Intern"
-  bio: "Making messes make sense"
+  bio: "Full stack developer making information understandable and interesting for everyone."
   photo: "/images/sehansi.jpeg"
   linkedin: "https://www.linkedin.com/in/sehansi-perera-542740291/"
 
 - name: "Chanuka Ranathunga"
   role: "SE Intern"
-  bio: "Full-Stack developer specialized in Flutter."
+  bio: "Passionate about building efficient and user-friendly software solutions. ."
   photo: "/images/chanuka.jpeg"
   linkedin: "https://www.linkedin.com/in/chanuka-ranathunga/"
 
