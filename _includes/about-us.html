@@ -239,7 +239,7 @@
         </h4>
         
         <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.role | default: 'Contributor' }}
+          {{ member.role | default: '' }}
         </p>
         
         {% if member.bio %}
