@@ -1,0 +1,47 @@
+- category: "Data Visualization"
+  date: "Dec 12, 2024"
+  title: "Building Accessible Data Dashboards for Everyone"
+  description: "Learn how we design our visualization tools to be accessible to users with disabilities, ensuring that government data is truly available to all citizens."
+  author: "Alex Kim"
+  read_time: "5 min read"
+  image: null
+
+- category: "Open Source"
+  date: "Dec 10, 2024"
+  title: "Contributing to Open Government: A Developer's Guide"
+  description: "A comprehensive guide for developers who want to contribute to government transparency projects. From setting up your environment to making your first pull request."
+  author: "Maria Rodriguez"
+  read_time: "12 min read"
+  image: null
+
+- category: "Policy"
+  date: "Dec 8, 2024"
+  title: "New FOIA Regulations: What They Mean for Data Access"
+  description: "Breaking down the latest Freedom of Information Act updates and how they impact citizens' ability to access government records and data."
+  author: "David Park"
+  read_time: "7 min read"
+  image: null
+
+- category: "Technology"
+  date: "Dec 3, 2024"
+  title: "AI and Government Data: Opportunities and Challenges"
+  description: "Exploring how artificial intelligence can enhance government data analysis while addressing concerns about privacy, bias, and algorithmic transparency."
+  author: "Michael Zhang"
+  read_time: "11 min read"
+  image: null
+
+- category: "Tutorial"
+  date: "Dec 1, 2024"
+  title: "Getting Started with Our API: A Step-by-Step Guide"
+  description: "Complete tutorial for developers on how to integrate our government data API into their applications, with code examples and best practices."
+  author: "Emma Wilson"
+  read_time: "15 min read"
+  image: null
+
+- category: "Tutorial"
+  date: "Dec 1, 2024"
+  title: "Getting Started with Our API: A Step-by-Step Guide"
+  description: "Complete tutorial for developers on how to integrate our government data API into their applications, with code examples and best practices."
+  author: "Emma Wilson"
+  read_time: "15 min read"
+  image: null
