@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Terms of Condition"
+title: "Terms and Conditions"
 description: "Empowering communities through transparent access to public information"
 ---
 
