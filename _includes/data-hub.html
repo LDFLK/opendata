@@ -1,0 +1,253 @@
+<!-- Data Hub Section -->
+<section class="py-20 bg-white relative overflow-hidden">
+    <!-- Subtle background elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-1/3 left-1/3 w-72 h-72 bg-blue-50 rounded-full filter blur-3xl opacity-40"></div>
+        <div class="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-30"
+            style="animation-delay: 2s"></div>
+    </div>
+
+    <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
+        <!-- Section Header -->
+        <div class="text-center space-y-4 mb-12">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                Data Hub
+            </h2>
+        </div>
+
+        <div class="mb-20">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-start gap-8"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+
+                        <!-- Text content aligned to the left -->
+                        <div class="flex-1 text-left">
+                            <p class="text-gray-600 leading-relaxed text-base md:text-lg">
+                                The Data Hub is the central access point for the public data we collect in Sri Lanka. It
+                                makes these datasets openly accessible together with applications that allow users to
+                                browse, search, and visualize the information. By consolidating fragmented information,
+                                the Data Hub ensures public data is easier to access and understand.
+                            </p>
+                        </div>
+                        <!-- SVG Icon on the right - aligned to top -->
+                        <div class="flex-shrink-0 md:-mt-10">
+                            <svg class="w-40 h-40 md:w-48 md:h-48" viewBox="0 0 200 200" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <!-- Server -->
+                                <rect x="75" y="50" width="50" height="35" rx="3" stroke="#3B82F6" stroke-width="2.5"
+                                    fill="none" />
+                                <line x1="80" y1="62" x2="120" y2="62" stroke="#3B82F6" stroke-width="2" />
+                                <line x1="80" y1="70" x2="120" y2="70" stroke="#3B82F6" stroke-width="2" />
+                                <circle cx="115" cy="57" r="2" fill="#3B82F6" />
+                                <circle cx="109" cy="57" r="2" fill="#3B82F6" />
+
+                                <!-- Connection line -->
+                                <line x1="100" y1="85" x2="100" y2="125" stroke="#3B82F6" stroke-width="2.5"
+                                    stroke-dasharray="5 5">
+                                    <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s"
+                                        repeatCount="indefinite" />
+                                </line>
+
+                                <!-- Data flow dot -->
+                                <circle cx="100" cy="105" r="3" fill="#3B82F6">
+                                    <animate attributeName="cy" values="85;125;85" dur="2s" repeatCount="indefinite" />
+                                    <animate attributeName="opacity" values="1;0.3;1" dur="2s"
+                                        repeatCount="indefinite" />
+                                </circle>
+
+                                <!-- File/Document icon (lucide file-text style) -->
+                                <g transform="translate(82, 130)">
+                                    <path d="M 4 0 L 24 0 L 36 12 L 36 44 L 4 44 Z" stroke="#3B82F6" stroke-width="2.5"
+                                        fill="none" stroke-linejoin="round" />
+                                    <path d="M 24 0 L 24 12 L 36 12" stroke="#3B82F6" stroke-width="2.5" fill="none"
+                                        stroke-linejoin="round" />
+                                    <line x1="12" y1="22" x2="28" y2="22" stroke="#3B82F6" stroke-width="2" />
+                                    <line x1="12" y1="28" x2="28" y2="28" stroke="#3B82F6" stroke-width="2" />
+                                    <line x1="12" y1="34" x2="20" y2="34" stroke="#3B82F6" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Product Categories -->
+        <div class="mb-20">
+            <!-- <div class="text-center mb-12">
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Our Product Categories
+          </h3>
+          <p class="text-gray-600 max-w-2xl mx-auto"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Comprehensive tools designed to serve different aspects of public data access and civic engagement.
+          </p>
+        </div> -->
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-12">
+                <!-- Project 1: Archived Data -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-6 space-y-4 hover:border-red-300 transition-all duration-300 hover:shadow-lg shadow-sm h-96 flex flex-col">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="chart-no-axes-combined" class="h-6 w-6 text-red-500"></i>
+                        </div>
+                        <!-- <div class="flex items-center space-x-2 text-sm text-gray-500">
+                <i data-lucide="star" class="h-4 w-4"></i>
+                <span>856</span>
+              </div> -->
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Archived Data
+                        </h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Our Datasets offer the raw public data we collect, available in formats including PDFs,
+                            CSVs, and JSONs. They can be freely downloaded, viewed, and reused.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-cyan-50 text-cyan-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
+                                Statistics</span>
+                            <span class="px-2 py-1 bg-orange-50 text-orange-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Official
+                                Gazettes</span>
+                            <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
+                                Structures</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://ldflk.github.io/datasets/" target="_blank"
+                                class="px-5 py-5 bg-emerald-50 text-emerald-600 text-sm rounded-lg hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-200"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                View Statistics
+                            </a>
+
+                            <a href="https://github.com/LDFLK/gztarchiver-storage/" target="_blank"
+                                class="px-5 py-5 bg-emerald-50 text-emerald-600 text-sm rounded-lg hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-200"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                View Publications
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <a href="#" target="_blank"
+                            class="inline-flex items-center space-x-1 text-red-500 hover:text-red-600 text-sm transition-colors"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            <i data-lucide="external-link" class="h-4 w-4"></i>
+                            <span>Learn More</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Project 2: Data Explorer -->
+                <div
+                    class="bg-white border border-gray-200 rounded-2xl p-6 space-y-4 hover:border-red-300 transition-all duration-300 hover:shadow-lg shadow-sm h-96 flex flex-col">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="telescope" class="h-6 w-6 text-red-500"></i>
+                        </div>
+                        <!-- <div class="flex items-center space-x-2 text-sm text-gray-500">
+                <i data-lucide="star" class="h-4 w-4"></i>
+                <span>642</span>
+              </div> -->
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Data Explorer</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            The Data Explorer offers applications to navigate, visualize, and interact with the public
+                            datasets we collect, making it easier to understand and explore the information. </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+
+                            <a href="https://example.com/gov" target="_blank"
+                                class="px-5 py-5 bg-emerald-50 text-emerald-600 text-sm rounded-lg hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-200"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                XploreGov
+                            </a>
+
+                            <a href="https://example.com/data" target="_blank"
+                                class="px-5 py-5 bg-emerald-50 text-emerald-600 text-sm rounded-lg hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-200"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                XploreData
+                            </a>
+
+                            <a href="https://example.com/gazettes" target="_blank"
+                                class="px-8 py-5 bg-emerald-50 text-emerald-600 text-sm rounded-lg hover:bg-emerald-100 hover:text-emerald-700 transition-all duration-200"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                XploreGazettes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <!-- Left-aligned GitHub link -->
+                        <!-- <a href="https://github.com/LDFLK/gztarchiver" target="_blank"
+                            class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-sm transition-colors"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            <i data-lucide="github" class="h-4 w-4"></i>
+                            <span>View Code</span>
+                        </a> -->
+
+                        <!-- Right-aligned links -->
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="inline-flex items-center space-x-1 text-red-500 hover:text-red-600 text-sm transition-colors"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                <i data-lucide="external-link" class="h-4 w-4"></i>
+                                <span>Learn More</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center space-y-8">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Join Our Open Source Community
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-8"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Whether you're a developer, designer, data scientist, or civic enthusiast, there's a place for you
+                    in our community. Help us build the tools that strengthen democracy and promote transparency.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="{{ site.social.github }}" target="_blank"
+                    class="inline-flex items-center space-x-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <i data-lucide="github" class="h-4 w-4"></i>
+                    <span>View All Projects</span>
+                </a>
+                <a href="{{ '/contribute/' | relative_url }}"
+                    class="inline-flex items-center space-x-2 text-gray-600 hover:text-gray-900 px-8 py-3 border border-gray-300 rounded-lg font-medium hover:border-gray-400 transition-colors"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <i data-lucide="heart" class="h-4 w-4"></i>
+                    <span>Start Contributing</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    });
+</script>

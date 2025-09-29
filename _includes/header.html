@@ -17,12 +17,28 @@
                     <a href="{{ '/about/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         About Us
                     </a>
-                    <a href="{{ '/what-we-build/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/what-we-build' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        What We Build
-                    </a>
-                    <a href="{{ '/open-source/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-source' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    
+                    <!-- What We Build Dropdown -->
+                    <div class="relative dropdown-container">
+                        <button class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none py-2 flex items-center space-x-1 {% if page.url contains '/what-we-build' or page.url contains '/data-platforms' or page.url contains '/data-hub' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;" onclick="toggleDropdown(event)">
+                            <span>What We Build</span>
+                            <svg class="w-4 h-4 transition-transform dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden">
+                            <a href="{{ '/data-platforms/' | relative_url }}" class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/data-platforms' %}bg-gray-100{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Data Platforms
+                            </a>
+                            <a href="{{ '/data-hub/' | relative_url }}" class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/data-hub' %}bg-gray-100{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Data Hub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- <a href="{{ '/open-source/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-source' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         Open Source Projects
-                    </a>
+                    </a> -->
                     <a href="{{ '/blog/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900 border-b-2 border-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         Blog
                     </a>
@@ -55,9 +71,25 @@
                 <a href="{{ '/about/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     About Us
                 </a>
-                <a href="{{ '/what-we-build/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/what-we-build' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    What We Build
-                </a>
+                
+                <!-- Mobile What We Build Dropdown -->
+                <div class="mobile-dropdown">
+                    <button class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 flex items-center justify-between w-full {% if page.url contains '/what-we-build' or page.url contains '/data-platforms' or page.url contains '/data-hub' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;" onclick="toggleMobileDropdown(event)">
+                        <span>What We Build</span>
+                        <svg class="w-4 h-4 transition-transform mobile-dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-menu hidden pl-4 pt-2 space-y-2">
+                        <a href="{{ '/data-platforms/' | relative_url }}" class="block text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Data Platforms
+                        </a>
+                        <a href="{{ '/data-hub/' | relative_url }}" class="block text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Data Hub
+                        </a>
+                    </div>
+                </div>
+                
                 <a href="{{ '/open-source/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-source' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Open Source Projects
                 </a>
@@ -74,3 +106,62 @@
     </div>
 </header>
 
+<script>
+    // Desktop dropdown toggle
+    function toggleDropdown(event) {
+        event.stopPropagation();
+        const button = event.currentTarget;
+        const dropdown = button.nextElementSibling;
+        const arrow = button.querySelector('.dropdown-arrow');
+        
+        // Close other dropdowns
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== dropdown) {
+                menu.classList.add('hidden');
+                menu.previousElementSibling.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('hidden');
+        arrow.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+    
+    // Mobile dropdown toggle
+    function toggleMobileDropdown(event) {
+        event.stopPropagation();
+        const button = event.currentTarget;
+        const dropdown = button.nextElementSibling;
+        const arrow = button.querySelector('.mobile-dropdown-arrow');
+        
+        dropdown.classList.toggle('hidden');
+        arrow.style.transform = dropdown.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown-container')) {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+                menu.previousElementSibling.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
+            });
+        }
+    });
+    
+    // Existing mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    });
+</script>
+
+<style>
+    .dropdown-menu {
+        z-index: 100;
+    }
+    
+    .dropdown-arrow,
+    .mobile-dropdown-arrow {
+        transition: transform 0.2s ease-in-out;
+    }
+</style>
