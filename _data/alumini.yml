@@ -1,0 +1,15 @@
+- name: "Nuwan Senaratna"
+  photo: "/images/nuwan.jpeg"
+  linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
+  
+- name: "Umayanga Gunawardhana"
+  photo: "/images/umayanga.jpeg"
+  linkedin: "https://www.linkedin.com/in/umayangag/"
+
+- name: "Kosala Gangabadage"
+  photo: "/images/kosala.png"
+  linkedin: "https://www.linkedin.com/in/kosalag/"
+
+- name: "Lakindu Oshadha"
+  photo: "/images/lakindu.jpeg"
+  linkedin: "https://www.linkedin.com/in/lakinduoshadha/"

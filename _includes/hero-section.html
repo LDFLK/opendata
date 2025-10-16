@@ -1,254 +1,318 @@
-<!-- Hero Section -->
 <section id="home" class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
-    <div class="container px-6 md:px-8 max-w-6xl">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Left side: Text content -->
-            <div class="space-y-6">
-                <!-- Main Title -->
-                <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    <span class="block">Shaping a Transparent</span>
-                    <span class="block text-gray-600">Sri Lanka</span>
-                    <span class="block">with Accessible,</span>
-                    <span class="block text-gray-900">Connected Data</span>
-                </h1>   
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    Empowering communities through accessible public information and fostering democratic accountability for a better future.
-                </p>
-                <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ '/data-platforms/' | relative_url }}" class="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        <span>Discover</span>
-                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-            </div>
-            
-             <!-- Right side: Visual element -->
-                <div class="relative flex items-center justify-center floating-element">
-                    <svg viewBox="0 0 500 400" class="w-full h-auto max-w-lg max-h-64 sm:max-h-80 lg:max-h-none">
-                        <!-- Connection Lines -->
-                        <g class="opacity-60">
-                            <!-- Main network connections -->
-                            <line x1="100" y1="80" x2="200" y2="150" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0s;"/>
-                            <line x1="200" y1="150" x2="350" y2="100" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0.5s;"/>
-                            <line x1="200" y1="150" x2="300" y2="250" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 1s;"/>
-                            <line x1="200" y1="150" x2="120" y2="280" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 1.5s;"/>
-                            <line x1="300" y1="250" x2="400" y2="200" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 2s;"/>
-                            <line x1="300" y1="250" x2="250" y2="350" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 2.5s;"/>
-                            <line x1="120" y1="280" x2="60" y2="320" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3s;"/>
-                            <line x1="350" y1="100" x2="420" y2="80" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3.5s;"/>
-                            <line x1="380" y1="320" x2="300" y2="250" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 4.5s;"/>
-                            <line x1="250" y1="50" x2="200" y2="150" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0.2s;"/>
-                        </g>
-                        
-                        <!-- Data Nodes (Document/Database icons) -->
-                        <g fill="#6B7280" stroke="#374151" stroke-width="1.5">
-                            <!-- Database/Server node -->
-                            <rect x="180" y="130" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="185" y="135" width="8" height="6" fill="#374151"/>
-                            <rect x="185" y="143" width="12" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="147" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="151" width="10" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="155" width="14" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="159" width="8" height="2" fill="#9CA3AF"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Document node 1 -->
-                            <rect x="330" y="80" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="335" y="88" width="20" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="92" width="24" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="96" width="18" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="100" width="22" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="104" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="108" width="20" height="2" fill="#9CA3AF"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Document node 2 -->
-                            <rect x="280" y="230" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="285" y="238" width="20" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="242" width="24" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="246" width="18" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="250" width="22" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="254" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="258" width="20" height="2" fill="#9CA3AF"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Photo/Media node -->
-                            <rect x="230" y="330" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="235" y="338" width="30" height="20" fill="#E5E7EB"/>
-                            <circle cx="242" cy="345" r="3" fill="#9CA3AF"/>
-                            <polygon points="250,350 255,345 260,350 260,355 235,355 235,350" fill="#9CA3AF"/>
-                        </g>
-                        
-                        <!-- Human/User Nodes with Images -->
-                        <defs>
-                            <!-- Circular clipping paths for images -->
-                            <clipPath id="userClip1">
-                                <circle cx="100" cy="80" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip2">
-                                <circle cx="400" cy="200" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip3">
-                                <circle cx="120" cy="280" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip4">
-                                <circle cx="60" cy="320" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip5">
-                                <circle cx="420" cy="80" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip6">
-                                <circle cx="380" cy="320" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip7">
-                                <circle cx="250" cy="50" r="18"/>
-                            </clipPath>
-                        </defs>
-                        
-                        <g fill="#374151">
-                            <!-- User node 1 -->
-                            <circle cx="100" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/old-women.jpg' | relative_url }}" 
-                                   x="82" y="62" width="36" height="36" clip-path="url(#userClip1)"/>
-                          
-                            <!-- User node 2 -->
-                            <circle cx="400" cy="200" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-man.jpg' | relative_url }}" 
-                                   x="382" y="182" width="36" height="36" clip-path="url(#userClip2)"/>
-                            
-                            <!-- User node 3 -->
-                            <circle cx="120" cy="280" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-woman.jpg' | relative_url }}" 
-                                   x="102" y="262" width="36" height="36" clip-path="url(#userClip3)"/>
-                            
-                            <!-- User node 4 -->
-                            <circle cx="60" cy="320" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/boy.jpg' | relative_url }}" 
-                                   x="42" y="302" width="36" height="36" clip-path="url(#userClip4)"/>
-                            
-                            <!-- User node 5 -->
-                            <circle cx="420" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/old-man.jpg' | relative_url }}" 
-                                   x="402" y="62" width="36" height="36" clip-path="url(#userClip5)"/>
-                            
-                            <!-- User node 6 -->
-                            <circle cx="380" cy="320" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/young-women-2.jpg' | relative_url }}" 
-                                   x="362" y="302" width="36" height="36" clip-path="url(#userClip6)"/>
-                            
-                            <!-- User node 7 -->
-                            <circle cx="250" cy="50" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-girl-2.jpg' | relative_url }}" 
-                                   x="232" y="32" width="36" height="36" clip-path="url(#userClip7)"/>
-                        </g>
-                    </svg>
-                </div>
-            
-        </div>
-    </div>
+  <div class="container px-6 md:px-8 max-w-6xl">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+              <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                  <span class="block">Shaping a Transparent</span>
+                  <span class="block text-orange-500">Sri Lanka</span>
+                  <span class="block">with Accessible,</span>
+                  <span class="block text-gray-900">Connected Data</span>
+              </h1>   
+              <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                  Empowering communities through accessible public information and fostering democratic accountability for a better future.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="{{ '/data-platforms/' | relative_url }}" class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                      <span>Learn More</span>
+                      <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+                  </a>
+              </div>
+          </div>
+          
+          <div class="relative w-full aspect-square max-w-md mx-auto lg:max-w-lg flex items-center justify-center">
+              <div class="relative w-full h-full">
+
+                  <svg id="node-connections" class="absolute inset-0 w-full h-full" style="z-index: 1;"></svg>
+
+                  <div id="data-points-container" class="absolute inset-0" style="z-index: 2;">
+                      </div>
+              </div>
+
+              <div class="absolute -top-2 -right-2 bg-white/90 backdrop-blur border border-orange-200 rounded-lg p-3 shadow-lg shadow-orange-900/10 w-48 animate-float-card">
+                  <div class="flex items-center space-x-2">
+                      <svg class="h-4 w-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                      </svg>
+                      <span class="text-xs font-semibold text-gray-900">Data Collection</span>
+                  </div>
+              </div>
+
+              <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur border border-orange-200 rounded-lg p-3 shadow-lg shadow-orange-900/10 w-48 animate-float-card-reverse">
+                  <div class="flex items-center space-x-2">
+                      <svg class="h-4 w-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                      </svg>
+                      <span class="text-xs font-semibold text-gray-900">Data Exploration</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </section>
 
-
-
-
 <style>
-
-/* Pulsing ring around central node */
-@keyframes pulseRing {
-    0% { 
-        r: 25; 
-        opacity: 0.3; 
-    }
-    50% { 
-        r: 35; 
-        opacity: 0.1; 
-    }
-    100% { 
-        r: 45; 
-        opacity: 0; 
-    }
+/* Floating Info Card Animations (Unchanged) */
+@keyframes float-card {
+  0%, 100% { transform: translate(0px, 0px) rotate(3deg); }
+  50% { transform: translate(5px, -15px) rotate(3deg); }
 }
 
-.pulse-ring {
-    animation: pulseRing 2s ease-out infinite;
+@keyframes float-card-reverse {
+  0%, 100% { transform: translate(0px, 0px) rotate(-6deg); }
+  50% { transform: translate(-5px, -10px) rotate(-6deg); }
 }
 
-.pulse-ring-2{
-    animation: pulseRing 2.5s ease-out infinite;
+/* Data Point (Photo Holder) Floating Animation (From last response) */
+@keyframes data-point-float {
+  0% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
+  33% { transform: translate(-50%, -50%) translate3d(5px, -8px, 0); }
+  66% { transform: translate(-50%, -50%) translate3d(-5px, 8px, 0); }
+  100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
 }
 
-.pulse-ring-3{
-    animation: pulseRing 3s ease-out infinite;
+.animate-float-card {
+  animation: float-card 6s ease-in-out infinite;
 }
 
-/* Floating/Bubbling effect for right-side visual */
-@keyframes gentleFloat {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+.animate-float-card-reverse {
+  animation: float-card-reverse 7s ease-in-out infinite;
 }
 
-.floating-element {
-    animation: gentleFloat 6s ease-in-out infinite;
-    will-change: transform;
+/* Apply the smooth floating animation to the data points */
+.data-point {
+  animation: data-point-float 10s ease-in-out infinite; 
+  position: absolute;
 }
 
-/* Subtle parallax for inner SVG children */
-.floating-element svg .opacity-60 { 
-    animation: gentleFloat 7s ease-in-out infinite;
-    animation-delay: 0.4s;
-}
-.floating-element svg g[fill="#6B7280"],
-.floating-element svg g[fill="#374151"] {
-    animation: gentleFloat 5.5s ease-in-out infinite;
-    animation-delay: 0.8s;
+/* Custom CSS for the curved, glowing lines (Unchanged) */
+.curved-connection {
+  fill: none;
+  stroke: #fb923c; /* Color of the visual element */
+  stroke-width: 0.8;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 3px rgba(251, 146, 60, 0.6)); /* Glowing effect */
 }
 
+/* Photo holder styles remain the same */
+.photo-holder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 2px solid #f97316;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Ensure z-index is respected for the foreground layer */
+  position: relative; 
+  z-index: 10; 
+}
+
+.photo-holder:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+  border-color: #fb923c;
+}
+
+.photo-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-placeholder {
+  color: #f97316;
+  font-size: 24px;
+}
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Lucide icons (if lucide.js is included on the page)
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
     }
+
+    // Configuration - DEFINE THE NODES AND ADD IMAGE PATHS
+    const dataPointsConfig = [
+        // Node 0: Photo Example 1 (Replace URL with your path/URL)
+        { relativeX: 0.2, relativeY: 0.2, delay: 0, photoUrl: '/images/lotus-towr.jpeg' }, 
+        
+        // Node 1: Photo Example 2
+        { relativeX: 0.8, relativeY: 0.3, delay: 0, photoUrl: '/images/modern-man.jpg' },
+        
+        // Node 2: Placeholder
+        { relativeX: 0.3, relativeY: 0.6, delay: 0 ,photoUrl: '/images/hh.jpg'}, 
+        
+        // Node 3: Placeholder
+        { relativeX: 0.7, relativeY: 0.7, delay: 0 ,photoUrl: '/images/ff.jpg'},
+        
+        // Node 4: Photo Example 3
+        { relativeX: 0.4, relativeY: 0.85, delay: 0, photoUrl: '/images/modern-girl-2.jpg' },
+        
+        // Node 5: Placeholder
+        { relativeX: 0.9, relativeY: 0.5, delay: 0 ,photoUrl: '/images/gg.jpg'}
+    ];
+
+    const container = document.getElementById('data-points-container');
+    const svg = document.getElementById('node-connections');
     
-    // Add intersection observer for performance optimization
-    const heroSection = document.getElementById('home');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Start animations when hero section is visible
-                entry.target.classList.add('animate-active');
+    const dataPointElements = [];
+
+    if (container && svg) {
+        
+        /**
+         * Calculates absolute X, Y coordinates based on relative position and container size.
+         */
+        function calculatePosition(pointConfig, containerWidth, containerHeight) {
+            const x = containerWidth * pointConfig.relativeX;
+            const y = containerHeight * pointConfig.relativeY;
+            return { x, y };
+        }
+
+        // --- Data Points Creation ---
+        dataPointsConfig.forEach((point, index) => {
+            const dataPoint = document.createElement('div');
+            dataPoint.className = 'data-point';
+            dataPoint.id = `data-point-${index}`;
+            dataPoint.style.animationDelay = `${point.delay}s`; 
+            
+            const photoHolder = document.createElement('div');
+            photoHolder.className = 'photo-holder';
+            
+            // LOGIC TO DISPLAY PRE-CONFIGURED PHOTO
+            if (point.photoUrl) {
+                photoHolder.innerHTML = `<img src="${point.photoUrl}" alt="Node Photo ${index + 1}">`;
             } else {
-                // Pause animations when not visible (optional for performance)
-                entry.target.classList.remove('animate-active');
+                photoHolder.innerHTML = '<span class="photo-placeholder">📷</span>';
             }
+            
+            // Keep the click-to-upload functionality
+            photoHolder.addEventListener('click', function() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            photoHolder.innerHTML = `<img src="${event.target.result}" alt="Photo ${index + 1}">`;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                };
+                input.click();
+            });
+            
+            dataPoint.appendChild(photoHolder);
+            container.appendChild(dataPoint);
+            dataPointElements.push(dataPoint);
         });
-    });
-    
-    observer.observe(heroSection);
+
+        const svgNS = "http://www.w3.org/2000/svg";
+        
+        // --- Connection Setup: Curved Paths ---
+        function createConnections() {
+            svg.innerHTML = ''; // Clear existing SVG elements
+
+            const containerRect = container.getBoundingClientRect();
+            const containerWidth = containerRect.width;
+            const containerHeight = containerRect.height;
+
+            svg.setAttribute('width', containerWidth);
+            svg.setAttribute('height', containerHeight);
+            svg.setAttribute('viewBox', `0 0 ${containerWidth} ${containerHeight}`);
+
+            /**
+             * Generates a random control point for a quadratic Bezier curve.
+             */
+            function getRandomControlPoint(x1, y1, x2, y2, strength = 0.5) {
+                const midX = (x1 + x2) / 2;
+                const midY = (y1 + y2) / 2;
+                const dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                
+                // Angle perpendicular to the line segment
+                const angle = Math.atan2(y2 - y1, x2 - x1) + Math.PI / 2;
+                // Random offset distance from the midpoint
+                const offset = (Math.random() - 0.5) * dist * strength; 
+                
+                const ctrlX = midX + Math.cos(angle) * offset;
+                const ctrlY = midY + Math.sin(angle) * offset;
+                
+                return { ctrlX, ctrlY };
+            }
+
+            // Draw Curved Connections
+            dataPointsConfig.forEach((p1Config, i) => {
+                const pos1 = calculatePosition(p1Config, containerWidth, containerHeight);
+
+                dataPointsConfig.forEach((p2Config, j) => {
+                    // Connectivity logic: connects adjacent nodes and a long-distance connection (0 to 5)
+                    if (i < j && (j === i + 1 || j === i + 2 || (i === 0 && j === 5))) { 
+                        const pos2 = calculatePosition(p2Config, containerWidth, containerHeight);
+                        
+                        // Get random control point for a non-linear connection
+                        const cp = getRandomControlPoint(pos1.x, pos1.y, pos2.x, pos2.y, 0.4);
+                        // Q is the command for quadratic Bezier curve
+                        const pathData = `M${pos1.x},${pos1.y} Q${cp.ctrlX},${cp.ctrlY} ${pos2.x},${pos2.y}`;
+
+                        const path = document.createElementNS(svgNS, 'path');
+                        path.setAttribute('d', pathData);
+                        path.classList.add('curved-connection');
+                        svg.appendChild(path);
+                    }
+                });
+            });
+        }
+        
+        /**
+         * Updates the position of data points and redraws connections on resize/load.
+         */
+        function updateVisuals() {
+            const containerRect = container.getBoundingClientRect();
+            const containerWidth = containerRect.width;
+            const containerHeight = containerRect.height;
+
+            // 1. Update data point element positions
+            dataPointsConfig.forEach((pointConfig, index) => {
+                const { x, y } = calculatePosition(pointConfig, containerWidth, containerHeight);
+                const dataPoint = dataPointElements[index];
+                if (dataPoint) {
+                    // Position the div at the calculated coordinates (using -50% translation from CSS)
+                    dataPoint.style.left = `${x}px`;
+                    dataPoint.style.top = `${y}px`;
+                }
+            });
+
+            // 2. Redraw curves to adapt to new node positions
+            createConnections(); 
+        }
+
+        // Initial setup
+        updateVisuals(); 
+
+        // Redraw on window resize for responsiveness
+        window.addEventListener('resize', updateVisuals);
+    }
 });
 </script>
-
 
 <!-- What We Offer Section -->
 <section class="pb-20  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-16">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        Building for the <span class="text-gray-600">Public Good</span>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Building for the <span class="text-orange-500">Public Good</span>
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Building digital tools for a more transparent, accountable, and participatory government.
       </p>
     </div>
@@ -257,80 +321,96 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="grid gap-8 md:grid-cols-2 items-stretch">
       <!-- Card 1: Official Gazettes -->
       <div class="group h-full w-full">
-        <div class="relative bg-white border border-green-200 rounded-2xl p-8 space-y-6 hover:border-green-300 hover:shadow-lg transition-all duration-300 shadow-sm h-full flex flex-col min-h-[280px]">
+        <div
+          class="relative bg-white rounded-2xl p-8 space-y-6 shadow-lg transition-all duration-300 h-full flex flex-col min-h-[280px]">
           <!-- Icon -->
           <div class="relative">
-            <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-green-100 transition-colors">
-              <i data-lucide="server" class="h-8 w-8 text-green-500"></i>
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-gray-200 transition-colors">
+              <i data-lucide="server" class="h-8 w-8 text-black"></i>
             </div>
           </div>
-          
-          <h3 class="text-xl font-semibold text-gray-900 text-center" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Data Platforms
+
+          <h3 class="text-xl font-semibold text-gray-900 text-center"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            OpenGin
           </h3>
-          
-          <p class="text-gray-600 text-sm text-center leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Our core frameworks power the efficient collection, secure management, and seamless accessibility of Sri Lanka’s public data, enabling transparency, innovation, and informed decision-making.
+
+          <p class="text-gray-600 text-sm text-center leading-relaxed"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Our core framework power the efficient collection, secure management, and seamless accessibility of Sri
+            Lanka’s public data, enabling transparency, innovation, and informed decision making.
           </p>
-          
+
           <!-- Tech stack -->
           <!-- <div class="flex flex-wrap gap-2 justify-center">
             <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
             <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
             <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
           </div> -->
-           <div class="pt-4 mt-auto">
-            <a href="{{ '/data-platforms/' | relative_url }}" class="inline-flex items-center justify-center space-x-2 w-full text-green-500 hover:text-green-600 px-4 py-2 border border-green-200 rounded-lg font-medium hover:border-green-300 hover:bg-green-50 transition-colors text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="pt-4 mt-auto">
+            <a href="{{ '/open-gin/' | relative_url }}"
+              class="inline-flex items-center justify-center space-x-2 w-full bg-black text-white hover:text-black px-4 py-2 border border-black rounded-lg font-medium hover:bg-white transition-colors text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
               <span>Learn More</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2: Citizen Portal -->
+      <!-- Card 2: Data Hub -->
       <div class="group h-full w-full">
-        <div class="relative bg-white border border-gray-200 rounded-2xl p-8 space-y-6 hover:border-red-300 hover:shadow-lg transition-all duration-300 shadow-sm h-full flex flex-col min-h-[280px]">
+        <div
+          class="relative bg-white rounded-2xl p-8 space-y-6 shadow-lg transition-all duration-300 h-full flex flex-col min-h-[280px]">
           <!-- Icon -->
           <div class="relative">
-            <div class="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-red-100 transition-colors">
-              <i data-lucide="arrow-down-up" class="h-8 w-8 text-red-500"></i>
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-gray-200 transition-colors">
+              <i data-lucide="arrow-down-up" class="h-8 w-8 text-black "></i>
             </div>
           </div>
-          
-          <h3 class="text-xl font-semibold text-gray-900 text-center" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Data Hub
+
+          <h3 class="text-xl font-semibold text-gray-900 text-center"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Information Hub
           </h3>
-          
-          <p class="text-gray-600 text-sm text-center leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            A central access point for Sri Lanka’s public data, providing datasets and easy-to-use applications to explore and navigate official information.
+
+          <p class="text-gray-600 text-sm text-center leading-relaxed"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            A central access point for Sri Lanka’s public data, providing datasets and easy-to-use applications to
+            explore and navigate official information.
           </p>
-          
+
           <!-- Tech stack -->
           <!-- <div class="flex flex-wrap gap-2 justify-center">
             <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
             <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
             <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"></span>
           </div> -->
-         <div class="pt-4 mt-auto">
-            <a href="{{ '/data-hub/' | relative_url }}" class="inline-flex items-center justify-center space-x-2 w-full text-red-500 hover:text-red-600 px-4 py-2 border border-red-200 rounded-lg font-medium hover:border-red-300 hover:bg-red-50 transition-colors text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="pt-4 mt-auto">
+            <a href="{{ '/information-hub/' | relative_url }}"
+              class="inline-flex items-center justify-center space-x-2 w-full bg-black text-white hover:text-black px-4 py-2 border border-black rounded-lg font-medium hover:bg-white transition-colors text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
               <span>Learn More</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
-          
+
         </div>
       </div>
     </div>
 
     <!-- Open Source Statement (Inspiration) -->
-    <div class="mt-10">
+    <!-- <div class="mt-10">
       <div class="">
         <p class="text-center text-gray-600 text-sm md:text-base italic" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
           Every line of code we write is open source because we believe that transparency tools should themselves be transparent.
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -340,7 +420,8 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Subtle background elements -->
   <div class="absolute inset-0">
     <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-40"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30" style="animation-delay: 2s"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30"
+      style="animation-delay: 2s"></div>
   </div>
 
   <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
@@ -348,44 +429,57 @@ document.addEventListener('DOMContentLoaded', function() {
       <!-- Left side: Content -->
       <div class="space-y-6">
         <!-- Badge -->
-        <div class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 text-purple-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        <!-- <div class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 text-purple-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
           <i data-lucide="users" class="h-4 w-4"></i>
           <span class="font-medium">Join Our Mission</span>
-        </div>
+        </div> -->
 
         <!-- Main Heading -->
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 leading-tight"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
           Help Build the Future of
-          <span class="text-gray-600">Public Goods</span>
+          <span class="text-orange-500">Public Goods</span>
         </h2>
 
         <!-- Description -->
-        <p class="text-lg text-gray-600 leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Be part of a growing community dedicated to making public data more open and accountable. Whether you're a developer, advocate, or engaged citizen, there are meaningful ways to contribute to our transparency initiatives and help create lasting change.
+        <p class="text-lg text-gray-600 leading-relaxed"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Be part of a growing community dedicated to making public data more open and accountable. Whether you're a
+          developer, advocate, or engaged citizen, there are meaningful ways to contribute to our transparency
+          initiatives and help create lasting change.
         </p>
 
         <!-- Key Topics -->
         <div class="space-y-3">
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute code and help build transparency tools</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute code and
+              help build transparency tools</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Join community outreach and advocacy efforts</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Join community
+              outreach and advocacy efforts</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Share expertise and mentor other contributors</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Share expertise and
+              mentor other contributors</span>
           </div>
         </div>
 
         <!-- Call to Action -->
         <div class="pt-4">
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="{{ '/contribute/' | relative_url }}" class="inline-flex items-center space-x-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <a href="{{ '/contribute/' | relative_url }}"
+              class="inline-flex items-center border border-black space-x-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition-colors group"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
               <span>Get Involved Today</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
@@ -399,44 +493,44 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Blog/Content Visualization SVG -->
             <svg viewBox="0 0 400 300" class="w-full h-64" xmlns="http://www.w3.org/2000/svg">
               <!-- Background -->
-              <rect width="400" height="300" fill="#fafafa" rx="12"/>
-              
+              <rect width="400" height="300" fill="#fafafa" rx="12" />
+
               <!-- Header -->
-              <rect x="20" y="20" width="360" height="40" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-              <circle cx="40" cy="40" r="6" fill="#e5e7eb"/>
-              <rect x="60" y="35" width="80" height="10" fill="#d1d5db" rx="5"/>
-              <rect x="320" y="35" width="40" height="10" fill="#d1d5db" rx="5"/>
-              
+              <rect x="20" y="20" width="360" height="40" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+              <circle cx="40" cy="40" r="6" fill="#e5e7eb" />
+              <rect x="60" y="35" width="80" height="10" fill="#d1d5db" rx="5" />
+              <rect x="320" y="35" width="40" height="10" fill="#d1d5db" rx="5" />
+
               <!-- Article Cards -->
               <g class="article-card">
-                <rect x="20" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="30" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="30" y="140" width="60" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="30" y="150" width="40" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="20" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="30" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="30" y="140" width="60" height="6" fill="#d1d5db" rx="3" />
+                <rect x="30" y="150" width="40" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <g class="article-card" style="animation-delay: 0.5s">
-                <rect x="145" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="155" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="155" y="140" width="70" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="155" y="150" width="50" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="145" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="155" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="155" y="140" width="70" height="6" fill="#d1d5db" rx="3" />
+                <rect x="155" y="150" width="50" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <g class="article-card" style="animation-delay: 1s">
-                <rect x="270" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="280" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="280" y="140" width="80" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="280" y="150" width="45" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="270" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="280" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="280" y="140" width="80" height="6" fill="#d1d5db" rx="3" />
+                <rect x="280" y="150" width="45" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <!-- Featured Article -->
-              <rect x="20" y="180" width="360" height="100" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-              <rect x="30" y="190" width="120" height="60" fill="#f3f4f6" rx="4"/>
-              <rect x="160" y="195" width="100" height="8" fill="#374151" rx="4"/>
-              <rect x="160" y="210" width="200" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="220" width="180" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="230" width="160" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="250" width="80" height="6" fill="#6366f1" rx="3"/>
+              <rect x="20" y="180" width="360" height="100" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+              <rect x="30" y="190" width="120" height="60" fill="#f3f4f6" rx="4" />
+              <rect x="160" y="195" width="100" height="8" fill="#F27421" rx="4" />
+              <rect x="160" y="210" width="200" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="220" width="180" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="230" width="160" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="250" width="80" height="6" fill="#374151" rx="3" />
             </svg>
           </div>
         </div>
@@ -446,36 +540,43 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <style>
-@keyframes fadeInUp {
-  0% { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-.article-card {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-    
-.animate-pulse {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .article-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse {
     animation: pulse 3s ease-in-out infinite;
-}
+  }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
-});
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
 </script>
-
-

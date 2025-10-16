@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Data Hub"
+title: "Information Hub"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include data-hub.html %}
+{% include information-hub.html %}

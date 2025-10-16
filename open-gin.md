@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Data Platforms"
+title: "OpenGin"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include data-platforms.html %}
+{% include open-gin.html %}

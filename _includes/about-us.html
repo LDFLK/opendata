@@ -11,7 +11,7 @@
     <div class="text-center space-y-4 mb-16">
       <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Who We Are &
-        <span class="text-gray-600">Why We Do This</span>
+        <span class="text-orange-500">Why We Do This</span>
       </h2>
       <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Dedicated to creating transparency and accountability through accessible public information for everyone.
@@ -26,15 +26,16 @@
           <h3 class="text-2xl font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             Our Story
           </h3>
-          <div class="space-y-4 text-gray-600 leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="space-y-4 text-gray-600 leading-relaxed text-justify" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             <p>
-              Founded with the belief that transparency is the cornerstone of democracy, we started as a small group of technologists, activists, and citizens who recognized the gap between public information and public access. Our journey began when we realized that while government data exists, it often remains locked away in formats that are difficult for ordinary citizens to understand and use.
+              At the Lanka Data Foundation (LDF), we believe that data is more than just numbers. It’s the foundation for accountability, transparency, and informed citizenship. In a world overflowing with information, we strive to transform scattered public data into meaningful, connected insights that empower people to question, understand, and participate in governance. As a citizen-driven, nonpartisan, and not-for-profit organization, our mission is to make verified, high-quality data accessible to everyone, whether through our platform or open APIs for public-minded organizations.
             </p>
             <p>
-              Today, we've grown into a dedicated team working tirelessly to bridge this gap, making public data not just available, but truly accessible and actionable for communities across the nation.
+              Our journey began with a simple realization, while there’s no shortage of data, much of it exists in isolation. By sourcing, curating, and linking public datasets, we aim to bridge those gaps and tell the full story hidden within the numbers. Through this work, we hope to strengthen democracy, amplify citizen voices, and build a more transparent and accountable society, where data truly serves the people.
             </p>
           </div>
         </div>
+        
       </div>
     </div>
 
@@ -168,7 +169,73 @@
   </div>
 </div>
 
- <!-- Team Members Section -->
+
+<!-- Alumini  Section -->
+<div class="text-center mb-12 mt-20">
+  <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+   Our Alumni
+  </h3>
+  <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+    The innovators, leaders, and changemakers who shaped our journey and continue to inspire the future of open data.
+  </p>
+</div>
+
+<!-- Team Grid Container -->
+<div class="team-grid-container">
+<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+{% assign alumini_members = site.data.alumini | default: empty_array %}
+
+{% for member in alumini_members %}
+  <div class="team-member text-center group">
+    <!-- Photo -->
+      <div class="mb-4">
+        {% if member.photo %}
+          {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+            </a>
+          {% else %}
+            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+          {% endif %}
+        {% else %}
+          {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+                <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+              </div>
+            </a>
+          {% else %}
+            <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+              <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+            </div>
+          {% endif %}
+        {% endif %}
+      </div>
+    
+    <!-- Content -->
+    <div class="space-y-2">
+      <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        {{ member.name | default: 'Contributor' }}
+      </h4>
+      
+      <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        {{ member.role | default: '' }}
+      </p>
+      
+      {% if member.bio %}
+        <p class="text-gray-500 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          {{ member.bio }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+</div>
+
+
+
+ <!-- Contributers Members Section -->
   <div class="text-center mb-12 mt-20">
     <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
       Our Contributors

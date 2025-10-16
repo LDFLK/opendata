@@ -1,11 +1,7 @@
-- name: "Nuwan Senaratna"
-  photo: "/images/nuwan.jpeg"
-  linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
+- name: "Visal Vitharana"
+  photo: "/images/visal.jpeg"
+  linkedin: "https://www.linkedin.com/in/visal-vitharana-953845296/"
   
-- name: "Umayanga Gunawardhana"
-  photo: "/images/umayanga.jpeg"
-  linkedin: "https://www.linkedin.com/in/umayangag/"
-
 - name: "Vajira Prabuddhaka"
   photo: "/images/vajira.jpeg"
   linkedin: "https://www.linkedin.com/in/vajiraprabuddhaka/"
@@ -18,14 +14,6 @@
   photo: "/images/dwayne.jpeg"
   linkedin: "https://www.linkedin.com/in/dwaynedehoedt/"
 
-- name: "Kosala Gangabadage"
-  photo: "/images/kosala.png"
-  linkedin: "https://www.linkedin.com/in/kosalag/"
-
-- name: "Lakindu Oshadha"
-  photo: "/images/lakindu.jpeg"
-  linkedin: "https://www.linkedin.com/in/lakinduoshadha/"
-
 - name: "Tharindu Peiris"
   photo: "/images/tharindu.jpeg"
   linkedin: "https://www.linkedin.com/in/tharindupeiris/"
@@ -37,3 +25,4 @@
 - name: "Anoshan Jayahanthan"
   photo: "/images/anoshan.jpeg"
   linkedin: "https://www.linkedin.com/in/anoshan-j/"
+
