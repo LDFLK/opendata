@@ -1,309 +1,240 @@
-<section id="home" class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
+<section id="home"
+  class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
   <div class="container px-6 md:px-8 max-w-6xl">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6">
-              <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                  <span class="block">Shaping a Transparent</span>
-                  <span class="block text-orange-500">Sri Lanka</span>
-                  <span class="block">with Accessible,</span>
-                  <span class="block text-gray-900">Connected Data</span>
-              </h1>   
-              <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                  Empowering communities through accessible public information and fostering democratic accountability for a better future.
-              </p>
-              <div class="flex flex-col sm:flex-row gap-4">
-                  <a href="{{ '/data-platforms/' | relative_url }}" class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                      <span>Learn More</span>
-                      <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                  </a>
-              </div>
-          </div>
-          
-          <div class="relative w-full aspect-square max-w-md mx-auto lg:max-w-lg flex items-center justify-center">
-              <div class="relative w-full h-full">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <span class="block">Shaping a Transparent</span>
+          <span class="block text-orange-500">Sri Lanka</span>
+          <span class="block">with Accessible,</span>
+          <span class="block text-gray-900">Connected Data</span>
 
-                  <svg id="node-connections" class="absolute inset-0 w-full h-full" style="z-index: 1;"></svg>
-
-                  <div id="data-points-container" class="absolute inset-0" style="z-index: 2;">
-                      </div>
-              </div>
-
-              <div class="absolute -top-2 -right-2 bg-white/90 backdrop-blur border border-orange-200 rounded-lg p-3 shadow-lg shadow-orange-900/10 w-48 animate-float-card">
-                  <div class="flex items-center space-x-2">
-                      <svg class="h-4 w-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
-                      </svg>
-                      <span class="text-xs font-semibold text-gray-900">Data Collection</span>
-                  </div>
-              </div>
-
-              <div class="absolute -bottom-4 -left-4 bg-white/90 backdrop-blur border border-orange-200 rounded-lg p-3 shadow-lg shadow-orange-900/10 w-48 animate-float-card-reverse">
-                  <div class="flex items-center space-x-2">
-                      <svg class="h-4 w-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                      </svg>
-                      <span class="text-xs font-semibold text-gray-900">Data Exploration</span>
-                  </div>
-              </div>
-          </div>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Empowering communities through accessible public information and fostering democratic accountability for a
+          better future.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="{{ '/data-platforms/' | relative_url }}"
+            class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <span>Learn More</span>
+            <i data-lucide="arrow-right"
+              class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+        </div>
       </div>
+
+      <div class="relative w-full aspect-square max-w-md mx-auto lg:max-w-lg flex items-center justify-center">
+        <div class="relative w-full h-full">
+          <!--Sri Lanka Map SVG-->
+          <svg id="srilanka-map" class="absolute inset-0 w-full h-full" viewBox="150 30 400 540"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="#f97316" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+              d="M551.018,409.005l0.334,2.184l1.404,4.879l0.223,2.874l-0.78,5.484l-6.307,21.893l-0.357,2.256l-0.134,2.985
+            l-0.468,2.491l-1.972,3.843l-0.435,1.717l-0.78,2.356l-2.652,4.157l-1.248,1.952l0.936,3.354l-1.504,3.982l-12.892,20.435
+            l-4.301,4.312l-7.945,5.646l-2.596,0.779l-3.477,1.867l-25.417,20.011l-5.081,2.757l-16.502,5.873h-0.011l-0.223-1.989
+            l-0.011-0.118l-0.98-0.773l-0.022,0.006l-0.223,0.056l-0.824,0.224l-0.524,1.104l-0.268,2.32l-0.746,0.874l-1.203,0.325
+            l-1.593,0.706l-2.975,1.799l-2.975,1.311L432.236,546l-6.909,2.376l-7.577,1.378l-3.454,1.333l-2.073,2.925l-3.711-0.728
+            l-2.284,0.88l-1.292,0.504l-5.271,3.905l-5.271,3.899l-2.429,2.823l-5.605-0.331l-0.011-0.006l-2.34,0.336l-1.827,0.695
+            l-1.883,1.076l-3.332,2.498l-0.958,0.224L375.051,570l-2.273-0.879l-2.407-1.244l-1.382-0.42l-0.958-0.286l-7.923,0.941
+            l-2.262-0.443l-1.148-1.137l-0.735-1.496l-0.579-0.874l-0.435-0.661l-2.318,1.356l-2.072,0.157l-3.688-0.532l-0.88-0.129
+            l-0.657-0.291l-0.457-0.65l-0.579-0.644l-1.07-0.297l-0.635,0.224l-0.501,0.448l-0.535,0.381l-0.713-0.022l-0.245-0.202
+            l-0.223-0.196l-0.869-1.238l-0.423-0.258l-0.111-0.067v-0.011l-0.969-0.342l-5.85-2.101l-2.396-0.493l-1.705-0.359l-2.975-2.392
+            l-0.668-0.325l-1.315-0.639l-0.022-0.011l-1.003,1.025l-2.552-2.062l-11.154-11.839l-0.914-0.717l-0.011-0.006l-0.1-0.129
+            l-0.312-0.375l-0.167-0.583l0.045-1.166l-0.345-0.605l-0.468-0.611l-1.237-1.62l-6.318-13.361l-0.267-1.278v-0.011l0.033-1.143
+            l0.034-1.143v-0.011l-0.234-0.695l-1.137-2.371l-1.159-6.43l-2.518-4.519l-1.582-6.464l-0.579-2.366l-0.29-0.23l-0.591-0.359
+            l-0.613-0.538l-0.379-0.757l0.156-0.807l0.669-0.196l0.702,0.078h0.011l0.334-0.017l-1.047-7.228l-0.089-0.578l-2.853-7.335
+            l-11.733-30.141l-1.861-10.415l-0.178-1.033v-9.923l0.156-0.387l1.359-3.272l0.357-1.572l-0.033-1.6v-0.028l-6.552-23.3l0.903-3.42
+            l-0.045,2.106l0.513,1.325l0.735,1.022l0.646,1.207l1.315,4.621l0.646,1.112h0.847l0.201-1.319l0.39-0.556l0.345-0.09h0.011
+            l0.078,0.079l-0.033-4.223v-0.028l-0.301-1.848l-0.691-1.522l-0.646-0.444l-1.805-0.393l-0.802-0.539l-0.089-0.191l-0.49-0.994
+            l0.223-1.095l0.524-1.022l0.279-0.977l-6.73-49.29l-0.836-1.787l0.568-0.607l0.423-0.062l0.981,0.669l0.223-2.389l0.68-2.771
+            l0.167-1.327l0.167-1.332l-0.769-2.08l-1.036-1.906l-0.201-1.265l-0.201-1.265l0.011-5.094l-3.153-15.493l-0.368-1.788
+            l-1.627-3.403l-1.382-7.149l-2.24-5.642l-3.443-15.592v-4.429l0.557,0.253l0.033,0.039l0.045,0.039v0.141l0.301,0.473l0.49-2.572
+            l-0.724-8.173l-0.702-2.477l2.251-1.486l2.128-2.753l1.538-3.136l0.613-2.635l0.624-1.723l4.045-6.391l-0.045,0.107l-2.039,4.826
+            l-2.585,4.6l0.568,1.12l0.145,0.276l1.014,1.013l1.326,0.529l1.616-0.011l-1.326,3.76l-1.382,2.758l-0.602,0.478l-0.635,0.068
+            l-0.501,0.388l-0.223,1.469l0.123,3.27l-0.123,1.019l-2.318,7.412l0.089,1.373l0.178,2.746l2.396,2.853l0.68,0.81l-2.741,5.739
+            l4.368,3.179l6.351,0.501l3.231-2.29l-0.613-2.464l-1.036-1.93l-0.401-0.737l-0.49-0.608l-1.215-1.53l-1.371-0.878l-0.401-1.497
+            l4.613-8.813l-0.178-1.598l-0.591-1.182l-0.68-0.991l-0.423-1.036l-0.112-1.666l0.156-2.871l-0.044-1.182v-0.034l-0.078-0.225
+            l-0.368-0.985l-0.223-0.203l-0.267-0.253l-0.267-0.563l0.267-1.548l0.646-1.312l1.794-2.353l0.368-1.531l0.29-2.894l1.281-5.794
+            l1.304-13.516l0.836-1.538l0.903-0.76l0.691-0.918l0.29-2.022v-5.763l0.791-2.828l1.861-1.82l2.206-1.504l1.783-1.927l0.223-0.682
+            l1.359-4.237l0.189-0.18l0.1-0.096l0.301-1.24l1.27-2.773l1.215-13.482l-3.298-8.603l0.267-1.494l0.245-9.811v-0.135l-0.334-3.276
+            l-0.401-1.613l-0.713-1.218l-0.557-1.387l1.27-0.688l1.839-0.344l1.215-0.372l7.945-7.192l4.145-2.048l1.727-1.517l0.914-3.374
+            l1.638-3.47l0.936-4.824l4.401-11.433l0.156-0.632l0.412-1.671l0.847-3.381v-8.061l0.301-1.18l-0.267-0.796l-1.604-0.311
+            l-3.777-1.976l-1.471-1.378l-0.925-2.609l-0.156-0.474l-0.658-3.252l-0.067-1.847l1.638-1.734l3.031-1.519l3.365-1.079l2.763-0.412
+            l1.237-0.638l3.008-4.01l0.346-0.26l0.524-0.407l1.003-0.599l1.237-0.463l1.571-0.249l-1.304-2.418l-0.78-1.062l-0.791-1.062
+            l-2.017-2l-2.663-2l-10.129-5.978l-2.039-2.548l4.413,0.141L310,64.219l8.246,4.814l7.867,1.989l2.073,1.333l3.242,2.847
+            l0.802,1.508l-1.671,0.853l0.368,0.949l0.49,0.949l-0.858,0.938l0.011,0.006l2.864,1.937l6.764-1.661l12.368-4.931l3.332,0.322
+            l7.298,2.022l8.613,3.897l6.496,1.254h0.022l-9.315-6.417l-3.209-1.491l-2.853-0.621l-0.423-0.198l-0.412-0.198l-2.474-1.887
+            l-0.936-0.554l-0.936-0.147l-1.125,0.057l-1.694,0.09l-1.07,0.412l-0.156,0.237l-0.301,0.503l-0.535,0.277l-1.816-1.35
+            l-0.724-0.124l-4.446,0.119l-1.27-0.373l-9.739-8.475l-4.178-2.718h-0.011l-1.493-0.661l-7.042-3.097l-2.541-1.475l-1.705-0.023
+            l0.323,3.379l0.947,0.994l1.471,1.125l0.869,1.373l-0.869,1.774l-1.036,0.316l-1.003-0.542l-0.914-0.768l-2.63-1.373l-5.115-4.481
+            l-2.942-1.266l0.011,0.011l1.493,1.65l2.697,2.34l1.493,1.695l-3.32-0.644l-3.276-1.373l-6.585-3.679l-5.248-4.148l-3.12-1.108
+            l-0.312-0.192l-1.181-0.769L288.572,49l-0.167,0.984l-1.504-1.034l-0.568-1.34l-0.267-1.6l-0.535-1.809l-0.903-1.543l-0.535-0.701
+            l-1.404-1.843l-0.903-1.6l2.964-1.493l5.393-5.015l2.429-1.086h0.011l10.697,0.95l5.582-0.628l2.039,0.237l0.802,1.855
+            l-0.134,2.912l0.401,1.012l1.17,0.384l1.137,0.164l3.276,0.848l0.691,0.373l0.613,1.221l1.471-0.051l1.159-0.356l0.446-0.136
+            l0.669-0.096l0.468-0.068l0.011,0.006l1.059,0.622l0.457,0.266l3.833,4.195l12.079,13.203l4.257,2.69l9.872,4.577l0.312,0.136
+            v-1.028l-4.97-2.526l-12.034-9.895l-9.861-11.435l-5.014-2.708l-7.856-1.866l-2.073-1.493l-0.267-2.109l2.875-1.255l0.936-0.158
+            l2.853-0.481L325.21,30l2.73,0.514l1.894,1.34l1.259,4.546l1.259,1.9l17.929,21.161l2.641,1.95l5.348,3.068l37.807,30.772
+            l0.145,0.248l0.958,1.615l1.538,1.92l2.942,2.778l1.872,2.433l-1.66,0.875l-0.011,0.006l-0.936-0.423l-0.112-0.051l-0.022-0.006
+            l-1.437-1.863l-0.791-0.407l-0.011-0.011l-2.474-0.407l-1.081,0.327l0.535,1.106l0.178,0.35l7.109,6.65l2.775,1.53l0.011,0.006
+            l-1.103-1.722l-0.669-1.575l0.345-1.163l1.894-0.446l0.891,0.604l1.449,4.301l1.326,2.647l5.204,10.435l-1.048-0.389l-2.897-1.078
+            l-1.816-0.034l-0.769,1.975l1.07,0.502l2.229,0.367l1.983,1.253l0.022,0.169l0.29,3.002h0.022h0.914l0.457-0.796l0.412-0.344
+            l0.468-0.226l0.624-0.44v0.011l0.702,2.754l0.078,0.344l1.939,4.44l2.596,3.983l2.641,1.726l0.201,0.163l0.312,0.265l-0.011,0.97
+            l-0.635,0.976l-1.27,0.457l-0.368-0.406l-1.504-2.426l-1.638-0.869l-3.755-0.97l-2.184-1.004l1.003,1.399l0.557,0.778l4.947,4.648
+            l0.045,2.64l1.627,1.151l-0.011,0.011l-1.46,1.359l-1.292,1.54l0.011,0.006l2.151,1.698l2.318-0.18l1.894-1.777l1.404-2.47
+            l0.914-2.284l0.022,0.011l4.947,5.995l4.39,7.562l1.794,1.872l2.507,0.733l2.006,1.624l2.942,7.155l0.746,0.784l0.791,0.84
+            l0.011,0.006l3.365,1.533l1.683,3.602l1.928,7.243l0.345-1.33l0.446-0.519l0.747,0.169l0.011,0.006l1.326,0.727l-0.401,1.33
+            l3.811,4.171l1.27,2.068l-0.011,2.497l-1.003,1.003l-1.426,0.659l-1.304,1.516l0.022-0.011l0.992-0.254l1.025-0.265l0.256-0.141
+            l0.512-0.276l0.011,0.011l2.964,6.469l0.435,3.369l-3.399,0.552h-0.011l0.702-2.231l-0.914-1.792l-1.515-0.254l-1.081,2.383
+            l0.368,1.848l0.969,1.313l0.535,1.403l-1.014,2.135l-0.802-0.614l-1.493-1.166l-2.373-1.47l-2.396-0.552l-2.284,0.969l-1.772,2.389
+            l0.624,1.251l2.117-0.327l2.853-2.361l1.961,2.09l1.772,2.507l2.139,2.09l3.009,0.867l6.296-0.124l2.128-1.352l-1.404-3.245
+            l3.599-1.651l1.426-0.439l1.515,0.107l0.011,0.011l1.66,0.958l1.515,1.622l1.137,1.893l0.969,5.543l2.139,7.13l0.067,1.858
+            l0.067,1.864l-1.738-1.222l-1.816-3.672l-1.593-0.777l-0.056,1.003l0.658,4.494l0.056,0.343l0.746,1.723l0.914,0.434l0.836,0.394
+            h0.022h1.85l1.471,0.664l0.869,5.293l1.048,3.671l0.178,0.608l0.29,2.246v0.011l0.423,1.436l2.853,9.665l1.081,6.298L490,269.322
+            v0.017l-1.382-5.701l-0.201-0.805l-2.084-5.775h-1.003l-0.167,4.385l0.167,1.379l-0.1-0.045l-0.1,0.394v0.011v0.687l0.201,0.833
+            l0.457,0.54l1.159,0.354l0.011,0.006l0.234,0.433l1.114,2.898l2.407,1.767h0.011l2.295-0.191l0.802-2.971h0.836l0.869,1.587
+            l0.234,0.428l1.125,4.991l1.148,1.919l1.526,1.677l0.981,1.632l1.694,3.905l0.669-0.675l0.88-0.664l0.401-0.636l0.602,1.288
+            l-0.602,0.686l0.301,0.495l0.267,0.326l0.045,0.084l0.156,0.276l0.089,0.619l0.011-0.011l0.68-0.563l1.404-0.675l0.713-0.551v0.011
+            l0.323,0.776l0.39,0.945l-0.29,1.12l-0.479,1.114l0.022,0.861l0.034,0.833l0.958,1.856l1.694,1.299l1.103,0.849l1.003,1.659
+            l-0.635,0.039l-0.323,0.219l-0.412,0.281l-0.256,0.163l-0.256,0.158l-0.401,1.508l-0.401,1.507l1.605,4.713l0.869,1.001
+            l1.961,2.261h0.022l2.897-0.529h0.936l0.947,2.885l1.081,1.783l0.334,0.551l5.906,6.185l1.905,3.019l0.334,2.671l-3.031,0.917
+            l-0.011,0.006l-1.404-0.956l-3.365-4.29l-1.76-1.524l-2.273-0.838h-0.022l-0.234,0.023l-1.616,0.141l-1.426,1.462l-0.97,3.064
+            l1.638,0.748l1.582,0.225l1.359-0.506l1.025-1.411l1.616,0.607l1.482,0.742l0.512,0.607l0.345,0.427l-0.212,1.479l1.816,1.704
+            l1.816,1.703l1.426,1.642l1.493,2.496l-0.011,0.006l-0.702,0.815l-0.178,0.793l0.234,0.95l0.657,1.304l0.847-1.04l-0.513-1.878
+            v-0.011l1.616,0.573l3.176,2.355l0.758,1.102l2.518,6.436l-0.156,0.275l-0.78,3.496l0.111,0.382l0.022,0.056l0.646,1.337
+            l0.156,0.539l-0.535,0.95l-0.981,0.759l-0.59,0.843l0.702,1.225l0.669,0.882l0.234,0.691l0.033,0.09l0.401,0.787l1.003,0.893
+            l-1.471,1.068l0.134,0.523l0.134,0.534l1.103,0.23l1.103-1.416h0.847l0.011,0.006l1.047,5.568l-0.033,2.051h0.022h0.936v-0.051
+            l0.111-1.933l0.334-1.91l0.579-1.63l0.847-1.158v-0.944l-0.078-0.214l-0.301-0.865l0.245-0.433l0.758,0.32l1.226,1.191l0.424,1.09
+            l0.312,2.927l2.106,3.354l3.421,11.747L551.018,409.005z M532.231,330.512l-0.234-1.45l-0.535-1.124l-0.657-1.383l-0.446-1.355
+            l0.067-1.434l0.423-1.271l0.178-1.344l-0.669-1.602v-0.017l1.761,1.72l1.682,3.986l1.237,1.844l0.301,0.798l1.27,3.429l3.332,5.306
+            l1.538,2.445l2.318,12.044v0.011l-0.089,2.754l-2.028,1.68l-1.928-1.523l-0.591-0.624l-0.279-0.287l-0.089-0.686l-0.1-0.686
+            l0.022-0.281l0.568-8.694l-0.401-3.001l-1.504-1.282l-0.568-1.231L532.231,330.512z M255.01,134.654l-1.527-0.604l-0.68-1.332
+            l0.435-1.331l1.772-0.609h6.117l2.708,0.7l2.797,0.722l5.839,2.234l5.571,3.25l4.68,4.547l-0.011-0.006l-2.24-0.468l-3.945-1.963
+            l-2.318-0.406l3.555,4.062l2.797,3.204l1.226,2.2l-3.276-0.417l-2.14-1.658l-1.471-1.805l-1.103-0.857l-1.415-0.722l-5.638-5.043
+            l-2.797-1.253l-2.797-1.253l-2.05-0.559l-1.092-0.299L255.01,134.654z M257.294,75.75l-1.092,1.051l-1.114,1.051l-3.454,0.203
+            l-3.209-1.068l-1.404-1.751v-5.689l0.401-1.458l0.903,0.187l0.936,1.169l0.568,1.475l2.362,0.746l2.819,0.215l0.702,0.514
+            L257.294,75.75z M279.892,59.461l-2.117-1.543l-2.117-3.182l-3.321-6.652l1.515-2.38l0.345-3.047l0.858-2.47l2.986-0.645
+            l1.582,0.481l0.022,0.006l0.134,1.17l-0.535,1.634l-0.368,1.888l0.056,1.905l0.201,1.52l0.011,0.09l0.123,0.305l0.468,1.102
+            l0.624,0.718l0.49,0.565l0.579,0.147l2.652-0.147l0.446,0.413l0.201,2.085l0.334,0.865l1.56,0.989l2.117,0.91l1.772,1.012
+            l0.145,0.316l0.468,0.995l-0.947,0.983l-1.805,0.011l-1.939-0.605l-1.371-0.865l-0.969-0.237l-2.463,1.458l-1.727,0.203H279.892z" />
+          </svg>
+        </div>
+
+
+        <!-- floating nodes -->
+        <div class="floating-node"
+          class="absolute top-50 right-10 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
+          <div class="flex items-center space-x-2">
+
+            <i data-lucide="search" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+        <div class="floating-node"
+          class="absolute top-80 right-20 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
+          <div class="flex items-center space-x-2">
+
+            <i data-lucide="search" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+        <div class="floating-node"
+          class="absolute top-24 right-140 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
+          <div class="flex items-center space-x-2">
+
+            <i data-lucide="chart-line" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+        <div class="floating-node"
+          class="absolute bottom-32 left-32 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="book-text" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+        <div class="floating-node"
+          class="absolute bottom-10 left-50 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
+          <div class="flex items-center space-x-2">
+
+            <i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+        <div class="floating-node"
+          class="absolute top-50 left-50 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
+          <div class="flex items-center space-x-2">
+
+            <i data-lucide="server" class="h-4 w-4 text-orange-500"></i>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
   </div>
 </section>
 
+
+
 <style>
-/* Floating Info Card Animations (Unchanged) */
-@keyframes float-card {
-  0%, 100% { transform: translate(0px, 0px) rotate(3deg); }
-  50% { transform: translate(5px, -15px) rotate(3deg); }
-}
+  /* Existing CSS for floating and data points */
+  @keyframes float-card {
 
-@keyframes float-card-reverse {
-  0%, 100% { transform: translate(0px, 0px) rotate(-6deg); }
-  50% { transform: translate(-5px, -10px) rotate(-6deg); }
-}
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(3deg);
+    }
 
-/* Data Point (Photo Holder) Floating Animation (From last response) */
-@keyframes data-point-float {
-  0% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
-  33% { transform: translate(-50%, -50%) translate3d(5px, -8px, 0); }
-  66% { transform: translate(-50%, -50%) translate3d(-5px, 8px, 0); }
-  100% { transform: translate(-50%, -50%) translate3d(0, 0, 0); }
-}
+    50% {
+      transform: translate(5px, -15px) rotate(3deg);
+    }
+  }
 
-.animate-float-card {
-  animation: float-card 6s ease-in-out infinite;
-}
+  @keyframes float-card-reverse {
 
-.animate-float-card-reverse {
-  animation: float-card-reverse 7s ease-in-out infinite;
-}
+    0%,
+    100% {
+      transform: translate(0px, 0px) rotate(-6deg);
+    }
 
-/* Apply the smooth floating animation to the data points */
-.data-point {
-  animation: data-point-float 10s ease-in-out infinite; 
-  position: absolute;
-}
+    50% {
+      transform: translate(-5px, -10px) rotate(-6deg);
+    }
+  }
 
-/* Custom CSS for the curved, glowing lines (Unchanged) */
-.curved-connection {
-  fill: none;
-  stroke: #fb923c; /* Color of the visual element */
-  stroke-width: 0.8;
-  opacity: 0.4;
-  filter: drop-shadow(0 0 3px rgba(251, 146, 60, 0.6)); /* Glowing effect */
-}
+  .animate-float-card-reverse {
+    animation: float-card-reverse 7s ease-in-out infinite;
+  }
 
-/* Photo holder styles remain the same */
-.photo-holder {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-  border: 2px solid #f97316;
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  /* Ensure z-index is respected for the foreground layer */
-  position: relative; 
-  z-index: 10; 
-}
 
-.photo-holder:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
-  border-color: #fb923c;
-}
-
-.photo-holder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.photo-placeholder {
-  color: #f97316;
-  font-size: 24px;
-}
+  /* NEW CSS for the Map Outline */
+  .srilanka-map-path {
+    fill: none;
+    /* Only show the outline */
+    stroke: #f97316;
+    /* Orange color */
+    stroke-width: 1.5;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.8));
+    /* Glowing effect */
+  }
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     // Initialize Lucide icons (if lucide.js is included on the page)
     if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+      lucide.createIcons();
     }
-
-    // Configuration - DEFINE THE NODES AND ADD IMAGE PATHS
-    const dataPointsConfig = [
-        // Node 0: Photo Example 1 (Replace URL with your path/URL)
-        { relativeX: 0.2, relativeY: 0.2, delay: 0, photoUrl: '/images/lotus-towr.jpeg' }, 
-        
-        // Node 1: Photo Example 2
-        { relativeX: 0.8, relativeY: 0.3, delay: 0, photoUrl: '/images/modern-man.jpg' },
-        
-        // Node 2: Placeholder
-        { relativeX: 0.3, relativeY: 0.6, delay: 0 ,photoUrl: '/images/hh.jpg'}, 
-        
-        // Node 3: Placeholder
-        { relativeX: 0.7, relativeY: 0.7, delay: 0 ,photoUrl: '/images/ff.jpg'},
-        
-        // Node 4: Photo Example 3
-        { relativeX: 0.4, relativeY: 0.85, delay: 0, photoUrl: '/images/modern-girl-2.jpg' },
-        
-        // Node 5: Placeholder
-        { relativeX: 0.9, relativeY: 0.5, delay: 0 ,photoUrl: '/images/gg.jpg'}
-    ];
-
-    const container = document.getElementById('data-points-container');
-    const svg = document.getElementById('node-connections');
-    
-    const dataPointElements = [];
-
-    if (container && svg) {
-        
-        /**
-         * Calculates absolute X, Y coordinates based on relative position and container size.
-         */
-        function calculatePosition(pointConfig, containerWidth, containerHeight) {
-            const x = containerWidth * pointConfig.relativeX;
-            const y = containerHeight * pointConfig.relativeY;
-            return { x, y };
-        }
-
-        // --- Data Points Creation ---
-        dataPointsConfig.forEach((point, index) => {
-            const dataPoint = document.createElement('div');
-            dataPoint.className = 'data-point';
-            dataPoint.id = `data-point-${index}`;
-            dataPoint.style.animationDelay = `${point.delay}s`; 
-            
-            const photoHolder = document.createElement('div');
-            photoHolder.className = 'photo-holder';
-            
-            // LOGIC TO DISPLAY PRE-CONFIGURED PHOTO
-            if (point.photoUrl) {
-                photoHolder.innerHTML = `<img src="${point.photoUrl}" alt="Node Photo ${index + 1}">`;
-            } else {
-                photoHolder.innerHTML = '<span class="photo-placeholder">📷</span>';
-            }
-            
-            // Keep the click-to-upload functionality
-            photoHolder.addEventListener('click', function() {
-                const input = document.createElement('input');
-                input.type = 'file';
-                input.accept = 'image/*';
-                input.onchange = function(e) {
-                    const file = e.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function(event) {
-                            photoHolder.innerHTML = `<img src="${event.target.result}" alt="Photo ${index + 1}">`;
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                };
-                input.click();
-            });
-            
-            dataPoint.appendChild(photoHolder);
-            container.appendChild(dataPoint);
-            dataPointElements.push(dataPoint);
-        });
-
-        const svgNS = "http://www.w3.org/2000/svg";
-        
-        // --- Connection Setup: Curved Paths ---
-        function createConnections() {
-            svg.innerHTML = ''; // Clear existing SVG elements
-
-            const containerRect = container.getBoundingClientRect();
-            const containerWidth = containerRect.width;
-            const containerHeight = containerRect.height;
-
-            svg.setAttribute('width', containerWidth);
-            svg.setAttribute('height', containerHeight);
-            svg.setAttribute('viewBox', `0 0 ${containerWidth} ${containerHeight}`);
-
-            /**
-             * Generates a random control point for a quadratic Bezier curve.
-             */
-            function getRandomControlPoint(x1, y1, x2, y2, strength = 0.5) {
-                const midX = (x1 + x2) / 2;
-                const midY = (y1 + y2) / 2;
-                const dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-                
-                // Angle perpendicular to the line segment
-                const angle = Math.atan2(y2 - y1, x2 - x1) + Math.PI / 2;
-                // Random offset distance from the midpoint
-                const offset = (Math.random() - 0.5) * dist * strength; 
-                
-                const ctrlX = midX + Math.cos(angle) * offset;
-                const ctrlY = midY + Math.sin(angle) * offset;
-                
-                return { ctrlX, ctrlY };
-            }
-
-            // Draw Curved Connections
-            dataPointsConfig.forEach((p1Config, i) => {
-                const pos1 = calculatePosition(p1Config, containerWidth, containerHeight);
-
-                dataPointsConfig.forEach((p2Config, j) => {
-                    // Connectivity logic: connects adjacent nodes and a long-distance connection (0 to 5)
-                    if (i < j && (j === i + 1 || j === i + 2 || (i === 0 && j === 5))) { 
-                        const pos2 = calculatePosition(p2Config, containerWidth, containerHeight);
-                        
-                        // Get random control point for a non-linear connection
-                        const cp = getRandomControlPoint(pos1.x, pos1.y, pos2.x, pos2.y, 0.4);
-                        // Q is the command for quadratic Bezier curve
-                        const pathData = `M${pos1.x},${pos1.y} Q${cp.ctrlX},${cp.ctrlY} ${pos2.x},${pos2.y}`;
-
-                        const path = document.createElementNS(svgNS, 'path');
-                        path.setAttribute('d', pathData);
-                        path.classList.add('curved-connection');
-                        svg.appendChild(path);
-                    }
-                });
-            });
-        }
-        
-        /**
-         * Updates the position of data points and redraws connections on resize/load.
-         */
-        function updateVisuals() {
-            const containerRect = container.getBoundingClientRect();
-            const containerWidth = containerRect.width;
-            const containerHeight = containerRect.height;
-
-            // 1. Update data point element positions
-            dataPointsConfig.forEach((pointConfig, index) => {
-                const { x, y } = calculatePosition(pointConfig, containerWidth, containerHeight);
-                const dataPoint = dataPointElements[index];
-                if (dataPoint) {
-                    // Position the div at the calculated coordinates (using -50% translation from CSS)
-                    dataPoint.style.left = `${x}px`;
-                    dataPoint.style.top = `${y}px`;
-                }
-            });
-
-            // 2. Redraw curves to adapt to new node positions
-            createConnections(); 
-        }
-
-        // Initial setup
-        updateVisuals(); 
-
-        // Redraw on window resize for responsiveness
-        window.addEventListener('resize', updateVisuals);
-    }
-});
+  });
 </script>
 
 <!-- What We Offer Section -->
-<section class="pb-20  bg-white">
+<section class="pb-32  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-16">
@@ -333,7 +264,7 @@
 
           <h3 class="text-xl font-semibold text-gray-900 text-center"
             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            OpenGin
+            OpenGIN
           </h3>
 
           <p class="text-gray-600 text-sm text-center leading-relaxed"
@@ -411,6 +342,106 @@
         </p>
       </div>
     </div> -->
+  </div>
+</section>
+
+
+
+<section class="pb-16  bg-white">
+  <div class="container mx-auto px-6 md:px-8 max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-start space-y-4 mb-16">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Check Out Our <span class="text-orange-500">Live Projects</span>
+      </h2>
+      <!-- <p class="text-lg text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Building digital tools for a more transparent, accountable, and participatory government.
+      </p> -->
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid gap-8 md:grid-cols-2 items-stretch">
+      <!-- Card 1 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <!-- Image -->
+          <div class="w-full flex-shrink-0 relative ">
+            <img src="{{ '/images/xplore.png' | relative_url }}" alt="XploreGov" class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 p-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Explore Sri Lanka's government structures, hierarchies through time and more ...
+              </p>
+              <a href="#"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Take a Look</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <div class="w-full flex-shrink-0 relative">
+            <img src="{{ '/images/archives.png' | relative_url }}" alt="Archives"
+              class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 p-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Search and browse through Sri Lanka's government publications by dates, categories and more ...
+              </p>
+              <a href="#"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Take a Look</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <div class="w-full flex-shrink-0 relative">
+            <img src="{{ '/images/xplore.png' | relative_url }}" alt="XploreData" class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 flex p-4 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Explore Sri Lankan statistics through charts, graphs and more ...
+              </p>
+              <a href="#"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Take a Look</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
