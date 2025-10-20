@@ -17,7 +17,8 @@
           better future.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="{{ '/data-platforms/' | relative_url }}"
+          
+          <a href="{{ '/about/' | relative_url }}"
             class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group"
             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             <span>Learn More</span>
@@ -124,51 +125,15 @@
         </div>
 
 
-        <!-- floating nodes -->
-        <div class="floating-node"
-          class="absolute top-50 right-10 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
-          <div class="flex items-center space-x-2">
+        <!-- floating data points over the svg map of sri lanka -->
+        <!-- floating data points over the svg map of sri lanka -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+          <!-- SVG for connection lines -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" id="connection-lines"></svg>
 
-            <i data-lucide="search" class="h-4 w-4 text-orange-500"></i>
-          </div>
-        </div>
-
-        <div class="floating-node"
-          class="absolute top-80 right-20 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
-          <div class="flex items-center space-x-2">
-
-            <i data-lucide="search" class="h-4 w-4 text-orange-500"></i>
-          </div>
-        </div>
-
-        <div class="floating-node"
-          class="absolute top-24 right-140 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card">
-          <div class="flex items-center space-x-2">
-
-            <i data-lucide="chart-line" class="h-4 w-4 text-orange-500"></i>
-          </div>
-        </div>
-
-        <div class="floating-node"
-          class="absolute bottom-32 left-32 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
-          <div class="flex items-center space-x-2">
-            <i data-lucide="book-text" class="h-4 w-4 text-orange-500"></i>
-          </div>
-        </div>
-
-        <div class="floating-node"
-          class="absolute bottom-10 left-50 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
-          <div class="flex items-center space-x-2">
-
-            <i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>
-          </div>
-        </div>
-
-        <div class="floating-node"
-          class="absolute top-50 left-50 bg-white/90 backdrop-blur border border-orange-200 rounded-full p-3 shadow-lg shadow-orange-900/10 w-auto animate-float-card-reverse">
-          <div class="flex items-center space-x-2">
-
-            <i data-lucide="server" class="h-4 w-4 text-orange-500"></i>
+          <!-- Data points container -->
+          <div id="data-points-container" class="absolute inset-0 w-full h-full">
+            <!-- Data points will be generated here -->
           </div>
         </div>
 
@@ -181,35 +146,51 @@
 
 
 <style>
-  /* Existing CSS for floating and data points */
-  @keyframes float-card {
+  /* Floating animation */
+  @keyframes float {
 
     0%,
     100% {
-      transform: translate(0px, 0px) rotate(3deg);
+      transform: translate(-50%, -50%) translateY(0px);
     }
 
     50% {
-      transform: translate(5px, -15px) rotate(3deg);
+      transform: translate(-50%, -50%) translateY(-5px);
     }
   }
 
-  @keyframes float-card-reverse {
+  
 
-    0%,
-    100% {
-      transform: translate(0px, 0px) rotate(-6deg);
-    }
-
-    50% {
-      transform: translate(-5px, -10px) rotate(-6deg);
-    }
+  .data-point {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 4s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
   }
 
-  .animate-float-card-reverse {
-    animation: float-card-reverse 7s ease-in-out infinite;
+  .data-point svg {
+    width: 20px;
+    height: 20px;
+    color: #f97316; 
+    stroke-width: 1.5;
   }
 
+  #connection-lines line {
+    stroke: #f97316;
+    stroke-width: 1.3;
+    opacity: 0.4;
+  }
+
+  #connection-lines circle {
+    fill: #f97316;
+    opacity: 0.4;
+  }
 
   /* NEW CSS for the Map Outline */
   .srilanka-map-path {
@@ -223,6 +204,84 @@
     /* Glowing effect */
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fixed formation covering the entire map
+    const dataPoints = [
+      { x: 50, y: 12, icon: 'landmark' },
+      { x: 70, y: 34, icon: 'anchor' },
+      { x: 50, y: 50, icon: 'waves' },
+      { x: 85, y: 55, icon: 'radio' },
+      { x: 60, y: 95, icon: 'zap' },
+      { x: 35, y: 75, icon: 'network' },
+      { x: 80, y: 85, icon: 'building-2' },
+    ];
+
+    const container = document.getElementById('data-points-container');
+    const svgLines = document.getElementById('connection-lines');
+
+    // Create data points
+    dataPoints.forEach((point, idx) => {
+      const pointEl = document.createElement('div');
+      pointEl.className = 'data-point';
+      pointEl.style.left = point.x + '%';
+      pointEl.style.top = point.y + '%';
+
+      const iconSvg = getIconSVG(point.icon);
+      pointEl.innerHTML = iconSvg;
+      container.appendChild(pointEl);
+    });
+
+    // Draw connection lines
+    function drawConnections() {
+      svgLines.innerHTML = '';
+      const containerRect = container.getBoundingClientRect();
+      
+      // Connect each point to nearby points
+      dataPoints.forEach((point, idx) => {
+        dataPoints.forEach((targetPoint, targetIdx) => {
+          if (targetIdx > idx) {
+            const dx = point.x - targetPoint.x;
+            const dy = point.y - targetPoint.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Only connect if points are reasonably close
+            if (distance < 50) {
+              const x1 = (point.x / 100) * containerRect.width;
+              const y1 = (point.y / 100) * containerRect.height;
+              const x2 = (targetPoint.x / 100) * containerRect.width;
+              const y2 = (targetPoint.y / 100) * containerRect.height;
+
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', x1);
+              line.setAttribute('y1', y1);
+              line.setAttribute('x2', x2);
+              line.setAttribute('y2', y2);
+              svgLines.appendChild(line);
+            }
+          }
+        });
+      });
+    }
+
+    function getIconSVG(iconName) {
+      const icons = {
+        'building-2': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
+        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'   ,
+        'anchor': '<i data-lucide="book-text" class="h-4 w-4 text-orange-500"></i>',
+        'waves': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>',
+        'radio':'<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>' ,
+        'zap': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
+        'network': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'
+      };
+      return icons[iconName] || icons['building-2'];
+    }
+
+    drawConnections();
+    window.addEventListener('resize', drawConnections);
+  });
+</script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -347,7 +406,7 @@
 
 
 
-<section class="pb-16  bg-white">
+<section id="live" class="pb-16  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
     <div class="text-start space-y-4 mb-16">
@@ -395,8 +454,7 @@
         <div
           class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
           <div class="w-full flex-shrink-0 relative">
-            <img src="{{ '/images/archives.png' | relative_url }}" alt="Archives"
-              class="w-full h-full object-cover" />
+            <img src="{{ '/images/archives.png' | relative_url }}" alt="Archives" class="w-full h-full object-cover" />
 
             <!-- Overlay -->
             <div
