@@ -81,57 +81,13 @@
         <div class="mb-20">
 
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-12">
-                <!-- Project 1: Archived Data -->
+
+                <!-- Project 1: Data Explorer -->
                 <div
-                    class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col">
+                    class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col group">
                     <div class="flex items-center justify-between">
-                        <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                            <i data-lucide="chart-no-axes-combined" class="h-6 w-6 text-white"></i>
-                        </div>
-
-                    </div>
-                    <div class="flex-1">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-2"
-                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                            Data Archive
-                        </h4>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4"
-                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                            Our Datasets offer the raw public data we collect, available in formats including PDFs,
-                            CSVs, and JSONs. They can be freely downloaded, viewed, and reused.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
-                                Statistics</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Official
-                                Gazettes</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
-                                Structures</span>
-                        </div>
-
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                        <a href="#archived-data"
-                            class="group inline-flex items-center space-x-1 text-orange-500 text-sm transition-colors"
-                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                            
-                            <span>Learn More</span>
-                            <i data-lucide="arrow-right"
-                            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
-                        </a>
-
-                    </div>
-                </div>
-
-                <!-- Project 2: Data Explorer -->
-                <div
-                    class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col">
-                    <div class="flex items-center justify-between">
-                        <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                            <i data-lucide="telescope" class="h-6 w-6 text-white"></i>
+                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-black group-hover:text-white group-hover:bg-orange-500 transition-colors">
+                            <i data-lucide="telescope" class="h-6 w-6"></i>
                         </div>
 
                     </div>
@@ -172,155 +128,62 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 2: Archived Data -->
+                <div
+                    class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col group">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center text-black group-hover:text-white justify-center group-hover:bg-orange-500 transition-colors">
+                            <i data-lucide="package" class="h-6 w-6"></i>
+                        </div>
+
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Data Archive
+                        </h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            Our Datasets offer the raw public data we collect, available in formats including PDFs,
+                            CSVs, and JSONs. They can be freely downloaded, viewed, and reused.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
+                                Statistics</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Official
+                                Gazettes</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Government
+                                Structures</span>
+                        </div>
+
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <a href="#archived-data"
+                            class="group inline-flex items-center space-x-1 text-orange-500 text-sm transition-colors"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            
+                            <span>Learn More</span>
+                            <i data-lucide="arrow-right"
+                            class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                
             </div>
+            
         </div>
 
         <!-- Featured Projects Section -->
         <div class="mb-20">
-            <!-- Archived Data Projects -->
-            <div class="mb-16" id="archived-data">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3"
-                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        Featured Projects in Data Archive
-                    </h3>
-                    <p class="text-gray-600 text-base leading-relaxed max-w-3xl"
-                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        Open-source tools and repositories for collecting, archiving, and distributing public data from
-                        Sri Lankan government sources.
-                    </p>
-                </div>
-
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Project Card 1 -->
-                    <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
-                        <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="database" class="h-5 w-5 text-black"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Statistics
-                            </span>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Government Statistics Archive
-                            </h4>
-                            <p class="text-gray-600 text-sm leading-relaxed"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Automated collection and archival system for Sri Lankan census and demographic
-                                statistics. Converts government PDFs into structured, machine-readable formats.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/datasets" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
-                            <a href="https://ldflk.github.io/datasets/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 3 -->
-                    <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
-                        <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="h-5 w-5 text-black"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Gazettes
-                            </span>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Gazette Archiver
-                            </h4>
-                            <p class="text-gray-600 text-sm leading-relaxed"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Comprehensive tool for archival of Sri Lankan government gazettes. Automatically
-                                downloads,
-                                processes, and indexes official publications for public access.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/gztarchiver" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
-                            <a href="https://ldflk.github.io/gztarchiver/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <!-- Project Card 2 -->
-                    <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
-                        <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="file-text" class="h-5 w-5 text-black"></i>
-                            </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Gazettes
-                            </span>
-                        </div>
-                        <div class="flex-1">
-                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Government Gazette Archive
-                            </h4>
-                            <p class="text-gray-600 text-sm leading-relaxed"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Archive of Sri Lankan government gazettes. Downloaded, archived, processed and flagged by the
-                                Gazette Archiver Tool for the public access.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/gztarchiver-storage" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
-                            <a href="https://ldflk.github.io/gztarchiver-storage" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
-                            </a>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
 
             <!-- Data Explorer Projects -->
-            <div id="data-explore">
+            <div class="mb-16" id="data-explore">
                 <div class="mb-8">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3"
                         style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -336,10 +199,10 @@
                 <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Project Card 1 -->
                     <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="building" class="h-5 w-5 text-black"></i>
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="building" class="h-5 w-5"></i>
                             </div>
                             <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -358,28 +221,23 @@
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/orgchart" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
+                            
                             <a href="https://xploregov.choreoapps.dev" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
+                                <span>Open App</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Project Card 2 -->
                     <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="bar-chart-3" class="h-5 w-5 text-black"></i>
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="bar-chart-3" class="h-5 w-5"></i>
                             </div>
                             <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -398,28 +256,23 @@
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/xploredata" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
+                            
                             <a href="https://xploredata.choreoapps.dev" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
+                                <span>Open App</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Project Card 3 -->
                     <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="search" class="h-5 w-5 text-black"></i>
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="file-archive" class="h-5 w-5"></i>
                             </div>
                             <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -438,28 +291,23 @@
                             </p>
                         </div>
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
-                            <a href="https://github.com/LDFLK/gztarchiver-ui-frontend" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </a>
-                            <span class="text-gray-300">•</span>
+                            
                             <a href="https://archives.opendata.lk/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-gray-600 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
+                                <span>Open App</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Project Card 4 -->
                     <div
-                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col">
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
-                            <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="locate-fixed" class="h-5 w-5 text-black"></i>
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="locate-fixed" class="h-5 w-5"></i>
                             </div>
                             <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -485,20 +333,142 @@
                             class="flex flex-wrap gap-2 pt-3 border-t border-gray-200 opacity-50 cursor-not-allowed select-none">
                             <div class="inline-flex items-center space-x-1 text-gray-400 text-xs"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="github" class="h-3.5 w-3.5"></i>
-                                <span>GitHub</span>
-                            </div>
-                            <span class="text-gray-300">•</span>
-                            <div class="inline-flex items-center space-x-1 text-gray-400 text-xs"
-                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                <i data-lucide="globe" class="h-3.5 w-3.5"></i>
-                                <span>Live</span>
+                                <span>Open App</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+
+            <!-- Archived Data Projects -->
+            <div id="archived-data">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        Featured Projects in Data Archive
+                    </h3>
+                    <p class="text-gray-600 text-base leading-relaxed max-w-3xl"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        Open-source tools and repositories for collecting, archiving, and distributing public data from
+                        Sri Lankan government sources.
+                    </p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                    <!-- Project Card 3 -->
+                    <div
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between">
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="hammer" class="h-5 w-5"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Gazettes
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Gazette Archiver
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Comprehensive tool for archival of Sri Lankan government gazettes. Automatically
+                                downloads,
+                                processes, and indexes official publications for public access.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
+                            
+                            <a href="https://ldflk.github.io/gztarchiver/" target="_blank"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                <span>Take a Look</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 1 -->
+                    <div
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between">
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="chart-column" class="h-5 w-5"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Statistics
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Government Statistics Archive
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Automated collection and archival system for Sri Lankan census and demographic
+                                statistics. Converts government PDFs into structured, machine-readable formats.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
+                            
+                            <a href="https://ldflk.github.io/datasets/" target="_blank"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                <span>Take a Look</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- Project Card 2 -->
+                    <div
+                        class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="flex items-start justify-between">
+                            <div class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                <i data-lucide="file-text" class="h-5 w-5"></i>
+                            </div>
+                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Gazettes
+                            </span>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Government Gazette Archive
+                            </h4>
+                            <p class="text-gray-600 text-sm leading-relaxed"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Archive of Sri Lankan government gazettes. Downloaded, archived, processed and flagged by the
+                                Gazette Archiver Tool for the public access.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
+                            
+                            <a href="https://ldflk.github.io/gztarchiver-storage" target="_blank"
+                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                <span>Take a Look</span>
+                                <i data-lucide="arrow-right"
+                                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
 
         <div class="text-center space-y-8">
