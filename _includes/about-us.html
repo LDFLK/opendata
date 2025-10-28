@@ -3,17 +3,20 @@
   <!-- Subtle background elements -->
   <div class="absolute inset-0">
     <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-gray-100 rounded-full filter blur-3xl opacity-30"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gray-50 rounded-full filter blur-3xl opacity-40" style="animation-delay: 2s"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gray-50 rounded-full filter blur-3xl opacity-40"
+      style="animation-delay: 2s"></div>
   </div>
 
   <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-16">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Who We Are &
         <span class="text-orange-500">Why We Do This</span>
       </h2>
-      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Dedicated to creating transparency and accountability through accessible public information for everyone.
       </p>
     </div>
@@ -23,293 +26,339 @@
       <div class="max-w-4xl mx-auto space-y-8">
         <!-- Our Story -->
         <div class="text-center space-y-6">
-          <h3 class="text-2xl font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <h3 class="text-2xl font-semibold text-gray-900"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             Our Story
           </h3>
-          <div class="space-y-4 text-gray-600 leading-relaxed text-justify" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="space-y-4 text-gray-600 leading-relaxed text-justify"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             <p>
-              At the Lanka Data Foundation (LDF), we believe that data is more than just numbers. It’s the foundation for accountability, transparency, and informed citizenship. In a world overflowing with information, we strive to transform scattered public data into meaningful, connected insights that empower people to question, understand, and participate in governance. As a citizen-driven, nonpartisan, and not-for-profit organization, our mission is to make verified, high-quality data accessible to everyone, whether through our platform or open APIs for public-minded organizations.
+              At the Lanka Data Foundation (LDF), we believe that data is more than just numbers. It’s the foundation
+              for accountability, transparency, and informed citizenship. In a world overflowing with information, we
+              strive to transform scattered public data into meaningful, connected insights that empower people to
+              question, understand, and participate in governance. As a citizen-driven, nonpartisan, and not-for-profit
+              organization, our mission is to make verified, high-quality data accessible to everyone, whether through
+              our platform or open APIs for public-minded organizations.
             </p>
             <p>
-              Our journey began with a simple realization, while there’s no shortage of data, much of it exists in isolation. By sourcing, curating, and linking public datasets, we aim to bridge those gaps and tell the full story hidden within the numbers. Through this work, we hope to strengthen democracy, amplify citizen voices, and build a more transparent and accountable society, where data truly serves the people.
+              Our journey began with a simple realization, while there’s no shortage of data, much of it exists in
+              isolation. By sourcing, curating, and linking public datasets, we aim to bridge those gaps and tell the
+              full story hidden within the numbers. Through this work, we hope to strengthen democracy, amplify citizen
+              voices, and build a more transparent and accountable society, where data truly serves the people.
             </p>
           </div>
         </div>
-        
+
       </div>
     </div>
 
 
-     <!-- Team Members Section -->
-  <div class="text-center mb-12">
-    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      Our Board
-    </h3>
-    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      Guiding the mission to make public data open, transparent, and impactful.
-    </p>
-  </div>
+    <!-- Team Members Section -->
+    <div class="text-center mb-12">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Our Board
+      </h3>
+      <p class="text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Guiding the mission to make public data open, transparent, and impactful.
+      </p>
+    </div>
 
-  <!-- Team Grid Container -->
-<div class="team-grid-container">
-<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-  {% assign team_members = site.data.board | default: empty_array %}
-  
-  {% for member in team_members %}
-    <div class="team-member text-center group">
-      <!-- Photo -->
-        <div class="mb-4">
-          {% if member.photo %}
+    <!-- Team Grid Container -->
+    <div class="team-grid-container">
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        {% assign team_members = site.data.board | default: empty_array %}
+
+        {% for member in team_members %}
+        <div class="team-member text-center group">
+          <!-- Photo -->
+          <div class="mb-4">
+            {% if member.photo %}
             {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-              </a>
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+                class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            </a>
             {% else %}
-              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+              class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
             {% endif %}
-          {% else %}
-            {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-                  <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
-                </div>
-              </a>
             {% else %}
-              <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <div
+                class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
                 <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
               </div>
+            </a>
+            {% else %}
+            <div
+              class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+              <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+            </div>
             {% endif %}
-          {% endif %}
+            {% endif %}
+          </div>
+
+          <!-- Content -->
+          <div class="space-y-2">
+            <h4 class="text-lg font-semibold text-gray-900"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.name | default: 'Board Member' }}
+            </h4>
+
+            <p class="text-gray-600 text-sm font-medium"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.role | default: 'Board Member' }}
+            </p>
+
+            {% if member.bio %}
+            <p class="text-gray-500 text-sm leading-relaxed"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.bio }}
+            </p>
+            {% endif %}
+          </div>
         </div>
-      
-      <!-- Content -->
-      <div class="space-y-2">
-        <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.name | default: 'Board Member' }}
-        </h4>
-        
-        <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.role | default: 'Board Member' }}
-        </p>
-        
-        {% if member.bio %}
-          <p class="text-gray-500 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            {{ member.bio }}
-          </p>
-        {% endif %}
+        {% endfor %}
       </div>
     </div>
-  {% endfor %}
-</div>
-</div>
 
 
 
 
     <!-- Team Members Section -->
-  <div class="text-center mb-12 mt-20">
-    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      Meet Our Team
-    </h3>
-    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      The passionate individuals working to make public data accessible for everyone.
-    </p>
-  </div>
+    <div class="text-center mb-12 mt-20">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Meet Our Team
+      </h3>
+      <p class="text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        The passionate individuals working to make public data accessible for everyone.
+      </p>
+    </div>
 
-<!-- Team Grid Container -->
-<div class="team-grid-container">
-  <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-    {% assign team_members = site.data.team | default: empty_array %}
-    
-    {% for member in team_members %}
-      <div class="team-member text-center group">
-        <!-- Photo -->
-        <div class="mb-4">
-          {% if member.photo %}
+    <!-- Team Grid Container -->
+    <div class="team-grid-container">
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        {% assign team_members = site.data.team | default: empty_array %}
+
+        {% for member in team_members %}
+        <div class="team-member text-center group">
+          <!-- Photo -->
+          <div class="mb-4">
+            {% if member.photo %}
             {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-              </a>
-            {% else %}
-              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-            {% endif %}
-          {% else %}
-            {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-                  <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
-                </div>
-              </a>
-            {% else %}
-              <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-                <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
-              </div>
-            {% endif %}
-          {% endif %}
-        </div>
-        
-        <!-- Content -->
-        <div class="space-y-2">
-          <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            {{ member.name | default: 'Team Member' }}
-          </h4>
-          
-          <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            {{ member.role | default: 'Team Member' }}
-          </p>
-          
-          {% if member.bio %}
-            <p class="text-gray-500 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-              {{ member.bio }}
-            </p>
-          {% endif %}
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-
-<!-- Alumini  Section -->
-<div class="text-center mb-12 mt-20">
-  <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-   Our Alumni
-  </h3>
-  <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-    The innovators, leaders, and changemakers who shaped our journey and continue to inspire the future of open data.
-  </p>
-</div>
-
-<!-- Team Grid Container -->
-<div class="team-grid-container">
-<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-{% assign alumini_members = site.data.alumini | default: empty_array %}
-
-{% for member in alumini_members %}
-  <div class="team-member text-center group">
-    <!-- Photo -->
-      <div class="mb-4">
-        {% if member.photo %}
-          {% if member.linkedin %}
             <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+                class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
             </a>
-          {% else %}
-            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-          {% endif %}
-        {% else %}
-          {% if member.linkedin %}
+            {% else %}
+            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+              class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            {% endif %}
+            {% else %}
+            {% if member.linkedin %}
             <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-              <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+              <div
+                class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
                 <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
               </div>
             </a>
-          {% else %}
-            <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+            {% else %}
+            <div
+              class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
               <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
             </div>
-          {% endif %}
-        {% endif %}
-      </div>
-    
-    <!-- Content -->
-    <div class="space-y-2">
-      <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        {{ member.name | default: 'Contributor' }}
-      </h4>
-      
-      <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        {{ member.role | default: '' }}
-      </p>
-      
-      {% if member.bio %}
-        <p class="text-gray-500 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.bio }}
-        </p>
-      {% endif %}
-    </div>
-  </div>
-{% endfor %}
-</div>
-</div>
-
-
-
- <!-- Contributers Members Section -->
-  <div class="text-center mb-12 mt-20">
-    <h3 class="text-2xl font-semibold text-gray-900 mb-4" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      Our Contributors
-    </h3>
-    <p class="text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-      The builders, thinkers, and doers behind open and accessible public data.
-    </p>
-  </div>
-
-  <!-- Team Grid Container -->
-<div class="team-grid-container">
-<div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
-  {% assign team_members = site.data.contributors | default: empty_array %}
-  
-  {% for member in team_members %}
-    <div class="team-member text-center group">
-      <!-- Photo -->
-        <div class="mb-4">
-          {% if member.photo %}
-            {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-              </a>
-            {% else %}
-              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
             {% endif %}
-          {% else %}
+            {% endif %}
+          </div>
+
+          <!-- Content -->
+          <div class="space-y-2">
+            <h4 class="text-lg font-semibold text-gray-900"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.name | default: 'Team Member' }}
+            </h4>
+
+            <p class="text-gray-600 text-sm font-medium"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.role | default: 'Team Member' }}
+            </p>
+
+            {% if member.bio %}
+            <p class="text-gray-500 text-sm leading-relaxed"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.bio }}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <!-- Alumini  Section -->
+    <div class="text-center mb-12 mt-20">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Our Alumni
+      </h3>
+      <p class="text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        The innovators, leaders, and changemakers who shaped our journey and continue to inspire the future of open
+        data.
+      </p>
+    </div>
+
+    <!-- Team Grid Container -->
+    <div class="team-grid-container">
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        {% assign alumini_members = site.data.alumini | default: empty_array %}
+
+        {% for member in alumini_members %}
+        <div class="team-member text-center group">
+          <!-- Photo -->
+          <div class="mb-4">
+            {% if member.photo %}
             {% if member.linkedin %}
-              <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
-                <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
-                  <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
-                </div>
-              </a>
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+                class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            </a>
             {% else %}
-              <div class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray">
+            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+              class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            {% endif %}
+            {% else %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <div
+                class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
                 <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
               </div>
+            </a>
+            {% else %}
+            <div
+              class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+              <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+            </div>
             {% endif %}
-          {% endif %}
+            {% endif %}
+          </div>
+
+          <!-- Content -->
+          <div class="space-y-2">
+            <h4 class="text-lg font-semibold text-gray-900"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.name | default: 'Contributor' }}
+            </h4>
+
+            <p class="text-gray-600 text-sm font-medium"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.role | default: '' }}
+            </p>
+
+            {% if member.bio %}
+            <p class="text-gray-500 text-sm leading-relaxed"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.bio }}
+            </p>
+            {% endif %}
+          </div>
         </div>
-      
-      <!-- Content -->
-      <div class="space-y-2">
-        <h4 class="text-lg font-semibold text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.name | default: 'Contributor' }}
-        </h4>
-        
-        <p class="text-gray-600 text-sm font-medium" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          {{ member.role | default: '' }}
-        </p>
-        
-        {% if member.bio %}
-          <p class="text-gray-500 text-sm leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            {{ member.bio }}
-          </p>
-        {% endif %}
+        {% endfor %}
       </div>
     </div>
-  {% endfor %}
-</div>
-</div>
 
 
-    
+
+    <!-- Contributers Members Section -->
+    <div class="text-center mb-12 mt-20">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-4"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Our Contributors
+      </h3>
+      <p class="text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        The builders, thinkers, and doers behind open and accessible public data.
+      </p>
+    </div>
+
+    <!-- Team Grid Container -->
+    <div class="team-grid-container">
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
+        {% assign team_members = site.data.contributors | default: empty_array %}
+
+        {% for member in team_members %}
+        <div class="team-member text-center group">
+          <!-- Photo -->
+          <div class="mb-4">
+            {% if member.photo %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+                class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            </a>
+            {% else %}
+            <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}"
+              class="w-24 h-24 mx-auto rounded-full object-cover group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+            {% endif %}
+            {% else %}
+            {% if member.linkedin %}
+            <a href="{{ member.linkedin }}" target="_blank" class="block cursor-pointer">
+              <div
+                class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+                <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+              </div>
+            </a>
+            {% else %}
+            <div
+              class="w-24 h-24 mx-auto bg-gray-200 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300 border-4 border-gray hover:border-orange-500 transition-border">
+              <i data-lucide="user" class="h-12 w-12 text-gray-500"></i>
+            </div>
+            {% endif %}
+            {% endif %}
+          </div>
+
+          <!-- Content -->
+          <div class="space-y-2">
+            <h4 class="text-lg font-semibold text-gray-900"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.name | default: 'Contributor' }}
+            </h4>
+
+            <p class="text-gray-600 text-sm font-medium"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.role | default: '' }}
+            </p>
+
+            {% if member.bio %}
+            <p class="text-gray-500 text-sm leading-relaxed"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              {{ member.bio }}
+            </p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+
   </div>
 </section>
 
 
 
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
-});
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
 </script>
