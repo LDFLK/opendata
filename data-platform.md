@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "What We Build"
+title: "OpenGin"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include what-we-build.html %}
+{% include data-platform.html %}

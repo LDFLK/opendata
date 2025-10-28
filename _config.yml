@@ -1,5 +1,5 @@
 # Site settings
-title: "Open Data"
+title: "Lanka Data Foundation"
 description: "Empowering communities with public data"
 url: "https://yasandu0505.github.io"
 version: v0.1.0
@@ -13,14 +13,8 @@ address: "248/201 Hill street Dehiwala, Sri Lanka"
 social:
   linkedin: "https://www.linkedin.com/company/lankadata/"
   github: "https://github.com/LDFLK"
-  discord: "https://discord.gg/RXCT6zCUxB"
+  discord: "https://discord.gg/wYKFyVEY"
 
-# Statistics
-stats:
-  datasets: "50K+"
-  users: "100K+"
-  cities: "25+"
-  subscribers: "10,000+"
 
 # Build settings
 markdown: kramdown
@@ -50,5 +44,4 @@ exclude:
   - vendor/ruby/
 
 
-github:
-  contributors: 127
+

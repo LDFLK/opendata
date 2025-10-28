@@ -1,7 +1,7 @@
 ---
 layout: default
-title: "Open Source Projects"
+title: "Information Hub"
 description: "Empowering communities through transparent access to public information"
 ---
 
-{% include open-source-project.html %}
+{% include information-hub.html %}

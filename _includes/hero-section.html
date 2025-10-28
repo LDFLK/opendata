@@ -1,340 +1,382 @@
-<!-- Hero Section -->
-<section id="home" class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
-    <div class="container px-6 md:px-8 max-w-6xl">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Left side: Text content -->
-            <div class="space-y-6">
-                <!-- Main Title -->
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    <span class="block">Bridging gaps</span>
-                    <span class="block text-gray-600">with open data</span>
-                    <span class="block">for a transparent</span>
-                    <span class="block text-gray-900">tomorrow</span>
-                </h1>
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                    Empowering communities through accessible public information and fostering democratic accountability for a better future.
-                </p>
-                <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ '/open-source/' | relative_url }}" class="inline-flex items-center justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        <span>Explore Products</span>
-                        <i data-lucide="arrow-right" class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
-                    </a>
-                    <a href="{{ '/about/' | relative_url }}" class="inline-flex items-center justify-center px-8 py-4 text-gray-700 font-medium rounded-lg border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-colors" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                        <i data-lucide="info" class="mr-2 h-5 w-5"></i>
-                        <span>Learn More</span>
-                    </a>
-                </div>
-            </div>
-            
-             <!-- Right side: Visual element -->
-                <div class="relative flex items-center justify-center">
-                    <svg viewBox="0 0 500 400" class="w-full h-auto max-w-lg max-h-64 sm:max-h-80 lg:max-h-none">
-                        <!-- Connection Lines -->
-                        <g class="opacity-60">
-                            <!-- Main network connections -->
-                            <line x1="100" y1="80" x2="200" y2="150" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0s;"/>
-                            <line x1="200" y1="150" x2="350" y2="100" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0.5s;"/>
-                            <line x1="200" y1="150" x2="300" y2="250" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 1s;"/>
-                            <line x1="200" y1="150" x2="120" y2="280" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 1.5s;"/>
-                            <line x1="300" y1="250" x2="400" y2="200" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 2s;"/>
-                            <line x1="300" y1="250" x2="250" y2="350" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 2.5s;"/>
-                            <line x1="120" y1="280" x2="60" y2="320" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3s;"/>
-                            <line x1="350" y1="100" x2="420" y2="80" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 3.5s;"/>
-                            <line x1="380" y1="320" x2="300" y2="250" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 4.5s;"/>
-                            <line x1="250" y1="50" x2="200" y2="150" stroke="#374151" stroke-width="2" class="animate-pulse" style="animation-delay: 0.2s;"/>
-                        </g>
-                        
-                        <!-- Data Nodes (Document/Database icons) -->
-                        <g fill="#6B7280" stroke="#374151" stroke-width="1.5">
-                            <!-- Database/Server node -->
-                            <rect x="180" y="130" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="185" y="135" width="8" height="6" fill="#374151"/>
-                            <rect x="185" y="143" width="12" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="147" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="151" width="10" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="155" width="14" height="2" fill="#9CA3AF"/>
-                            <rect x="185" y="159" width="8" height="2" fill="#9CA3AF"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="200" cy="150" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Document node 1 -->
-                            <rect x="330" y="80" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="335" y="88" width="20" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="92" width="24" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="96" width="18" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="100" width="22" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="104" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="335" y="108" width="20" height="2" fill="#9CA3AF"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="350" cy="100" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Document node 2 -->
-                            <rect x="280" y="230" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="285" y="238" width="20" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="242" width="24" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="246" width="18" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="250" width="22" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="254" width="16" height="2" fill="#9CA3AF"/>
-                            <rect x="285" y="258" width="20" height="2" fill="#9CA3AF"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-2"/>
-                            <circle cx="300" cy="250" r="25" fill="none" stroke="#FF0000" stroke-width="1" opacity="0.3" class="pulse-ring-3"/>
-                            
-                            <!-- Photo/Media node -->
-                            <rect x="230" y="330" width="40" height="40" rx="4" fill="#F3F4F6" stroke="#6B7280"/>
-                            <rect x="235" y="338" width="30" height="20" fill="#E5E7EB"/>
-                            <circle cx="242" cy="345" r="3" fill="#9CA3AF"/>
-                            <polygon points="250,350 255,345 260,350 260,355 235,355 235,350" fill="#9CA3AF"/>
-                        </g>
-                        
-                        <!-- Human/User Nodes with Images -->
-                        <defs>
-                            <!-- Circular clipping paths for images -->
-                            <clipPath id="userClip1">
-                                <circle cx="100" cy="80" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip2">
-                                <circle cx="400" cy="200" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip3">
-                                <circle cx="120" cy="280" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip4">
-                                <circle cx="60" cy="320" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip5">
-                                <circle cx="420" cy="80" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip6">
-                                <circle cx="380" cy="320" r="18"/>
-                            </clipPath>
-                            <clipPath id="userClip7">
-                                <circle cx="250" cy="50" r="18"/>
-                            </clipPath>
-                        </defs>
-                        
-                        <g fill="#374151">
-                            <!-- User node 1 -->
-                            <circle cx="100" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/old-women.jpg' | relative_url }}" 
-                                   x="82" y="62" width="36" height="36" clip-path="url(#userClip1)"/>
-                          
-                            <!-- User node 2 -->
-                            <circle cx="400" cy="200" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-man.jpg' | relative_url }}" 
-                                   x="382" y="182" width="36" height="36" clip-path="url(#userClip2)"/>
-                            
-                            <!-- User node 3 -->
-                            <circle cx="120" cy="280" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-woman.jpg' | relative_url }}" 
-                                   x="102" y="262" width="36" height="36" clip-path="url(#userClip3)"/>
-                            
-                            <!-- User node 4 -->
-                            <circle cx="60" cy="320" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/boy.jpg' | relative_url }}" 
-                                   x="42" y="302" width="36" height="36" clip-path="url(#userClip4)"/>
-                            
-                            <!-- User node 5 -->
-                            <circle cx="420" cy="80" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/old-man.jpg' | relative_url }}" 
-                                   x="402" y="62" width="36" height="36" clip-path="url(#userClip5)"/>
-                            
-                            <!-- User node 6 -->
-                            <circle cx="380" cy="320" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/young-women-2.jpg' | relative_url }}" 
-                                   x="362" y="302" width="36" height="36" clip-path="url(#userClip6)"/>
-                            
-                            <!-- User node 7 -->
-                            <circle cx="250" cy="50" r="20" fill="#F9FAFB" stroke="#6B7280" stroke-width="2"/>
-                            <image href="{{ '/images/modern-girl-2.jpg' | relative_url }}" 
-                                   x="232" y="32" width="36" height="36" clip-path="url(#userClip7)"/>
-                        </g>
-                    </svg>
-                </div>
-            
+<section id="home"
+  class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
+  <div class="container px-6 md:px-8 max-w-6xl">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <span class="block">Shaping a Transparent</span>
+          <span class="block text-orange-500">Sri Lanka</span>
+          <span class="block">with Accessible,</span>
+          <span class="block text-gray-900">Connected Data</span>
+
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Empowering communities through accessible public information and fostering democratic accountability for a
+          better future.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          
+          <a href="#"
+            class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <span>Explore Gov</span>
+            <i data-lucide="arrow-right"
+              class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
+          <a href="https://archives.opendata.lk/" target="_blank"
+            class="inline-flex items-center border border-orange-500 justify-center px-8 py-4 bg-orange-500 text-white font-medium rounded-lg hover:bg-white hover:text-orange-500 transition-colors group"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            <span>Explore Docs</span>
+            <i data-lucide="arrow-right"
+              class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
+          </a>
         </div>
+      </div>
+
+      <div class="relative w-full aspect-square max-w-md mx-auto lg:max-w-lg flex items-center justify-center">
+        <div class="relative w-full h-full">
+          <!--Sri Lanka Map SVG-->
+          <svg id="srilanka-map" class="absolute inset-0 w-full h-full" viewBox="150 30 400 540"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke="#f97316" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+              d="M551.018,409.005l0.334,2.184l1.404,4.879l0.223,2.874l-0.78,5.484l-6.307,21.893l-0.357,2.256l-0.134,2.985
+            l-0.468,2.491l-1.972,3.843l-0.435,1.717l-0.78,2.356l-2.652,4.157l-1.248,1.952l0.936,3.354l-1.504,3.982l-12.892,20.435
+            l-4.301,4.312l-7.945,5.646l-2.596,0.779l-3.477,1.867l-25.417,20.011l-5.081,2.757l-16.502,5.873h-0.011l-0.223-1.989
+            l-0.011-0.118l-0.98-0.773l-0.022,0.006l-0.223,0.056l-0.824,0.224l-0.524,1.104l-0.268,2.32l-0.746,0.874l-1.203,0.325
+            l-1.593,0.706l-2.975,1.799l-2.975,1.311L432.236,546l-6.909,2.376l-7.577,1.378l-3.454,1.333l-2.073,2.925l-3.711-0.728
+            l-2.284,0.88l-1.292,0.504l-5.271,3.905l-5.271,3.899l-2.429,2.823l-5.605-0.331l-0.011-0.006l-2.34,0.336l-1.827,0.695
+            l-1.883,1.076l-3.332,2.498l-0.958,0.224L375.051,570l-2.273-0.879l-2.407-1.244l-1.382-0.42l-0.958-0.286l-7.923,0.941
+            l-2.262-0.443l-1.148-1.137l-0.735-1.496l-0.579-0.874l-0.435-0.661l-2.318,1.356l-2.072,0.157l-3.688-0.532l-0.88-0.129
+            l-0.657-0.291l-0.457-0.65l-0.579-0.644l-1.07-0.297l-0.635,0.224l-0.501,0.448l-0.535,0.381l-0.713-0.022l-0.245-0.202
+            l-0.223-0.196l-0.869-1.238l-0.423-0.258l-0.111-0.067v-0.011l-0.969-0.342l-5.85-2.101l-2.396-0.493l-1.705-0.359l-2.975-2.392
+            l-0.668-0.325l-1.315-0.639l-0.022-0.011l-1.003,1.025l-2.552-2.062l-11.154-11.839l-0.914-0.717l-0.011-0.006l-0.1-0.129
+            l-0.312-0.375l-0.167-0.583l0.045-1.166l-0.345-0.605l-0.468-0.611l-1.237-1.62l-6.318-13.361l-0.267-1.278v-0.011l0.033-1.143
+            l0.034-1.143v-0.011l-0.234-0.695l-1.137-2.371l-1.159-6.43l-2.518-4.519l-1.582-6.464l-0.579-2.366l-0.29-0.23l-0.591-0.359
+            l-0.613-0.538l-0.379-0.757l0.156-0.807l0.669-0.196l0.702,0.078h0.011l0.334-0.017l-1.047-7.228l-0.089-0.578l-2.853-7.335
+            l-11.733-30.141l-1.861-10.415l-0.178-1.033v-9.923l0.156-0.387l1.359-3.272l0.357-1.572l-0.033-1.6v-0.028l-6.552-23.3l0.903-3.42
+            l-0.045,2.106l0.513,1.325l0.735,1.022l0.646,1.207l1.315,4.621l0.646,1.112h0.847l0.201-1.319l0.39-0.556l0.345-0.09h0.011
+            l0.078,0.079l-0.033-4.223v-0.028l-0.301-1.848l-0.691-1.522l-0.646-0.444l-1.805-0.393l-0.802-0.539l-0.089-0.191l-0.49-0.994
+            l0.223-1.095l0.524-1.022l0.279-0.977l-6.73-49.29l-0.836-1.787l0.568-0.607l0.423-0.062l0.981,0.669l0.223-2.389l0.68-2.771
+            l0.167-1.327l0.167-1.332l-0.769-2.08l-1.036-1.906l-0.201-1.265l-0.201-1.265l0.011-5.094l-3.153-15.493l-0.368-1.788
+            l-1.627-3.403l-1.382-7.149l-2.24-5.642l-3.443-15.592v-4.429l0.557,0.253l0.033,0.039l0.045,0.039v0.141l0.301,0.473l0.49-2.572
+            l-0.724-8.173l-0.702-2.477l2.251-1.486l2.128-2.753l1.538-3.136l0.613-2.635l0.624-1.723l4.045-6.391l-0.045,0.107l-2.039,4.826
+            l-2.585,4.6l0.568,1.12l0.145,0.276l1.014,1.013l1.326,0.529l1.616-0.011l-1.326,3.76l-1.382,2.758l-0.602,0.478l-0.635,0.068
+            l-0.501,0.388l-0.223,1.469l0.123,3.27l-0.123,1.019l-2.318,7.412l0.089,1.373l0.178,2.746l2.396,2.853l0.68,0.81l-2.741,5.739
+            l4.368,3.179l6.351,0.501l3.231-2.29l-0.613-2.464l-1.036-1.93l-0.401-0.737l-0.49-0.608l-1.215-1.53l-1.371-0.878l-0.401-1.497
+            l4.613-8.813l-0.178-1.598l-0.591-1.182l-0.68-0.991l-0.423-1.036l-0.112-1.666l0.156-2.871l-0.044-1.182v-0.034l-0.078-0.225
+            l-0.368-0.985l-0.223-0.203l-0.267-0.253l-0.267-0.563l0.267-1.548l0.646-1.312l1.794-2.353l0.368-1.531l0.29-2.894l1.281-5.794
+            l1.304-13.516l0.836-1.538l0.903-0.76l0.691-0.918l0.29-2.022v-5.763l0.791-2.828l1.861-1.82l2.206-1.504l1.783-1.927l0.223-0.682
+            l1.359-4.237l0.189-0.18l0.1-0.096l0.301-1.24l1.27-2.773l1.215-13.482l-3.298-8.603l0.267-1.494l0.245-9.811v-0.135l-0.334-3.276
+            l-0.401-1.613l-0.713-1.218l-0.557-1.387l1.27-0.688l1.839-0.344l1.215-0.372l7.945-7.192l4.145-2.048l1.727-1.517l0.914-3.374
+            l1.638-3.47l0.936-4.824l4.401-11.433l0.156-0.632l0.412-1.671l0.847-3.381v-8.061l0.301-1.18l-0.267-0.796l-1.604-0.311
+            l-3.777-1.976l-1.471-1.378l-0.925-2.609l-0.156-0.474l-0.658-3.252l-0.067-1.847l1.638-1.734l3.031-1.519l3.365-1.079l2.763-0.412
+            l1.237-0.638l3.008-4.01l0.346-0.26l0.524-0.407l1.003-0.599l1.237-0.463l1.571-0.249l-1.304-2.418l-0.78-1.062l-0.791-1.062
+            l-2.017-2l-2.663-2l-10.129-5.978l-2.039-2.548l4.413,0.141L310,64.219l8.246,4.814l7.867,1.989l2.073,1.333l3.242,2.847
+            l0.802,1.508l-1.671,0.853l0.368,0.949l0.49,0.949l-0.858,0.938l0.011,0.006l2.864,1.937l6.764-1.661l12.368-4.931l3.332,0.322
+            l7.298,2.022l8.613,3.897l6.496,1.254h0.022l-9.315-6.417l-3.209-1.491l-2.853-0.621l-0.423-0.198l-0.412-0.198l-2.474-1.887
+            l-0.936-0.554l-0.936-0.147l-1.125,0.057l-1.694,0.09l-1.07,0.412l-0.156,0.237l-0.301,0.503l-0.535,0.277l-1.816-1.35
+            l-0.724-0.124l-4.446,0.119l-1.27-0.373l-9.739-8.475l-4.178-2.718h-0.011l-1.493-0.661l-7.042-3.097l-2.541-1.475l-1.705-0.023
+            l0.323,3.379l0.947,0.994l1.471,1.125l0.869,1.373l-0.869,1.774l-1.036,0.316l-1.003-0.542l-0.914-0.768l-2.63-1.373l-5.115-4.481
+            l-2.942-1.266l0.011,0.011l1.493,1.65l2.697,2.34l1.493,1.695l-3.32-0.644l-3.276-1.373l-6.585-3.679l-5.248-4.148l-3.12-1.108
+            l-0.312-0.192l-1.181-0.769L288.572,49l-0.167,0.984l-1.504-1.034l-0.568-1.34l-0.267-1.6l-0.535-1.809l-0.903-1.543l-0.535-0.701
+            l-1.404-1.843l-0.903-1.6l2.964-1.493l5.393-5.015l2.429-1.086h0.011l10.697,0.95l5.582-0.628l2.039,0.237l0.802,1.855
+            l-0.134,2.912l0.401,1.012l1.17,0.384l1.137,0.164l3.276,0.848l0.691,0.373l0.613,1.221l1.471-0.051l1.159-0.356l0.446-0.136
+            l0.669-0.096l0.468-0.068l0.011,0.006l1.059,0.622l0.457,0.266l3.833,4.195l12.079,13.203l4.257,2.69l9.872,4.577l0.312,0.136
+            v-1.028l-4.97-2.526l-12.034-9.895l-9.861-11.435l-5.014-2.708l-7.856-1.866l-2.073-1.493l-0.267-2.109l2.875-1.255l0.936-0.158
+            l2.853-0.481L325.21,30l2.73,0.514l1.894,1.34l1.259,4.546l1.259,1.9l17.929,21.161l2.641,1.95l5.348,3.068l37.807,30.772
+            l0.145,0.248l0.958,1.615l1.538,1.92l2.942,2.778l1.872,2.433l-1.66,0.875l-0.011,0.006l-0.936-0.423l-0.112-0.051l-0.022-0.006
+            l-1.437-1.863l-0.791-0.407l-0.011-0.011l-2.474-0.407l-1.081,0.327l0.535,1.106l0.178,0.35l7.109,6.65l2.775,1.53l0.011,0.006
+            l-1.103-1.722l-0.669-1.575l0.345-1.163l1.894-0.446l0.891,0.604l1.449,4.301l1.326,2.647l5.204,10.435l-1.048-0.389l-2.897-1.078
+            l-1.816-0.034l-0.769,1.975l1.07,0.502l2.229,0.367l1.983,1.253l0.022,0.169l0.29,3.002h0.022h0.914l0.457-0.796l0.412-0.344
+            l0.468-0.226l0.624-0.44v0.011l0.702,2.754l0.078,0.344l1.939,4.44l2.596,3.983l2.641,1.726l0.201,0.163l0.312,0.265l-0.011,0.97
+            l-0.635,0.976l-1.27,0.457l-0.368-0.406l-1.504-2.426l-1.638-0.869l-3.755-0.97l-2.184-1.004l1.003,1.399l0.557,0.778l4.947,4.648
+            l0.045,2.64l1.627,1.151l-0.011,0.011l-1.46,1.359l-1.292,1.54l0.011,0.006l2.151,1.698l2.318-0.18l1.894-1.777l1.404-2.47
+            l0.914-2.284l0.022,0.011l4.947,5.995l4.39,7.562l1.794,1.872l2.507,0.733l2.006,1.624l2.942,7.155l0.746,0.784l0.791,0.84
+            l0.011,0.006l3.365,1.533l1.683,3.602l1.928,7.243l0.345-1.33l0.446-0.519l0.747,0.169l0.011,0.006l1.326,0.727l-0.401,1.33
+            l3.811,4.171l1.27,2.068l-0.011,2.497l-1.003,1.003l-1.426,0.659l-1.304,1.516l0.022-0.011l0.992-0.254l1.025-0.265l0.256-0.141
+            l0.512-0.276l0.011,0.011l2.964,6.469l0.435,3.369l-3.399,0.552h-0.011l0.702-2.231l-0.914-1.792l-1.515-0.254l-1.081,2.383
+            l0.368,1.848l0.969,1.313l0.535,1.403l-1.014,2.135l-0.802-0.614l-1.493-1.166l-2.373-1.47l-2.396-0.552l-2.284,0.969l-1.772,2.389
+            l0.624,1.251l2.117-0.327l2.853-2.361l1.961,2.09l1.772,2.507l2.139,2.09l3.009,0.867l6.296-0.124l2.128-1.352l-1.404-3.245
+            l3.599-1.651l1.426-0.439l1.515,0.107l0.011,0.011l1.66,0.958l1.515,1.622l1.137,1.893l0.969,5.543l2.139,7.13l0.067,1.858
+            l0.067,1.864l-1.738-1.222l-1.816-3.672l-1.593-0.777l-0.056,1.003l0.658,4.494l0.056,0.343l0.746,1.723l0.914,0.434l0.836,0.394
+            h0.022h1.85l1.471,0.664l0.869,5.293l1.048,3.671l0.178,0.608l0.29,2.246v0.011l0.423,1.436l2.853,9.665l1.081,6.298L490,269.322
+            v0.017l-1.382-5.701l-0.201-0.805l-2.084-5.775h-1.003l-0.167,4.385l0.167,1.379l-0.1-0.045l-0.1,0.394v0.011v0.687l0.201,0.833
+            l0.457,0.54l1.159,0.354l0.011,0.006l0.234,0.433l1.114,2.898l2.407,1.767h0.011l2.295-0.191l0.802-2.971h0.836l0.869,1.587
+            l0.234,0.428l1.125,4.991l1.148,1.919l1.526,1.677l0.981,1.632l1.694,3.905l0.669-0.675l0.88-0.664l0.401-0.636l0.602,1.288
+            l-0.602,0.686l0.301,0.495l0.267,0.326l0.045,0.084l0.156,0.276l0.089,0.619l0.011-0.011l0.68-0.563l1.404-0.675l0.713-0.551v0.011
+            l0.323,0.776l0.39,0.945l-0.29,1.12l-0.479,1.114l0.022,0.861l0.034,0.833l0.958,1.856l1.694,1.299l1.103,0.849l1.003,1.659
+            l-0.635,0.039l-0.323,0.219l-0.412,0.281l-0.256,0.163l-0.256,0.158l-0.401,1.508l-0.401,1.507l1.605,4.713l0.869,1.001
+            l1.961,2.261h0.022l2.897-0.529h0.936l0.947,2.885l1.081,1.783l0.334,0.551l5.906,6.185l1.905,3.019l0.334,2.671l-3.031,0.917
+            l-0.011,0.006l-1.404-0.956l-3.365-4.29l-1.76-1.524l-2.273-0.838h-0.022l-0.234,0.023l-1.616,0.141l-1.426,1.462l-0.97,3.064
+            l1.638,0.748l1.582,0.225l1.359-0.506l1.025-1.411l1.616,0.607l1.482,0.742l0.512,0.607l0.345,0.427l-0.212,1.479l1.816,1.704
+            l1.816,1.703l1.426,1.642l1.493,2.496l-0.011,0.006l-0.702,0.815l-0.178,0.793l0.234,0.95l0.657,1.304l0.847-1.04l-0.513-1.878
+            v-0.011l1.616,0.573l3.176,2.355l0.758,1.102l2.518,6.436l-0.156,0.275l-0.78,3.496l0.111,0.382l0.022,0.056l0.646,1.337
+            l0.156,0.539l-0.535,0.95l-0.981,0.759l-0.59,0.843l0.702,1.225l0.669,0.882l0.234,0.691l0.033,0.09l0.401,0.787l1.003,0.893
+            l-1.471,1.068l0.134,0.523l0.134,0.534l1.103,0.23l1.103-1.416h0.847l0.011,0.006l1.047,5.568l-0.033,2.051h0.022h0.936v-0.051
+            l0.111-1.933l0.334-1.91l0.579-1.63l0.847-1.158v-0.944l-0.078-0.214l-0.301-0.865l0.245-0.433l0.758,0.32l1.226,1.191l0.424,1.09
+            l0.312,2.927l2.106,3.354l3.421,11.747L551.018,409.005z M532.231,330.512l-0.234-1.45l-0.535-1.124l-0.657-1.383l-0.446-1.355
+            l0.067-1.434l0.423-1.271l0.178-1.344l-0.669-1.602v-0.017l1.761,1.72l1.682,3.986l1.237,1.844l0.301,0.798l1.27,3.429l3.332,5.306
+            l1.538,2.445l2.318,12.044v0.011l-0.089,2.754l-2.028,1.68l-1.928-1.523l-0.591-0.624l-0.279-0.287l-0.089-0.686l-0.1-0.686
+            l0.022-0.281l0.568-8.694l-0.401-3.001l-1.504-1.282l-0.568-1.231L532.231,330.512z M255.01,134.654l-1.527-0.604l-0.68-1.332
+            l0.435-1.331l1.772-0.609h6.117l2.708,0.7l2.797,0.722l5.839,2.234l5.571,3.25l4.68,4.547l-0.011-0.006l-2.24-0.468l-3.945-1.963
+            l-2.318-0.406l3.555,4.062l2.797,3.204l1.226,2.2l-3.276-0.417l-2.14-1.658l-1.471-1.805l-1.103-0.857l-1.415-0.722l-5.638-5.043
+            l-2.797-1.253l-2.797-1.253l-2.05-0.559l-1.092-0.299L255.01,134.654z M257.294,75.75l-1.092,1.051l-1.114,1.051l-3.454,0.203
+            l-3.209-1.068l-1.404-1.751v-5.689l0.401-1.458l0.903,0.187l0.936,1.169l0.568,1.475l2.362,0.746l2.819,0.215l0.702,0.514
+            L257.294,75.75z M279.892,59.461l-2.117-1.543l-2.117-3.182l-3.321-6.652l1.515-2.38l0.345-3.047l0.858-2.47l2.986-0.645
+            l1.582,0.481l0.022,0.006l0.134,1.17l-0.535,1.634l-0.368,1.888l0.056,1.905l0.201,1.52l0.011,0.09l0.123,0.305l0.468,1.102
+            l0.624,0.718l0.49,0.565l0.579,0.147l2.652-0.147l0.446,0.413l0.201,2.085l0.334,0.865l1.56,0.989l2.117,0.91l1.772,1.012
+            l0.145,0.316l0.468,0.995l-0.947,0.983l-1.805,0.011l-1.939-0.605l-1.371-0.865l-0.969-0.237l-2.463,1.458l-1.727,0.203H279.892z" />
+          </svg>
+        </div>
+
+        <!-- floating data points over the svg map of sri lanka -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+          <!-- SVG for connection lines -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" id="connection-lines"></svg>
+
+          <!-- Data points container -->
+          <div id="data-points-container" class="absolute inset-0 w-full h-full">
+            <!-- Data points will be generated here -->
+          </div>
+        </div>
+
+
+      </div>
     </div>
+  </div>
 </section>
 
 
 
-
 <style>
+  /* Floating animation */
+  @keyframes float {
 
-/* Pulsing ring around central node */
-@keyframes pulseRing {
-    0% { 
-        r: 25; 
-        opacity: 0.3; 
+    0%,
+    100% {
+      transform: translate(-50%, -50%) translateY(0px);
     }
-    50% { 
-        r: 35; 
-        opacity: 0.1; 
+
+    50% {
+      transform: translate(-50%, -50%) translateY(-5px);
     }
-    100% { 
-        r: 45; 
-        opacity: 0; 
-    }
-}
+  }
 
-.pulse-ring {
-    animation: pulseRing 2s ease-out infinite;
-}
+  .data-point {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 4s ease-in-out infinite, pulse-glow 3s ease-in-out infinite;
+  }
 
-.pulse-ring-2{
-    animation: pulseRing 2.5s ease-out infinite;
-}
+  .data-point svg {
+    width: 20px;
+    height: 20px;
+    color: #f97316; 
+    stroke-width: 1.5;
+  }
 
-.pulse-ring-3{
-    animation: pulseRing 3s ease-out infinite;
-}
+  #connection-lines line {
+    stroke: #f97316;
+    stroke-width: 1.3;
+    opacity: 0.4;
+  }
 
+  #connection-lines circle {
+    fill: #f97316;
+    opacity: 0.4;
+  }
+
+  /* NEW CSS for the Map Outline */
+  .srilanka-map-path {
+    fill: none;
+    /* Only show the outline */
+    stroke: #f97316;
+    /* Orange color */
+    stroke-width: 1.5;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.8));
+    /* Glowing effect */
+  }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-    
-    // Add intersection observer for performance optimization
-    const heroSection = document.getElementById('home');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Start animations when hero section is visible
-                entry.target.classList.add('animate-active');
-            } else {
-                // Pause animations when not visible (optional for performance)
-                entry.target.classList.remove('animate-active');
-            }
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fixed formation covering the entire map
+    const dataPoints = [
+      { x: 50, y: 12, icon: 'landmark' },
+      { x: 70, y: 34, icon: 'anchor' },
+      { x: 50, y: 50, icon: 'waves' },
+      { x: 85, y: 55, icon: 'radio' },
+      { x: 60, y: 95, icon: 'zap' },
+      { x: 35, y: 75, icon: 'network' },
+      { x: 80, y: 85, icon: 'building-2' },
+    ];
+
+    const container = document.getElementById('data-points-container');
+    const svgLines = document.getElementById('connection-lines');
+
+    // Create data points
+    dataPoints.forEach((point, idx) => {
+      const pointEl = document.createElement('div');
+      pointEl.className = 'data-point';
+      pointEl.style.left = point.x + '%';
+      pointEl.style.top = point.y + '%';
+
+      const iconSvg = getIconSVG(point.icon);
+      pointEl.innerHTML = iconSvg;
+      container.appendChild(pointEl);
     });
-    
-    observer.observe(heroSection);
-});
+
+    // Draw connection lines
+    function drawConnections() {
+      svgLines.innerHTML = '';
+      const containerRect = container.getBoundingClientRect();
+      
+      // Connect each point to nearby points
+      dataPoints.forEach((point, idx) => {
+        dataPoints.forEach((targetPoint, targetIdx) => {
+          if (targetIdx > idx) {
+            const dx = point.x - targetPoint.x;
+            const dy = point.y - targetPoint.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            // Only connect if points are reasonably close
+            if (distance < 50) {
+              const x1 = (point.x / 100) * containerRect.width;
+              const y1 = (point.y / 100) * containerRect.height;
+              const x2 = (targetPoint.x / 100) * containerRect.width;
+              const y2 = (targetPoint.y / 100) * containerRect.height;
+
+              const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+              line.setAttribute('x1', x1);
+              line.setAttribute('y1', y1);
+              line.setAttribute('x2', x2);
+              line.setAttribute('y2', y2);
+              svgLines.appendChild(line);
+            }
+          }
+        });
+      });
+    }
+
+    function getIconSVG(iconName) {
+      const icons = {
+        'building-2': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
+        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'   ,
+        'anchor': '<i data-lucide="book-text" class="h-4 w-4 text-orange-500"></i>',
+        'waves': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>',
+        'radio':'<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>' ,
+        'zap': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
+        'network': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'
+      };
+      return icons[iconName] || icons['building-2'];
+    }
+
+    drawConnections();
+    window.addEventListener('resize', drawConnections);
+  });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Lucide icons (if lucide.js is included on the page)
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+</script>
 
 <!-- What We Offer Section -->
-<section class="pb-20  bg-white">
+<section class="pb-32  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
     <div class="text-center space-y-4 mb-16">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        Building for the <span class="text-gray-600">Public Good</span>
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Building for the <span class="text-orange-500">Public Good</span>
       </h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
         Building digital tools for a more transparent, accountable, and participatory government.
       </p>
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid gap-8 md:grid-cols-3">
+    <div class="grid gap-8 md:grid-cols-2 items-stretch">
       <!-- Card 1: Official Gazettes -->
-      <div class="group">
-        <div class="relative bg-white border border-gray-200 rounded-2xl p-8 space-y-6 hover:border-blue-300 hover:shadow-lg transition-all duration-300 shadow-sm">
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl p-8 space-y-6 shadow-lg transition-all duration-300 h-full flex flex-col min-h-[280px]">
           <!-- Icon -->
           <div class="relative">
-            <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-blue-100 transition-colors">
-              <i data-lucide="file-text" class="h-8 w-8 text-blue-600"></i>
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-gray-200 transition-colors">
+              <i data-lucide="server" class="h-8 w-8 text-black"></i>
             </div>
           </div>
-          
-          <h3 class="text-xl font-semibold text-gray-900 text-center" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Official Gazettes
+
+          <h3 class="text-xl font-semibold text-gray-900 text-center"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Data Platform
           </h3>
-          
-          <p class="text-gray-600 text-sm text-center leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-             AI-powered search through government gazettes with advanced
-            filtering.
+
+          <p class="text-gray-600 text-sm text-center leading-relaxed"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Our core framework power the efficient collection, secure management, and seamless accessibility of Sri
+            Lanka’s public data, enabling transparency, innovation, and informed decision making.
           </p>
-          
-          <!-- Tech stack -->
-          <!-- <div class="flex flex-wrap gap-2 justify-center">
-            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">NLP</span>
-            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">OCR</span>
-            <span class="text-xs bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">ML</span>
-          </div> -->
-           <div class="pt-4">
-            <a href="{{ '/blog/' | relative_url }}" class="inline-flex items-center justify-center space-x-2 w-full text-blue-600 hover:text-blue-700 px-4 py-2 border border-blue-200 rounded-lg font-medium hover:border-blue-300 hover:bg-blue-50 transition-colors text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="pt-4 mt-auto">
+            <a href="{{ '/data-platform/' | relative_url }}"
+              class="inline-flex items-center justify-center space-x-2 w-full bg-black text-white hover:text-black px-4 py-2 border border-black rounded-lg font-medium hover:bg-white transition-colors text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
               <span>Learn More</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2: Citizen Portal -->
-      <div class="group">
-        <div class="relative bg-white border border-gray-200 rounded-2xl p-8 space-y-6 hover:border-green-300 hover:shadow-lg transition-all duration-300 shadow-sm">
-          <!-- Icon -->
+      <!-- Card 2: Data Hub -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl p-8 space-y-6 shadow-lg transition-all duration-300 h-full flex flex-col min-h-[280px]">
           <div class="relative">
-            <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-green-100 transition-colors">
-              <i data-lucide="user-check" class="h-8 w-8 text-green-600"></i>
+            <div
+              class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-gray-200 transition-colors">
+              <i data-lucide="arrow-down-up" class="h-8 w-8 text-black "></i>
             </div>
           </div>
-          
-          <h3 class="text-xl font-semibold text-gray-900 text-center" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Citizen Portal
-          </h3>
-          
-          <p class="text-gray-600 text-sm text-center leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            User-friendly interface designed for accessibility and ease of use.
-          </p>
-          
-          <!-- Tech stack -->
-          <!-- <div class="flex flex-wrap gap-2 justify-center">
-            <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">React</span>
-            <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Org</span>
-            <span class="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">API</span>
-          </div> -->
-         <div class="pt-4">
-            <a href="{{ '/blog/' | relative_url }}" class="inline-flex items-center justify-center space-x-2 w-full text-green-600 hover:text-green-700 px-4 py-2 border border-green-200 rounded-lg font-medium hover:border-green-300 hover:bg-green-50 transition-colors text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-              <span>Learn More</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
-            </a>
-          </div>
-          
-        </div>
-      </div>
 
-      <!-- Card 3: Advocacy Tools -->
-      <div class="group">
-        <div class="relative bg-white border border-gray-200 rounded-2xl p-8 space-y-6 hover:border-purple-300 hover:shadow-lg transition-all duration-300 shadow-sm">
-          <!-- Icon -->
-          <div class="relative">
-            <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-purple-100 transition-colors">
-              <i data-lucide="megaphone" class="h-8 w-8 text-purple-600"></i>
-            </div>
-          </div>
-          
-          <h3 class="text-xl font-semibold text-gray-900 text-center" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            Advocacy Tools
+          <h3 class="text-xl font-semibold text-gray-900 text-center"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            Information Hub
           </h3>
-          
-          <p class="text-gray-600 text-sm text-center leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-           Empowering citizens with tools to drive transparency reforms.
+
+          <p class="text-gray-600 text-sm text-center leading-relaxed"
+            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+            A central access point for Sri Lanka’s public data, providing datasets and easy-to-use applications to
+            explore and navigate official information.
           </p>
-          
-          <!-- Tech stack -->
-          <!-- <div class="flex flex-wrap gap-2 justify-center">
-            <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded-full border border-purple-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">D3.js</span>
-            <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded-full border border-purple-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Analytics</span>
-            <span class="text-xs bg-purple-50 text-purple-700 px-3 py-1 rounded-full border border-purple-200" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">WebRTC</span>
-          </div> -->
-          <!-- Learn More Button -->
-          <div class="pt-4">
-            <a href="{{ '/blog/' | relative_url }}" class="inline-flex items-center justify-center space-x-2 w-full text-purple-600 hover:text-purple-700 px-4 py-2 border border-purple-200 rounded-lg font-medium hover:border-purple-300 hover:bg-purple-50 transition-colors text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          <div class="pt-4 mt-auto">
+            <a href="{{ '/information-hub/' | relative_url }}"
+              class="inline-flex items-center justify-center space-x-2 w-full bg-black text-white hover:text-black px-4 py-2 border border-black rounded-lg font-medium hover:bg-white transition-colors text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
               <span>Learn More</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
+
         </div>
       </div>
     </div>
@@ -342,57 +384,162 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 
-<!-- Blog CTA Section (for Home Page) -->
-<section class="py-16 bg-white relative overflow-hidden">
+
+<section id="live" class="pb-16  bg-white">
+  <div class="container mx-auto px-6 md:px-8 max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-start space-y-4 mb-16">
+      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
+        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+        Check Out Our <span class="text-orange-500">Live Projects</span>
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid gap-8 md:grid-cols-2 items-stretch">
+      <!-- Card 1 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <!-- Image -->
+          <div class="w-full flex-shrink-0 relative ">
+            <img src="{{ '/images/xplore.png' | relative_url }}" alt="XploreGov" class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 p-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Explore Sri Lanka's government structures, hierarchies through time and more ...
+              </p>
+              <a href="https://xploregov.choreoapps.dev" target="_blank"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Open App</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <div class="w-full flex-shrink-0 relative">
+            <img src="{{ '/images/xploredata.png' | relative_url }}" alt="XploreData" class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 flex p-4 items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Explore Sri Lankan statistics through charts, graphs and more ...
+              </p>
+              <a href="https://xploredata.choreoapps.dev" target="_blank"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Open App</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group h-full w-full">
+        <div
+          class="relative bg-white rounded-2xl shadow-lg transition-all duration-300 h-full flex flex-row min-h-[280px] overflow-hidden">
+          <div class="w-full flex-shrink-0 relative">
+            <img src="{{ '/images/archives.png' | relative_url }}" alt="Archives" class="w-full h-full object-cover" />
+
+            <!-- Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-100 p-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p class="text-white text-center px-4 text-sm md:text-base">
+                Search and browse through Sri Lanka's government publications by dates, categories and more ...
+              </p>
+              <a href="https://archives.opendata.lk/" target="_blank"
+                class="inline-flex items-center justify-center space-x-2 w-full text-white hover:text-orange-500 px-4 py-2 rounded-lg font-medium transition-colors text-sm"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <span>Open App</span>
+                <i data-lucide="arrow-right"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Get involved CTA Section (for Home Page) -->
+<section class="pb-16 pt-10 bg-white relative overflow-hidden">
   <!-- Subtle background elements -->
   <div class="absolute inset-0">
     <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-40"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30" style="animation-delay: 2s"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30"
+      style="animation-delay: 2s"></div>
   </div>
 
   <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <!-- Left side: Content -->
       <div class="space-y-6">
-        <!-- Badge -->
-        <div class="inline-flex items-center space-x-2 bg-purple-50 border border-purple-200 rounded-full px-4 py-2 text-purple-600 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          <i data-lucide="pen-tool" class="h-4 w-4"></i>
-          <span class="font-medium">Latest Insights</span>
-        </div>
 
         <!-- Main Heading -->
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 leading-tight" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Stay Informed on
-          <span class="text-gray-600">Government Transparency</span>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 leading-tight"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Help Build the Future of
+          <span class="text-orange-500">Public Goods</span>
         </h2>
 
         <!-- Description -->
-        <p class="text-lg text-gray-600 leading-relaxed" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Discover the latest developments in open data, civic technology, and government accountability. Our blog features insights from experts, case studies from communities, and practical guides for using transparency tools effectively.
+        <p class="text-lg text-gray-600 leading-relaxed"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Be part of a growing community dedicated to making public data more open and accountable. Whether you're a
+          developer, advocate, or engaged citizen, there are meaningful ways to contribute to our transparency
+          initiatives and help create lasting change.
         </p>
 
         <!-- Key Topics -->
         <div class="space-y-3">
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Policy updates and regulatory changes</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute code and
+              help build transparency tools</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Community success stories and case studies</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Join community
+              outreach and advocacy efforts</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
-            <span class="text-gray-700 text-sm" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Technical tutorials and best practices</span>
+            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <span class="text-gray-700 text-sm"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Share expertise and
+              mentor other contributors</span>
           </div>
         </div>
 
         <!-- Call to Action -->
         <div class="pt-4">
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href="{{ '/blog/' | relative_url }}" class="inline-flex items-center space-x-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors group" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-              <span>Read Our Blog</span>
-              <i data-lucide="arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
+            <a href="{{ '/contribute/' | relative_url }}"
+              class="inline-flex items-center border border-black space-x-2 bg-gray-900 text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-black transition-colors group"
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+              <span>Get Involved Today</span>
+              <i data-lucide="arrow-right"
+                class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
           </div>
         </div>
@@ -406,44 +553,44 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Blog/Content Visualization SVG -->
             <svg viewBox="0 0 400 300" class="w-full h-64" xmlns="http://www.w3.org/2000/svg">
               <!-- Background -->
-              <rect width="400" height="300" fill="#fafafa" rx="12"/>
-              
+              <rect width="400" height="300" fill="#fafafa" rx="12" />
+
               <!-- Header -->
-              <rect x="20" y="20" width="360" height="40" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-              <circle cx="40" cy="40" r="6" fill="#e5e7eb"/>
-              <rect x="60" y="35" width="80" height="10" fill="#d1d5db" rx="5"/>
-              <rect x="320" y="35" width="40" height="10" fill="#d1d5db" rx="5"/>
-              
+              <rect x="20" y="20" width="360" height="40" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+              <circle cx="40" cy="40" r="6" fill="#e5e7eb" />
+              <rect x="60" y="35" width="80" height="10" fill="#d1d5db" rx="5" />
+              <rect x="320" y="35" width="40" height="10" fill="#d1d5db" rx="5" />
+
               <!-- Article Cards -->
               <g class="article-card">
-                <rect x="20" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="30" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="30" y="140" width="60" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="30" y="150" width="40" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="20" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="30" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="30" y="140" width="60" height="6" fill="#d1d5db" rx="3" />
+                <rect x="30" y="150" width="40" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <g class="article-card" style="animation-delay: 0.5s">
-                <rect x="145" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="155" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="155" y="140" width="70" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="155" y="150" width="50" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="145" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="155" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="155" y="140" width="70" height="6" fill="#d1d5db" rx="3" />
+                <rect x="155" y="150" width="50" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <g class="article-card" style="animation-delay: 1s">
-                <rect x="270" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-                <rect x="280" y="90" width="90" height="40" fill="#f3f4f6" rx="4"/>
-                <rect x="280" y="140" width="80" height="6" fill="#d1d5db" rx="3"/>
-                <rect x="280" y="150" width="45" height="4" fill="#e5e7eb" rx="2"/>
+                <rect x="270" y="80" width="110" height="80" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+                <rect x="280" y="90" width="90" height="40" fill="#f3f4f6" rx="4" />
+                <rect x="280" y="140" width="80" height="6" fill="#d1d5db" rx="3" />
+                <rect x="280" y="150" width="45" height="4" fill="#e5e7eb" rx="2" />
               </g>
-              
+
               <!-- Featured Article -->
-              <rect x="20" y="180" width="360" height="100" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
-              <rect x="30" y="190" width="120" height="60" fill="#f3f4f6" rx="4"/>
-              <rect x="160" y="195" width="100" height="8" fill="#374151" rx="4"/>
-              <rect x="160" y="210" width="200" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="220" width="180" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="230" width="160" height="5" fill="#d1d5db" rx="2.5"/>
-              <rect x="160" y="250" width="80" height="6" fill="#6366f1" rx="3"/>
+              <rect x="20" y="180" width="360" height="100" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1" />
+              <rect x="30" y="190" width="120" height="60" fill="#f3f4f6" rx="4" />
+              <rect x="160" y="195" width="100" height="8" fill="#F27421" rx="4" />
+              <rect x="160" y="210" width="200" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="220" width="180" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="230" width="160" height="5" fill="#d1d5db" rx="2.5" />
+              <rect x="160" y="250" width="80" height="6" fill="#374151" rx="3" />
             </svg>
           </div>
         </div>
@@ -453,36 +600,43 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
 <style>
-@keyframes fadeInUp {
-  0% { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  100% { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-.article-card {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-    
-.animate-pulse {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .article-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse {
     animation: pulse 3s ease-in-out infinite;
-}
+  }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
-});
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
 </script>
-
-
