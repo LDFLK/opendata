@@ -1464,6 +1464,10 @@ video {
   --tw-gradient-to: #faf5ff var(--tw-gradient-to-position);
 }
 
+.fill-current {
+  fill: currentColor;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
