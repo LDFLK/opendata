@@ -19,13 +19,16 @@
                     style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Lanka Data Foundation
                 </p>
+                <p class="text-sm text-gray-500" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Effective From: November 11, 2025
+                  </p>
             </div>
         </div>
 
         <!-- Content -->
-        <div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-sm px-6 py-8 md:px-10 md:py-12 space-y-6">
+        <div class="px-6 py-8 md:px-10 md:py-12 space-y-6">
             {% capture cc_license_text %}
-{% include_relative ../LICENSE-CC.txt %}
+{% include LICENSE-CC.txt %}
             {% endcapture %}
             <pre class="whitespace-pre-wrap break-words text-sm leading-6 text-gray-700 font-mono">{{ cc_license_text | strip }}</pre>
             <p class="text-sm text-gray-600">
