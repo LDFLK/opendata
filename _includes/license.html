@@ -1,0 +1,40 @@
+<!-- Content License Section -->
+<section class="py-20 bg-white relative overflow-hidden">
+    <!-- Subtle background elements -->
+    <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/6 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-40"></div>
+        <div class="absolute bottom-1/4 right-1/6 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30"></div>
+    </div>
+
+    <div class="container mx-auto px-6 md:px-8 max-w-4xl relative z-10">
+        <!-- Header -->
+        <div class="text-center space-y-4 mb-16">
+            <h1 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-gray-900"
+                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                Content 
+                <span class="text-orange-500">License</span>
+            </h1>
+            <div class="space-y-2">
+                <p class="text-lg text-gray-600"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Lanka Data Foundation
+                </p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-sm px-6 py-8 md:px-10 md:py-12 space-y-6">
+            {% capture cc_license_text %}
+{% include_relative ../LICENSE-CC.txt %}
+            {% endcapture %}
+            <pre class="whitespace-pre-wrap break-words text-sm leading-6 text-gray-700 font-mono">{{ cc_license_text | strip }}</pre>
+            <p class="text-sm text-gray-600">
+                Canonical URL
+                <a class="text-orange-500 hover:text-orange-600 underline" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">
+                    https://creativecommons.org/licenses/by-nc-sa/4.0/
+                </a>
+            </p>
+        </div>
+
+    </div>
+</section>

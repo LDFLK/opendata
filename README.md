@@ -78,6 +78,12 @@ baseurl: "/<repo-name>"
 - One feature/fix per pull request
 - Reference related issues (if any)
 
+
+## 🧾 License
+
+- **Code** — Licensed under the [Apache License 2.0](./LICENSE).
+- **Content (images, text, designs)** — Licensed under the [Creative Commons Attribution 4.0 International License](./LICENSE-CC.txt).
+
 ---
 
 We appreciate your contributions and look forward to collaborating with you!
