@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "OpenGin"
+title: "OpenGIN"
 description: "Empowering communities through transparent access to public information"
 ---
 
