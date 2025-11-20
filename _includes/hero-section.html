@@ -6,7 +6,7 @@
         <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight"
           style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
           <span class="block">Shaping a Transparent</span>
-          <span class="block text-orange-500">Sri Lanka</span>
+          <span class="block text-accent">Sri Lanka</span>
           <span class="block">with Accessible,</span>
           <span class="block text-gray-900">Connected Data</span>
 
@@ -26,7 +26,7 @@
               class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
           <a href="https://archives.opendata.lk/" target="_blank"
-            class="inline-flex items-center border border-orange-500 justify-center px-8 py-4 bg-orange-500 text-white font-medium rounded-lg hover:bg-white hover:text-orange-500 transition-colors group"
+            class="inline-flex items-center border border-accent justify-center px-8 py-4 bg-accent text-white font-medium rounded-lg hover:bg-white hover:text-accent transition-colors group"
             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
             <span>Explore Archives</span>
             <i data-lucide="arrow-right"
@@ -40,7 +40,7 @@
           <!--Sri Lanka Map SVG-->
           <svg id="srilanka-map" class="absolute inset-0 w-full h-full" viewBox="150 30 400 540"
             xmlns="http://www.w3.org/2000/svg">
-            <path fill="none" stroke="#f97316" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            <path fill="none" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
               d="M551.018,409.005l0.334,2.184l1.404,4.879l0.223,2.874l-0.78,5.484l-6.307,21.893l-0.357,2.256l-0.134,2.985
             l-0.468,2.491l-1.972,3.843l-0.435,1.717l-0.78,2.356l-2.652,4.157l-1.248,1.952l0.936,3.354l-1.504,3.982l-12.892,20.435
             l-4.301,4.312l-7.945,5.646l-2.596,0.779l-3.477,1.867l-25.417,20.011l-5.081,2.757l-16.502,5.873h-0.011l-0.223-1.989
@@ -170,7 +170,7 @@
     height: 40px;
     border-radius: 50%;
     background: white;
-    border: 1px solid #f97316;
+    border: 1px solid oklch(0.65 0.2 240);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,25 +180,25 @@
   .data-point svg {
     width: 20px;
     height: 20px;
-    color: #f97316; 
+    color: oklch(0.65 0.2 240); 
     stroke-width: 1.5;
   }
 
   #connection-lines line {
-    stroke: #f97316;
+    stroke: oklch(0.65 0.2 240);
     stroke-width: 1.3;
     opacity: 0.4;
   }
 
   #connection-lines circle {
-    fill: #f97316;
+    fill: oklch(0.65 0.2 240);
     opacity: 0.4;
   }
 
   .data-flow-visual .data-node {
     width: 64px;
     height: 64px;
-    border: 1px solid #F27421;
+    border: 1px solid oklch(0.65 0.2 240);
     border-radius: 9999px;
     background: #ffffff;
     display: flex;
@@ -209,7 +209,7 @@
   .data-flow-visual .data-node i {
     width: 28px;
     height: 28px;
-    color: #F27421;
+    color: oklch(0.65 0.2 240);
   }
 
   .data-flow-visual .data-node svg {
@@ -220,11 +220,11 @@
   .srilanka-map-path {
     fill: none;
     /* Only show the outline */
-    stroke: #f97316;
+    stroke: oklch(0.65 0.2 240);
     /* Orange color */
     stroke-width: 1.5;
     opacity: 0.7;
-    filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.8));
+    filter: drop-shadow(0 0 5px oklch(0.65 0.2 240 / 0.8));
     /* Glowing effect */
   }
 </style>
@@ -291,13 +291,13 @@
 
     function getIconSVG(iconName) {
       const icons = {
-        'building-2': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
-        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'   ,
-        'anchor': '<i data-lucide="book-text" class="h-4 w-4 text-orange-500"></i>',
+        'building-2': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
+        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>'   ,
+        'anchor': '<i data-lucide="book-text" class="h-4 w-4 text-accent"></i>',
         'waves': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>',
-        'radio':'<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>' ,
-        'zap': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>',
-        'network': '<i data-lucide="file-text" class="h-4 w-4 text-orange-500"></i>'
+        'radio':'<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>' ,
+        'zap': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
+        'network': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>'
       };
       return icons[iconName] || icons['building-2'];
     }
@@ -323,7 +323,7 @@
     <div class="text-center space-y-4 mb-16">
       <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
         style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        Building for the <span class="text-orange-500">Public Good</span>
+        Building for the <span class="text-accent">Public Good</span>
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto"
         style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -412,7 +412,7 @@
     <div class="text-start space-y-4 mb-16">
       <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900"
         style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-        Check Out Our <span class="text-orange-500">Live Projects</span>
+        Check Out Our <span class="text-accent">Live Projects</span>
       </h2>
     </div>
 
@@ -445,7 +445,7 @@
                 </p>
                 
                 <a href="https://openginxplore.opendata.lk" target="_blank"
-                  class="inline-flex items-center justify-center space-x-2 text-orange-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                  class="inline-flex items-center justify-center space-x-2 text-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                   <span>Open App</span>
                   <i data-lucide="arrow-right"
@@ -484,7 +484,7 @@
                 </p>
                 
                 <a href="https://archives.opendata.lk/" target="_blank"
-                  class="inline-flex items-center justify-center space-x-2 text-orange-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                  class="inline-flex items-center justify-center space-x-2 text-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                   <span>Open App</span>
                   <i data-lucide="arrow-right"
@@ -519,7 +519,7 @@
         <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 leading-tight"
           style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
           Help Build the Future of
-          <span class="text-orange-500">Public Goods</span>
+          <span class="text-accent">Public Goods</span>
         </h2>
 
         <!-- Description -->
@@ -533,18 +533,18 @@
         <!-- Key Topics -->
         <div class="space-y-3">
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <div class="w-2 h-2 bg-accent rounded-full"></div>
             <span class="text-gray-700 text-sm"
               style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute code and
               help build transparency tools.</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <div class="w-2 h-2 bg-accent rounded-full"></div>
             <span class="text-gray-700 text-sm"
               style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute data and datasets to the platform.</span>
           </div>
           <div class="flex items-center space-x-3">
-            <div class="w-2 h-2 bg-orange-500 rounded-full"></div>
+            <div class="w-2 h-2 bg-accent rounded-full"></div>
             <span class="text-gray-700 text-sm"
               style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Share expertise and
               mentor other contributors.</span>
@@ -573,21 +573,21 @@
             <div class="relative flex items-center justify-center h-64 data-flow-visual">
               <svg viewBox="0 0 360 100" class="absolute inset-0 mx-auto h-full w-full max-w-sm pointer-events-none"
                 xmlns="http://www.w3.org/2000/svg">
-                <line x1="40" y1="50" x2="180" y2="50" stroke="#F27421" stroke-width="1" stroke-linecap="round" />
-                <line x1="180" y1="50" x2="320" y2="50" stroke="#F27421" stroke-width="1" stroke-linecap="round" />
-                <circle r="2" fill="#F27421">
+                <line x1="40" y1="50" x2="180" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" />
+                <line x1="180" y1="50" x2="320" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" />
+                <circle r="2" fill="oklch(0.65 0.2 240)">
                   <animateMotion path="M40,50 L320,50" dur="3s" repeatCount="indefinite" />
                 </circle>
               </svg>
               <div class="relative flex items-center justify-between w-[360px]">
                 <div class="data-node">
-                  <i data-lucide="user" class="w-6 h-6 text-orange-500"></i>
+                  <i data-lucide="user" class="w-6 h-6 text-accent"></i>
                 </div>
                 <div class="data-node">
-                  <i data-lucide="file-text" class="w-6 h-6 text-orange-500"></i>
+                  <i data-lucide="file-text" class="w-6 h-6 text-accent"></i>
                 </div>
                 <div class="data-node">
-                  <i data-lucide="server" class="w-6 h-6 text-orange-500"></i>
+                  <i data-lucide="server" class="w-6 h-6 text-accent"></i>
                 </div>
               </div>
             </div>
