@@ -37,29 +37,29 @@
                             <svg class="w-40 h-40 md:w-48 md:h-48" viewBox="0 0 200 200" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <!-- Server -->
-                                <rect x="75" y="50" width="50" height="35" rx="3" stroke="#F27421" stroke-width="2.5"
+                                <rect x="75" y="50" width="50" height="35" rx="3" stroke="oklch(0.65 0.2 240)" stroke-width="2.5"
                                     fill="none" />
-                                <line x1="80" y1="62" x2="120" y2="62" stroke="#F27421" stroke-width="2" />
-                                <line x1="80" y1="70" x2="120" y2="70" stroke="#F27421" stroke-width="2" />
-                                <circle cx="115" cy="57" r="2" fill="#F27421" />
-                                <circle cx="109" cy="57" r="2" fill="#F27421" />
+                                <line x1="80" y1="62" x2="120" y2="62" stroke="oklch(0.65 0.2 240)" stroke-width="2" />
+                                <line x1="80" y1="70" x2="120" y2="70" stroke="oklch(0.65 0.2 240)" stroke-width="2" />
+                                <circle cx="115" cy="57" r="2" fill="oklch(0.65 0.2 240)" />
+                                <circle cx="109" cy="57" r="2" fill="oklch(0.65 0.2 240)" />
 
                                 <!-- Connection line -->
-                                <line x1="100" y1="85" x2="100" y2="125" stroke="#F27421" stroke-width="2.5"
+                                <line x1="100" y1="85" x2="100" y2="125" stroke="oklch(0.65 0.2 240)" stroke-width="2.5"
                                     stroke-dasharray="5 5">
                                     <animate attributeName="stroke-dashoffset" values="0;10" dur="1.5s"
                                         repeatCount="indefinite" />
                                 </line>
 
                                 <!-- Data flow dot -->
-                                <circle cx="100" cy="105" r="3" fill="#F27421">
+                                <circle cx="100" cy="105" r="3" fill="oklch(0.65 0.2 240)">
                                     <animate attributeName="cy" values="85;125;85" dur="2s" repeatCount="indefinite" />
                                     <animate attributeName="opacity" values="1;0.3;1" dur="2s"
                                         repeatCount="indefinite" />
                                 </circle>
 
                                 <!-- User icon -->
-                                <g transform="translate(70, 120) scale(2.5)" stroke="#F27421" fill="none"
+                                <g transform="translate(70, 120) scale(2.5)" stroke="oklch(0.65 0.2 240)" fill="none"
                                     stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="7" r="4" />
                                     <path d="M20 21 V19 a4 4 0 0 0 -4 -4 H8 a4 4 0 0 0 -4 4 v2" />
@@ -83,7 +83,7 @@
                     class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col group">
                     <div class="flex items-center justify-between">
                         <div
-                            class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-black group-hover:text-white group-hover:bg-orange-500 transition-colors">
+                            class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-black group-hover:text-white group-hover:bg-accent transition-colors">
                             <i data-lucide="telescope" class="h-6 w-6"></i>
                         </div>
 
@@ -114,7 +114,7 @@
                         <!-- Right-aligned links -->
                         <div class="flex space-x-4">
                             <a href="#data-explore"
-                                class="group inline-flex items-center space-x-1 text-orange-500 text-sm transition-colors"
+                                class="group inline-flex items-center space-x-1 text-accent text-sm transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
 
                                 <span>Learn More</span>
@@ -131,7 +131,7 @@
                     class="bg-white rounded-2xl p-6 space-y-4  transition-all duration-300 shadow-xl h-96 flex flex-col group">
                     <div class="flex items-center justify-between">
                         <div
-                            class="w-12 h-12 bg-gray-100 rounded-lg flex items-center text-black group-hover:text-white justify-center group-hover:bg-orange-500 transition-colors">
+                            class="w-12 h-12 bg-gray-100 rounded-lg flex items-center text-black group-hover:text-white justify-center group-hover:bg-accent transition-colors">
                             <i data-lucide="package" class="h-6 w-6"></i>
                         </div>
 
@@ -161,7 +161,7 @@
                     </div>
                     <div class="flex items-center justify-between pt-4 border-t border-gray-100">
                         <a href="#archived-data"
-                            class="group inline-flex items-center space-x-1 text-orange-500 text-sm transition-colors"
+                            class="group inline-flex items-center space-x-1 text-accent text-sm transition-colors"
                             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
 
                             <span>Learn More</span>
@@ -200,10 +200,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="building" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Explorer
                             </span>
@@ -222,7 +222,7 @@
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
 
                             <a href="https://openginxplore.opendata.lk" target="_blank"
-                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-accent hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 <span>Open App</span>
                                 <i data-lucide="arrow-right"
@@ -236,10 +236,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="file-archive" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Explorer
                             </span>
@@ -258,7 +258,7 @@
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
 
                             <a href="https://archives.opendata.lk/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-accent hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 <span>Open App</span>
                                 <i data-lucide="arrow-right"
@@ -272,10 +272,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="locate-fixed" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Explorer
                             </span>
@@ -330,10 +330,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="hammer" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Gazettes
                             </span>
@@ -353,7 +353,7 @@
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
 
                             <a href="https://ldflk.github.io/gztarchiver/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-accent hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 <span>Take a Look</span>
                                 <i data-lucide="arrow-right"
@@ -367,10 +367,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="chart-column" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Statistics
                             </span>
@@ -389,7 +389,7 @@
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
 
                             <a href="https://ldflk.github.io/datasets/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-accent hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 <span>Take a Look</span>
                                 <i data-lucide="arrow-right"
@@ -404,10 +404,10 @@
                         class="bg-white rounded-xl p-6 space-y-4 shadow-xl transition-all duration-300 flex flex-col group">
                         <div class="flex items-start justify-between">
                             <div
-                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-orange-500 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
+                                class="w-10 h-10 bg-gray-100 text-black group-hover:text-white group-hover:bg-accent rounded-lg flex items-center justify-center flex-shrink-0 transition-colors">
                                 <i data-lucide="file-text" class="h-5 w-5"></i>
                             </div>
-                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-medium rounded-full"
+                            <span class="px-3 py-1 bg-accent text-white text-xs font-medium rounded-full"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Gazettes
                             </span>
@@ -427,7 +427,7 @@
                         <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-200">
 
                             <a href="https://ldflk.github.io/gztarchiver-storage/" target="_blank"
-                                class="inline-flex items-center space-x-1 text-orange-500 hover:text-gray-900 text-xs transition-colors"
+                                class="inline-flex items-center space-x-1 text-accent hover:text-gray-900 text-xs transition-colors"
                                 style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 <span>Take a Look</span>
                                 <i data-lucide="arrow-right"
@@ -462,7 +462,7 @@
                     <span>View All Projects</span>
                 </a>
                 <a href="{{ '/contribute/' | relative_url }}"
-                    class="inline-flex items-center space-x-2 bg-orange-500 text-white px-8 py-3 border border-orange-500 rounded-lg font-medium hover:bg-white hover:text-orange-500 transition-colors"
+                    class="inline-flex items-center space-x-2 bg-accent text-white px-8 py-3 border border-accent rounded-lg font-medium hover:bg-white hover:text-accent transition-colors"
                     style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     <i data-lucide="heart" class="h-4 w-4"></i>
                     <span>Start Contributing</span>
