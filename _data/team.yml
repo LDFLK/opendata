@@ -16,17 +16,17 @@
   photo: "/images/zaeema.jpeg"
   linkedin: "https://www.linkedin.com/in/zaeema-nashath/"
 
+- name: "Chanuka Ranathunga"
+  role: "Associate Software Engineer"
+  bio: "Passionate about building efficient and user-friendly software solutions."
+  photo: "/images/chanuka.jpeg"
+  linkedin: "https://www.linkedin.com/in/chanuka-ranathunga/"
+
 - name: "Sehansi Perera"
   role: "UI/UX Intern"
   bio: "Full stack developer making information understandable and interesting for everyone."
   photo: "/images/sehansi.jpeg"
   linkedin: "https://www.linkedin.com/in/sehansi-perera-542740291/"
-
-- name: "Chanuka Ranathunga"
-  role: "SE Intern"
-  bio: "Passionate about building efficient and user-friendly software solutions."
-  photo: "/images/chanuka.jpeg"
-  linkedin: "https://www.linkedin.com/in/chanuka-ranathunga/"
 
 - name: "Yasandu Imanjith"
   role: "SE Intern"
