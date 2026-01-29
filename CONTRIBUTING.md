@@ -100,7 +100,7 @@ We value all contributions and appreciate your effort to improve this project!
 
 ## Additional Resources
 
-- Please reffer to the [Project Documentation](README.md)
+- Please refer to the [Project Documentation](README.md)
 
 ---
 
