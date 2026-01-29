@@ -1,89 +1,18 @@
-# 🛠️ Contributing Guidelines
+# OpenData.LK 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-77DD77.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/) [![Code of Conduct](https://img.shields.io/badge/Code%20of%20Conduct-Contributor-ff69b4.svg)](CODE_OF_CONDUCT.md) [![Security](https://img.shields.io/badge/Security-Policy-green.svg)](SECURITY.md) [![Contributing](https://img.shields.io/badge/Contributing-Guidelines-blue.svg)](CONTRIBUTING.md)
 
-Thank you for your interest in contributing to this project! Please follow the steps below to set up your development environment and contribute effectively.
+This is the source code for the official website of Lanka Data Foundation[OpenData.LK](https://opendata.lk/).
 
-## 🚀 Getting Started
-
-### 1. Fork the Repository
-Instead of cloning directly, please fork the repository to your own GitHub account:
-- Go to the top-right corner of this repo and click **Fork**
-
-### 2. Clone Your Fork
-```bash
-git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
-cd REPO-NAME
-```
-
-### 3. Create a New Branch
-Always create a separate branch for your changes:
-```bash
-git checkout -b your-feature-branch
-```
-
-## 💻 Jekyll Setup (Development Environment)
-
-This project is powered by **Jekyll**. Make sure you have the necessary environment set up.
-
-### ✅ Requirements
-- Ruby (version 2.5.0 or higher recommended)
-- Bundler
-- Jekyll
-
-### 📦 Install Dependencies
-If you haven't already, install Jekyll and Bundler:
-```bash
-gem install bundler jekyll
-```
-
-Then install project dependencies:
-```bash
-bundle install
-```
-
-### ▶️ Run Locally
-To serve the site locally:
-```bash
-bundle exec jekyll serve
-```
-
-Open `http://localhost:4000` in your browser to view the site.
-
-## 📤 Making Contributions
-
-1. Make your changes in your branch
-2. Test your changes locally
-3. Commit with a clear message:
-   ```bash
-   git add .
-   git commit -m "Add: [Short description of feature or fix]"
-   ```
-4. Push to your fork:
-   ```bash
-   git push origin your-feature-branch
-   ```
-5. Open a **Pull Request** to the `main` branch of the **mother repo**
-
-
-⚠️ **Warning**  
-You should use your repo name as the baseURL in **_config.yml** - otherwise it will give you deployement errors.
-```bash
-baseurl: "/<repo-name>"
-```
-
-
-## 🙏 Guidelines
-
-- Follow consistent code style
-- Test your changes before submitting
-- One feature/fix per pull request
-- Reference related issues (if any)
-
-
-## 🧾 License
-
-- **Code** — Licensed under the [Apache License 2.0](./LICENSE).
-- **Content (images, text, designs)** — Licensed under the [Creative Commons Attribution 4.0 International License](./LICENSE-CC.txt).
+## Getting Started
+Please see our [Getting Started Guide](GETTING_STARTED.md).
+## Contributing
+Please see our [Contributing Guide](CONTRIBUTING.md).
+## Code of Conduct
+Please see our [Code of Conduct](CODE_OF_CONDUCT.md).
+## Security
+Please see our [Security Policy](SECURITY.md).
+## License
+ - Distributed under the Apache 2.0 License. See [License](LICENSE) for more information.
+ - Content licensed under Creative Commons License: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ---
-
-We appreciate your contributions and look forward to collaborating with you!
