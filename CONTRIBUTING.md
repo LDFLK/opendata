@@ -62,25 +62,6 @@ Fixes #123
 
 **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
-### Coding Standards
-
-- Follow PEP 8 for Python code
-- Run `black` for formatting
-- Run `flake8` for linting
-
-
-### Testing
-
-- Add unit tests for new functionality
-- Ensure all tests pass: `pytest`
-- Maintain or improve code coverage
-
-All changes should include appropriate tests. Run the test suite before submitting:
-
-```bash
-python3 -m pytest
-```
-
 ## Submitting Changes
 
 ### Pull Request Process
