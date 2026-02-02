@@ -1,3 +1,15 @@
+- name: "Isuru Rangana"
+  photo: "/images/isuru.jpeg"
+  linkedin: "https://www.linkedin.com/in/isuru-rangana/"
+
+- name: "Kosala Gangabadage"
+  photo: "/images/kosala.png"
+  linkedin: "https://www.linkedin.com/in/kosalag/"
+
+- name: "Lakindu Oshadha"
+  photo: "/images/lakindu.jpeg"
+  linkedin: "https://www.linkedin.com/in/lakinduoshadha/"
+
 - name: "Megan Fernando"
   photo: "/images/megan.jpeg"
   linkedin: "https://www.linkedin.com/in/megan-fernando-677934279/"
@@ -9,15 +21,3 @@
 - name: "Umayanga Gunawardhana"
   photo: "/images/umayanga.jpeg"
   linkedin: "https://www.linkedin.com/in/umayangag/"
-
-- name: "Kosala Gangabadage"
-  photo: "/images/kosala.png"
-  linkedin: "https://www.linkedin.com/in/kosalag/"
-
-- name: "Lakindu Oshadha"
-  photo: "/images/lakindu.jpeg"
-  linkedin: "https://www.linkedin.com/in/lakinduoshadha/"
-
-- name: "Isuru Rangana"
-  photo: "/images/isuru.jpeg"
-  linkedin: "https://www.linkedin.com/in/isuru-rangana/"

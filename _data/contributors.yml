@@ -1,22 +1,6 @@
-- name: "Visal Vitharana"
-  photo: "/images/visal.jpeg"
-  linkedin: "https://www.linkedin.com/in/visal-vitharana-953845296/"
-  
-- name: "Vajira Prabuddhaka"
-  photo: "/images/vajira.jpeg"
-  linkedin: "https://www.linkedin.com/in/vajiraprabuddhaka/"
-
-- name: "Dwayne Dehoedt"
-  photo: "/images/dwayne.jpeg"
-  linkedin: "https://www.linkedin.com/in/dwaynedehoedt/"
-
-- name: "Tharindu Peiris"
-  photo: "/images/tharindu.jpeg"
-  linkedin: "https://www.linkedin.com/in/tharindupeiris/"
-
-- name: "Ramith Jayasinghe"
-  photo: "/images/ramith.jpeg"
-  linkedin: "https://www.linkedin.com/in/ramithj/?originalSubdomain=lk"
+- name: "Adeepa Fernando"
+  photo: "/images/adeepa.png"
+  linkedin: "https://www.linkedin.com/in/adeepa-fernando-899016273/"
 
 - name: "Anoshan Jayahanthan"
   photo: "/images/anoshan.jpeg"
@@ -26,22 +10,40 @@
   photo: "/images/arshardh.png"
   linkedin: "https://www.linkedin.com/in/arshardhifthikar/"
 
-- name: "Sampath Rajapakse"
-  photo: "/images/sampath.jpg"
-  linkedin: "https://www.linkedin.com/in/sampath-rajapakse/"
+- name: "Dr. Rajni Gamage"
+  photo: "/images/rajini.png"
+  linkedin: "https://www.linkedin.com/in/rajni-nayanthara-gamage-58804582/"
 
-- name: "Adeepa Fernando"
-  photo: "/images/adeepa.png"
-  linkedin: "https://www.linkedin.com/in/adeepa-fernando-899016273/"
-
-- name: "Tishan Dahanayakage"
-  photo: "/images/tishan.jpeg"
-  linkedin: "https://www.linkedin.com/in/tishan/"
+- name: "Dwayne Dehoedt"
+  photo: "/images/dwayne.jpeg"
+  linkedin: "https://www.linkedin.com/in/dwaynedehoedt/"
 
 - name: "Nisan Abeywickrama"
   photo: "/images/nisan.jpeg"
   linkedin: "https://www.linkedin.com/in/nisan-abeywickrama-615609168/"
 
-- name: "Dr. Rajni Nayanthara Gamage"
-  photo: "/images/rajini.png"
-  linkedin: "https://www.linkedin.com/in/rajni-nayanthara-gamage-58804582/"
+- name: "Ramith Jayasinghe"
+  photo: "/images/ramith.jpeg"
+  linkedin: "https://www.linkedin.com/in/ramithj/?originalSubdomain=lk"
+
+- name: "Sampath Rajapakse"
+  photo: "/images/sampath.jpg"
+  linkedin: "https://www.linkedin.com/in/sampath-rajapakse/"
+
+- name: "Tharindu Peiris"
+  photo: "/images/tharindu.jpeg"
+  linkedin: "https://www.linkedin.com/in/tharindupeiris/"
+
+- name: "Tishan Dahanayakage"
+  photo: "/images/tishan.jpeg"
+  linkedin: "https://www.linkedin.com/in/tishan/"
+
+- name: "Vajira Prabuddhaka"
+  photo: "/images/vajira.jpeg"
+  linkedin: "https://www.linkedin.com/in/vajiraprabuddhaka/"
+
+- name: "Visal Vitharana"
+  photo: "/images/visal.jpeg"
+  linkedin: "https://www.linkedin.com/in/visal-vitharana-953845296/"
+
+
