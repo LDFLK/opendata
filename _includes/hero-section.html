@@ -1,34 +1,47 @@
 <section id="home"
-  class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-8 ">
+  class="relative w-full min-h-screen md:h-screen bg-white flex items-center justify-center mt-10 pb-10 md:-mt-20 md:pt-12">
   <div class="container px-6 md:px-8 max-w-6xl">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <h1 class="text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 leading-tight"
+      <div class="space-y-4">
+        <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 leading-tight"
           style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          <span class="block">Shaping a Transparent</span>
-          <span class="block text-accent">Sri Lanka</span>
-          <span class="block">with Accessible,</span>
-          <span class="block text-gray-900">Connected Data</span>
-
+          <span class="block">Open Data for Better Governance</span>
         </h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed"
+        <h1 class="text-3xl md:text-2xl lg:text-4xl font-bold text-gray-900 leading-tight"
           style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-          Empowering communities through accessible public information and fostering democratic accountability for a
-          better future.
+          <span class="block">Building <span class="text-accent">Systems</span></span>
+          <span class="block">to Improve Democracy with Data</span>
+        </h1>
+        <p class="text-sm text-gray-600 max-w-xl leading-relaxed text-justify"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          While democracy intends to be a fair form of governance, the ruling class has long used information asymmetry
+          to tilt the balance away from citizens to themselves. Further, digital identities and digitalization in
+          general, can further exacerbate the asymmetry in favor of government.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          
-          <a href="https://openginxplore.opendata.lk/" target="_blank"
-            class="inline-flex items-center border border-black justify-center px-8 py-4 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group"
+        <p class="text-sm text-gray-600 max-w-xl leading-relaxed text-justify"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          Open data platforms that help civil society collect, connect and make available data brings the power of
+          democracy back to citizenship. These systems must distill data into information, to knowledge and to wisdom to
+          help the population better understand the world around them.
+        </p>
+        <p class="text-sm text-gray-600 max-w-xl leading-relaxed text-justify"
+          style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+          The Lanka Data Foundation is a not-for-profit organization dedicated to building software platforms that
+          enables citizens to have transparency, accountability and oversight over government. As a Sri Lankan
+          organization, we are also building an Information Hub for Sri Lankan people.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4" style="margin-top: 32px;">
+          <a href="{{ '/data-platform/' | relative_url }}"
+            class="text-xs md:text-sm inline-flex items-center border border-black justify-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-white hover:text-black transition-colors group"
             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            <span>Explore OpenGIN</span>
+            <span>Browse our Software</span>
             <i data-lucide="arrow-right"
               class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
-          <a href="https://archives.opendata.lk/" target="_blank"
-            class="inline-flex items-center border border-accent justify-center px-8 py-4 bg-accent text-white font-medium rounded-lg hover:bg-white hover:text-accent transition-colors group"
+          <a href="{{ '/information-hub/' | relative_url }}"
+            class="text-xs md:text-sm inline-flex items-center border border-accent justify-center px-6 py-3 bg-accent text-white font-medium rounded-lg hover:bg-white hover:text-accent transition-colors group"
             style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-            <span>Explore Archives</span>
+            <span>Explore the Sri Lanka Information Hub</span>
             <i data-lucide="arrow-right"
               class="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"></i>
           </a>
@@ -40,7 +53,8 @@
           <!--Sri Lanka Map SVG-->
           <svg id="srilanka-map" class="absolute inset-0 w-full h-full" viewBox="150 30 400 540"
             xmlns="http://www.w3.org/2000/svg">
-            <path fill="none" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+            <path fill="none" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round"
+              stroke-linejoin="round"
               d="M551.018,409.005l0.334,2.184l1.404,4.879l0.223,2.874l-0.78,5.484l-6.307,21.893l-0.357,2.256l-0.134,2.985
             l-0.468,2.491l-1.972,3.843l-0.435,1.717l-0.78,2.356l-2.652,4.157l-1.248,1.952l0.936,3.354l-1.504,3.982l-12.892,20.435
             l-4.301,4.312l-7.945,5.646l-2.596,0.779l-3.477,1.867l-25.417,20.011l-5.081,2.757l-16.502,5.873h-0.011l-0.223-1.989
@@ -180,7 +194,7 @@
   .data-point svg {
     width: 20px;
     height: 20px;
-    color: oklch(0.65 0.2 240); 
+    color: oklch(0.65 0.2 240);
     stroke-width: 1.5;
   }
 
@@ -213,7 +227,8 @@
   }
 
   .data-flow-visual .data-node svg {
-    stroke-width: 1.5; /* or whatever feels right */
+    stroke-width: 1.5;
+    /* or whatever feels right */
   }
 
   /* NEW CSS for the Map Outline */
@@ -261,7 +276,7 @@
     function drawConnections() {
       svgLines.innerHTML = '';
       const containerRect = container.getBoundingClientRect();
-      
+
       // Connect each point to nearby points
       dataPoints.forEach((point, idx) => {
         dataPoints.forEach((targetPoint, targetIdx) => {
@@ -269,7 +284,7 @@
             const dx = point.x - targetPoint.x;
             const dy = point.y - targetPoint.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            
+
             // Only connect if points are reasonably close
             if (distance < 50) {
               const x1 = (point.x / 100) * containerRect.width;
@@ -292,10 +307,10 @@
     function getIconSVG(iconName) {
       const icons = {
         'building-2': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
-        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>'   ,
+        'landmark': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
         'anchor': '<i data-lucide="book-text" class="h-4 w-4 text-accent"></i>',
         'waves': '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>',
-        'radio':'<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>' ,
+        'radio': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
         'zap': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>',
         'network': '<i data-lucide="file-text" class="h-4 w-4 text-accent"></i>'
       };
@@ -404,8 +419,6 @@
   </div>
 </section>
 
-
-
 <section id="live" class="pb-16  bg-white">
   <div class="container mx-auto px-6 md:px-8 max-w-6xl">
     <!-- Section Header -->
@@ -424,26 +437,28 @@
           class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col min-h-[300px] overflow-hidden group-hover:-translate-y-1">
           <!-- Image -->
           <div class="relative w-full h-full min-h-[300px] flex-shrink-0">
-            <img src="{{ '/images/xploregin2.png' | relative_url }}" alt="XploreGov" 
+            <img src="{{ '/images/xploregin2.png' | relative_url }}" alt="XploreGov"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
             <!-- Overlay -->
             <div
               class="absolute inset-0 p-6 md:p-8 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100"
               style="background: rgba(0, 0, 0, 0.85);">
-              
+
               <!-- Content Container -->
-              <div class="text-center space-y-4 max-w-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div
+                class="text-center space-y-4 max-w-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 class="text-2xl md:text-3xl font-bold text-white mb-2"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                   OpenGINXplore
                 </h3>
-                
+
                 <p class="text-white text-sm md:text-base leading-relaxed mb-6 opacity-90"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                  Explore Sri Lanka's data and government structures through insightful charts, timelines, interactive visuals and more ...
+                  Explore Sri Lanka's data and government structures through insightful charts, timelines, interactive
+                  visuals and more ...
                 </p>
-                
+
                 <a href="https://openginxplore.opendata.lk" target="_blank"
                   class="inline-flex items-center justify-center space-x-2 text-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -463,26 +478,27 @@
           class="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 h-full flex flex-col min-h-[300px] overflow-hidden group-hover:-translate-y-1">
           <!-- Image -->
           <div class="relative w-full h-full min-h-[300px] flex-shrink-0">
-            <img src="{{ '/images/archives2.png' | relative_url }}" alt="Archives" 
+            <img src="{{ '/images/archives2.png' | relative_url }}" alt="Archives"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
 
             <!-- Overlay -->
             <div
               class="absolute inset-0 p-6 md:p-8 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-100"
               style="background: rgba(0, 0, 0, 0.85);">
-              
+
               <!-- Content Container -->
-              <div class="text-center space-y-4 max-w-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+              <div
+                class="text-center space-y-4 max-w-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                 <h3 class="text-2xl md:text-3xl font-bold text-white mb-2"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                   Archives
                 </h3>
-                
+
                 <p class="text-white text-sm md:text-base leading-relaxed mb-6 opacity-90"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                   Search and browse through Sri Lanka's government publications by dates, categories and more ...
                 </p>
-                
+
                 <a href="https://archives.opendata.lk/" target="_blank"
                   class="inline-flex items-center justify-center space-x-2 text-accent hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -541,12 +557,14 @@
           <div class="flex items-center space-x-3">
             <div class="w-2 h-2 bg-accent rounded-full"></div>
             <span class="text-gray-700 text-sm"
-              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute data and datasets to the platform.</span>
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute data and
+              datasets to the platform.</span>
           </div>
           <div class="flex items-center space-x-3">
             <div class="w-2 h-2 bg-accent rounded-full"></div>
             <span class="text-gray-700 text-sm"
-              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute suggestions and feedback to improve the platform.</span>
+              style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Contribute
+              suggestions and feedback to improve the platform.</span>
           </div>
         </div>
 
@@ -572,8 +590,10 @@
             <div class="relative flex items-center justify-center h-64 data-flow-visual">
               <svg viewBox="0 0 360 100" class="absolute inset-0 mx-auto h-full w-full max-w-sm pointer-events-none"
                 xmlns="http://www.w3.org/2000/svg">
-                <line x1="40" y1="50" x2="180" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" />
-                <line x1="180" y1="50" x2="320" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1" stroke-linecap="round" />
+                <line x1="40" y1="50" x2="180" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1"
+                  stroke-linecap="round" />
+                <line x1="180" y1="50" x2="320" y2="50" stroke="oklch(0.65 0.2 240)" stroke-width="1"
+                  stroke-linecap="round" />
                 <circle r="2" fill="oklch(0.65 0.2 240)">
                   <animateMotion path="M40,50 L320,50" dur="3s" repeatCount="indefinite" />
                 </circle>
@@ -596,5 +616,3 @@
     </div>
   </div>
 </section>
-
-

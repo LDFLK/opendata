@@ -6,10 +6,6 @@
   photo: "/images/vajira.jpeg"
   linkedin: "https://www.linkedin.com/in/vajiraprabuddhaka/"
 
-- name: "Thushara Ruparathna"
-  photo: "/images/thushara.jpeg"
-  linkedin: "https://www.linkedin.com/in/thushara-ruparathna-554369216/"
-
 - name: "Dwayne Dehoedt"
   photo: "/images/dwayne.jpeg"
   linkedin: "https://www.linkedin.com/in/dwaynedehoedt/"
@@ -38,3 +34,14 @@
   photo: "/images/adeepa.png"
   linkedin: "https://www.linkedin.com/in/adeepa-fernando-899016273/"
 
+- name: "Tishan Dahanayakage"
+  photo: "/images/tishan.jpeg"
+  linkedin: "https://www.linkedin.com/in/tishan/"
+
+- name: "Nisan Abeywickrama"
+  photo: "/images/nisan.jpeg"
+  linkedin: "https://www.linkedin.com/in/nisan-abeywickrama-615609168/"
+
+- name: "Dr. Rajni Nayanthara Gamage"
+  photo: "/images/rajini.png"
+  linkedin: "https://www.linkedin.com/in/rajni-nayanthara-gamage-58804582/"
