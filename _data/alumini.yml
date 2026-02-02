@@ -1,3 +1,7 @@
+- name: "Megan Fernando"
+  photo: "/images/megan.jpeg"
+  linkedin: "https://www.linkedin.com/in/megan-fernando-677934279/"
+
 - name: "Nuwan Senaratna"
   photo: "/images/nuwan.jpeg"
   linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
@@ -17,7 +21,3 @@
 - name: "Isuru Rangana"
   photo: "/images/isuru.jpeg"
   linkedin: "https://www.linkedin.com/in/isuru-rangana/"
-
-- name: "Megan Fernando"
-  photo: "/images/megan.jpeg"
-  linkedin: "https://www.linkedin.com/in/megan-fernando-677934279/"

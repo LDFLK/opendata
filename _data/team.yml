@@ -10,6 +10,10 @@
   photo: "/images/thushara.jpeg"
   linkedin: "https://www.linkedin.com/in/thushara-ruparathna-554369216/"
 
+- name: "Dr. Harindra Gamage"
+  role: "Head of Data Operations"
+  photo: "/images/harindra.jpg"
+
 - name: "Zaeema Nashath"
   role: "Software Engineer"
   bio: "Building software with purpose - supporting people and sparking change."
@@ -21,15 +25,3 @@
   bio: "Passionate about building efficient and user-friendly software solutions."
   photo: "/images/chanuka.jpeg"
   linkedin: "https://www.linkedin.com/in/chanuka-ranathunga/"
-
-- name: "Sehansi Perera"
-  role: "UI/UX Intern"
-  bio: "Full stack developer making information understandable and interesting for everyone."
-  photo: "/images/sehansi.jpeg"
-  linkedin: "https://www.linkedin.com/in/sehansi-perera-542740291/"
-
-- name: "Yasandu Imanjith"
-  role: "Software Engineer Intern"
-  bio: "An engineer automating stuff so you don’t have to."
-  photo: "/images/yasandu.jpg"
-  linkedin: "https://www.linkedin.com/in/yasandu-imanjith-17b760278/"

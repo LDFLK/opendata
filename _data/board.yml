@@ -16,14 +16,14 @@
   photo: "/images/malith.jpeg"
   linkedin: "https://www.linkedin.com/in/malith-jayasinghe/"
 
-- name: "Shea Wickramasingha"
-  role: "Board Member"
-  # bio: "Passionate about transparency and civic engagement."
-  photo: "/images/shea.jpeg"
-  linkedin: "https://www.linkedin.com/in/shea-wickramasingha-221a9b25/"
-
 - name: "Professor Louiqa Raschid"
   role: "Board Member"
   # bio: "Passionate about transparency and civic engagement."
   photo: "/images/louiqa.jpeg"
   linkedin: "https://www.linkedin.com/in/louiqa-raschid-b76965/"
+
+- name: "Sheamalee Wickramasingha"
+  role: "Board Member"
+  # bio: "Passionate about transparency and civic engagement."
+  photo: "/images/sheamalee.jpeg"
+  linkedin: "https://www.linkedin.com/in/shea-wickramasingha-221a9b25/"
