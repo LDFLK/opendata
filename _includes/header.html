@@ -3,44 +3,54 @@
         <div class="flex items-center justify-between h-20">
             <!-- Logo/Brand -->
             <div class="flex-shrink-0">
-                <a href="{{ '/' | relative_url }}" 
-                   class="flex items-center text-2xl font-semibold text-gray-900 hover:text-gray-700 transition-colors"
-                   style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                  <img 
-                    src="{{ '/images/logo_design_LDF.png' | relative_url }}" 
-                    alt="{{ site.title }}" 
-                    class="h-10 w-auto max-h-12 object-contain"
-                  />
+                <a href="{{ '/' | relative_url }}"
+                    class="flex items-center text-2xl font-semibold text-gray-900 hover:text-gray-700 transition-colors"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ site.title }}"
+                        class="h-10 w-auto max-h-12 object-contain" />
                 </a>
-              </div>
-              
+            </div>
+
 
             <!-- Desktop Navigation - Centered -->
             <nav class="hidden lg:flex items-center justify-center flex-1 mx-12">
                 <div class="flex items-center space-x-8">
-                    <a href="{{ '/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url == '/' %}text-gray-900 border-b-2 border-accent{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <a href="{{ '/' | relative_url }}"
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url == '/' %}text-gray-900 border-b-2 border-accent{% endif %}"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         Home
                     </a>
-                    <a href="{{ '/about/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900 border-b-2 border-accent{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <a href="{{ '/about/' | relative_url }}"
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900 border-b-2 border-accent{% endif %}"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         About Us
                     </a>
                     <div class="relative dropdown-container">
-                        <button class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none py-2 flex items-center space-x-1 {% if page.url contains '/what-we-build' or page.url contains '/data-platform' or page.url contains '/information-hub' %}text-gray-900 border-b-2 border-accent{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        <button
+                            class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors focus:outline-none py-2 flex items-center space-x-1 {% if page.url contains '/what-we-build' or page.url contains '/data-platform' or page.url contains '/information-hub' %}text-gray-900 border-b-2 border-accent{% endif %}"
+                            style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                             <span>What We Build</span>
-                            <svg class="w-4 h-4 transition-transform dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <svg class="w-4 h-4 transition-transform dropdown-arrow" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden">
-                            <a href="{{ '/data-platform/' | relative_url }}" class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/data-platform' %}bg-gray-100{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
-                                Data Platform 
+                        <div
+                            class="dropdown-menu absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-100 py-2 hidden">
+                            <a href="{{ '/data-platform/' | relative_url }}"
+                                class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/data-platform' %}bg-gray-100{% endif %}"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                                Data Platform
                             </a>
-                            <a href="{{ '/information-hub/' | relative_url }}" class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/information-hub' %}bg-gray-100{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                            <a href="{{ '/information-hub/' | relative_url }}"
+                                class="block px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors {% if page.url contains '/information-hub' %}bg-gray-100{% endif %}"
+                                style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                                 Sri Lanka Information Hub
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- <a href="{{ '/blogs/' | relative_url }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900 border-b-2 border-accent{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         Blog
                     </a> -->
@@ -49,41 +59,56 @@
 
             <!-- CTA Button -->
             <div class="hidden lg:flex flex-shrink-0">
-                <a href="{{ '/contribute/' | relative_url }}" class="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-white hover:text-black border border-black transition-colors" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <a href="{{ '/contribute/' | relative_url }}"
+                    class="bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-white hover:text-black border border-black transition-colors"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Get Involved
                 </a>
             </div>
 
             <!-- Mobile menu button -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent hover:bg-gray-50 transition-colors" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-                <svg  class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button id="mobile-menu-btn"
+                class="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent hover:bg-gray-50 transition-colors"
+                aria-label="Toggle menu" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
         </div>
     </div>
 
-    
+
     <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
         <div class="container mx-auto px-6 md:px-8 max-w-6xl py-6">
             <div class="flex flex-col space-y-4">
-                <a href="{{ '/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url == '/' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <a href="{{ '/' | relative_url }}"
+                    class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url == '/' %}text-gray-900{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Home
                 </a>
-                <a href="{{ '/about/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <a href="{{ '/about/' | relative_url }}"
+                    class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/about' %}text-gray-900{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     About Us
                 </a>
-                <a href="{{ '/data-platform/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-gin' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <a href="{{ '/data-platform/' | relative_url }}"
+                    class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/open-gin' %}text-gray-900{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Data Platform
                 </a>
-                <a href="{{ '/information-hub/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/information-hub' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                <a href="{{ '/information-hub/' | relative_url }}"
+                    class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/information-hub' %}text-gray-900{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Sri Lanka Information Hub
                 </a>
                 <!-- <a href="{{ '/blogs/' | relative_url }}" class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900{% endif %}" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Blog
                 </a> -->
                 <div class="pt-4 border-t border-gray-100">
-                    <a href="{{ '/contribute/' | relative_url }}" class="inline-block bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    <a href="{{ '/contribute/' | relative_url }}"
+                        class="inline-block bg-gray-900 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                         Get Involved
                     </a>
                 </div>
@@ -94,66 +119,63 @@
 
 <script>
 
-// Desktop dropdown functionality - runs immediately
-(function() {
-    function initDropdowns() {
-        var dropdownContainers = document.querySelectorAll('.dropdown-container');
-        
-        dropdownContainers.forEach(function(container) {
-            var button = container.querySelector('button');
-            var menu = container.querySelector('.dropdown-menu');
-            var arrow = container.querySelector('.dropdown-arrow');
-            
-            if (button && menu && !button.hasAttribute('data-dropdown-initialized')) {
-                button.setAttribute('data-dropdown-initialized', 'true');
-                
-                // Toggle dropdown on button click
-                button.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    var isHidden = menu.classList.contains('hidden');
-                    
-                    // Close all other dropdowns
-                    document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+    // Desktop dropdown functionality - runs immediately
+    (function () {
+        function initDropdowns() {
+            var dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+            dropdownContainers.forEach(function (container) {
+                var button = container.querySelector('button');
+                var menu = container.querySelector('.dropdown-menu');
+                var arrow = container.querySelector('.dropdown-arrow');
+
+                if (button && menu && !button.hasAttribute('data-dropdown-initialized')) {
+                    button.setAttribute('data-dropdown-initialized', 'true');
+
+                    // Toggle dropdown on button click
+                    button.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        var isHidden = menu.classList.contains('hidden');
+
+                        // Close all other dropdowns
+                        document.querySelectorAll('.dropdown-menu').forEach(function (m) {
+                            m.classList.add('hidden');
+                        });
+                        document.querySelectorAll('.dropdown-arrow').forEach(function (a) {
+                            a.style.transform = '';
+                        });
+
+                        // Toggle current dropdown
+                        if (isHidden) {
+                            menu.classList.remove('hidden');
+                            arrow.style.transform = 'rotate(180deg)';
+                        } else {
+                            menu.classList.add('hidden');
+                            arrow.style.transform = '';
+                        }
+                    });
+                }
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (e) {
+                var isDropdownClick = e.target.closest('.dropdown-container');
+                if (!isDropdownClick) {
+                    document.querySelectorAll('.dropdown-menu').forEach(function (m) {
                         m.classList.add('hidden');
                     });
-                    document.querySelectorAll('.dropdown-arrow').forEach(function(a) {
+                    document.querySelectorAll('.dropdown-arrow').forEach(function (a) {
                         a.style.transform = '';
                     });
-                    
-                    // Toggle current dropdown
-                    if (isHidden) {
-                        menu.classList.remove('hidden');
-                        arrow.style.transform = 'rotate(180deg)';
-                    } else {
-                        menu.classList.add('hidden');
-                        arrow.style.transform = '';
-                    }
-                });
-            }
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            var isDropdownClick = e.target.closest('.dropdown-container');
-            if (!isDropdownClick) {
-                document.querySelectorAll('.dropdown-menu').forEach(function(m) {
-                    m.classList.add('hidden');
-                });
-                document.querySelectorAll('.dropdown-arrow').forEach(function(a) {
-                    a.style.transform = '';
-                });
-            }
-        });
-    }
-    
-    // Initialize immediately if DOM is ready, otherwise wait
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initDropdowns);
-    } else {
-        initDropdowns();
-    }
-})();
+                }
+            });
+        }
+
+        // Initialize immediately if DOM is ready, otherwise wait
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDropdowns);
+        } else {
+            initDropdowns();
+        }
+    })();
 </script>
-
-
-
