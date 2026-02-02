@@ -10,8 +10,9 @@
   photo: "/images/thushara.jpeg"
   linkedin: "https://www.linkedin.com/in/thushara-ruparathna-554369216/"
 
-- name: "Dr. Harindra Gamage"
+- name: "Harindra Gamage"
   role: "Head of Data Operations"
+  bio: "Fueling change through data"
   photo: "/images/harindra.jpg"
 
 - name: "Zaeema Nashath"
