@@ -1,9 +1,3 @@
-- name: "Dr. Vibhatha Abeykoon"
-  role: "Chief Technology Officer"
-  bio: "An engineer working on transforming data to knowledge."
-  photo: "/images/vibhatha.jpeg"
-  linkedin: "https://www.linkedin.com/in/vibhatha/"
-
 - name: "Thushara Ruparathna"
   role: "Head of Operations"
   bio: "Transforming operations by blending human insight with smart technology."
@@ -16,7 +10,7 @@
   photo: "/images/harindra.jpg"
 
 - name: "Zaeema Nashath"
-  role: "Software Engineer"
+  role: "Senior Software Engineer"
   bio: "Building software with purpose - supporting people and sparking change."
   photo: "/images/zaeema.jpeg"
   linkedin: "https://www.linkedin.com/in/zaeema-nashath/"
