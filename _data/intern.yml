@@ -1,14 +1,8 @@
-- name: "Sehansi Perera"
+- name: "Nethmika Kekulanthale"
   role: "Software Engineer Intern"
-  bio: "Full stack developer making information understandable and interesting for everyone."
-  photo: "/images/sehansi.jpeg"
-  linkedin: "https://www.linkedin.com/in/sehansi-perera-542740291/"
-
-- name: "Yasandu Imanjith"
-  role: "Software Engineer Intern"
-  bio: "An engineer automating stuff so you don’t have to."
-  photo: "/images/yasandu.jpg"
-  linkedin: "https://www.linkedin.com/in/yasandu-imanjith-17b760278/"
+  bio: "Learning, building, and turning ideas into software that makes a difference."
+  photo: "/images/nethmika_kekulanthale.png"
+  linkedin: "https://www.linkedin.com/in/nethmika-kekulanthale/"
 
 - name: "Yoshan Jayasinghe"
   role: "Governance & Policy Intern"
