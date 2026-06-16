@@ -21,7 +21,15 @@
 - name: "Nuwan Senaratna"
   photo: "/images/nuwan.jpeg"
   linkedin: "https://www.linkedin.com/in/nuwansenaratna/"
-  
+
+- name: "Sehansi Perera"
+  photo: "/images/sehansi.jpeg"
+  linkedin: "https://www.linkedin.com/in/sehansi-perera-542740291/"
+
 - name: "Umayanga Gunawardhana"
   photo: "/images/umayanga.jpeg"
   linkedin: "https://www.linkedin.com/in/umayangag/"
+
+- name: "Yasandu Imanjith"
+  photo: "/images/yasandu.jpg"
+  linkedin: "https://www.linkedin.com/in/yasandu-imanjith-17b760278/"
