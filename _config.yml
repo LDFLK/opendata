@@ -28,6 +28,9 @@ collections:
   datasets:
     output: true
     permalink: /:collection/:name/
+  reports:
+    output: true
+    permalink: /reports/:path/
 
 # Plugins
 plugins:

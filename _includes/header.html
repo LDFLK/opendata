@@ -50,6 +50,11 @@
                             </a>
                         </div>
                     </div>
+                    <a href="{{ '/reports/' | relative_url }}"
+                        class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/reports' %}text-gray-900 border-b-2 border-accent{% endif %}"
+                        style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                        Reports
+                    </a>
                     <a href="{{ '/blog/' | relative_url }}"
                         class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900 border-b-2 border-accent{% endif %}"
                         style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
@@ -102,6 +107,11 @@
                     class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/information-hub' %}text-gray-900{% endif %}"
                     style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
                     Sri Lanka Information Hub
+                </a>
+                <a href="{{ '/reports/' | relative_url }}"
+                    class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/reports' %}text-gray-900{% endif %}"
+                    style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">
+                    Reports
                 </a>
                 <a href="{{ '/blog/' | relative_url }}"
                     class="text-base font-medium text-gray-600 hover:text-gray-900 transition-colors py-2 {% if page.url contains '/blog' %}text-gray-900{% endif %}"
