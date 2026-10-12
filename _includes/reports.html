@@ -15,7 +15,8 @@
 
             <!-- Reports Grid -->
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="reports-grid">
-                {% for report in site.reports %}
+                {% assign sorted_reports = site.reports | sort: "date" | reverse %}
+                {% for report in sorted_reports %}
                 <article
                     class="report-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col"
                     data-index="{{ forloop.index0 }}">

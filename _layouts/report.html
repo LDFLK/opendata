@@ -38,7 +38,9 @@ layout: default
                 {{ page.introduction }}
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 {% if page.related_reports.size > 0 and page.related_blogs.size > 0 %}md:grid-cols-2{% endif %} gap-6"
+                {% unless page.related_reports.size> 0 and page.related_blogs.size > 0 %} style="width: 75%;"{%
+                endunless %}>
                 <!-- related reports -->
                 {% if page.related_reports and page.related_reports.size > 0 %}
                 <div class="flex flex-col gap-2">
@@ -53,7 +55,9 @@ layout: default
                             <span class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_report.title}}
                             </span>
-                            <div class="text-gray-400 px-2">|</div>
+                            <div class="bg-gray-400"
+                                style="width: 2px; height: 24px; align-self: center; flex-shrink: 0; margin: 0 8px;">
+                            </div>
                             <div class="text-sm flex justify-center items-center gap-4 ml-4">
                                 <a href="{{ related_report.url | relative_url }}" target="_blank"
                                     class="cursor-pointer text-green-600">View</a>
@@ -81,7 +85,9 @@ layout: default
                             <span class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_blog.title}}
                             </span>
-                            <div class="text-gray-400 px-2">|</div>
+                            <div class="bg-gray-400"
+                                style="width: 2px; height: 24px; align-self: center; flex-shrink: 0; margin: 0 8px;">
+                            </div>
                             <div class="text-sm flex justify-center items-center gap-4 ml-4">
                                 <a href="{{ related_blog.url | relative_url }}" target="_blank"
                                     class="cursor-pointer text-green-600">View</a>
@@ -118,6 +124,15 @@ layout: default
         margin-bottom: 1.5rem;
         line-height: 1.75;
         text-align: justify;
+    }
+
+    .report-content a {
+        color: #009bee;
+        text-decoration: underline;
+    }
+
+    .report-content a:hover {
+        color: #009bee;
     }
 
     .report-content img {
