@@ -17,6 +17,6 @@ related_blogs:
     url: "https://medium.com/@services_81173/data-ministerial-musical-chairs-fell-by-nearly-75-under-dissanayake-presidency-compared-to-past-f715b0e65471"
 ---
 
-![Government Department Changes](https://raw.githubusercontent.com/LDFLK/datasets/main/data/reports/website_scorecard/2026/09/25/images/1.png)
+![Government Department Changes](https://raw.githubusercontent.com/LDFLK/datasets/main/data/reports/government_department_changes/2026/08/10/images/2.png)
 
 - Explore the full interactive visualization here: [openginxplore.opendata.lk](https://openginxplore.opendata.lk)
