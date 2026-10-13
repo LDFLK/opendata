@@ -1,7 +1,7 @@
 ---
 layout: report
 id: "report-2"
-title: "Explore Sri Lanka’s Ministerial Shifts"
+title: "Government Department Changes"
 tagline: "See how departments have moved between ministries throughout history in our new Department Flow view."
 date: "2026-08-10"
 cover: "/images/reports/government_department_changes.png"
