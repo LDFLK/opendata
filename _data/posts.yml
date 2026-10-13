@@ -24,15 +24,6 @@
     - language: "ta"
       url: "https://medium.com/@services_81173/%E0%AE%9C%E0%AE%A9%E0%AE%BE%E0%AE%A4%E0%AE%BF%E0%AE%AA%E0%AE%A4%E0%AE%BF-%E0%AE%85%E0%AE%A8%E0%AF%81%E0%AE%B0-%E0%AE%95%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B0-%E0%AE%A4%E0%AE%BF%E0%AE%9A%E0%AE%BE%E0%AE%A8%E0%AE%BE%E0%AE%AF%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%B5%E0%AE%BF%E0%AE%A9%E0%AF%8D-%E0%AE%95%E0%AE%BE%E0%AE%B2%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%BF%E0%AE%B2%E0%AF%8D-%E0%AE%85%E0%AE%AE%E0%AF%88%E0%AE%9A%E0%AF%8D%E0%AE%9A%E0%AF%81-%E0%AE%AE%E0%AE%BE%E0%AE%B1%E0%AF%8D%E0%AE%B1%E0%AE%99%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D-%E0%AE%AE%E0%AF%81%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AF%88%E0%AE%AF-%E0%AE%87%E0%AE%B0%E0%AF%81-%E0%AE%9C%E0%AE%A9%E0%AE%BE%E0%AE%A4%E0%AE%BF%E0%AE%AA%E0%AE%A4%E0%AE%BF%E0%AE%95%E0%AE%B3%E0%AF%81%E0%AE%9F%E0%AE%A9%E0%AF%8D-d77d113a1c4c"
 
-- image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*t2ThAIWkj9LrsOOcVq-frQ.png"
-  title: "Announcing the Lanka Data Foundation - using data to hold everyone accountable"
-  date: "2026-02-04"
-  author: "Sanjiva Weerawarana"
-  author_img: "/images/sanjiva.jpeg"
-  translations:
-    - language: "en"
-      url: "https://medium.com/@sanjiva.weerawarana/announcing-the-lanka-data-foundation-using-data-to-hold-everyone-accountable-5de2b2bc7ef6"
-
 - image: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*tSIF1T8NqjdGG-WhM06pvw.png"
   title: "When Governments Don’t Stand Still - Understanding the Dynamics of Government Change in Sri Lanka"
   date: "2026-02-04"
@@ -49,3 +40,12 @@
   translations:
     - language: "en"
       url: "https://medium.com/@vibhatha/a-year-in-review-at-lanka-data-foundation-bd4dfae9f532"
+
+- image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*t2ThAIWkj9LrsOOcVq-frQ.png"
+  title: "Announcing the Lanka Data Foundation - using data to hold everyone accountable"
+  date: "2026-02-04"
+  author: "Sanjiva Weerawarana"
+  author_img: "/images/sanjiva.jpeg"
+  translations:
+    - language: "en"
+      url: "https://medium.com/@sanjiva.weerawarana/announcing-the-lanka-data-foundation-using-data-to-hold-everyone-accountable-5de2b2bc7ef6"
