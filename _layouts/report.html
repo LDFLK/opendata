@@ -61,8 +61,10 @@ layout: default
                             <div class="text-sm flex justify-center items-center gap-4 ml-4">
                                 <a href="{{ related_report.url | relative_url }}" target="_blank"
                                     class="cursor-pointer text-green-600">View</a>
+                                {% if related_report.hasDownload %}
                                 <a href="{{ related_report.url | replace: '/blob/', '/raw/' }}" target="_blank"
                                     class="cursor-pointer text-green-600">Download</a>
+                                {% endif %}
                             </div>
                         </div>
                         {% endif %}
