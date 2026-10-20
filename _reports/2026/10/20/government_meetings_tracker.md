@@ -17,6 +17,8 @@ related_reports:
   - title: "Government Meetings Tracker"
     url: "https://docs.google.com/spreadsheets/d/1zFBagpdxN_qBpt6YOFm0Bln6vAdPkTyDJlSJg1g624A/edit?usp=sharing"
 related_blogs:
+  - title: "Tracking Sri Lanka’s Government Meetings"
+    url: "https://medium.com/@services_81173/tracking-sri-lankas-government-meetings-a0c17cd44abf"
   - title: "4 in 10 of Sri Lanka’s Legally Mandated Meeting Bodies Could Not Tell If They Met (English)"
     url: "https://medium.com/@services_81173/4-in-10-of-sri-lankas-legally-mandated-meeting-bodies-could-not-tell-if-they-met-b797829b678b"
   - title: "4 in 10 of Sri Lanka’s Legally Mandated Meeting Bodies Could Not Tell If They Met (සිංහල)"
