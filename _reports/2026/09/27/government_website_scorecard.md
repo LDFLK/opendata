@@ -9,7 +9,7 @@ introduction: "This scorecard evaluates 577 government websites, including 25 mi
 related_reports:
   - title: "Government Scorecard"
     url: "https://github.com/LDFLK/datasets/blob/6da0205df9aa097e721d14a0fbf2ca8899f460a2/data/reports/website_scorecard/2026/09/25/LDF%20Government%20Website%20Scorecard%20Report%202026-09-25.pdf"
-    hasDownload: "yes"
+    hasDownload: true
 related_blogs:
   # related blog model
   # - title: "Sample blog title"
