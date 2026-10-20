@@ -47,11 +47,10 @@ layout: default
                     <h3 class="text-sm md:text-lg font-semibold text-accent tracking-wide mb-1">
                         Related Reports
                     </h3>
-                    <div
-                        style="margin-left: 10px; display: grid; grid-template-columns: auto auto auto auto; justify-content: start; align-items: center; column-gap: 0.5rem;">
+                    <div style="margin-left: 10px;">
                         {% for related_report in page.related_reports %}
                         {% if related_report.url and related_report.url != "" %}
-                        <div class="text-sm md:text-lg font-light" style="display: contents;">
+                        <div class="flex gap-2 text-sm md:text-lg font-light text-sm md:text-lg font-light">
                             <span class="text-gray-500">{{ forloop.index }}.</span>
                             <span class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_report.title}}
@@ -59,7 +58,7 @@ layout: default
                             <div class="bg-gray-400"
                                 style="width: 2px; height: 24px; align-self: center; flex-shrink: 0; margin: 0 8px;">
                             </div>
-                            <div class="text-sm flex justify-start items-center gap-4 ml-4">
+                            <div class="text-sm flex justify-center items-center gap-4 ml-4">
                                 <a href="{{ related_report.url | relative_url }}" target="_blank"
                                     class="cursor-pointer text-green-600">View</a>
                                 {% if related_report.hasDownload %}
@@ -80,11 +79,10 @@ layout: default
                     <h3 class="text-sm md:text-lg font-semibold text-accent tracking-wide mb-1">
                         Related Blogs
                     </h3>
-                    <div
-                        style="margin-left: 10px; display: grid; grid-template-columns: auto auto auto auto; justify-content: start; align-items: center; column-gap: 0.5rem;">
+                    <div style="margin-left: 10px;">
                         {% for related_blog in page.related_blogs %}
                         {% if related_blog.url and related_blog.url != "" %}
-                        <div class="text-sm md:text-lg font-light" style="display: contents;">
+                        <div class="flex gap-2 text-sm md:text-lg font-light">
                             <span class="text-gray-500">{{ forloop.index }}.</span>
                             <span class="text-sm md:text-lg font-light text-gray-600">
                                 {{related_blog.title}}
