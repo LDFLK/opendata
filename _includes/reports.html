@@ -16,9 +16,9 @@
                 </h2>
                 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="report-highlights-grid">
                     {% assign sorted_reports = site.reports | sort: "date" | reverse %}
-                    {% for highlighted_id in site.data.report_highlights %}
+                    {% for highlighted_url in site.data.report_highlights %}
                     {% for report in sorted_reports %}
-                    {% if report["id-"] == highlighted_id %}
+                    {% if report.url == highlighted_url %}
                     <a href="{{ report.url | relative_url }}"
                         class="highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer">
                         {% include report-card.html report=report card_class="highlight-card" %}
