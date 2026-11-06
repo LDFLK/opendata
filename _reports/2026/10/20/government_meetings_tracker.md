@@ -1,6 +1,6 @@
 ---
 layout: report
-id: "report-3"
+report_id: "report-3"
 title: "Government Meetings Tracker"
 tagline: "Are Sri Lanka's mandated government meetings actually being held?"
 date: "2026-10-20"

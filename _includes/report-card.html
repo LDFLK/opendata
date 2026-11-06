@@ -1,0 +1,21 @@
+<div class="h-48 bg-gray-100 flex items-center justify-center">
+    {% if include.report.cover and include.report.cover != "" %}
+    <img src="{{ include.report.cover | relative_url }}" alt="{{ include.report.title }}"
+        class="object-cover h-full w-full" />
+    {% else %}
+    <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ include.report.title }}"
+        style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+    {% endif %}
+</div>
+<div class="p-4 flex-1 flex flex-col">
+    <div class="flex items-center justify-between">
+        <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ include.report.date |
+            date: "%Y-%m-%d" | default: "No Data" }}</span>
+        {% if include.card_class == "highlight-card" %}
+        <span class="text-xs font-medium text-gray-600">Highlighted</span>
+        {% endif %}
+    </div>
+    <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
+        {{ include.report.title }}
+    </h3>
+</div>

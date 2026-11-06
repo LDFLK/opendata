@@ -1,6 +1,6 @@
 ---
 layout: report
-id: "report-1"
+report_id: "report-1"
 title: "Government Website Scorecard"
 tagline: "An evaluation of 577 government websites against baseline web requirements"
 date: "2026-09-27"
