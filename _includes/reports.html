@@ -18,7 +18,7 @@
                     {% assign sorted_reports = site.reports | sort: "date" | reverse %}
                     {% for highlighted_id in site.data.report_highlights %}
                     {% for report in sorted_reports %}
-                    {% if report.report_id == highlighted_id %}
+                    {% if report["id-"] == highlighted_id %}
                     <a href="{{ report.url | relative_url }}"
                         class="highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer">
                         {% include report-card.html report=report card_class="highlight-card" %}

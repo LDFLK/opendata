@@ -1,6 +1,6 @@
 ---
 layout: report
-report_id: "report-2"
+id-: "id-2"
 title: "Government Department Changes"
 tagline: "See how departments have moved between ministries throughout history in our new Department Flow view."
 date: "2026-08-10"
