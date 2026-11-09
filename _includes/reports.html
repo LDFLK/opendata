@@ -10,27 +10,15 @@
         <!-- Reports Grid -->
         <div class="mb-16">
             {% assign sorted_reports = site.reports | sort: "date" | reverse %}
-            {% assign highlighted_rendered = "|" %}
-            {% assign highlighted_count = 0 %}
+            {% assign highlights = site.data.highlights | sort: "order" %}
             {% capture highlights_html %}
-                {% for highlighted_url in site.data.report_highlights %}
-                {% assign highlighted_token = "|" | append: highlighted_url | append: "|" %}
-                {% unless highlighted_rendered contains highlighted_token %}
-                {% assign highlighted_rendered = highlighted_rendered | append: highlighted_url | append: "|" %}
-                {% for report in sorted_reports %}
-                {% if report.url == highlighted_url %}
-                <a href="{{ report.url | relative_url }}"
-                    class="highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer">
-                    {% include report-card.html report=report card_class="highlight-card" %}
-                </a>
-                {% assign highlighted_count = highlighted_count | plus: 1 %}
-                {% endif %}
-                {% endfor %}
-                {% endunless %}
-                {% endfor %}
+            {% for highlight in highlights %}
+            {% include report-card.html highlight=highlight card_class="highlight-card" %}
+            {% endfor %}
             {% endcapture %}
+            {% assign highlights_html = highlights_html | strip %}
 
-            {% if highlighted_count > 0 %}
+            {% if highlights_html != "" %}
             <section class="mb-12" aria-labelledby="report-highlights-heading">
                 <h2 id="report-highlights-heading" class="text-2xl font-semibold text-gray-900 mb-8">
                     Highlights
@@ -41,14 +29,7 @@
             </section>
             {% endif %}
 
-            {% assign regular_count = 0 %}
-            {% for report in sorted_reports %}
-            {% unless site.data.report_highlights contains report.url %}
-            {% assign regular_count = regular_count | plus: 1 %}
-            {% endunless %}
-            {% endfor %}
-
-            {% if regular_count > 0 %}
+            {% if sorted_reports.size > 0 %}
             <h3 class="text-2xl font-semibold text-gray-900 mb-8">
                 Reports
             </h3>
@@ -56,13 +37,7 @@
             <!-- Reports Grid -->
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="reports-grid">
                 {% for report in sorted_reports %}
-                {% unless site.data.report_highlights contains report.url %}
-                <a href="{{ report.url | relative_url }}"
-                    class="report-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer"
-                    data-index="{{ forloop.index0 }}">
-                    {% include report-card.html report=report card_class="report-card" %}
-                </a>
-                {% endunless %}
+                {% include report-card.html report=report card_class="report-card" index=forloop.index0 %}
                 {% endfor %}
             </div>
 
