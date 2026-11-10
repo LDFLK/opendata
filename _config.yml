@@ -30,7 +30,7 @@ collections:
     permalink: /:collection/:name/
   reports:
     output: true
-    permalink: /reports/:path/
+    permalink: /publications/reports/:path/
 
 # Plugins
 plugins:

@@ -1,6 +1,6 @@
 # Highlighted publications shown above their regular lists.
 # type selects the card branch in report-card.html; order sets display priority (lowest first).
-- url: /reports/2026/10/20/government_meetings_tracker/
+- url: /publications/reports/2026/10/20/government_meetings_tracker/
   type: report
   order: 1
 # Example:
