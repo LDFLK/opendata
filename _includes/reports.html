@@ -10,10 +10,18 @@
         <!-- Reports Grid -->
         <div class="mb-16">
             {% assign sorted_reports = site.reports | sort: "date" | reverse %}
-            {% assign highlights = site.data.highlights | sort: "order" %}
+            {% assign highlights = site.data.highlights %}
+            {% if highlights %}
+            {% assign highlights = highlights | sort: "order" %}
+            {% endif %}
             {% capture highlights_html %}
+            {% assign highlighted_urls = "|" %}
             {% for highlight in highlights %}
+            {% assign highlighted_token = "|" | append: highlight.url | append: "|" %}
+            {% unless highlighted_urls contains highlighted_token %}
+            {% assign highlighted_urls = highlighted_urls | append: highlight.url | append: "|" %}
             {% include report-card.html highlight=highlight card_class="highlight-card" %}
+            {% endunless %}
             {% endfor %}
             {% endcapture %}
             {% assign highlights_html = highlights_html | strip %}

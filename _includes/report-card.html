@@ -7,24 +7,33 @@
 {% assign report = site.reports | where: "url", highlight.url | first %}
 {% endunless %}
 {% if report %}
+{% assign is_highlighted = false %}
+{% if include.card_class == "highlight-card" %}
+{% assign is_highlighted = true %}
+{% else %}
+{% for candidate in site.data.highlights %}
+{% if candidate.url == report.url %}
+{% assign is_highlighted = true %}
+{% break %}
+{% endif %}
+{% endfor %}
+{% endif %}
 <a href="{{ report.url | relative_url }}"
     class="{{ include.card_class }} bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer"
     {% if include.index %}data-index="{{ include.index }}"{% endif %}>
-    <div class="h-48 bg-gray-100 flex items-center justify-center">
+    <div class="relative h-48 bg-gray-100 flex items-center justify-center">
         {% if report.cover and report.cover != "" %}
         <img src="{{ report.cover | relative_url }}" alt="{{ report.title }}" class="object-cover h-full w-full" />
         {% else %}
         <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ report.title }}"
             style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
         {% endif %}
+        {% include highlight-pin.html show=is_highlighted %}
     </div>
     <div class="p-4 flex-1 flex flex-col">
         <div class="flex items-center justify-between">
             <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%Y-%m-%d" |
                 default: "No Data" }}</span>
-            {% if include.card_class == "highlight-card" %}
-            <span class="text-xs font-medium text-gray-600">Highlighted</span>
-            {% endif %}
         </div>
         <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
             {{ report.title }}
@@ -36,22 +45,32 @@
 {% elsif type == "blog" %}
 {% assign post = nil %}
 {% for candidate in site.data.posts %}
-{% if candidate.translations[0].url == highlight.url %}
+{% for translation in candidate.translations %}
+{% if translation.url == highlight.url %}
 {% assign post = candidate %}
 {% break %}
 {% endif %}
 {% endfor %}
 {% if post %}
-<a href="{{ post.translations[0].url }}" target="_blank" rel="noopener noreferrer"
+{% break %}
+{% endif %}
+{% endfor %}
+{% if post %}
+{% assign is_highlighted = false %}
+{% if include.card_class == "highlight-card" %}
+{% assign is_highlighted = true %}
+{% endif %}
+<a href="{{ highlight.url }}" target="_blank" rel="noopener noreferrer"
     class="{{ include.card_class }} bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer"
     {% if include.index %}data-index="{{ include.index }}"{% endif %}>
-    <div class="h-48 bg-gray-100 flex items-center justify-center">
+    <div class="relative h-48 bg-gray-100 flex items-center justify-center">
         {% if post.image %}
         <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="object-cover h-full w-full" />
         {% else %}
         <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ post.title }}"
             style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
         {% endif %}
+        {% include highlight-pin.html show=is_highlighted %}
     </div>
     <div class="p-4 flex-1 flex flex-col">
         <div class="flex items-center justify-between">
