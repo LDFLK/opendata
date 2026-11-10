@@ -1,0 +1,9 @@
+# Highlighted publications shown above their regular lists.
+# type selects the card branch in report-card.html; order sets display priority (lowest first).
+- url: /reports/2026/10/20/government_meetings_tracker/
+  type: report
+  order: 1
+# Example:
+# - url: https://medium.com/@services_81173/tracking-sri-lankas-government-meetings-a0c17cd44abf
+#   type: blog
+#   order: 2
