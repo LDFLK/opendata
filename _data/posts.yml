@@ -1,6 +1,6 @@
 # Schema Note:
 # Keep 'translations' ordered strictly as ['en', 'si', 'ta'].
-# The main post title link in blog.html relies on translations[0] (English).
+# The main post title link in publications.html relies on translations[0] (English).
 
 - image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*f9B_SBNoUts0jbpnf3Lp1w.png"
   title: "4 in 10 of Sri Lanka’s Legally Mandated Meeting Bodies Could Not Tell If They Met"
