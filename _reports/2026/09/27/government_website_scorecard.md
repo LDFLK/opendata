@@ -1,5 +1,5 @@
 ---
-layout: report
+layout: publication
 id: "report-1"
 title: "Government Website Scorecard"
 tagline: "An evaluation of 577 government websites against baseline web requirements"

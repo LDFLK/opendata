@@ -1,5 +1,5 @@
 ---
-layout: report
+layout: publication
 id: "report-3"
 title: "Government Meetings Tracker"
 tagline: "Are Sri Lanka's mandated government meetings actually being held?"

@@ -1,0 +1,357 @@
+<!-- Publications Section -->
+<section class="py-10 bg-white relative overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="absolute top-1/3 left-1/4 w-64 h-64 bg-purple-50 rounded-full filter blur-3xl opacity-40"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-72 h-72 bg-indigo-50 rounded-full filter blur-3xl opacity-30"
+      style="animation-delay: 2s"></div>
+  </div>
+  <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
+
+    {% assign sorted_highlights = site.data.highlights | sort: "order" %}
+
+    <!-- Highlighted Publications -->
+    {% capture highlight_cards %}
+      {% for highlight in sorted_highlights %}
+        {% if highlight.type == "report" %}
+          {% assign item = site.reports | where: "url", highlight.url | first %}
+          {% if item %}
+          <a href="{{ item.url | relative_url }}"
+            class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative">
+            {% include highlight-pin.html show=true %}
+            <div class="h-48 bg-gray-100 flex items-center justify-center">
+              {% if item.cover and item.cover != "" %}
+              <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="object-cover h-full w-full" />
+              {% else %}
+              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ item.title }}"
+                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+              {% endif %}
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+              </div>
+              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">{{ item.title }}</h3>
+            </div>
+          </a>
+          {% endif %}
+        {% elsif highlight.type == "blog" %}
+          {% assign blog_item = nil %}
+          {% for post in site.data.posts %}
+            {% for trans in post.translations %}
+              {% if trans.url == highlight.url %}
+                {% assign blog_item = post %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          {% if blog_item %}
+          <article
+            class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative">
+            {% include highlight-pin.html show=true %}
+            <div class="h-48 bg-gray-100 flex items-center justify-center">
+              {% if blog_item.image %}
+              <img src="{{ blog_item.image | relative_url }}" alt="{{ blog_item.title }}" class="object-cover h-full w-full" />
+              {% else %}
+              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ blog_item.title }}"
+                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+              {% endif %}
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  {% if blog_item.author_img %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ blog_item.author_img | relative_url }}" alt="{{ blog_item.author }}" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% else %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="h-3 w-3 text-gray-600"></i>
+                  </div>
+                  {% endif %}
+                  <span class="text-xs text-gray-600">{{ blog_item.author | default: "No Data" }}</span>
+                </div>
+                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
+              </div>
+              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
+                <a href="{{ blog_item.translations[0].url }}" target="_blank" class="stretched-link">{{ blog_item.title }}</a>
+              </h3>
+              {% if blog_item.translations and blog_item.translations.size > 0 %}
+              <div class="flex items-center space-x-3 mt-auto text-xs font-medium">
+                <span class="text-gray-500">Read in:</span>
+                {% for trans in blog_item.translations %}
+                <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+                  class="text-blue-600 hover:text-blue-800 hover:underline">
+                  {% case trans.language %}
+                  {% when 'en' %}English
+                  {% when 'si' %}සිංහල
+                  {% when 'ta' %}தமிழ்
+                  {% endcase %}
+                </a>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </article>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+
+    {% assign highlight_cards_stripped = highlight_cards | strip %}
+    {% if highlight_cards_stripped != "" %}
+    <div class="mb-12">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-8">Highlighted</h3>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {{ highlight_cards }}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Build dedup string of highlighted URLs -->
+    {% assign seen_urls = "" %}
+    {% for highlight in sorted_highlights %}
+      {% assign seen_urls = seen_urls | append: highlight.url | append: "|" %}
+    {% endfor %}
+
+    <!-- All Publications Grid -->
+    <div class="mb-16">
+      <h3 class="text-2xl font-semibold text-gray-900 mb-8">All Publications</h3>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
+
+        <!-- Reports (sorted by date desc, highlighted ones skipped) -->
+        {% assign sorted_reports = site.reports | sort: "date" | reverse %}
+        {% for report in sorted_reports %}
+          {% assign check = seen_urls | split: "|" %}
+          {% assign is_highlighted = false %}
+          {% for u in check %}
+            {% if u == report.url %}
+              {% assign is_highlighted = true %}
+            {% endif %}
+          {% endfor %}
+          {% unless is_highlighted %}
+          <a href="{{ report.url | relative_url }}"
+            class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer">
+            <div class="h-48 bg-gray-100 flex items-center justify-center">
+              {% if report.cover and report.cover != "" %}
+              <img src="{{ report.cover | relative_url }}" alt="{{ report.title }}" class="object-cover h-full w-full" />
+              {% else %}
+              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ report.title }}"
+                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+              {% endif %}
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
+                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+              </div>
+              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">{{ report.title }}</h3>
+            </div>
+          </a>
+          {% endunless %}
+        {% endfor %}
+
+        <!-- Blog posts (highlighted ones skipped) -->
+        {% for post in site.data.posts %}
+          {% assign post_url = post.translations[0].url %}
+          {% assign check = seen_urls | split: "|" %}
+          {% assign is_highlighted = false %}
+          {% for u in check %}
+            {% if u == post_url %}
+              {% assign is_highlighted = true %}
+            {% endif %}
+          {% endfor %}
+          {% unless is_highlighted %}
+          <article
+            class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative">
+            <div class="h-48 bg-gray-100 flex items-center justify-center">
+              {% if post.image %}
+              <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="object-cover h-full w-full" />
+              {% else %}
+              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ post.title }}"
+                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+              {% endif %}
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  {% if post.author_img %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ post.author_img | relative_url }}" alt="{{ post.author }}" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% else %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="h-3 w-3 text-gray-600"></i>
+                  </div>
+                  {% endif %}
+                  <span class="text-xs text-gray-600">{{ post.author | default: "No Data" }}</span>
+                </div>
+                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
+              </div>
+              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
+                <a href="{{ post.translations[0].url }}" target="_blank" class="stretched-link">{{ post.title }}</a>
+              </h3>
+              {% if post.translations and post.translations.size > 0 %}
+              <div class="flex items-center space-x-3 mt-auto text-xs font-medium">
+                <span class="text-gray-500">Read in:</span>
+                {% for trans in post.translations %}
+                <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+                  class="text-blue-600 hover:text-blue-800 hover:underline">
+                  {% case trans.language %}
+                  {% when 'en' %}English
+                  {% when 'si' %}සිංහල
+                  {% when 'ta' %}தமிழ்
+                  {% endcase %}
+                </a>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </article>
+          {% endunless %}
+        {% endfor %}
+
+      </div>
+
+      <!-- Pagination Controls -->
+      <nav id="pub-pagination" aria-label="Pagination"
+        class="flex items-center justify-center space-x-4 mt-12" style="display: none;">
+        <button id="pub-prev-btn" aria-label="Previous page"
+          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+          disabled>
+          <i data-lucide="chevron-left" class="h-4 w-4" aria-hidden="true"></i>
+        </button>
+        <div id="pub-page-numbers" class="flex items-center space-x-2 text-sm"></div>
+        <button id="pub-next-btn" aria-label="Next page"
+          class="p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2">
+          <i data-lucide="chevron-right" class="h-4 w-4" aria-hidden="true"></i>
+        </button>
+      </nav>
+      <div id="pub-results-info" class="text-center mt-8 text-gray-600 text-sm" style="display: none;">
+        Showing <span id="pub-showing-start">0</span>–<span id="pub-showing-end">0</span> of
+        <span id="pub-total">0</span> publications
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    const perPage = 6;
+    let currentPage = 1;
+    const items = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
+    const total = items.length;
+    const totalPages = Math.ceil(total / perPage);
+
+    const pagination = document.getElementById('pub-pagination');
+    const resultsInfo = document.getElementById('pub-results-info');
+    const prevBtn = document.getElementById('pub-prev-btn');
+    const nextBtn = document.getElementById('pub-next-btn');
+    const pageNumbers = document.getElementById('pub-page-numbers');
+    const showingStart = document.getElementById('pub-showing-start');
+    const showingEnd = document.getElementById('pub-showing-end');
+    const totalEl = document.getElementById('pub-total');
+
+    function showPage(page) {
+      currentPage = page;
+      items.forEach(function (item) { item.style.display = 'none'; });
+      var start = (page - 1) * perPage;
+      var end = Math.min(start + perPage, total);
+      for (var i = start; i < end; i++) {
+        items[i].style.display = 'flex';
+      }
+      prevBtn.disabled = page === 1;
+      nextBtn.disabled = page === totalPages;
+      updatePageNumbers();
+      showingStart.textContent = start + 1;
+      showingEnd.textContent = end;
+    }
+
+    function renderPageNumbers() {
+      pageNumbers.innerHTML = '';
+      for (var i = 1; i <= totalPages; i++) {
+        (function (p) {
+          var btn = document.createElement('button');
+          btn.textContent = p;
+          btn.setAttribute('aria-label', 'Page ' + p);
+          btn.addEventListener('click', function () { showPage(p); });
+          pageNumbers.appendChild(btn);
+        })(i);
+      }
+    }
+
+    function updatePageNumbers() {
+      pageNumbers.querySelectorAll('button').forEach(function (btn, idx) {
+        if (idx + 1 === currentPage) {
+          btn.className = 'w-8 h-8 rounded-md bg-gray-900 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
+          btn.setAttribute('aria-current', 'page');
+        } else {
+          btn.className = 'w-8 h-8 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
+          btn.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    if (total > perPage) {
+      pagination.style.display = 'flex';
+      resultsInfo.style.display = 'block';
+      totalEl.textContent = total;
+      renderPageNumbers();
+      showPage(1);
+      prevBtn.addEventListener('click', function () { if (currentPage > 1) showPage(currentPage - 1); });
+      nextBtn.addEventListener('click', function () { if (currentPage < totalPages) showPage(currentPage + 1); });
+    } else {
+      items.forEach(function (item) { item.style.display = 'flex'; });
+      if (total > 0) {
+        resultsInfo.style.display = 'block';
+        totalEl.textContent = total;
+        showingStart.textContent = '1';
+        showingEnd.textContent = total;
+      }
+    }
+  });
+</script>
+
+<style>
+  .pub-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .highlight-card {
+    position: relative;
+  }
+  .highlight-pin {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    z-index: 10;
+  }
+  .highlight-pin svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke-width: 2.5;
+    transform: rotate(45deg);
+  }
+  .stretched-link::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    z-index: 0;
+  }
+  .pub-card a:not(.stretched-link) {
+    position: relative;
+    z-index: 1;
+  }
+  .pub-card a:not(.stretched-link):hover {
+    text-decoration: underline;
+  }
+</style>
