@@ -32,26 +32,44 @@
     <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
       <span style="font-size:0.8rem; color:#6b7280; font-weight:500; margin-right:0.25rem;">Filter by</span>
 
-      <!-- Type -->
+      <!-- Type — options driven by _data/pub_filters.yml -->
       <div class="pub-filter-wrap">
         <i data-lucide="layout-grid" class="pub-filter-icon"></i>
         <span class="pub-filter-label">Type</span>
-        <select class="pub-filter-select">
-          <option>All types ({{ total_pubs }})</option>
-          <option>Report</option>
-          <option>Blog</option>
+        <select class="pub-filter-select pub-type-select">
+          <option value="all">All types ({{ total_pubs }})</option>
+          {% for t in site.data.pub_filters.types %}
+          <option value="{{ t.value }}">{{ t.label }}</option>
+          {% endfor %}
         </select>
         <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
       </div>
 
-      <!-- Date -->
+      <!-- Date — years auto-generated from actual content dates -->
+      {% assign all_years = "" %}
+      {% for report in site.reports %}
+        {% assign y = report.date | date: "%Y" %}
+        {% unless all_years contains y %}
+          {% assign all_years = all_years | append: y | append: "," %}
+        {% endunless %}
+      {% endfor %}
+      {% for post in site.data.posts %}
+        {% assign y = post.date | slice: 0, 4 %}
+        {% unless all_years contains y %}
+          {% assign all_years = all_years | append: y | append: "," %}
+        {% endunless %}
+      {% endfor %}
+      {% assign year_list = all_years | split: "," | sort | reverse | uniq %}
       <div class="pub-filter-wrap">
         <i data-lucide="calendar" class="pub-filter-icon"></i>
         <span class="pub-filter-label">Date</span>
-        <select class="pub-filter-select">
-          <option>Any time</option>
-          <option>2026</option>
-          <option>2025</option>
+        <select class="pub-filter-select pub-year-select">
+          <option value="all">Any time</option>
+          {% for y in year_list %}
+            {% if y != "" %}
+            <option value="{{ y }}">{{ y }}</option>
+            {% endif %}
+          {% endfor %}
         </select>
         <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
       </div>
