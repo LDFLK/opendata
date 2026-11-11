@@ -366,6 +366,10 @@
         } else if (val === 'az') {
           applyAlphaSort();
         }
+        // Refresh items from the live DOM order after sort reappends cards
+        items = Array.from(grid.querySelectorAll('.pub-card'));
+        total = items.length;
+        totalPages = calcTotalPages();
         showPage(1);
       });
     }
