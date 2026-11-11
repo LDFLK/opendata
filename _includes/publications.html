@@ -337,11 +337,11 @@
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
     // -------------------------------------------------------------------------
-    // Filter bar — update label text when a dropdown value changes
+    // Filter pill labels — update visible label text when any dropdown changes
     // -------------------------------------------------------------------------
     document.querySelectorAll('.pub-filter-wrap').forEach(function (wrap) {
       var select = wrap.querySelector('.pub-filter-select');
-      var label = wrap.querySelector('.pub-filter-label');
+      var label  = wrap.querySelector('.pub-filter-label');
       if (!select || !label) return;
       var base = label.textContent.trim();
       select.addEventListener('change', function () {
@@ -351,44 +351,68 @@
     });
 
     // -------------------------------------------------------------------------
-    // Sort — reorders grid cards by date and re-runs pagination from page 1
+    // Filter + Sort — unified state; all three controls call applyAll()
     // -------------------------------------------------------------------------
-    var grid       = document.getElementById('publications-grid');
-    var sortSelect = document.querySelector('.pub-sort-select');
+    var grid         = document.getElementById('publications-grid');
+    var typeSelectEl = document.querySelector('.pub-type-select');
+    var yearSelectEl = document.querySelector('.pub-year-select');
+    var sortSelectEl = document.querySelector('.pub-sort-select');
 
-    function applyDateSort(order) {
-      var cards = Array.from(grid.querySelectorAll('.pub-card'));
-      cards.sort(function (a, b) {
-        var dateA = a.getAttribute('data-date') || '';
-        var dateB = b.getAttribute('data-date') || '';
-        return order === 'newest' ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+    var currentType = 'all';    // 'all' | 'report' | 'blog' | any value from pub_filters.yml
+    var currentYear = 'all';    // 'all' | '2026' | '2025' | ...
+    var currentSort = 'newest'; // 'newest' | 'oldest' | 'az'
+
+    function applyAll() {
+      var allCards = Array.from(grid.querySelectorAll('.pub-card'));
+
+      // 1. Show/hide cards based on active type + year filters
+      allCards.forEach(function (card) {
+        var typeOk = currentType === 'all' || card.getAttribute('data-type') === currentType;
+        var year   = (card.getAttribute('data-date') || '').slice(0, 4);
+        var yearOk = currentYear === 'all' || year === currentYear;
+        card.style.display = (typeOk && yearOk) ? '' : 'none';
       });
-      cards.forEach(function (card) { grid.appendChild(card); });
+
+      // 2. Build items list from visible cards only, then sort
+      items = allCards.filter(function (c) { return c.style.display !== 'none'; });
+      total = items.length;
+
+      if (currentSort === 'newest' || currentSort === 'oldest') {
+        items.sort(function (a, b) {
+          var dA = a.getAttribute('data-date') || '';
+          var dB = b.getAttribute('data-date') || '';
+          return currentSort === 'newest' ? dB.localeCompare(dA) : dA.localeCompare(dB);
+        });
+      } else if (currentSort === 'az') {
+        items.sort(function (a, b) {
+          var tA = (a.getAttribute('data-title') || '').toLowerCase();
+          var tB = (b.getAttribute('data-title') || '').toLowerCase();
+          return tA.localeCompare(tB);
+        });
+      }
+      items.forEach(function (card) { grid.appendChild(card); });
+
+      // 3. Recalculate pages and re-render from page 1
+      totalPages = calcTotalPages();
+      showPage(1);
     }
 
-    function applyAlphaSort() {
-      var cards = Array.from(grid.querySelectorAll('.pub-card'));
-      cards.sort(function (a, b) {
-        var titleA = (a.getAttribute('data-title') || '').toLowerCase();
-        var titleB = (b.getAttribute('data-title') || '').toLowerCase();
-        return titleA.localeCompare(titleB);
+    if (typeSelectEl) {
+      typeSelectEl.addEventListener('change', function () {
+        currentType = typeSelectEl.value;
+        applyAll();
       });
-      cards.forEach(function (card) { grid.appendChild(card); });
     }
-
-    if (sortSelect) {
-      sortSelect.addEventListener('change', function () {
-        var val = sortSelect.value;
-        if (val === 'newest' || val === 'oldest') {
-          applyDateSort(val);
-        } else if (val === 'az') {
-          applyAlphaSort();
-        }
-        // Refresh items from the live DOM order after sort reappends cards
-        items = Array.from(grid.querySelectorAll('.pub-card'));
-        total = items.length;
-        totalPages = calcTotalPages();
-        showPage(1);
+    if (yearSelectEl) {
+      yearSelectEl.addEventListener('change', function () {
+        currentYear = yearSelectEl.value;
+        applyAll();
+      });
+    }
+    if (sortSelectEl) {
+      sortSelectEl.addEventListener('change', function () {
+        currentSort = sortSelectEl.value;
+        applyAll();
       });
     }
 
