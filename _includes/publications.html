@@ -112,7 +112,7 @@
 
     <!-- All Publications Grid — highlighted items rendered first with pin badge -->
     <div class="mb-16">
-      <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">{{ total_pubs }} publications</p>
+      <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"><span id="pub-heading-count">{{ total_pubs }}</span> publications</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
 
         <!-- Highlighted cards (pinned to top on initial load) -->
@@ -389,6 +389,8 @@
         resultsInfo.style.display = total > 0 ? 'block' : 'none';
       }
       totalEl.textContent = total;
+      var headingCount = document.getElementById('pub-heading-count');
+      if (headingCount) headingCount.textContent = total;
     }
 
     function showPage(page) {
