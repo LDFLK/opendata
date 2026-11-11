@@ -8,10 +8,69 @@
   <div class="container mx-auto px-6 md:px-8 max-w-6xl relative z-10">
 
     <!-- Page Header -->
-    <div class="mb-10">
-      <h1 class="text-3xl font-bold text-gray-900 mb-2">Publications</h1>
-      <p class="text-gray-500 text-base">Articles and data stories from Lanka Data Foundation — all in one place.</p>
+    <div style="margin-bottom:2rem;">
+      <h1 class="text-3xl font-bold text-gray-900" style="margin-bottom:0.4rem;">Publications</h1>
+      <p class="text-gray-500 text-base">Articles and data stories from Lanka Data Foundation - all in one place.</p>
     </div>
+
+    {% assign total_pubs = site.reports.size | plus: site.data.posts.size %}
+
+    <!-- Search Bar -->
+    <div style="position:relative; margin-bottom:1.25rem;">
+      <i data-lucide="search" aria-hidden="true"
+        style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:1rem; height:1rem; color:#9ca3af; pointer-events:none; display:block;"></i>
+      <input type="text" placeholder="Search articles, data stories, projects..."
+        style="display:block; width:100%; box-sizing:border-box; padding:0.8rem 1rem 0.8rem 2.6rem; border:1px solid #e5e7eb; border-radius:0.75rem; font-size:0.875rem; color:#374151; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05); outline:none; line-height:1.4;"
+        onfocus="this.style.borderColor='#9ca3af'"
+        onblur="this.style.borderColor='#e5e7eb'" />
+    </div>
+
+    <!-- Divider -->
+    <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:1.25rem;" />
+
+    <!-- Filter & Sort Bar -->
+    <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+      <span style="font-size:0.8rem; color:#6b7280; font-weight:500; margin-right:0.25rem;">Filter by</span>
+
+      <!-- Type -->
+      <div class="pub-filter-wrap">
+        <i data-lucide="layout-grid" class="pub-filter-icon"></i>
+        <span class="pub-filter-label">Type</span>
+        <select class="pub-filter-select">
+          <option>All types ({{ total_pubs }})</option>
+          <option>Report</option>
+          <option>Blog</option>
+        </select>
+        <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
+      </div>
+
+      <!-- Date -->
+      <div class="pub-filter-wrap">
+        <i data-lucide="calendar" class="pub-filter-icon"></i>
+        <span class="pub-filter-label">Date</span>
+        <select class="pub-filter-select">
+          <option>Any time</option>
+          <option>2026</option>
+          <option>2025</option>
+        </select>
+        <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
+      </div>
+
+      <!-- Sort pushed right -->
+      <div class="pub-filter-wrap" style="margin-left:auto;">
+        <i data-lucide="arrow-up-down" class="pub-filter-icon"></i>
+        <span class="pub-filter-label">Sort</span>
+        <select class="pub-filter-select">
+          <option>Newest first</option>
+          <option>Oldest first</option>
+          <option>A – Z</option>
+        </select>
+        <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:2rem;" />
 
     {% assign sorted_highlights = site.data.highlights | sort: "order" %}
 
@@ -245,6 +304,18 @@
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
+    // Update filter label to show selected value
+    document.querySelectorAll('.pub-filter-wrap').forEach(function (wrap) {
+      var select = wrap.querySelector('.pub-filter-select');
+      var label = wrap.querySelector('.pub-filter-label');
+      if (!select || !label) return;
+      var base = label.textContent.trim();
+      select.addEventListener('change', function () {
+        var val = select.options[select.selectedIndex].text;
+        label.textContent = select.selectedIndex === 0 ? base : base + '  ' + val;
+      });
+    });
+
     const perPage = 6;
     let currentPage = 1;
     const items = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
@@ -323,6 +394,47 @@
 <style>
   .pub-card {
     transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .pub-filter-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.45rem 0.75rem;
+    background: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .pub-filter-wrap:hover {
+    border-color: #d1d5db;
+    background: #f9fafb;
+  }
+  .pub-filter-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+    color: #6b7280;
+    flex-shrink: 0;
+  }
+  .pub-filter-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #374151;
+  }
+  .pub-filter-select {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    width: 100%;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .pub-filter-chevron {
+    width: 0.75rem;
+    height: 0.75rem;
+    color: #9ca3af;
+    flex-shrink: 0;
   }
   .highlight-card {
     position: relative;
