@@ -91,125 +91,113 @@
     <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:2rem;" />
 
     {% assign sorted_highlights = site.data.highlights | sort: "order" | limit: 3 %}
-
-    <!-- Highlighted Publications (capped at 3) -->
-    {% capture highlight_cards %}
-      {% for highlight in sorted_highlights %}
-        {% if highlight.type == "report" %}
-          {% assign item = site.reports | where: "url", highlight.url | first %}
-          {% if item %}
-          <div
-            class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
-            data-date="{{ item.date | date: '%Y-%m-%d' }}" data-title="{{ item.title | escape }}" data-type="report">
-            {% include highlight-pin.html show=true %}
-            <div class="h-48 bg-gray-100 flex items-center justify-center">
-              {% if item.cover and item.cover != "" %}
-              <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="object-cover h-full w-full" />
-              {% else %}
-              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ item.title }}"
-                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
-              {% endif %}
-            </div>
-            <div class="p-4 flex-1 flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-2">
-                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
-                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
-                </div>
-                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
-                  <a href="{{ item.url | relative_url }}" class="stretched-link">{{ item.title }}</a>
-                </h3>
-              </div>
-              <div class="flex items-center space-x-3 mt-4 text-xs font-medium">
-                <span class="text-gray-500">Read in:</span>
-                <a href="{{ item.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        {% elsif highlight.type == "blog" %}
-          {% assign blog_item = nil %}
-          {% for post in site.data.posts %}
-            {% for trans in post.translations %}
-              {% if trans.url == highlight.url %}
-                {% assign blog_item = post %}
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-          {% if blog_item %}
-          <article
-            class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative"
-            data-date="{{ blog_item.date }}" data-title="{{ blog_item.title | escape }}" data-type="blog">
-            {% include highlight-pin.html show=true %}
-            <div class="h-48 bg-gray-100 flex items-center justify-center">
-              {% if blog_item.image %}
-              <img src="{{ blog_item.image | relative_url }}" alt="{{ blog_item.title }}" class="object-cover h-full w-full" />
-              {% else %}
-              <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ blog_item.title }}"
-                style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
-              {% endif %}
-            </div>
-            <div class="p-4 flex-1 flex flex-col">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                  {% if blog_item.author_img %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="{{ blog_item.author_img | relative_url }}" alt="{{ blog_item.author }}" class="object-cover h-full w-full rounded-full" />
-                  </div>
-                  {% else %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
-                    <i data-lucide="user" class="h-3 w-3 text-gray-600"></i>
-                  </div>
-                  {% endif %}
-                  <span class="text-xs text-gray-600">{{ blog_item.author | default: "No Data" }}</span>
-                </div>
-                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
-              </div>
-              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
-                <a href="{{ blog_item.translations[0].url }}" target="_blank" class="stretched-link">{{ blog_item.title }}</a>
-              </h3>
-              {% if blog_item.translations and blog_item.translations.size > 0 %}
-              <div class="flex items-center space-x-3 mt-auto text-xs font-medium">
-                <span class="text-gray-500">Read in:</span>
-                {% for trans in blog_item.translations %}
-                <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
-                  class="text-blue-600 hover:text-blue-800 hover:underline">
-                  {% case trans.language %}
-                  {% when 'en' %}English
-                  {% when 'si' %}සිංහල
-                  {% when 'ta' %}தமிழ்
-                  {% endcase %}
-                </a>
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-          </article>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-    {% endcapture %}
-
-    {% assign highlight_cards_stripped = highlight_cards | strip %}
-    {% if highlight_cards_stripped != "" %}
-    <div id="pub-highlights-section" class="mb-6">
-      <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Highlighted</p>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {{ highlight_cards }}
-      </div>
-    </div>
-    {% endif %}
-
-    <!-- All Publications Grid -->
     {% assign highlight_urls = "" %}
     {% for h in sorted_highlights %}
       {% assign highlight_urls = highlight_urls | append: h.url | append: "|" %}
     {% endfor %}
+
+    <!-- All Publications Grid — highlighted items rendered first with pin badge -->
     <div class="mb-16">
       <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">{{ total_pubs }} publications</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
 
-        <!-- Reports (sorted by date desc, highlighted ones excluded) -->
+        <!-- Highlighted cards (pinned to top on initial load) -->
+        {% for highlight in sorted_highlights %}
+          {% if highlight.type == "report" %}
+            {% assign item = site.reports | where: "url", highlight.url | first %}
+            {% if item %}
+            <div
+              class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
+              data-date="{{ item.date | date: '%Y-%m-%d' }}" data-title="{{ item.title | escape }}" data-type="report">
+              {% include highlight-pin.html show=true %}
+              <div class="h-48 bg-gray-100 flex items-center justify-center">
+                {% if item.cover and item.cover != "" %}
+                <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="object-cover h-full w-full" />
+                {% else %}
+                <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ item.title }}"
+                  style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+                {% endif %}
+              </div>
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
+                    <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+                  </div>
+                  <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
+                    <a href="{{ item.url | relative_url }}" class="stretched-link">{{ item.title }}</a>
+                  </h3>
+                </div>
+                <div class="flex items-center space-x-3 mt-4 text-xs font-medium">
+                  <span class="text-gray-500">Read in:</span>
+                  <a href="{{ item.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          {% elsif highlight.type == "blog" %}
+            {% assign blog_item = nil %}
+            {% for post in site.data.posts %}
+              {% for trans in post.translations %}
+                {% if trans.url == highlight.url %}
+                  {% assign blog_item = post %}
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+            {% if blog_item %}
+            <article
+              class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative"
+              data-date="{{ blog_item.date }}" data-title="{{ blog_item.title | escape }}" data-type="blog">
+              {% include highlight-pin.html show=true %}
+              <div class="h-48 bg-gray-100 flex items-center justify-center">
+                {% if blog_item.image %}
+                <img src="{{ blog_item.image | relative_url }}" alt="{{ blog_item.title }}" class="object-cover h-full w-full" />
+                {% else %}
+                <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ blog_item.title }}"
+                  style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+                {% endif %}
+              </div>
+              <div class="p-4 flex-1 flex flex-col">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    {% if blog_item.author_img %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                      <img src="{{ blog_item.author_img | relative_url }}" alt="{{ blog_item.author }}" class="object-cover h-full w-full rounded-full" />
+                    </div>
+                    {% else %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                      <i data-lucide="user" class="h-3 w-3 text-gray-600"></i>
+                    </div>
+                    {% endif %}
+                    <span class="text-xs text-gray-600">{{ blog_item.author | default: "No Data" }}</span>
+                  </div>
+                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
+                </div>
+                <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">
+                  <a href="{{ blog_item.translations[0].url }}" target="_blank" class="stretched-link">{{ blog_item.title }}</a>
+                </h3>
+                {% if blog_item.translations and blog_item.translations.size > 0 %}
+                <div class="flex items-center space-x-3 mt-auto text-xs font-medium">
+                  <span class="text-gray-500">Read in:</span>
+                  {% for trans in blog_item.translations %}
+                  <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-600 hover:text-blue-800 hover:underline">
+                    {% case trans.language %}
+                    {% when 'en' %}English
+                    {% when 'si' %}සිංහල
+                    {% when 'ta' %}தமிழ்
+                    {% endcase %}
+                  </a>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </article>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        <!-- Reports (sorted by date desc, highlighted ones excluded to avoid duplicates) -->
         {% assign sorted_reports = site.reports | sort: "date" | reverse %}
         {% for report in sorted_reports %}
           {% assign url_check = highlight_urls | split: "|" %}
@@ -248,7 +236,7 @@
           {% endunless %}
         {% endfor %}
 
-        <!-- Blog posts (highlighted ones excluded) -->
+        <!-- Blog posts (highlighted ones excluded to avoid duplicates) -->
         {% for post in site.data.posts %}
           {% assign post_url = post.translations[0].url %}
           {% assign url_check = highlight_urls | split: "|" %}
@@ -417,23 +405,9 @@
     }
 
     // -------------------------------------------------------------------------
-    // Highlights — show on page 1, hide on all other pages
-    // Called by the pagination logic below whenever the page changes.
+    // Publications grid pagination — 9 cards per page
     // -------------------------------------------------------------------------
-    var highlightsSection = document.getElementById('pub-highlights-section');
-
-    function setHighlightsVisible(visible) {
-      if (highlightsSection) {
-        highlightsSection.style.display = visible ? '' : 'none';
-      }
-    }
-
-    // -------------------------------------------------------------------------
-    // Publications grid pagination
-    // Page 1: perPageFirst (6) cards — highlights account for the other 3 of 9.
-    // Page 2+: perPageRest (9) cards — highlights are hidden.
-    // -------------------------------------------------------------------------
-    var perPageFirst = 6;
+    var perPageFirst = 9;
     var perPageRest  = 9;
     var currentPage  = 1;
     var items        = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
@@ -472,7 +446,6 @@
       renderPageNumbers();
       showingStart.textContent = range.start + 1;
       showingEnd.textContent   = range.end;
-      setHighlightsVisible(page === 1);
     }
 
     function renderPageNumbers() {
