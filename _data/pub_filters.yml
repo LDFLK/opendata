@@ -1,0 +1,5 @@
+types:
+  - label: "Report"
+    value: "report"
+  - label: "Blog"
+    value: "blog"
