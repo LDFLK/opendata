@@ -72,9 +72,9 @@
     <!-- Divider -->
     <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:2rem;" />
 
-    {% assign sorted_highlights = site.data.highlights | sort: "order" %}
+    {% assign sorted_highlights = site.data.highlights | sort: "order" | limit: 3 %}
 
-    <!-- Highlighted Publications -->
+    <!-- Highlighted Publications (capped at 3) -->
     {% capture highlight_cards %}
       {% for highlight in sorted_highlights %}
         {% if highlight.type == "report" %}
@@ -172,7 +172,7 @@
 
     {% assign highlight_cards_stripped = highlight_cards | strip %}
     {% if highlight_cards_stripped != "" %}
-    <div id="pub-highlights-section" class="mb-12">
+    <div id="pub-highlights-section" class="mb-6">
       <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Highlighted</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {{ highlight_cards }}
@@ -181,13 +181,23 @@
     {% endif %}
 
     <!-- All Publications Grid -->
+    {% assign highlight_urls = "" %}
+    {% for h in sorted_highlights %}
+      {% assign highlight_urls = highlight_urls | append: h.url | append: "|" %}
+    {% endfor %}
     <div class="mb-16">
       <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">{{ total_pubs }} publications</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
 
-        <!-- Reports (sorted by date desc) -->
+        <!-- Reports (sorted by date desc, highlighted ones excluded) -->
         {% assign sorted_reports = site.reports | sort: "date" | reverse %}
         {% for report in sorted_reports %}
+          {% assign url_check = highlight_urls | split: "|" %}
+          {% assign is_highlighted = false %}
+          {% for u in url_check %}
+            {% if u == report.url %}{% assign is_highlighted = true %}{% endif %}
+          {% endfor %}
+          {% unless is_highlighted %}
           <div
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
@@ -214,10 +224,18 @@
               </div>
             </div>
           </div>
+          {% endunless %}
         {% endfor %}
 
-        <!-- Blog posts -->
+        <!-- Blog posts (highlighted ones excluded) -->
         {% for post in site.data.posts %}
+          {% assign post_url = post.translations[0].url %}
+          {% assign url_check = highlight_urls | split: "|" %}
+          {% assign is_highlighted = false %}
+          {% for u in url_check %}
+            {% if u == post_url %}{% assign is_highlighted = true %}{% endif %}
+          {% endfor %}
+          {% unless is_highlighted %}
           <article
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
@@ -264,6 +282,7 @@
               {% endif %}
             </div>
           </article>
+          {% endunless %}
         {% endfor %}
 
       </div>
@@ -307,11 +326,21 @@
       });
     });
 
-    const perPage = 6;
+    // Page 1 shows 6 grid cards (highlights fill the remaining 3 of 9 visible).
+    // Page 2+ shows 9 grid cards (highlights are hidden).
+    const perPageFirst = 6;
+    const perPageRest = 9;
     let currentPage = 1;
     const items = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
     const total = items.length;
-    const totalPages = Math.ceil(total / perPage);
+    const highlightsSection = document.getElementById('pub-highlights-section');
+
+    // Total pages: page 1 uses perPageFirst, remaining pages use perPageRest
+    function calcTotalPages() {
+      if (total <= perPageFirst) return 1;
+      return 1 + Math.ceil((total - perPageFirst) / perPageRest);
+    }
+    var totalPages = calcTotalPages();
 
     const pagination = document.getElementById('pub-pagination');
     const resultsInfo = document.getElementById('pub-results-info');
@@ -321,21 +350,28 @@
     const showingStart = document.getElementById('pub-showing-start');
     const showingEnd = document.getElementById('pub-showing-end');
     const totalEl = document.getElementById('pub-total');
-    const highlightsSection = document.getElementById('pub-highlights-section');
+
+    function getPageRange(page) {
+      if (page === 1) {
+        return { start: 0, end: Math.min(perPageFirst, total) };
+      }
+      var start = perPageFirst + (page - 2) * perPageRest;
+      var end = Math.min(start + perPageRest, total);
+      return { start: start, end: end };
+    }
 
     function showPage(page) {
       currentPage = page;
       items.forEach(function (item) { item.style.display = 'none'; });
-      var start = (page - 1) * perPage;
-      var end = Math.min(start + perPage, total);
-      for (var i = start; i < end; i++) {
+      var range = getPageRange(page);
+      for (var i = range.start; i < range.end; i++) {
         items[i].style.display = 'flex';
       }
       prevBtn.disabled = page === 1;
       nextBtn.disabled = page === totalPages;
       updatePageNumbers();
-      showingStart.textContent = start + 1;
-      showingEnd.textContent = end;
+      showingStart.textContent = range.start + 1;
+      showingEnd.textContent = range.end;
       if (highlightsSection) {
         highlightsSection.style.display = page === 1 ? '' : 'none';
       }
@@ -366,7 +402,7 @@
       });
     }
 
-    if (total > perPage) {
+    if (total > perPageFirst) {
       pagination.style.display = 'flex';
       resultsInfo.style.display = 'block';
       totalEl.textContent = total;
