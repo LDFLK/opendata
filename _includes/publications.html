@@ -19,7 +19,7 @@
     <div style="position:relative; margin-bottom:1.25rem;">
       <i data-lucide="search" aria-hidden="true"
         style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:1rem; height:1rem; color:#9ca3af; pointer-events:none; display:block;"></i>
-      <input type="text" placeholder="Search articles, data stories, projects..."
+      <input id="pub-search" type="text" placeholder="Search articles, data stories, projects..."
         style="display:block; width:100%; box-sizing:border-box; padding:0.8rem 1rem 0.8rem 2.6rem; border:1px solid #e5e7eb; border-radius:0.75rem; font-size:0.875rem; color:#374151; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05); outline:none; line-height:1.4;"
         onfocus="this.style.borderColor='#9ca3af'"
         onblur="this.style.borderColor='#e5e7eb'" />
@@ -442,7 +442,9 @@
     var currentYear    = 'all';  // 'all' | '2026' | '2025' | ...
     var currentProject = 'all';  // 'all' | any value from pub_filters.yml projects
     var currentSort   = 'default'; // 'default' | 'newest' | 'oldest' | 'az'
-    var originalOrder = Array.from(grid.querySelectorAll('.pub-card')); // Jekyll DOM order
+    var currentSearch  = '';
+    var originalOrder  = Array.from(grid.querySelectorAll('.pub-card')); // Jekyll DOM order
+    var searchInputEl  = document.getElementById('pub-search');
 
     function applyAll() {
       var allCards = Array.from(grid.querySelectorAll('.pub-card'));
@@ -453,7 +455,9 @@
         var year      = (card.getAttribute('data-date') || '').slice(0, 4);
         var yearOk    = currentYear === 'all' || year === currentYear;
         var projectOk = currentProject === 'all' || card.getAttribute('data-project') === currentProject;
-        card.style.display = (typeOk && yearOk && projectOk) ? '' : 'none';
+        var query     = currentSearch.toLowerCase();
+        var textOk    = query === '' || (card.getAttribute('data-title') || '').toLowerCase().includes(query);
+        card.style.display = (typeOk && yearOk && projectOk && textOk) ? '' : 'none';
       });
 
       // 2. Build items list from visible cards only, then sort
@@ -505,6 +509,12 @@
     if (sortSelectEl) {
       sortSelectEl.addEventListener('change', function () {
         currentSort = sortSelectEl.value;
+        applyAll();
+      });
+    }
+    if (searchInputEl) {
+      searchInputEl.addEventListener('input', function () {
+        currentSearch = this.value.trim();
         applyAll();
       });
     }
