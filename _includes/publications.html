@@ -80,7 +80,7 @@
         {% if highlight.type == "report" %}
           {% assign item = site.reports | where: "url", highlight.url | first %}
           {% if item %}
-          <a href="{{ item.url | relative_url }}"
+          <div
             class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative">
             {% include highlight-pin.html show=true %}
             <div class="h-48 bg-gray-100 flex items-center justify-center">
@@ -91,14 +91,22 @@
                 style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
               {% endif %}
             </div>
-            <div class="p-4 flex-1 flex flex-col">
-              <div class="flex items-center justify-between">
-                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
-                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
+                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
+                  <a href="{{ item.url | relative_url }}" class="stretched-link">{{ item.title }}</a>
+                </h3>
               </div>
-              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">{{ item.title }}</h3>
+              <div class="flex items-center space-x-3 mt-4 text-xs font-medium">
+                <span class="text-gray-500">Read in:</span>
+                <a href="{{ item.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
+              </div>
             </div>
-          </a>
+          </div>
           {% endif %}
         {% elsif highlight.type == "blog" %}
           {% assign blog_item = nil %}
@@ -194,8 +202,8 @@
             {% endif %}
           {% endfor %}
           {% unless is_highlighted %}
-          <a href="{{ report.url | relative_url }}"
-            class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer">
+          <div
+            class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
               {% if report.cover and report.cover != "" %}
               <img src="{{ report.cover | relative_url }}" alt="{{ report.title }}" class="object-cover h-full w-full" />
@@ -204,14 +212,22 @@
                 style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
               {% endif %}
             </div>
-            <div class="p-4 flex-1 flex flex-col">
-              <div class="flex items-center justify-between">
-                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
-                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%Y-%m-%d" | default: "No Data" }}</span>
+                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+                </div>
+                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
+                  <a href="{{ report.url | relative_url }}" class="stretched-link">{{ report.title }}</a>
+                </h3>
               </div>
-              <h3 class="text-md font-semibold text-gray-900 line-clamp-3 mb-4 mt-2">{{ report.title }}</h3>
+              <div class="flex items-center space-x-3 mt-4 text-xs font-medium">
+                <span class="text-gray-500">Read in:</span>
+                <a href="{{ report.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
+              </div>
             </div>
-          </a>
+          </div>
           {% endunless %}
         {% endfor %}
 
