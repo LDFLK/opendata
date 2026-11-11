@@ -172,36 +172,22 @@
 
     {% assign highlight_cards_stripped = highlight_cards | strip %}
     {% if highlight_cards_stripped != "" %}
-    <div class="mb-12">
-      <h3 class="text-2xl font-semibold text-gray-900 mb-8">Highlighted</h3>
+    <div id="pub-highlights-section" class="mb-12">
+      <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">Highlighted</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {{ highlight_cards }}
       </div>
     </div>
     {% endif %}
 
-    <!-- Build dedup string of highlighted URLs -->
-    {% assign seen_urls = "" %}
-    {% for highlight in sorted_highlights %}
-      {% assign seen_urls = seen_urls | append: highlight.url | append: "|" %}
-    {% endfor %}
-
     <!-- All Publications Grid -->
     <div class="mb-16">
-      <h3 class="text-2xl font-semibold text-gray-900 mb-8">All Publications</h3>
+      <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;">{{ total_pubs }} publications</p>
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
 
-        <!-- Reports (sorted by date desc, highlighted ones skipped) -->
+        <!-- Reports (sorted by date desc) -->
         {% assign sorted_reports = site.reports | sort: "date" | reverse %}
         {% for report in sorted_reports %}
-          {% assign check = seen_urls | split: "|" %}
-          {% assign is_highlighted = false %}
-          {% for u in check %}
-            {% if u == report.url %}
-              {% assign is_highlighted = true %}
-            {% endif %}
-          {% endfor %}
-          {% unless is_highlighted %}
           <div
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
@@ -228,20 +214,10 @@
               </div>
             </div>
           </div>
-          {% endunless %}
         {% endfor %}
 
-        <!-- Blog posts (highlighted ones skipped) -->
+        <!-- Blog posts -->
         {% for post in site.data.posts %}
-          {% assign post_url = post.translations[0].url %}
-          {% assign check = seen_urls | split: "|" %}
-          {% assign is_highlighted = false %}
-          {% for u in check %}
-            {% if u == post_url %}
-              {% assign is_highlighted = true %}
-            {% endif %}
-          {% endfor %}
-          {% unless is_highlighted %}
           <article
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
@@ -288,7 +264,6 @@
               {% endif %}
             </div>
           </article>
-          {% endunless %}
         {% endfor %}
 
       </div>
@@ -346,6 +321,7 @@
     const showingStart = document.getElementById('pub-showing-start');
     const showingEnd = document.getElementById('pub-showing-end');
     const totalEl = document.getElementById('pub-total');
+    const highlightsSection = document.getElementById('pub-highlights-section');
 
     function showPage(page) {
       currentPage = page;
@@ -360,6 +336,9 @@
       updatePageNumbers();
       showingStart.textContent = start + 1;
       showingEnd.textContent = end;
+      if (highlightsSection) {
+        highlightsSection.style.display = page === 1 ? '' : 'none';
+      }
     }
 
     function renderPageNumbers() {
