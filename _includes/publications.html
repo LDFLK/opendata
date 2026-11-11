@@ -358,8 +358,8 @@
     var grid        = document.getElementById('publications-grid');
     var perPage     = 9;
     var currentPage = 1;
-    var items        = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
-    var total        = items.length;
+    var items       = Array.from(grid.querySelectorAll('.pub-card'));
+    var total       = items.length;
 
     var pagination   = document.getElementById('pub-pagination');
     var resultsInfo  = document.getElementById('pub-results-info');
