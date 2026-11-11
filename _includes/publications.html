@@ -74,6 +74,19 @@
         <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
       </div>
 
+      <!-- Project — options driven by _data/pub_filters.yml -->
+      <div class="pub-filter-wrap">
+        <i data-lucide="folder" class="pub-filter-icon"></i>
+        <span class="pub-filter-label">Project</span>
+        <select class="pub-filter-select pub-project-select">
+          <option value="all">All projects</option>
+          {% for p in site.data.pub_filters.projects %}
+          <option value="{{ p.value }}">{{ p.label }}</option>
+          {% endfor %}
+        </select>
+        <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
+      </div>
+
       <!-- Sort pushed right -->
       <div class="pub-filter-wrap" style="margin-left:auto;">
         <i data-lucide="arrow-up-down" class="pub-filter-icon"></i>
@@ -109,7 +122,7 @@
             {% if item %}
             <div
               class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
-              data-date="{{ item.date | date: '%Y-%m-%d' }}" data-title="{{ item.title | escape }}" data-type="report">
+              data-date="{{ item.date | date: '%Y-%m-%d' }}" data-title="{{ item.title | escape }}" data-type="report" data-project="{{ item.project | default: 'demo-1' }}">
               {% include highlight-pin.html show=true %}
               <div class="h-48 bg-gray-100 flex items-center justify-center">
                 {% if item.cover and item.cover != "" %}
@@ -148,7 +161,7 @@
             {% if blog_item %}
             <article
               class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative"
-              data-date="{{ blog_item.date }}" data-title="{{ blog_item.title | escape }}" data-type="blog">
+              data-date="{{ blog_item.date }}" data-title="{{ blog_item.title | escape }}" data-type="blog" data-project="{{ blog_item.project | default: 'demo-2' }}">
               {% include highlight-pin.html show=true %}
               <div class="h-48 bg-gray-100 flex items-center justify-center">
                 {% if blog_item.image %}
@@ -209,7 +222,7 @@
           {% unless is_highlighted %}
           <div
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
-            data-date="{{ report.date | date: '%Y-%m-%d' }}" data-title="{{ report.title | escape }}" data-type="report">
+            data-date="{{ report.date | date: '%Y-%m-%d' }}" data-title="{{ report.title | escape }}" data-type="report" data-project="{{ report.project | default: 'demo-1' }}">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
               {% if report.cover and report.cover != "" %}
               <img src="{{ report.cover | relative_url }}" alt="{{ report.title }}" class="object-cover h-full w-full" />
@@ -248,7 +261,7 @@
           {% unless is_highlighted %}
           <article
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col relative"
-            data-date="{{ post.date }}" data-title="{{ post.title | escape }}" data-type="blog">
+            data-date="{{ post.date }}" data-title="{{ post.title | escape }}" data-type="blog" data-project="{{ post.project | default: 'demo-2' }}">
             <div class="h-48 bg-gray-100 flex items-center justify-center">
               {% if post.image %}
               <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="object-cover h-full w-full" />
@@ -420,12 +433,14 @@
     // Filter + Sort — unified state; all three controls call applyAll()
     // Defined after pagination so showPage() is available when applyAll() runs.
     // -------------------------------------------------------------------------
-    var typeSelectEl = document.querySelector('.pub-type-select');
-    var yearSelectEl = document.querySelector('.pub-year-select');
-    var sortSelectEl = document.querySelector('.pub-sort-select');
+    var typeSelectEl    = document.querySelector('.pub-type-select');
+    var yearSelectEl    = document.querySelector('.pub-year-select');
+    var projectSelectEl = document.querySelector('.pub-project-select');
+    var sortSelectEl    = document.querySelector('.pub-sort-select');
 
-    var currentType   = 'all';     // 'all' | 'report' | 'blog' | any value from pub_filters.yml
-    var currentYear   = 'all';     // 'all' | '2026' | '2025' | ...
+    var currentType    = 'all';  // 'all' | 'report' | 'blog' | any value from pub_filters.yml
+    var currentYear    = 'all';  // 'all' | '2026' | '2025' | ...
+    var currentProject = 'all';  // 'all' | any value from pub_filters.yml projects
     var currentSort   = 'default'; // 'default' | 'newest' | 'oldest' | 'az'
     var originalOrder = Array.from(grid.querySelectorAll('.pub-card')); // Jekyll DOM order
 
@@ -434,10 +449,11 @@
 
       // 1. Show/hide cards based on active type + year filters
       allCards.forEach(function (card) {
-        var typeOk = currentType === 'all' || card.getAttribute('data-type') === currentType;
-        var year   = (card.getAttribute('data-date') || '').slice(0, 4);
-        var yearOk = currentYear === 'all' || year === currentYear;
-        card.style.display = (typeOk && yearOk) ? '' : 'none';
+        var typeOk    = currentType === 'all' || card.getAttribute('data-type') === currentType;
+        var year      = (card.getAttribute('data-date') || '').slice(0, 4);
+        var yearOk    = currentYear === 'all' || year === currentYear;
+        var projectOk = currentProject === 'all' || card.getAttribute('data-project') === currentProject;
+        card.style.display = (typeOk && yearOk && projectOk) ? '' : 'none';
       });
 
       // 2. Build items list from visible cards only, then sort
@@ -471,6 +487,12 @@
     if (typeSelectEl) {
       typeSelectEl.addEventListener('change', function () {
         currentType = typeSelectEl.value;
+        applyAll();
+      });
+    }
+    if (projectSelectEl) {
+      projectSelectEl.addEventListener('change', function () {
+        currentProject = projectSelectEl.value;
         applyAll();
       });
     }

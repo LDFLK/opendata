@@ -3,3 +3,9 @@ types:
     value: "report"
   - label: "Blog"
     value: "blog"
+
+projects:
+  - label: "Demo Project 1"
+    value: "demo-1"
+  - label: "Demo Project 2"
+    value: "demo-2"
