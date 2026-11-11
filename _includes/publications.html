@@ -314,7 +314,9 @@
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    // Update filter label to show selected value
+    // -------------------------------------------------------------------------
+    // Filter bar — update label text when a dropdown value changes
+    // -------------------------------------------------------------------------
     document.querySelectorAll('.pub-filter-wrap').forEach(function (wrap) {
       var select = wrap.querySelector('.pub-filter-select');
       var label = wrap.querySelector('.pub-filter-label');
@@ -326,38 +328,48 @@
       });
     });
 
-    // Page 1 shows 6 grid cards (highlights fill the remaining 3 of 9 visible).
-    // Page 2+ shows 9 grid cards (highlights are hidden).
-    const perPageFirst = 6;
-    const perPageRest = 9;
-    let currentPage = 1;
-    const items = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
-    const total = items.length;
-    const highlightsSection = document.getElementById('pub-highlights-section');
+    // -------------------------------------------------------------------------
+    // Highlights — show on page 1, hide on all other pages
+    // Called by the pagination logic below whenever the page changes.
+    // -------------------------------------------------------------------------
+    var highlightsSection = document.getElementById('pub-highlights-section');
 
-    // Total pages: page 1 uses perPageFirst, remaining pages use perPageRest
+    function setHighlightsVisible(visible) {
+      if (highlightsSection) {
+        highlightsSection.style.display = visible ? '' : 'none';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Publications grid pagination
+    // Page 1: perPageFirst (6) cards — highlights account for the other 3 of 9.
+    // Page 2+: perPageRest (9) cards — highlights are hidden.
+    // -------------------------------------------------------------------------
+    var perPageFirst = 6;
+    var perPageRest  = 9;
+    var currentPage  = 1;
+    var items        = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
+    var total        = items.length;
+
+    var pagination   = document.getElementById('pub-pagination');
+    var resultsInfo  = document.getElementById('pub-results-info');
+    var prevBtn      = document.getElementById('pub-prev-btn');
+    var nextBtn      = document.getElementById('pub-next-btn');
+    var pageNumbers  = document.getElementById('pub-page-numbers');
+    var showingStart = document.getElementById('pub-showing-start');
+    var showingEnd   = document.getElementById('pub-showing-end');
+    var totalEl      = document.getElementById('pub-total');
+
     function calcTotalPages() {
       if (total <= perPageFirst) return 1;
       return 1 + Math.ceil((total - perPageFirst) / perPageRest);
     }
     var totalPages = calcTotalPages();
 
-    const pagination = document.getElementById('pub-pagination');
-    const resultsInfo = document.getElementById('pub-results-info');
-    const prevBtn = document.getElementById('pub-prev-btn');
-    const nextBtn = document.getElementById('pub-next-btn');
-    const pageNumbers = document.getElementById('pub-page-numbers');
-    const showingStart = document.getElementById('pub-showing-start');
-    const showingEnd = document.getElementById('pub-showing-end');
-    const totalEl = document.getElementById('pub-total');
-
     function getPageRange(page) {
-      if (page === 1) {
-        return { start: 0, end: Math.min(perPageFirst, total) };
-      }
+      if (page === 1) return { start: 0, end: Math.min(perPageFirst, total) };
       var start = perPageFirst + (page - 2) * perPageRest;
-      var end = Math.min(start + perPageRest, total);
-      return { start: start, end: end };
+      return { start: start, end: Math.min(start + perPageRest, total) };
     }
 
     function showPage(page) {
@@ -369,12 +381,10 @@
       }
       prevBtn.disabled = page === 1;
       nextBtn.disabled = page === totalPages;
-      updatePageNumbers();
+      renderPageNumbers();
       showingStart.textContent = range.start + 1;
-      showingEnd.textContent = range.end;
-      if (highlightsSection) {
-        highlightsSection.style.display = page === 1 ? '' : 'none';
-      }
+      showingEnd.textContent   = range.end;
+      setHighlightsVisible(page === 1);
     }
 
     function renderPageNumbers() {
@@ -384,29 +394,20 @@
           var btn = document.createElement('button');
           btn.textContent = p;
           btn.setAttribute('aria-label', 'Page ' + p);
+          btn.className = p === currentPage
+            ? 'w-8 h-8 rounded-md bg-gray-900 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2'
+            : 'w-8 h-8 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
+          if (p === currentPage) btn.setAttribute('aria-current', 'page');
           btn.addEventListener('click', function () { showPage(p); });
           pageNumbers.appendChild(btn);
         })(i);
       }
     }
 
-    function updatePageNumbers() {
-      pageNumbers.querySelectorAll('button').forEach(function (btn, idx) {
-        if (idx + 1 === currentPage) {
-          btn.className = 'w-8 h-8 rounded-md bg-gray-900 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
-          btn.setAttribute('aria-current', 'page');
-        } else {
-          btn.className = 'w-8 h-8 rounded-md text-gray-600 hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2';
-          btn.removeAttribute('aria-current');
-        }
-      });
-    }
-
     if (total > perPageFirst) {
-      pagination.style.display = 'flex';
+      pagination.style.display  = 'flex';
       resultsInfo.style.display = 'block';
       totalEl.textContent = total;
-      renderPageNumbers();
       showPage(1);
       prevBtn.addEventListener('click', function () { if (currentPage > 1) showPage(currentPage - 1); });
       nextBtn.addEventListener('click', function () { if (currentPage < totalPages) showPage(currentPage + 1); });
@@ -414,9 +415,9 @@
       items.forEach(function (item) { item.style.display = 'flex'; });
       if (total > 0) {
         resultsInfo.style.display = 'block';
-        totalEl.textContent = total;
-        showingStart.textContent = '1';
-        showingEnd.textContent = total;
+        totalEl.textContent       = total;
+        showingStart.textContent  = '1';
+        showingEnd.textContent    = total;
       }
     }
   });
