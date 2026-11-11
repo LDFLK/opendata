@@ -60,10 +60,10 @@
       <div class="pub-filter-wrap" style="margin-left:auto;">
         <i data-lucide="arrow-up-down" class="pub-filter-icon"></i>
         <span class="pub-filter-label">Sort</span>
-        <select class="pub-filter-select">
-          <option>Newest first</option>
-          <option>Oldest first</option>
-          <option>A – Z</option>
+        <select class="pub-filter-select pub-sort-select">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="az">A – Z</option>
         </select>
         <i data-lucide="chevron-down" class="pub-filter-chevron"></i>
       </div>
@@ -331,6 +331,32 @@
         label.textContent = select.selectedIndex === 0 ? base : base + '  ' + val;
       });
     });
+
+    // -------------------------------------------------------------------------
+    // Sort — reorders grid cards by date and re-runs pagination from page 1
+    // -------------------------------------------------------------------------
+    var grid       = document.getElementById('publications-grid');
+    var sortSelect = document.querySelector('.pub-sort-select');
+
+    function applyDateSort(order) {
+      var cards = Array.from(grid.querySelectorAll('.pub-card'));
+      cards.sort(function (a, b) {
+        var dateA = a.getAttribute('data-date') || '';
+        var dateB = b.getAttribute('data-date') || '';
+        return order === 'newest' ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
+      });
+      cards.forEach(function (card) { grid.appendChild(card); });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', function () {
+        var val = sortSelect.value;
+        if (val === 'newest' || val === 'oldest') {
+          applyDateSort(val);
+          showPage(1);
+        }
+      });
+    }
 
     // -------------------------------------------------------------------------
     // Highlights — show on page 1, hide on all other pages
