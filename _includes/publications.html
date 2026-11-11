@@ -342,10 +342,9 @@
     // -------------------------------------------------------------------------
     // Publications grid pagination — 9 cards per page
     // -------------------------------------------------------------------------
-    var grid         = document.getElementById('publications-grid');
-    var perPageFirst = 9;
-    var perPageRest  = 9;
-    var currentPage  = 1;
+    var grid        = document.getElementById('publications-grid');
+    var perPage     = 9;
+    var currentPage = 1;
     var items        = Array.from(document.querySelectorAll('#publications-grid .pub-card'));
     var total        = items.length;
 
@@ -359,19 +358,17 @@
     var totalEl      = document.getElementById('pub-total');
 
     function calcTotalPages() {
-      if (total <= perPageFirst) return 1;
-      return 1 + Math.ceil((total - perPageFirst) / perPageRest);
+      return Math.max(1, Math.ceil(total / perPage));
     }
     var totalPages = calcTotalPages();
 
     function getPageRange(page) {
-      if (page === 1) return { start: 0, end: Math.min(perPageFirst, total) };
-      var start = perPageFirst + (page - 2) * perPageRest;
-      return { start: start, end: Math.min(start + perPageRest, total) };
+      var start = (page - 1) * perPage;
+      return { start: start, end: Math.min(start + perPage, total) };
     }
 
     function refreshPaginationUI() {
-      if (total > perPageFirst) {
+      if (total > perPage) {
         pagination.style.display  = 'flex';
         resultsInfo.style.display = 'block';
       } else {
