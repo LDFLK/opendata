@@ -370,6 +370,17 @@
       return { start: start, end: Math.min(start + perPageRest, total) };
     }
 
+    function refreshPaginationUI() {
+      if (total > perPageFirst) {
+        pagination.style.display  = 'flex';
+        resultsInfo.style.display = 'block';
+      } else {
+        pagination.style.display  = 'none';
+        resultsInfo.style.display = total > 0 ? 'block' : 'none';
+      }
+      totalEl.textContent = total;
+    }
+
     function showPage(page) {
       currentPage = page;
       items.forEach(function (item) { item.style.display = 'none'; });
@@ -382,6 +393,7 @@
       renderPageNumbers();
       showingStart.textContent = range.start + 1;
       showingEnd.textContent   = range.end;
+      refreshPaginationUI();
     }
 
     function renderPageNumbers() {
@@ -404,21 +416,8 @@
     prevBtn.addEventListener('click', function () { if (currentPage > 1) showPage(currentPage - 1); });
     nextBtn.addEventListener('click', function () { if (currentPage < totalPages) showPage(currentPage + 1); });
 
-    // Initial render
-    if (total > perPageFirst) {
-      pagination.style.display  = 'flex';
-      resultsInfo.style.display = 'block';
-      totalEl.textContent = total;
-      showPage(1);
-    } else {
-      items.forEach(function (item) { item.style.display = 'flex'; });
-      if (total > 0) {
-        resultsInfo.style.display = 'block';
-        totalEl.textContent       = total;
-        showingStart.textContent  = '1';
-        showingEnd.textContent    = total;
-      }
-    }
+    // Initial render — refreshPaginationUI inside showPage handles visibility and counter
+    showPage(1);
 
     // -------------------------------------------------------------------------
     // Filter + Sort — unified state; all three controls call applyAll()
