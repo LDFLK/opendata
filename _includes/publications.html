@@ -79,6 +79,7 @@
         <i data-lucide="arrow-up-down" class="pub-filter-icon"></i>
         <span class="pub-filter-label">Sort</span>
         <select class="pub-filter-select pub-sort-select">
+          <option value="default">Default</option>
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>
           <option value="az">A – Z</option>
@@ -346,9 +347,10 @@
     var yearSelectEl = document.querySelector('.pub-year-select');
     var sortSelectEl = document.querySelector('.pub-sort-select');
 
-    var currentType = 'all';    // 'all' | 'report' | 'blog' | any value from pub_filters.yml
-    var currentYear = 'all';    // 'all' | '2026' | '2025' | ...
-    var currentSort = 'newest'; // 'newest' | 'oldest' | 'az'
+    var currentType  = 'all';     // 'all' | 'report' | 'blog' | any value from pub_filters.yml
+    var currentYear  = 'all';     // 'all' | '2026' | '2025' | ...
+    var currentSort  = 'default'; // 'default' | 'newest' | 'oldest' | 'az'
+    var originalOrder = Array.from(grid.querySelectorAll('.pub-card')); // Jekyll DOM order
 
     function applyAll() {
       var allCards = Array.from(grid.querySelectorAll('.pub-card'));
@@ -365,7 +367,12 @@
       items = allCards.filter(function (c) { return c.style.display !== 'none'; });
       total = items.length;
 
-      if (currentSort === 'newest' || currentSort === 'oldest') {
+      if (currentSort === 'default') {
+        // Restore Jekyll's original render order (highlighted cards first)
+        items.sort(function (a, b) {
+          return originalOrder.indexOf(a) - originalOrder.indexOf(b);
+        });
+      } else if (currentSort === 'newest' || currentSort === 'oldest') {
         items.sort(function (a, b) {
           var dA = a.getAttribute('data-date') || '';
           var dB = b.getAttribute('data-date') || '';
