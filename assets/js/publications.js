@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+  var grid = document.getElementById('publications-grid');
+  if (!grid) return;
+
   // ---------------------------------------------------------------------------
   // Filter pill labels — update visible label text when any dropdown changes
   // ---------------------------------------------------------------------------
@@ -16,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // ---------------------------------------------------------------------------
   // Publications grid pagination — 9 cards per page
   // ---------------------------------------------------------------------------
-  var grid        = document.getElementById('publications-grid');
   var perPage     = 9;
   var currentPage = 1;
   var items       = Array.from(grid.querySelectorAll('.pub-card'));
