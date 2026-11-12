@@ -109,7 +109,6 @@
       <nav class="pub-lang-footer" aria-label="Available languages">
         <span class="pub-lang-label">Read in:</span>
         {% for trans in _item.translations %}
-          {% unless forloop.first %}<span class="pub-lang-sep" aria-hidden="true">·</span>{% endunless %}
           <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
             class="pub-lang-link" lang="{{ trans.language }}" style="position:relative;z-index:1;">
             {% case trans.language %}
