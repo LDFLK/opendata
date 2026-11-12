@@ -123,38 +123,40 @@
             <article
               class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
               data-date="{{ item.date | date: '%Y-%m-%d' }}" data-title="{{ item.title | escape }}" data-type="report" data-project="{{ item.project }}">
-              {% include highlight-pin.html show=true %}
-              <div class="h-48 bg-gray-100 flex items-center justify-center">
+              <div class="relative h-48 bg-gray-100 flex items-center justify-center">
                 {% if item.cover and item.cover != "" %}
                 <img src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="object-cover h-full w-full" />
                 {% else %}
                 <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ item.title }}"
                   style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
                 {% endif %}
+                <span class="pub-date-badge pub-type-report">Report</span>
               </div>
+              {% include highlight-pin.html show=true %}
               <div class="p-4 flex-1 flex flex-col">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%Y-%m-%d" | default: "No Date" }}</span>
-                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+                  <div class="flex items-center space-x-2">
+                    {% if item.author_img %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                      <img src="{{ item.author_img | relative_url }}" alt="{{ item.author }}" class="object-cover h-full w-full rounded-full" />
+                    </div>
+                    {% else %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                      <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+                    </div>
+                    {% endif %}
+                    <span class="text-xs text-gray-600">{{ item.author | default: "Lanka Data Foundation" }}</span>
+                  </div>
+                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ item.date | date: "%b %d, %Y" }}</span>
                 </div>
-                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2 mb-auto">
+                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
                   <a href="{{ item.url | relative_url }}" class="stretched-link">{{ item.title }}</a>
                 </h3>
-                <div class="flex items-center space-x-2 mt-3">
-                  {% if item.author_img %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="{{ item.author_img | relative_url }}" alt="{{ item.author }}" class="object-cover h-full w-full rounded-full" />
+                <div class="mt-auto pt-4">
+                  <div class="flex items-center space-x-3 text-xs font-medium">
+                    <span class="text-gray-500">Read in:</span>
+                    <a href="{{ item.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
                   </div>
-                  {% else %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
-                  </div>
-                  {% endif %}
-                  <span class="text-xs text-gray-600">{{ item.author | default: "Lanka Data Foundation" }}</span>
-                </div>
-                <div class="flex items-center space-x-3 mt-3 text-xs font-medium">
-                  <span class="text-gray-500">Read in:</span>
-                  <a href="{{ item.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
                 </div>
               </div>
             </article>
@@ -172,50 +174,52 @@
             <article
               class="pub-card highlight-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
               data-date="{{ blog_item.date }}" data-title="{{ blog_item.title | escape }}" data-type="blog" data-project="{{ blog_item.project }}">
-              {% include highlight-pin.html show=true %}
-              <div class="h-48 bg-gray-100 flex items-center justify-center">
+              <div class="relative h-48 bg-gray-100 flex items-center justify-center">
                 {% if blog_item.image %}
                 <img src="{{ blog_item.image | relative_url }}" alt="{{ blog_item.title }}" class="object-cover h-full w-full" />
                 {% else %}
                 <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ blog_item.title }}"
                   style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
                 {% endif %}
+                <span class="pub-date-badge pub-type-blog">Blog</span>
               </div>
+              {% include highlight-pin.html show=true %}
               <div class="p-4 flex-1 flex flex-col">
                 <div class="flex items-center justify-between mb-2">
-                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ blog_item.date | default: "No Date" }}</span>
-                  <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
+                  <div class="flex items-center space-x-2">
+                    {% if blog_item.author_img %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                      <img src="{{ blog_item.author_img | relative_url }}" alt="{{ blog_item.author }}" class="object-cover h-full w-full rounded-full" />
+                    </div>
+                    {% else %}
+                    <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                      <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+                    </div>
+                    {% endif %}
+                    <span class="text-xs text-gray-600">{{ blog_item.author | default: "Lanka Data Foundation" }}</span>
+                  </div>
+                  <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ blog_item.date }}</span>
                 </div>
-                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2 mb-auto">
+                <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
                   <a href="{{ blog_item.translations[0].url }}" target="_blank" class="stretched-link">{{ blog_item.title }}</a>
                 </h3>
-                <div class="flex items-center space-x-2 mt-3">
-                  {% if blog_item.author_img %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="{{ blog_item.author_img | relative_url }}" alt="{{ blog_item.author }}" class="object-cover h-full w-full rounded-full" />
-                  </div>
-                  {% else %}
-                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                    <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+                <div class="mt-auto pt-4">
+                  {% if blog_item.translations and blog_item.translations.size > 0 %}
+                  <div class="flex items-center space-x-3 text-xs font-medium">
+                    <span class="text-gray-500">Read in:</span>
+                    {% for trans in blog_item.translations %}
+                    <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+                      class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">
+                      {% case trans.language %}
+                      {% when 'en' %}English
+                      {% when 'si' %}සිංහල
+                      {% when 'ta' %}தமிழ்
+                      {% endcase %}
+                    </a>
+                    {% endfor %}
                   </div>
                   {% endif %}
-                  <span class="text-xs text-gray-600">{{ blog_item.author | default: "Lanka Data Foundation" }}</span>
                 </div>
-                {% if blog_item.translations and blog_item.translations.size > 0 %}
-                <div class="flex items-center space-x-3 mt-3 text-xs font-medium">
-                  <span class="text-gray-500">Read in:</span>
-                  {% for trans in blog_item.translations %}
-                  <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
-                    class="text-blue-600 hover:text-blue-800 hover:underline">
-                    {% case trans.language %}
-                    {% when 'en' %}English
-                    {% when 'si' %}සිංහල
-                    {% when 'ta' %}தமிழ்
-                    {% endcase %}
-                  </a>
-                  {% endfor %}
-                </div>
-                {% endif %}
               </div>
             </article>
             {% endif %}
@@ -234,37 +238,39 @@
           <article
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
             data-date="{{ report.date | date: '%Y-%m-%d' }}" data-title="{{ report.title | escape }}" data-type="report" data-project="{{ report.project }}">
-            <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <div class="relative h-48 bg-gray-100 flex items-center justify-center">
               {% if report.cover and report.cover != "" %}
               <img src="{{ report.cover | relative_url }}" alt="{{ report.title }}" class="object-cover h-full w-full" />
               {% else %}
               <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ report.title }}"
                 style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
               {% endif %}
+              <span class="pub-date-badge pub-type-report">Report</span>
             </div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-center justify-between mb-2">
-                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%Y-%m-%d" | default: "No Date" }}</span>
-                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Report</span>
+                <div class="flex items-center space-x-2">
+                  {% if report.author_img %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ report.author_img | relative_url }}" alt="{{ report.author }}" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% else %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% endif %}
+                  <span class="text-xs text-gray-600">{{ report.author | default: "Lanka Data Foundation" }}</span>
+                </div>
+                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ report.date | date: "%b %d, %Y" }}</span>
               </div>
-              <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2 mb-auto">
+              <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
                 <a href="{{ report.url | relative_url }}" class="stretched-link">{{ report.title }}</a>
               </h3>
-              <div class="flex items-center space-x-2 mt-3">
-                {% if report.author_img %}
-                <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                  <img src="{{ report.author_img | relative_url }}" alt="{{ report.author }}" class="object-cover h-full w-full rounded-full" />
+              <div class="mt-auto pt-4">
+                <div class="flex items-center space-x-3 text-xs font-medium">
+                  <span class="text-gray-500">Read in:</span>
+                  <a href="{{ report.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
                 </div>
-                {% else %}
-                <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                  <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
-                </div>
-                {% endif %}
-                <span class="text-xs text-gray-600">{{ report.author | default: "Lanka Data Foundation" }}</span>
-              </div>
-              <div class="flex items-center space-x-3 mt-3 text-xs font-medium">
-                <span class="text-gray-500">Read in:</span>
-                <a href="{{ report.url | relative_url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
               </div>
             </div>
           </article>
@@ -283,49 +289,51 @@
           <article
             class="pub-card bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
             data-date="{{ post.date }}" data-title="{{ post.title | escape }}" data-type="blog" data-project="{{ post.project }}">
-            <div class="h-48 bg-gray-100 flex items-center justify-center">
+            <div class="relative h-48 bg-gray-100 flex items-center justify-center">
               {% if post.image %}
               <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="object-cover h-full w-full" />
               {% else %}
               <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ post.title }}"
                 style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
               {% endif %}
+              <span class="pub-date-badge pub-type-blog">Blog</span>
             </div>
             <div class="p-4 flex-1 flex flex-col">
               <div class="flex items-center justify-between mb-2">
-                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ post.date | default: "No Date" }}</span>
-                <span class="px-2 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Blog</span>
+                <div class="flex items-center space-x-2">
+                  {% if post.author_img %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ post.author_img | relative_url }}" alt="{{ post.author }}" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% else %}
+                  <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+                    <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+                  </div>
+                  {% endif %}
+                  <span class="text-xs text-gray-600">{{ post.author | default: "Lanka Data Foundation" }}</span>
+                </div>
+                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ post.date }}</span>
               </div>
-              <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2 mb-auto">
+              <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
                 <a href="{{ post.translations[0].url }}" target="_blank" class="stretched-link">{{ post.title }}</a>
               </h3>
-              <div class="flex items-center space-x-2 mt-3">
-                {% if post.author_img %}
-                <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                  <img src="{{ post.author_img | relative_url }}" alt="{{ post.author }}" class="object-cover h-full w-full rounded-full" />
-                </div>
-                {% else %}
-                <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-                  <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
+              <div class="mt-auto pt-4">
+                {% if post.translations and post.translations.size > 0 %}
+                <div class="flex items-center space-x-3 text-xs font-medium">
+                  <span class="text-gray-500">Read in:</span>
+                  {% for trans in post.translations %}
+                  <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+                    class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">
+                    {% case trans.language %}
+                    {% when 'en' %}English
+                    {% when 'si' %}සිංහල
+                    {% when 'ta' %}தமிழ்
+                    {% endcase %}
+                  </a>
+                  {% endfor %}
                 </div>
                 {% endif %}
-                <span class="text-xs text-gray-600">{{ post.author | default: "Lanka Data Foundation" }}</span>
               </div>
-              {% if post.translations and post.translations.size > 0 %}
-              <div class="flex items-center space-x-3 mt-3 text-xs font-medium">
-                <span class="text-gray-500">Read in:</span>
-                {% for trans in post.translations %}
-                <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
-                  class="text-blue-600 hover:text-blue-800 hover:underline">
-                  {% case trans.language %}
-                  {% when 'en' %}English
-                  {% when 'si' %}සිංහල
-                  {% when 'ta' %}தமிழ்
-                  {% endcase %}
-                </a>
-                {% endfor %}
-              </div>
-              {% endif %}
             </div>
           </article>
           {% endunless %}
@@ -590,6 +598,21 @@
     color: #9ca3af;
     flex-shrink: 0;
   }
+  .pub-date-badge {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    z-index: 10;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  }
+  .pub-type-report { color: #dc2626; }
+  .pub-type-blog   { color: #16a34a; }
   .highlight-card {
     position: relative;
   }
