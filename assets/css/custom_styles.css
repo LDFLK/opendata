@@ -409,11 +409,10 @@ a:focus {
   font-weight: 600;
   color: #6b7280;
   line-height: 1.4;
-  margin: 0 0 6px;
+  margin: 0 0 2px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  min-height: 2.8em;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
