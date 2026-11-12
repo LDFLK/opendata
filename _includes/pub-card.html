@@ -11,7 +11,7 @@
 
 {% if _type == "report" %}
   {% assign _title      = _item.title %}
-  {% assign _date       = _item.date | date: "%Y-%m-%d" %}
+  {% assign _date       = _item.date | date: "%b %d, %Y" %}
   {% assign _date_raw   = _item.date | date: "%Y-%m-%d" %}
   {% assign _author     = _item.author | default: "Lanka Data Foundation" %}
   {% assign _author_img = _item.author_img %}
@@ -22,7 +22,7 @@
   {% assign _type_class = "pub-type-report" %}
 {% elsif _type == "blog" %}
   {% assign _title      = _item.title %}
-  {% assign _date       = _item.date %}
+  {% assign _date       = _item.date | date: "%b %d, %Y" %}
   {% assign _date_raw   = _item.date %}
   {% assign _author     = _item.author | default: "Lanka Data Foundation" %}
   {% assign _author_img = _item.author_img %}
@@ -33,16 +33,24 @@
   {% assign _type_class = "pub-type-blog" %}
 {% endif %}
 
+{% assign _project_label = _project %}
+{% for p in site.data.pub_filters.projects %}
+  {% if p.value == _project %}
+    {% assign _project_label = p.label %}
+  {% endif %}
+{% endfor %}
+
 {% if _highlighted %}
   {% assign _card_class = "pub-card highlight-card" %}
 {% else %}
   {% assign _card_class = "pub-card" %}
 {% endif %}
 
-{% if _type == "report" %}
 <article
   class="{{ _card_class }} bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
   data-date="{{ _date_raw }}" data-title="{{ _title | escape }}" data-type="{{ _type }}" data-project="{{ _project }}">
+
+  <!-- Image -->
   <div class="relative h-48 bg-gray-100 flex items-center justify-center">
     {% if _cover and _cover != "" %}
     <img src="{{ _cover | relative_url }}" alt="{{ _title }}" class="object-cover h-full w-full" />
@@ -50,87 +58,70 @@
     <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ _title }}"
       style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
     {% endif %}
-    <span class="pub-date-badge {{ _type_class }}">{{ _type_label }}</span>
-  </div>
-  {% include highlight-pin.html show=_highlighted %}
-  <div class="p-4 flex-1 flex flex-col">
-    <div class="flex items-center justify-between mb-2">
-      <div class="flex items-center space-x-2">
-        {% if _author_img %}
-        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-          <img src="{{ _author_img | relative_url }}" alt="{{ _author }}" class="object-cover h-full w-full rounded-full" />
-        </div>
-        {% else %}
-        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
-          <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
-        </div>
-        {% endif %}
-        <span class="text-xs text-gray-600">{{ _author }}</span>
-      </div>
-      <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ _date }}</span>
-    </div>
-    <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
-      <a href="{{ _url }}" class="stretched-link">{{ _title }}</a>
-    </h3>
-    <div class="mt-auto pt-4">
-      <div class="flex items-center space-x-3 text-xs font-medium">
-        <span class="text-gray-500">Read in:</span>
-        <a href="{{ _url }}" class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">English</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-{% elsif _type == "blog" %}
-<article
-  class="{{ _card_class }} bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-lg shadow-sm flex flex-col cursor-pointer relative"
-  data-date="{{ _date_raw }}" data-title="{{ _title | escape }}" data-type="{{ _type }}" data-project="{{ _project }}">
-  <div class="relative h-48 bg-gray-100 flex items-center justify-center">
-    {% if _cover %}
-    <img src="{{ _cover | relative_url }}" alt="{{ _title }}" class="object-cover h-full w-full" />
-    {% else %}
-    <img src="{{ '/images/logo_design_LDF.png' | relative_url }}" alt="{{ _title }}"
-      style="width: 150px; height: auto; opacity: 0.5;" class="object-contain" />
+    {% if _highlighted == true %}
+    <span class="pub-pin-badge" aria-hidden="true">
+      <i data-lucide="pin" class="pub-type-pin-icon"></i>
+    </span>
     {% endif %}
-    <span class="pub-date-badge {{ _type_class }}">{{ _type_label }}</span>
   </div>
-  {% include highlight-pin.html show=_highlighted %}
+
+  <!-- Body -->
   <div class="p-4 flex-1 flex flex-col">
-    <div class="flex items-center justify-between mb-2">
-      <div class="flex items-center space-x-2">
+
+    <!-- Row 1: Type badge + Date -->
+    <div class="pub-top-meta">
+      <span class="pub-type-badge {{ _type_class }}">{{ _type_label }}</span>
+      <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ _date }}</span>
+    </div>
+
+    <!-- Row 2: Project name -->
+    <p class="pub-project-name">{{ _project_label }}</p>
+
+    <!-- Row 3: Headline -->
+    <h3 class="text-base font-semibold text-gray-900 line-clamp-2 mt-1 mb-4">
+      <a href="{{ _url }}"{% if _type == "blog" %} target="_blank" rel="noopener noreferrer"{% endif %} class="stretched-link hover:text-blue-700 transition-colors">{{ _title }}</a>
+    </h3>
+
+    <!-- Bottom group: publisher + language links -->
+    <div class="mt-auto">
+
+      <!-- Publisher -->
+      <div class="flex items-center space-x-2 mb-3">
         {% if _author_img %}
-        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden flex-shrink-0">
           <img src="{{ _author_img | relative_url }}" alt="{{ _author }}" class="object-cover h-full w-full rounded-full" />
         </div>
         {% else %}
-        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden">
+        <div class="w-6 h-6 bg-gray-300 rounded-full overflow-hidden flex-shrink-0">
           <img src="{{ '/images/logo_symbol.png' | relative_url }}" alt="Lanka Data Foundation" class="object-cover h-full w-full rounded-full" />
         </div>
         {% endif %}
-        <span class="text-xs text-gray-600">{{ _author }}</span>
+        <span class="text-xs text-gray-600 truncate">{{ _author }}</span>
       </div>
-      <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">{{ _date }}</span>
-    </div>
-    <h3 class="text-base font-semibold text-gray-900 line-clamp-3 mt-2">
-      <a href="{{ _url }}" target="_blank" class="stretched-link">{{ _title }}</a>
-    </h3>
-    <div class="mt-auto pt-4">
-      {% if _item.translations and _item.translations.size > 0 %}
-      <div class="flex items-center space-x-3 text-xs font-medium">
-        <span class="text-gray-500">Read in:</span>
+
+      <!-- Language links -->
+      {% if _type == "report" %}
+      <div class="pub-lang-footer">
+        <span class="pub-lang-label">Read in:</span>
+        <a href="{{ _url }}" class="pub-lang-link" lang="en" style="position:relative;z-index:1;">English</a>
+      </div>
+      {% elsif _type == "blog" and _item.translations and _item.translations.size > 0 %}
+      <nav class="pub-lang-footer" aria-label="Available languages">
+        <span class="pub-lang-label">Read in:</span>
         {% for trans in _item.translations %}
-        <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
-          class="text-blue-600 hover:text-blue-800 hover:underline" style="position:relative; z-index:1;">
-          {% case trans.language %}
-          {% when 'en' %}English
-          {% when 'si' %}සිංහල
-          {% when 'ta' %}தமிழ்
-          {% endcase %}
-        </a>
+          {% unless forloop.first %}<span class="pub-lang-sep" aria-hidden="true">·</span>{% endunless %}
+          <a href="{{ trans.url }}" target="_blank" rel="noopener noreferrer"
+            class="pub-lang-link" lang="{{ trans.language }}" style="position:relative;z-index:1;">
+            {% case trans.language %}
+            {% when 'en' %}English
+            {% when 'si' %}සිංහල
+            {% when 'ta' %}தமிழ்
+            {% endcase %}
+          </a>
         {% endfor %}
-      </div>
+      </nav>
       {% endif %}
+
     </div>
   </div>
 </article>
-{% endif %}

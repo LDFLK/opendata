@@ -5,9 +5,9 @@ types:
     value: "blog"
 
 projects:
-  - label: "Government Meetings Tracker"
+  - label: "Meetings Tracker"
     value: "gov-meetings"
   - label: "Department Flow Chart"
     value: "dept-flowchart"
-  - label: "Government Website Scorecard"
+  - label: "Website Scorecard"
     value: "gov-scorecard"
