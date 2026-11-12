@@ -403,13 +403,6 @@ a:focus {
 }
 .pub-type-report { color: #2563eb; background: #eff6ff; }
 .pub-type-blog   { color: #16a34a; background: #f0fdf4; }
-/* Expand clamped headline on card hover */
-.pub-card:hover h3.line-clamp-2 {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-}
 /* Row 2: project name */
 .pub-project-name {
   font-size: 12px;
