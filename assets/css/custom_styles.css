@@ -369,6 +369,7 @@ a:focus {
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+  z-index: 10;
 }
 
 .highlight-pin svg {
@@ -376,4 +377,79 @@ a:focus {
   height: 1.1rem;
   stroke-width: 2.5;
   transform: rotate(45deg);
+}
+
+/* Publication cards */
+.pub-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.pub-filter-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pub-filter-wrap:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+.pub-filter-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.pub-filter-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+}
+.pub-filter-select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.pub-filter-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+.pub-date-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  z-index: 10;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+}
+.pub-type-report { color: #dc2626; }
+.pub-type-blog   { color: #16a34a; }
+.highlight-card  { position: relative; }
+.stretched-link::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  z-index: 0;
+}
+.pub-card a:not(.stretched-link) {
+  position: relative;
+  z-index: 1;
+}
+.pub-card a:not(.stretched-link):hover {
+  text-decoration: underline;
 }
