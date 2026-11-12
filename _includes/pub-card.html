@@ -11,7 +11,7 @@
 
 {% if _type == "report" %}
   {% assign _title      = _item.title %}
-  {% assign _date       = _item.date | date: "%b %d, %Y" %}
+  {% assign _date       = _item.date | date: "%Y-%m-%d" %}
   {% assign _date_raw   = _item.date | date: "%Y-%m-%d" %}
   {% assign _author     = _item.author | default: "Lanka Data Foundation" %}
   {% assign _author_img = _item.author_img %}
