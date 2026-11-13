@@ -532,3 +532,31 @@ a:focus {
 .pub-card a:not(.stretched-link):hover {
   text-decoration: underline;
 }
+
+/* ── Google CSE overrides ───────────────────────────────────────── */
+.gcse-search { display: block; }
+div[id^="___gcse"] { width: 100% !important; }
+
+.gsc-control-cse { font-family: inherit !important; background: transparent !important; border: none !important; padding: 0 !important; width: 100% !important; }
+.gsc-control-wrapper-cse, .gsc-search-box, .gsc-search-box-tools, .gsc-search-box form { width: 100% !important; }
+.gsc-search-box table, .gsc-search-box-tools table { width: 100% !important; border-collapse: separate !important; border-spacing: 0 !important; }
+
+/* Reset Jekyll table resets that break CSE layout */
+.gsc-control-cse table, .gsc-control-cse tr, .gsc-control-cse td { border: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; }
+
+/* Input box — fully rounded */
+.gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus { border: 1px solid #e5e7eb !important; border-radius: 0.75rem !important; box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important; background: #fff !important; height: auto !important; min-height: 48px !important; }
+.gsc-input { width: 100% !important; font-size: 1rem !important; height: auto !important; }
+.gsc-search-box td { height: auto !important; padding: 0 !important; }
+input.gsc-input { background: transparent !important; color: #374151 !important; padding: 0.85rem 1.25rem !important; width: 100% !important; font-size: 1rem !important; height: auto !important; line-height: 1.5 !important; }
+
+/* Hide button */
+.gsc-search-button { display: none !important; }
+
+/* Hide branding */
+.gsc-branding { display: none !important; }
+
+/* Results */
+.gs-result .gs-title, .gs-result .gs-title * { color: #2563eb !important; }
+.gsc-cursor-page, .gs-spelling a { color: #2563eb !important; }
+.gs-webResult .gs-snippet, .gs-fileFormatType { color: #6b7280 !important; }

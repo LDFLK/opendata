@@ -16,29 +16,40 @@
     {% assign total_pubs = site.reports.size | plus: site.data.posts.size %}
 
     <!-- Google CSE — Full width layout, results render inline -->
+    <script async src="https://cse.google.com/cse.js?cx=407cce9ca5a3d40ce"></script>
+
+    <!-- Custom search input — fully styleable -->
+    <div style="margin-bottom:1.5rem; position:relative;">
+      <input id="pub-search-input" type="text" placeholder="Search publications…"
+        style="width:100%; padding:0.85rem 1.25rem 0.85rem 2.75rem; border:1px solid #e5e7eb; border-radius:0.75rem; font-size:1rem; color:#374151; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05); outline:none; box-sizing:border-box; font-family:inherit;">
+      <svg style="position:absolute; left:0.9rem; top:50%; transform:translateY(-50%); color:#9ca3af; pointer-events:none;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+
+    <!-- Google CSE results only — rendered here -->
+    <div class="gcse-searchresults-only"></div>
+
     <script>
-      window.__gcse = {
-        searchCallbacks: {
-          web: {
-            starting: function(gname, query) {
-              var active = query.trim() !== '';
-              document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
-              document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
-            },
-            rendered: function(gname, query) {
-              var active = query.trim() !== '';
-              document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
-              document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
-            }
+      document.addEventListener('DOMContentLoaded', function() {
+        var input = document.getElementById('pub-search-input');
+
+        function runSearch(query) {
+          var active = query.trim() !== '';
+          document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
+          document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
+          if (active) {
+            var el = google.search.cse.element.getElement('searchresults-only0');
+            if (el) el.execute(query.trim());
           }
         }
-      };
+
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') runSearch(this.value);
+        });
+      });
     </script>
-    <script async src="https://cse.google.com/cse.js?cx=407cce9ca5a3d40ce"></script>
-    <div class="gcse-search" style="margin-bottom:1.25rem;"></div>
 
     <div id="pub-back-btn" style="display:none; margin-bottom:1.25rem;">
-      <button onclick="window.location.hash=''; window.location.reload();"
+      <button onclick="document.getElementById('pub-search-input').value=''; document.getElementById('pub-browse-section').style.display=''; document.getElementById('pub-back-btn').style.display='none';"
         style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.875rem; color:#6b7280; background:none; border:none; cursor:pointer; padding:0;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
         Back to all publications
