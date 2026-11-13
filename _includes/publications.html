@@ -94,8 +94,8 @@
       <!-- Type — options driven by _data/pub_filters.yml -->
       <div class="pub-filter-wrap">
         <i data-lucide="layout-grid" class="pub-filter-icon"></i>
-        <span class="pub-filter-label">Type</span>
-        <select class="pub-filter-select pub-type-select">
+        <span id="label-type" class="pub-filter-label">Type</span>
+        <select aria-labelledby="label-type" class="pub-filter-select pub-type-select">
           <option value="all">All types ({{ total_pubs }})</option>
           {% for t in site.data.pub_filters.types %}
           <option value="{{ t.value }}">{{ t.label }}</option>
@@ -121,8 +121,8 @@
       {% assign year_list = all_years | split: "," | sort | reverse | uniq %}
       <div class="pub-filter-wrap">
         <i data-lucide="calendar" class="pub-filter-icon"></i>
-        <span class="pub-filter-label">Date</span>
-        <select class="pub-filter-select pub-year-select">
+        <span id="label-date" class="pub-filter-label">Date</span>
+        <select aria-labelledby="label-date" class="pub-filter-select pub-year-select">
           <option value="all">Any time</option>
           {% for y in year_list %}
             {% if y != "" %}
@@ -136,8 +136,8 @@
       <!-- Project — options driven by _data/pub_filters.yml -->
       <div class="pub-filter-wrap">
         <i data-lucide="folder" class="pub-filter-icon"></i>
-        <span class="pub-filter-label">Project</span>
-        <select class="pub-filter-select pub-project-select">
+        <span id="label-project" class="pub-filter-label">Project</span>
+        <select aria-labelledby="label-project" class="pub-filter-select pub-project-select">
           <option value="all">All projects</option>
           {% for p in site.data.pub_filters.projects %}
           <option value="{{ p.value }}">{{ p.label }}</option>
@@ -149,8 +149,8 @@
       <!-- Sort pushed right -->
       <div class="pub-filter-wrap" style="margin-left:auto;">
         <i data-lucide="arrow-up-down" class="pub-filter-icon"></i>
-        <span class="pub-filter-label">Sort</span>
-        <select class="pub-filter-select pub-sort-select">
+        <span id="label-sort" class="pub-filter-label">Sort</span>
+        <select aria-labelledby="label-sort" class="pub-filter-select pub-sort-select">
           <option value="default">Default</option>
           <option value="newest">Newest first</option>
           <option value="oldest">Oldest first</option>
