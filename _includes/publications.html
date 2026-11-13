@@ -45,6 +45,7 @@
           document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
           document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
           document.getElementById('pub-cse-results').style.display = active ? '' : 'none';
+          if (!active) history.replaceState(null, '', window.location.pathname);
           if (active) {
             var el = getCSEElement();
             if (el) {
