@@ -15,17 +15,38 @@
 
     {% assign total_pubs = site.reports.size | plus: site.data.posts.size %}
 
-    <!-- Search Bar -->
-    <form action="https://cse.google.com/cse" method="get" target="_blank"
-      style="position:relative; margin-bottom:1.25rem;">
-      <input type="hidden" name="cx" value="407cce9ca5a3d40ce">
-      <i data-lucide="search" aria-hidden="true"
-        style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:1rem; height:1rem; color:#9ca3af; pointer-events:none; display:block;"></i>
-      <input type="text" name="q" placeholder="Search articles, data stories, projects..."
-        style="display:block; width:100%; box-sizing:border-box; padding:0.8rem 1rem 0.8rem 2.6rem; border:1px solid #e5e7eb; border-radius:0.75rem; font-size:0.875rem; color:#374151; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05); outline:none; line-height:1.4;"
-        onfocus="this.style.borderColor='#9ca3af'"
-        onblur="this.style.borderColor='#e5e7eb'" />
-    </form>
+    <!-- Google CSE — Full width layout, results render inline -->
+    <script>
+      window.__gcse = {
+        searchCallbacks: {
+          web: {
+            starting: function(gname, query) {
+              var active = query.trim() !== '';
+              document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
+              document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
+            },
+            rendered: function(gname, query) {
+              var active = query.trim() !== '';
+              document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
+              document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
+            }
+          }
+        }
+      };
+    </script>
+    <script async src="https://cse.google.com/cse.js?cx=407cce9ca5a3d40ce"></script>
+    <div class="gcse-search" style="margin-bottom:1.25rem;"></div>
+
+    <div id="pub-back-btn" style="display:none; margin-bottom:1.25rem;">
+      <button onclick="window.location.hash=''; window.location.reload();"
+        style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.875rem; color:#6b7280; background:none; border:none; cursor:pointer; padding:0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Back to all publications
+      </button>
+    </div>
+
+    <!-- Filter, divider, and cards — hidden when search is active -->
+    <div id="pub-browse-section">
 
     <!-- Divider -->
     <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:1.25rem;" />
@@ -113,7 +134,7 @@
     {% endfor %}
 
     <!-- All Publications Grid — highlighted items rendered first with pin badge -->
-    <div class="mb-16">
+    <div class="mb-16" id="pub-cards-section">
       <p class="text-sm font-semibold text-gray-900 mb-6" style="font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;"><span id="pub-heading-count">{{ total_pubs }}</span> publications</p>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" id="publications-grid">
 
@@ -185,6 +206,7 @@
       </div>
     </div>
 
+    </div><!-- end pub-browse-section -->
   </div>
 </section>
 
