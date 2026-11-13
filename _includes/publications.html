@@ -16,14 +16,16 @@
     {% assign total_pubs = site.reports.size | plus: site.data.posts.size %}
 
     <!-- Search Bar -->
-    <div style="position:relative; margin-bottom:1.25rem;">
+    <form action="https://cse.google.com/cse" method="get" target="_blank"
+      style="position:relative; margin-bottom:1.25rem;">
+      <input type="hidden" name="cx" value="407cce9ca5a3d40ce">
       <i data-lucide="search" aria-hidden="true"
         style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:1rem; height:1rem; color:#9ca3af; pointer-events:none; display:block;"></i>
-      <input id="pub-search" type="text" placeholder="Search articles, data stories, projects..."
+      <input type="text" name="q" placeholder="Search articles, data stories, projects..."
         style="display:block; width:100%; box-sizing:border-box; padding:0.8rem 1rem 0.8rem 2.6rem; border:1px solid #e5e7eb; border-radius:0.75rem; font-size:0.875rem; color:#374151; background:#fff; box-shadow:0 1px 2px rgba(0,0,0,0.05); outline:none; line-height:1.4;"
         onfocus="this.style.borderColor='#9ca3af'"
         onblur="this.style.borderColor='#e5e7eb'" />
-    </div>
+    </form>
 
     <!-- Divider -->
     <hr style="border:none; border-top:1px solid #f3f4f6; margin-bottom:1.25rem;" />

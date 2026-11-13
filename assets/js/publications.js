@@ -105,9 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var currentYear    = 'all';
   var currentProject = 'all';
   var currentSort    = 'default';
-  var currentSearch  = '';
   var originalOrder  = Array.from(grid.querySelectorAll('.pub-card'));
-  var searchInputEl  = document.getElementById('pub-search');
 
   function applyAll() {
     var allCards = Array.from(grid.querySelectorAll('.pub-card'));
@@ -117,9 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var year      = (card.getAttribute('data-date') || '').slice(0, 4);
       var yearOk    = currentYear === 'all' || year === currentYear;
       var projectOk = currentProject === 'all' || card.getAttribute('data-project') === currentProject;
-      var query     = currentSearch.toLowerCase();
-      var textOk    = query === '' || (card.getAttribute('data-title') || '').toLowerCase().includes(query);
-      card.style.display = (typeOk && yearOk && projectOk && textOk) ? '' : 'none';
+      card.style.display = (typeOk && yearOk && projectOk) ? '' : 'none';
     });
 
     items = allCards.filter(function (c) { return c.style.display !== 'none'; });
@@ -172,10 +168,5 @@ document.addEventListener('DOMContentLoaded', function () {
       applyAll();
     });
   }
-  if (searchInputEl) {
-    searchInputEl.addEventListener('input', function () {
-      currentSearch = this.value.trim();
-      applyAll();
-    });
-  }
+
 });
