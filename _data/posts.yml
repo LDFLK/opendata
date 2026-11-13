@@ -29,7 +29,6 @@
 - image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*6X81yVDVMvvDpAXBZBABag.png"
   title: "Navigating Department Flows in Sri Lanka: A Visual Breakdown in OpenGINXplore"
   date: "2026-08-10"
-  project: "dept-flowchart"
   author: "Lanka Data Foundation"
   author_img: "/images/logo_symbol.png"
   translations:
@@ -39,7 +38,6 @@
 - image: "https://miro.medium.com/v2/resize:fit:1400/format:webp/1*NSiY8gpPamh8XgnEkHWB_g.png"
   title: "Data: Ministerial ‘Musical Chairs’ Fell by Nearly 75% Under Dissanayake Presidency Compared to Past Two Presidents"
   date: "2026-08-10"
-  project: "dept-flowchart"
   author: "Lanka Data Foundation"
   author_img: "/images/logo_symbol.png"
   translations:

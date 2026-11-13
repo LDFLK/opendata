@@ -7,7 +7,5 @@ types:
 projects:
   - label: "Meetings Tracker"
     value: "gov-meetings"
-  - label: "Department Flow Chart"
-    value: "dept-flowchart"
   - label: "Website Scorecard"
     value: "gov-scorecard"
