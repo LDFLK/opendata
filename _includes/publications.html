@@ -32,6 +32,8 @@
       document.addEventListener('DOMContentLoaded', function() {
         var input = document.getElementById('pub-search-input');
 
+        var retryTimer = null;
+
         function getCSEElement() {
           try {
             var all = google.search.cse.element.getAllElements();
@@ -41,6 +43,7 @@
         }
 
         function runSearch(query) {
+          clearTimeout(retryTimer);
           var active = query.trim() !== '';
           document.getElementById('pub-browse-section').style.display = active ? 'none' : '';
           document.getElementById('pub-back-btn').style.display = active ? 'block' : 'none';
@@ -51,7 +54,7 @@
             if (el) {
               el.execute(query.trim());
             } else {
-              setTimeout(function() { runSearch(query); }, 500);
+              retryTimer = setTimeout(function() { runSearch(query); }, 500);
             }
           }
         }
