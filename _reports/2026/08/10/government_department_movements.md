@@ -1,6 +1,8 @@
 ---
 layout: publication
 id: "report-2"
+redirect_from:
+  - /reports/government_department_movements/
 title: "Government Department Changes"
 project: "dept-flowchart"
 tagline: "See how departments have moved between ministries throughout history in our new Department Flow view."
