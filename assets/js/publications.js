@@ -72,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderPageNumbers() {
+    var focusedPage = null;
+    var focused = pageNumbers.querySelector('button:focus');
+    if (focused) focusedPage = parseInt(focused.textContent, 10);
+
     pageNumbers.innerHTML = '';
     for (var i = 1; i <= totalPages; i++) {
       (function (p) {
@@ -84,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (p === currentPage) btn.setAttribute('aria-current', 'page');
         btn.addEventListener('click', function () { showPage(p); });
         pageNumbers.appendChild(btn);
+        if (p === focusedPage) btn.focus();
       })(i);
     }
   }

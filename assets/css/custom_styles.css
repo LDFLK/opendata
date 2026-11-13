@@ -467,6 +467,10 @@ a:focus {
   border-color: #d1d5db;
   background: #f9fafb;
 }
+.pub-filter-wrap:focus-within {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
 .pub-filter-icon {
   width: 0.9rem;
   height: 0.9rem;
