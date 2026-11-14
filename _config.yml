@@ -30,13 +30,14 @@ collections:
     permalink: /:collection/:name/
   reports:
     output: true
-    permalink: /reports/:path/
+    permalink: /publications/reports/:path/
 
 # Plugins
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Exclude from processing
 exclude:

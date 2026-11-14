@@ -1,0 +1,11 @@
+types:
+  - label: "Report"
+    value: "report"
+  - label: "Blog"
+    value: "blog"
+
+projects:
+  - label: "Meetings Tracker"
+    value: "gov-meetings"
+  - label: "Website Scorecard"
+    value: "gov-scorecard"

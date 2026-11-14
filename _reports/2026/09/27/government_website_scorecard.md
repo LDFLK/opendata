@@ -1,7 +1,10 @@
 ---
-layout: report
+layout: publication
 id: "report-1"
+redirect_from:
+  - /reports/government_website_scorecard/
 title: "Government Website Scorecard"
+project: "gov-scorecard"
 tagline: "An evaluation of 577 government websites against baseline web requirements"
 date: "2026-09-27"
 cover: "/images/reports/government_website_scorecard.png"

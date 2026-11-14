@@ -369,6 +369,7 @@ a:focus {
   border-radius: 9999px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+  z-index: 10;
 }
 
 .highlight-pin svg {
@@ -377,3 +378,189 @@ a:focus {
   stroke-width: 2.5;
   transform: rotate(45deg);
 }
+
+/* Publication cards */
+.pub-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* Row 1: type badge + date */
+.pub-top-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.pub-type-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.pub-type-report { color: #2563eb; background: #eff6ff; }
+.pub-type-blog   { color: #16a34a; background: #f0fdf4; }
+/* Row 2: project name */
+.pub-project-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  line-height: 1.4;
+  margin: 0 0 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* Language footer */
+.pub-lang-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+  font-size: 13px;
+}
+.pub-lang-label {
+  color: #6b7280;
+  font-weight: 500;
+  margin-right: 2px;
+}
+.pub-lang-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 2px;
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(37,99,235,0.3);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.pub-lang-link:hover {
+  color: #1d4ed8;
+  text-decoration-color: #1d4ed8;
+}
+.pub-lang-sep {
+  color: #d1d5db;
+  user-select: none;
+}
+.pub-filter-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  background: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.pub-filter-wrap:hover {
+  border-color: #d1d5db;
+  background: #f9fafb;
+}
+.pub-filter-wrap:focus-within {
+  outline: 2px solid #111827;
+  outline-offset: 2px;
+}
+.pub-filter-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.pub-filter-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #374151;
+}
+.pub-filter-select {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.pub-filter-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+.pub-type-report { color: #2563eb; }
+.pub-type-blog   { color: #16a34a; }
+.pub-pin-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.pub-type-pin-icon {
+  width: 0.85rem;
+  height: 0.85rem;
+  stroke: #000;
+  fill: none;
+  stroke-width: 2;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.highlight-card  { position: relative; }
+.stretched-link::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  z-index: 0;
+}
+.pub-card a:not(.stretched-link) {
+  position: relative;
+  z-index: 1;
+}
+.pub-card a:not(.stretched-link):hover {
+  text-decoration: underline;
+}
+
+/* ── Google CSE overrides ───────────────────────────────────────── */
+.gcse-search { display: block; }
+div[id^="___gcse"] { width: 100% !important; }
+
+.gsc-control-cse { font-family: inherit !important; background: transparent !important; border: none !important; padding: 0 !important; width: 100% !important; }
+.gsc-control-wrapper-cse, .gsc-search-box, .gsc-search-box-tools, .gsc-search-box form { width: 100% !important; }
+.gsc-search-box table, .gsc-search-box-tools table { width: 100% !important; border-collapse: separate !important; border-spacing: 0 !important; }
+
+/* Reset Jekyll table resets that break CSE layout */
+.gsc-control-cse table, .gsc-control-cse tr, .gsc-control-cse td { border: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; }
+
+/* Input box — fully rounded */
+.gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus { border: 1px solid #e5e7eb !important; border-radius: 0.5rem !important; box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important; background: #fff !important; height: auto !important; min-height: 48px !important; }
+.gsc-input { width: 100% !important; font-size: 1rem !important; height: auto !important; }
+.gsc-search-box td { height: auto !important; padding: 0 !important; }
+input.gsc-input { background: transparent !important; color: #374151 !important; padding: 0.85rem 1.25rem !important; width: 100% !important; font-size: 1rem !important; height: auto !important; line-height: 1.5 !important; }
+
+/* Hide button */
+.gsc-search-button { display: none !important; }
+
+/* Hide branding */
+.gsc-branding { display: none !important; }
+
+/* Results */
+.gs-result .gs-title, .gs-result .gs-title * { color: #2563eb !important; }
+.gsc-cursor-page, .gs-spelling a { color: #2563eb !important; }
+.gs-webResult .gs-snippet, .gs-fileFormatType { color: #6b7280 !important; }

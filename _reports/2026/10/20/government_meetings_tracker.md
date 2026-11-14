@@ -1,7 +1,10 @@
 ---
-layout: report
+layout: publication
 id: "report-3"
+redirect_from:
+  - /reports/government_meetings_tracker/
 title: "Government Meetings Tracker"
+project: "gov-meetings"
 tagline: "Are Sri Lanka's mandated government meetings actually being held?"
 date: "2026-10-20"
 cover: "/images/reports/government_meetings_tracker.png"
